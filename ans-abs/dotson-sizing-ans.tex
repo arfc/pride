@@ -1,0 +1,284 @@
+\documentclass{anstrans}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Validation of Spent Nuclear Fuel Output by Cyclus, a Fuel Cycle Simulator Code}
+\author{Gwendolyn J. Chee, Gyutae Park, and Kathryn D. Huff}
+
+\institute{
+Dept. of Nuclear, Plasma and Radiological Engineering, University of Illinois at Urbana-Champaign \\
+gchee2@illinois.edu
+}
+
+%%%% packages and definitions (optional)
+\usepackage{graphicx} % allows inclusion of graphics
+\usepackage{booktabs} % nice rules (thick lines) for tables
+\usepackage{microtype} % improves typography for PDF
+\usepackage{xspace}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+\makeglossaries
+\newcommand{\SN}{S$_N$}
+\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
+\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
+\newcommand{\grad}{\vec{\nabla}} % gradient
+\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
+\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
+\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+\newcolumntype{c}{>{\hsize=.56\hsize}X}
+\newcolumntype{b}{>{\hsize=.7\hsize}X}
+\newcolumntype{s}{>{\hsize=.74\hsize}X}
+\newcolumntype{f}{>{\hsize=.1\hsize}X}
+\newcolumntype{a}{>{\hsize=.45\hsize}X}
+\usepackage{titlesec}
+\titleformat*{\subsection}{\normalfont}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\Cyclus \cite{carlsen_cyclus_2014}, a nuclear fuel cycle simulator, was used to simulate the
+United States' nuclear fuel cycle from 1968 through 2013. The
+\gls{SNF} inventory from the \Cyclus simulation was compared to the \gls{SNF} 
+inventory from the \gls{DOE} sponsored \gls{UNFSTANDARDS} \gls{UDB} 
+\cite{peterson_unf-st&dards_2017}. The \gls{UDB} provides comprehensive and 
+consistent technical data on reactor sites and \gls{SNF} from the beginning of 
+nuclear reactor operation in the \gls{US} until 2013. This comparison 
+between \Cyclus and \gls{UDB} establishes a realistic validation of \Cyclus' 
+capability to produce spent fuel mass and isotopic compositions 
+that closely match reality.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}
+The \gls{US} is currently considering various geologic disposal 
+options \cite{DOE_strategy_2013}. Decisions such as waste package spacing, 
+waste repository geometry and size will be influenced by key criteria such as 
+thermal load of waste packages and the thermal capacity of the selected 
+geologic host media. Waste package thermal evolution depends on the decay heat 
+contribution from each isotope in the spent fuel. Therefore, to correctly 
+simulate loading of a nuclear waste repository based on thermal constraints in \Cyclus, 
+the simulation must first give isotopic compositions and spent fuel masses that 
+closely replicate reality. 
+
+%%% 
+\section{Background}
+\Cyclus is an agent-based nuclear fuel cycle simulation framework 
+\cite{huff_fundamental_2016}, which means that each entity (i.e. Region, 
+Institution, or Facility) in the fuel cycle is modeled as an agent. 
+\Cycamore \cite{carlsen_cycamore_2014} provides agents to represent process 
+physics of various components of the nuclear fuel cycle (e.g. mine, fuel 
+enrichment facility, reactor) \cite{huff_extensions_2014}. The nuclear fuel 
+assemblies tracked within the simulation are recipe-based; recipes specify mass 
+fractions of each isotope for fresh and spent fuel. They are calculated ahead 
+of time using neutronics depletion analysis tools such as ORIGEN 
+\cite{bell_origen_1973}, then entered directly into the fuel cycle simulation 
+\cite{peterson_additional_2017}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methodology}
+Published data of the 112 commercial nuclear reactors that have operated since 
+1968 was used to create a \Cyclus simulation of the \gls{US} 
+nuclear fuel cycle. The reactor deployment data was obtained from the \gls{PRIS} 
+database \cite{IAEA_pris_2017}.  Relevant data includes 
+reactor unit, reactor type, net capacity (MWe), first grid date, and shutdown 
+date. \gls{US}' reactor data was extracted and used to populate the \Cyclus 
+simulation. The recipes used in the \Cyclus simulations are taken from a 
+reference depletion calculation done using ORIGEN \cite{bell_origen_1973} for 
+burnups of 51 and 33 GWD/MTU. They were also used in 
+\cite{wilson_adoption_2009, bae_synergistic_2017}. 
+
+Jinja2 \cite{ronacher_welcome_2018}, a Python templating language, was then 
+used to render the data into an input file that is accepted by 
+\Cyclus. The output file produced by \Cyclus was also analyzed using Python. 
+
+The assumptions made for this \Cyclus simulation include: 
+
+\begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+	\item Cycle time is 18 months. 
+	\item Refueling time is 1 month. 
+	\item There is isotopic decay. 
+\end{enumerate}
+
+The \gls{UDB} database contains commercial \gls{SNF} information from 1968 through 2013. 
+Data such as initial enrichment, burnup, mass of spent fuel and discharged 
+dates were collected from multiple sources \cite{peterson_additional_2017}. 
+Irradiation and decay calculations were performed on each spent fuel assembly based on their parameters
+in the collected data \cite{peterson_additional_2017}.
+
+The \gls{UDB} dataset used for this work included discharged fuel assembly data per 
+reactor, specific isotopic concentrations and decay heat for each assembly 
+along with its discharge date \cite{peterson_unf-st&dards_2017}. The \gls{UDB} 
+dataset was processed and compared with the \Cyclus 
+simulations' outputs. All scripts and data used are available in a public github repository
+\cite{chee_arfc/transition-scenarios_2018}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results and Analysis}
+The primary goal of this study is to provide comparisons between 
+\Cyclus data and \gls{UDB} data for spent fuel mass and isotopic contributions to the 
+spent fuel mass. 
+
+\subsection{\textit{Cumulative Spent Fuel Mass Comparison}}
+To investigate the accuracy of \Cyclus, a comparison between the cumulative spent fuel mass 
+predicted by \Cyclus and calculated in \gls{UDB} was conducted. As seen in figure \ref{fig:total_original}, the cumulative spent fuel mass estimated by \Cyclus is larger than the \gls{UDB} calculation before the year 2000; after 2000, the \gls{UDB} calculation reports a larger cumulative spent fuel mass. The discrepancies can be attributed to the rigidity of the \Cyclus simulation input with respect to cycle and 
+refueling durations. In \Cyclus, the user specifies refueling and cycle times for each 
+reactor as constant integer months.  In reality, the cycle and refueling durations 
+vary throughout each reactor's lifetime and are not exact integer multiples of one month. 
+
+\begin{figure}[t] % replace 't' with 'b' to force it to be on the bottom
+	\centering
+	\includegraphics[width=0.48\textwidth]{../figures/cumulative_mass_udb_cyclus}
+	\caption{The cumulative spent fuel mass against discharge time for \Cyclus and \gls{UDB} data from 1968 through 2013.}
+	\label{fig:total_original}
+\end{figure}
+
+\begin{figure}[t] 
+	\centering
+	\includegraphics[width=0.48\textwidth]{../figures/cumulative_mass_udb_cyclus_refueltime}
+	\caption{The cumulative spent fuel mass against discharge time for \Cyclus and \gls{UDB} data from 1968 through 2013 for various refueling durations.}
+	\label{fig:total_refueltime}
+\end{figure} 
+
+The \gls{NEI} reported significant variance in the refueling duration for \gls{US} reactors. Average 
+refueling duration in 1990 was 104 days and decreased to an average of 35 days in 2017 \cite{iaea_current_nodate}. In the \Cyclus simulations, a constant refueling duration of 1 month was 
+used. Therefore, to investigate if the refueling duration could explain the spent fuel mass discrepancy in figure \ref{fig:total_original}, \Cyclus simulations were run with different refueling durations.
+Figure \ref{fig:total_refueltime} shows the cumulative spent fuel mass from \Cyclus simulations where 
+the refueling duration was varied. A longer refueling duration brings the cumulative spent fuel mass 
+from \Cyclus simulations closer to the \gls{UDB} data before 2000.
+
+\begin{figure}[b] % replace 't' with 'b' to force it to be on the bottom
+	\centering
+	\includegraphics[width=0.48\textwidth]{../figures/cumulative_mass_udb_cyclus_cycletime}
+	\caption{The cumulative spent fuel mass against discharge time for \Cyclus and \gls{UDB} data from 1968 to 2013 for various cycle times.}
+	\label{fig:total_cycletime}
+\end{figure} 
+
+The larger cumulative \gls{UDB} spent fuel mass compared to the \Cyclus simulation 
+after 2000 can be attributed to real world cycle lengths being shorter on 
+average than the 18 month cycle time assumed in the \Cyclus simulations. 
+Figure \ref{fig:total_cycletime} shows the cumulative spent fuel mass from 
+\Cyclus simulations where cycle duration is varied. A shorter cycle duration brings the 
+cumulative spent fuel mass from \Cyclus simulations closer to the \gls{UDB} data after 
+2000. The \gls{US} \gls{DOE} reported a downward trend of forced outage 
+rates for nuclear reactors from 4.24\%  in 2000 to 2.98\% in 2014 \cite{gehin_nuclear_2016}. 
+The decreased rate of forced outages from 2000 to 2013 implies that the cycle duration also 
+decreased. 
+
+\subsection{\textit{Major Isotopic Composition of  Spent Fuel Mass Comparison}}
+To accurately simulate the U.S. nuclear fuel cycle from 1968 through the present, 
+it is important to use spent fuel recipes that have similar burnup in relation to 
+the average U.S. nuclear reactor burnup. 
+
+Figure \ref{fig:burn_up_real} shows the average cumulative burnup for U.S. 
+nuclear reactors from 1968 to 2013 \cite{eia_spent_2015}. Figure 
+\ref{fig:burn_up_difference} shows the difference between burnup of the spent 
+fuel recipes used in the \Cyclus simulations and actual cumulative burnup of U.S. 
+nuclear reactors as seen in figure \ref{fig:burn_up_real}. On average, spent 
+fuel burnup of 33 GWD/MTU is closer to the actual cumulative burnup of U.S. nuclear 
+reactors than 51 GWD/MTU. 
+
+\begin{figure}[t] % replace 't' with 'b' to force it to be on the bottom
+	\centering
+	\includegraphics[width=0.48\textwidth]{../figures/burn_up_real}
+	\caption{The average cumulative burnup for U.S. nuclear reactors from 1968 to 2013 \cite{eia_spent_2015}.}
+	\label{fig:burn_up_real}
+\end{figure} 
+
+\begin{figure}[t] % replace 't' with 'b' to force it to be on the bottom
+	\centering
+	\includegraphics[width=0.48\textwidth]{../figures/burn_up_difference}
+	\caption{The difference between average cumulative burnup for U.S. nuclear reactors and burnup used in \Cyclus simulations.}
+	\label{fig:burn_up_difference}
+\end{figure} 
+
+Figures \ref{fig:absolute_diff_all_51} and \ref{fig:absolute_diff_all_33} show 
+the cumulative spent fuel isotopic mass difference between \gls{UDB} and \Cyclus data 
+in 5 year intervals for burnup rates of 51 GWD/MTU and 33 GWD/MTU correspondingly. 
+The \Cyclus data that had 33 GWD/MTU burnup deviated less compared to the 
+\Cyclus data that had 51 GWD/MTU burnup. This is apparent for $^{236}$U, 
+$^{242}$Pu and $^{240}$Pu. However, they are similar for the isotopes on the left side 
+of both figures, with an exception of $^{239}$Pu that deviated more for the \Cyclus data that 
+had 33 GWD/MTU burnup. 
+
+\begin{figure*}[htb] % replace 't' with 'b' to force it to be on the bottom
+	\centering
+        \begin{subfigure}{0.9\textwidth}
+        \includegraphics[height=0.30\textheight]{../figures/absolute_diff_all_51}
+        \caption{51 GWD/MTU burnup.}
+	\label{fig:absolute_diff_all_51}
+        \end{subfigure}
+        \begin{subfigure}{0.9\textwidth}
+        \includegraphics[height=0.30\textheight]{../figures/absolute_diff_all_33}
+        \caption{33 GWD/MTU burnup.}
+	\label{fig:absolute_diff_all_33}
+        \end{subfigure}
+        \begin{subfigure}{0.9\textwidth}
+        \includegraphics[height=0.35\textheight]{../figures/absolute_diff_2000}
+        \caption{Both burnup states, year 2000 data.}
+	\label{fig:absolute_diff_2000}
+        \end{subfigure}
+        \caption{The absolute difference between cumulative spent fuel mass calculated by 
+        \gls{UDB} and \Cyclus for each isotope. Positive difference indicates \Cyclus 
+        mass estimate is larger.}
+        \label{fig:absolute}
+\end{figure*} 
+\FloatBarrier
+
+To demonstrate the impact of burnup on isotopic composition, the cumulative 
+spent fuel isotopic mass difference between \gls{UDB} and \Cyclus data for 
+the year 2000 is shown in figure \ref{fig:absolute_diff_2000}. In 2000, the difference in 
+burnup between the actual U.S. reactor burnups and \Cyclus data burnup was 
+approximately 20 GWD/MTU for 51 GWD/MTU burnup and 0 GWD/MTU for 33 GWD/MTU burnup 
+(figure \ref{fig:burn_up_difference}), therefore, the impact of burnup on isotopic 
+composition can be seen more clearly since one \Cyclus simulation has the same burnup as the 
+actual U.S nuclear reactors burnup. 
+
+Wigeland et al \cite{wigeland_separations_2006} discussed that $^{240}$Pu, 
+$^{239}$Pu and $^{241}$Am are the most significant long-term decay heat 
+contributors to each waste package, while, $^{238}$Pu, $^{244}$Cm, $^{90}$Sr 
+and $^{137}$Cs are the most significant short term decay heat contributors 
+\cite{wigeland_separations_2006}. 
+
+In figure \ref{fig:absolute_diff_2000}, the \Cyclus simulation that uses the 33 
+GWD/MTU burnup recipe has a small mass difference between \gls{UDB} and \Cyclus data 
+for $^{240}$Pu and $^{241}$Am compared to 51 GWD/MTU burnup. However, it has a 
+substantial difference for $^{239}$Pu. Figure 4 also shows small differences 
+between \gls{UDB} and \Cyclus data for $^{238}$Pu, $^{244}$Cm, $^{90}$Sr and 
+$^{137}$Cs. 
+
+The large mass difference between \gls{UDB} and \Cyclus data (where \gls{UDB} $^{239}$Pu 
+mass is larger than \Cyclus $^{239}$Pu mass) for $^{239}$Pu in figures 
+\ref{fig:absolute_diff_2000}, \ref{fig:absolute_diff_all_51} and 
+\ref{fig:absolute_diff_all_33} can be attributed to conservative depletion 
+parameters used in the calculations for isotopic compositions in the \gls{UDB} 
+database \cite{peterson_additional_2017}. These assumptions result in the 
+hardening of the neutron spectrum that results in increased $^{239}$Pu 
+production in the \gls{UDB} data \cite{peterson_additional_2017}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+This work demonstrates that the spent fuel mass and isotopic composition 
+calculated by the \Cyclus simulation for the \gls{US} nuclear fuel cycle 
+follow similar trends as the real world metrics. Deviations from the real world metric 
+can be explained by issues with the \Cyclus model, such as the reactor agent's rigidity 
+of only accepting integer month values for cycle and refueling durations, and a single 
+spent fuel recipe. To replicate reality more closely, future work 
+will give the reactor agent the capability to accept varying cycle lengths, refueling 
+durations and spent fuel recipes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgments}
+This research is funded by the \gls{DOE} Office of 
+Nuclear Energy's Nuclear Energy University Program (Project 16-10512) 
+"Demand-Driven Cycamore Archetypes". The authors want to thank members of the 
+\gls{ARFC} group at the University of Illinois at Urbana-Champaign, 
+particularly Jin Whan Bae and Gregory Westphal. We also thank our colleagues 
+from the \Cyclus community, particularly those in the University of Wisconsin 
+\gls{CNERG} and the University of South Carolina Energy Research Group (ERGS) 
+for collaborative \Cyclus development.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ans}
+\bibliography{bibliography}
+\end{document}
+
