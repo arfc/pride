@@ -22,7 +22,6 @@ In order to execute the jupyter notebooks the data files should be downloaded to
 ``home``<br />
 |<br />
 |--``2020-dotson-optimal-sizing``<br />
-|	|--``data_processing``<br />
 |<br />
 |--``raven``<br />
 |<br />
