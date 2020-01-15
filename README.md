@@ -14,7 +14,7 @@ Multiple scenarios will be addressed:
 ## Instructions to Obtain the Data
 
 Some of the data has not yet been cleared for publication so a shared link cannot yet be provided. 
-Shared links for data that is already publicly available has been provided below. 
+Shared links for data that is already publicly available have been provided below. 
 
 In order to execute the jupyter notebooks the data files should be downloaded to your computer in a folder called 
 ``data`` such that your directories look like: 
