@@ -19,14 +19,14 @@ Shared links for data that is already publicly available has been provided below
 In order to execute the jupyter notebooks the data files should be downloaded to your computer in a folder called 
 ``data`` such that your directories look like: 
 
-``home``/
-|
-|--``2020-dotson-optimal-sizing``
-|	|--``data_processing``
-|
-|--``raven``
-|
-|--``data``
+``home``<br />
+|<br />
+|--``2020-dotson-optimal-sizing``<br />
+|	|--``data_processing``<br />
+|<br />
+|--``raven``<br />
+|<br />
+|--``data``<br />
 
 #### Data: 
 
