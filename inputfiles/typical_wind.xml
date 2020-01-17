@@ -1,6 +1,6 @@
 <Simulation verbosity='debug'>
 	<RunInfo>
-		<WorkingDir>../data_processing/</WorkingDir>
+		<WorkingDir>../../data/</WorkingDir>
 		<Sequence>read,get_history,write</Sequence>
 		<batchSize>1</batchSize>
 	</RunInfo>
