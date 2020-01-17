@@ -10,7 +10,8 @@ sgd2@illinois.edu
 
 %%%% packages and definitions (optional)
 \usepackage{graphicx} % allows inclusion of graphics
-\graphicspath{../figures/}
+\graphicspath{{./../figures/}}
+\usepackage{float}
 \usepackage{booktabs} % nice rules (thick lines) for tables
 \usepackage{microtype} % improves typography for PDF
 \usepackage{xspace}
@@ -22,13 +23,7 @@ sgd2@illinois.edu
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 \makeglossaries
-\newcommand{\SN}{S$_N$}
-\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
-\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
-\newcommand{\grad}{\vec{\nabla}} % gradient
-\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
-\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
-\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+
 \newcolumntype{c}{>{\hsize=.56\hsize}X}
 \newcolumntype{b}{>{\hsize=.7\hsize}X}
 \newcolumntype{s}{>{\hsize=.74\hsize}X}
