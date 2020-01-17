@@ -1,0 +1,62 @@
+<Simulation verbosity='debug'>
+	<RunInfo>
+		<WorkingDir>../../data/</WorkingDir>
+		<Sequence>read,get_history,write</Sequence>
+		<batchSize>1</batchSize>
+	</RunInfo>
+
+	<Files>
+		<Input name='demand_data'>./annual_load_H.csv</Input>
+	</Files>
+
+	<Models>
+		<PostProcessor name='typicalHistory' subType='InterfacedPostProcessor'>
+			<method>TypicalHistoryFromHistorySet</method>
+			<subseqLen>730</subseqLen>
+			<outputLen>8760</outputLen>
+			<pivotParameter>time</pivotParameter>
+		</PostProcessor>
+	</Models>
+
+	<OutStreams>
+		<Print name='TypicalDemand'>
+			<type>csv</type>
+			<source>typicalDemand</source>
+		</Print>
+	</OutStreams>
+
+	<DataObjects>
+		<HistorySet name='raw_power'>
+			<Input>n</Input>
+			<Output>time,kw</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+		<HistorySet name='typicalDemand'>
+			<Input>n</Input>
+			<Output>time,kw</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+	</DataObjects>
+
+	<Steps>
+		<IOStep name='read'>
+			<Input class='Files' type=''>demand_data</Input>
+			<Output class='DataObjects' type='HistorySet'>raw_power</Output>
+		</IOStep>
+		<PostProcess name='get_history'>
+			<Input class='DataObjects' type='HistorySet'>raw_power</Input>
+			<Model class='Models' type='PostProcessor'>typicalHistory</Model>
+			<Output class='DataObjects' type='HistorySet'>typicalDemand</Output>
+		</PostProcess>
+		<IOStep name='write'>
+			<Input class='DataObjects' type='HistorySet'>typicalDemand</Input>
+			<Output class='OutStreams' type='Print'>TypicalDemand</Output>
+		</IOStep>
+	</Steps>
+
+
+</Simulation>
