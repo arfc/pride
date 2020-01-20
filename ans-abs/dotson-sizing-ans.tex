@@ -20,6 +20,7 @@ sgd2@illinois.edu
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{placeins}
+\usepackage{tikz}
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 \makeglossaries
@@ -33,6 +34,15 @@ sgd2@illinois.edu
 \titleformat*{\subsection}{\normalfont}
 
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define the tikz style
+\tikzstyle{rect} = [draw, rectangle, fill=white!20,text width=6em, text centered, minimum height=2em]
+\tikzstyle{elli} = [draw, ellipse, fill=white!20,text width=6em, text centered, minimum height=2em]
+\tikzstyle{circ} = [draw, circle, fill=white!20,text width=6em, text centered, inn sep = 10pt]
+\tikzstyle{diam} = [draw, diamond, fill=white!20,text width=6em, text badly centered, inner sep=0pt]
+\tikzstyle{line} = [draw, -latex']
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{introduction}
 
