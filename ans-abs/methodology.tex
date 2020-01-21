@@ -14,6 +14,7 @@ Similar to Baker et. al, we define the net demand to be
 
 
 \begin{equation}
+	\label{eqn:net-demand}
 	\begin{split}
 		netDemand_h & = demand_h - (windPower_h + solarPower_h) \\ 
 		& \text{$\forall$ $h$ in } [0,8759]
@@ -72,8 +73,8 @@ These values were obtained from the iSEE facts sheet about the UIUC solar farm \
 
 \subsection{Dispatch Model}
 
-The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}. 
-
+The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}. The net demand is defined by 
+Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy the campus grid demand. This can never happen with the current installed renewable capacity at UIUC. Then a hypothetical micro-reactor will produce electricity to the grid. Two assumptions will be made: First, the micro-reactor will only produce electricity and not cogenerate like APP; second, the micro-reactor will operate at 100\% capacity all of the time. This second assumption is a real possibility given the range of sizes we are investigating. If the reactor can meet and exceed the net demand then the dispatch model will attempt to store the surplus in the campus chilled water system. If the chilled water tank is full, then the surplus must be sold back to the grid operator (MISO) and a penalty will be incurred. When the reactor cannot meet the electric demand, APP will produce electricity to fill the difference. UIUC will rely on APP for load following because natural gas boilers can, currently, ramp more quickly than nuclear reactors. If either the demand is not covered or all surplus power is not used then a penalty is incurred.
 \begin{figure}[H]
 	\centering
 	\label{fig:dispatch-model}
@@ -81,7 +82,7 @@ The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2
 		\begin{tikzpicture}[node distance = 3cm, auto]
 			\node [elli] (start) {Net Demand};
 			\node [diam, below of=start] (check1) {Net Demand > 0?};
-			\node [rect, rounded corners, right of=check1] (action1) {Reactor produces electricity\\to the grid};
+			\node [rect, rounded corners, right of=check1, xshift=0.5cm] (action1) {Reactor produces electricity\\to the grid};
 			\node [diam, below of=action1] (check2) {Net demand met?};
 			\node [diam, left of=check2, xshift=-2cm] (check3) {Thermal storage full?};
 			\node [rect, rounded corners, below of=check3] (action2) {Use surplus power to fill thermal storage};
@@ -94,7 +95,7 @@ The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2
 			\node [diam, left of=check5, xshift=-1cm] (hourcheck2) {hour > 8760?};
 
 			\path[line, line width=0.5mm] (start) -- (check1);
-			\path[line, line width=0.5mm] (check1) -- (action1);
+			\path[line, line width=0.5mm] (check1) -- (action1) node [midway] {yes};
 			\path[line, line width=0.5mm] (action1) -- (check2);
 			\path[line, line width=0.5mm] (check2) -- (check3) node [midway] {yes};
 			\path[line, line width=0.5mm] (check2) -- (action3) node [midway] {no};
@@ -110,7 +111,22 @@ The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2
 			\path[line, line width=0.5mm] (action3) -- (check4);
 			\path[line, line width=0.5mm] (check4) -- (hourcheck1) node [midway] {yes};
 			\path[line, line width=0.5mm] (sell) |- (penalty);
+			\path[line, line width=0.5mm] (check1) -- (check3) node [midway] {no};
 		\end{tikzpicture}
 	}% end resizebox
 	\caption{Dispatch flow diagram for the UIUC NHES}
 \end{figure}
+
+\subsection{Capital Cost}
+As in Baker et. al, capital costs are taken in full at year zero. In the first scenario we examine the simplifying assumption is that there are no capital costs because the reactor would be provided at no cost to the university. For the second scenario we will apply the model from Baker et. al. The reference plant used in that work is an 1100 MWe pressurized water reactor (PWR) which costs $\$4100$/kWh for an ideal case. $x = 0.64$ to model the economies of scale \cite{baker_optimal_2018}.
+
+\begin{equation}
+	CF_y^{capital} = \alpha_y^{year}\left(\frac{capacity_y}{ref}\right)^x \text{ ... } \forall \text{ $y$ in $subsystems$}
+\end{equation}
+
+\begin{equation*}
+	\text{where} \begin{cases}
+		\alpha_y^{year} = &\text{construction cost at year $0$}\\
+		ref_y &\text{is the size of the reference plant}
+	\end{cases}
+\end{equation*}
