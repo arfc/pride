@@ -72,12 +72,45 @@ These values were obtained from the iSEE facts sheet about the UIUC solar farm \
 
 \subsection{Dispatch Model}
 
-The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}.
+The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}. 
 
-% \begin{figure}
-% 	\begin{center}
-% 		\begin{tikzpicture}[node distance = 1.5cm, auto]
-% 			\node [elli, ]
-% 		\end{tikzpicture}
-% 	\end{center}
-% \end{figure}
+\begin{figure}[H]
+	\centering
+	\label{fig:dispatch-model}
+	\resizebox{\columnwidth}{!}{%begin resizebox
+		\begin{tikzpicture}[node distance = 3cm, auto]
+			\node [elli] (start) {Net Demand};
+			\node [diam, below of=start] (check1) {Net Demand > 0?};
+			\node [rect, rounded corners, right of=check1] (action1) {Reactor produces electricity\\to the grid};
+			\node [diam, below of=action1] (check2) {Net demand met?};
+			\node [diam, left of=check2, xshift=-2cm] (check3) {Thermal storage full?};
+			\node [rect, rounded corners, below of=check3] (action2) {Use surplus power to fill thermal storage};
+			\node [rect, rounded corners, below of=check2, xshift=2cm] (action3) {Abbott Power Plant produces electricity to grid};
+			\node [rect, rounded corners, right of=action2] (sell) {Sell surplus back to MISO};
+			\node [diam, below of=action3] (check4) {Remaining demand covered?};
+			\node [diam, below of=action2] (check5) {All surplus power used?};
+			\node [rect, below of=check4] (penalty) {Pay Penalty};
+			\node [diam, right of=check4, xshift=1cm] (hourcheck1) {hour > 8760?};
+			\node [diam, left of=check5, xshift=-1cm] (hourcheck2) {hour > 8760?};
+
+			\path[line, line width=0.5mm] (start) -- (check1);
+			\path[line, line width=0.5mm] (check1) -- (action1);
+			\path[line, line width=0.5mm] (action1) -- (check2);
+			\path[line, line width=0.5mm] (check2) -- (check3) node [midway] {yes};
+			\path[line, line width=0.5mm] (check2) -- (action3) node [midway] {no};
+			\path[line, line width=0.5mm] (check3) -- (sell) node [midway] {yes};
+			\path[line, line width=0.5mm] (check3) -- (action2) node [midway] {no};
+			\path[line, line width=0.5mm] (action2) -- (check5);
+			\path[line, line width=0.5mm] (hourcheck2) |- (start) node [near end] {no};
+ 			\path[line, line width=0.5mm] (check5) -- (hourcheck2) node [midway] {yes};
+			\path[line, line width=0.5mm] (check5) |- (penalty) node [near start] {no};
+			\path[line, line width=0.5mm] (check4) -- (penalty) node [midway] {no};
+			\path[line, line width=0.5mm] (penalty) -| (hourcheck1);
+			\path[line, line width=0.5mm] (hourcheck1) |- (start) node [near end] {no};
+			\path[line, line width=0.5mm] (action3) -- (check4);
+			\path[line, line width=0.5mm] (check4) -- (hourcheck1) node [midway] {yes};
+			\path[line, line width=0.5mm] (sell) |- (penalty);
+		\end{tikzpicture}
+	}% end resizebox
+	\caption{Dispatch flow diagram for the UIUC NHES}
+\end{figure}
