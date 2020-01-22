@@ -4,7 +4,7 @@ In this work we use and extend the methodology described in Baker et. al using t
 There are three main steps to this methodology \cite{baker_optimal_2018}: 
 
 \begin{enumerate}
-	\item Generate synthetic time histories by training a reduced order model (ROM) with historical data using the \texttt{TrainARMA} functionality in \texttt{RAVEN}. Historical data is condensed into a typical time history which attempts to remove anomalous data.
+	\item Generate synthetic data by training a reduced order model (ROM) with historical data using \texttt{RAVEN}'s \texttt{TrainARMA} functionality. \texttt{RAVEN} condenses historical data into a typical time series and attempts to remove anomalous data.
 	\item Calculate the net demand for each history set.
 	\item Pass the net demand to the nuclear hybrid energy system (NHES) dispatch model defined for the UIUC embedded grid. 
 \end{enumerate}
@@ -20,7 +20,7 @@ Similar to Baker et. al, we define the net demand to be
 	\end{split}
 \end{equation}
 
-Where $D_{total}$ is the total demand at a given hour, $h$, of a synthetic time history from the ARMA model. We adjust the net demand, $D_{net}$, because VRE is used regardless of demand (thus it could exceed demand). $P_{wind}$ is computed by \cite{garcia_nuclear_2015}:
+Where $D_{total}$ is the total demand at a given hour, $h$, of a synthetic demand profile from the ARMA model. We adjust the net demand, $D_{net}$, because VRE is used regardless of demand (thus it could exceed demand). $P_{wind}$ is computed by \cite{garcia_nuclear_2015}:
 
 \begin{align}
 	P_{wind} &= \begin{cases}
@@ -110,8 +110,9 @@ Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy 
 As in Baker et. al, capital costs are taken in full at year zero. In the first scenario we examine the simplifying assumption is that there are no capital costs because the reactor would be provided at no cost to the university. For the second scenario we will apply the model from Baker et. al. The reference plant used in that work is an 1100 MWe pressurized water reactor (PWR) which costs $\$4100$/kWh for an ideal case. $x = 0.64$ to model the economies of scale \cite{baker_optimal_2018}.
 
 \begin{align}
-	CF_y^{capital} &= \alpha_y^{year}\left(\frac{capacity_y}{ref}\right)^x \text{ ... } \forall \text{ $y$ in $subsystems$}\\
+	CF^{capital} &= \alpha^{year}\left(\frac{P_{\mu}}{P_{ref}}\right)^x \\
 	\intertext{where}
-		\alpha_y^{year} &= \mbox{ construction cost at year $0$}\nonumber\\
-		ref_y &= \mbox{ size of the reference plant}\nonumber
+		\alpha^{year} &= \mbox{ construction cost at year $0$}\nonumber\\
+		P_\mu &= \mbox{ size of the micro-reactor}\nonumber\\
+		P_{ref} &= \mbox{ size of the reference plant}\nonumber
 \end{align}
