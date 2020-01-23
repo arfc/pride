@@ -1,7 +1,7 @@
 \documentclass{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Optimal Sizing of a Micro-reactor for Embedded Grid Systems}
-\author{Samuel Dotson and Kathryn D. Huff}
+\title{Optimal Sizing of a Micro-Reactor for Embedded Grid Systems}
+\author{Samuel G. Dotson and Kathryn D. Huff}
 
 \institute{
 Dept. of Nuclear, Plasma and Radiological Engineering, University of Illinois at Urbana-Champaign \\
@@ -10,23 +10,22 @@ sgd2@illinois.edu
 
 %%%% packages and definitions (optional)
 \usepackage{graphicx} % allows inclusion of graphics
+\graphicspath{{./../figures/}}
+\usepackage{float}
 \usepackage{booktabs} % nice rules (thick lines) for tables
 \usepackage{microtype} % improves typography for PDF
 \usepackage{xspace}
 \usepackage{tabularx}
+\usepackage{amsmath}
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 \makeglossaries
-\newcommand{\SN}{S$_N$}
-\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
-\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
-\newcommand{\grad}{\vec{\nabla}} % gradient
-\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
-\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
-\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+
 \newcolumntype{c}{>{\hsize=.56\hsize}X}
 \newcolumntype{b}{>{\hsize=.7\hsize}X}
 \newcolumntype{s}{>{\hsize=.74\hsize}X}
@@ -36,29 +35,35 @@ sgd2@illinois.edu
 \titleformat*{\subsection}{\normalfont}
 
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define the tikz style
+\tikzstyle{rect} = [draw, rectangle, fill=white!20,text width=6em, text centered, minimum height=2em]
+\tikzstyle{elli} = [draw, ellipse, fill=white!20,text width=6em, text centered, minimum height=2em]
+\tikzstyle{circ} = [draw, circle, fill=white!20,text width=6em, text centered, inn sep = 10pt]
+\tikzstyle{diam} = [draw, diamond, fill=white!20,text width=6em, text badly centered, inner sep=0pt]
+\tikzstyle{line} = [draw, -latex']
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
-
+\input{introduction}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Motivation}
-
-%%% 
-\section{Background}
+\input{motivation}
  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{background}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{methodology}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methodology}
+\input{results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results and Analysis}
+\input{conclusions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Acknowledgments}
+\input{acknowledgements}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
