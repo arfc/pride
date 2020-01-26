@@ -1,0 +1,98 @@
+<Simulation verbosity='debug'>
+
+	<!-- RUNINFO -->
+	<RunInfo>
+		<WorkingDir>../../data/</WorkingDir>
+		<Sequence>read,get_history, trainARMA, sampleARMA, write</Sequence>
+		<batchSize>1</batchSize>
+	</RunInfo>
+
+	<!-- FILES -->
+	<Files>
+		<Input name='demand_data'>./annual_load_H.csv</Input>
+	</Files>
+
+
+	<!-- MODELS -->
+	<Models>
+		<!-- TYPICAL HISTORY -->
+		<PostProcessor name='typicalHistory' subType='InterfacedPostProcessor'>
+			<method>TypicalHistoryFromHistorySet</method>
+			<subseqLen>730</subseqLen>
+			<outputLen>8760</outputLen>
+			<pivotParameter>time</pivotParameter>
+		</PostProcessor>
+		<!-- SYNTHETIC HISTORY -->
+		<ROM name='armaROM' subType='ARMA'>
+			<pivotParameter>time</pivotParameter>
+			<Target>kw</Target>
+			<Pmax>5</Pmax>
+			<Pmin>1</Pmin>
+			<Qmax>4</Qmax>
+			<Qmin>1</Qmin>
+			<Fourier>31536000, 604800, 86400, 3600</Fourier>
+			<FourierOrder>1, 1, 1, 3</FourierOrder>
+		</ROM>
+	</Models>
+
+	<!-- OUTSTREAMS -->
+	<OutStreams>
+		<Print name='syntheticHistories'>
+			<type>csv</type>
+			<source>histories</source>
+		</Print>
+	</OutStreams>
+
+	<!-- DATA OBJECTS -->
+	<DataObjects>
+		<HistorySet name='raw_power'>
+			<Input>n</Input>
+			<Output>time,kw</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+		<HistorySet name='typicalDemand'>
+			<Input>n</Input>
+			<Output>time,kw</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+		<HistorySet name='histories'>
+			<Input>n</Input>
+			<Output>time,kw</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+	</DataObjects>
+
+	<!-- STEPS -->
+	<Steps>
+		<IOStep name='read'>
+			<Input class='Files' type=''>demand_data</Input>
+			<Output class='DataObjects' type='HistorySet'>raw_power</Output>
+		</IOStep>
+		<PostProcess name='get_history'>
+			<Input class='DataObjects' type='HistorySet'>raw_power</Input>
+			<Model class='Models' type='PostProcessor'>typicalHistory</Model>
+			<Output class='DataObjects' type='HistorySet'>typicalDemand</Output>
+		</PostProcess>
+		<RomTrainer name="trainARMA">
+			<Input class="DataObjects" type="HistorySet">typicalDemand</Input>
+			<Output class="Models" type="ROM">armaROM</Output>
+		</RomTrainer>
+		<MultiRun name='sampleARMA'>
+			<Input class="DataObjects" type="PointSet">inputPlaceHolder</Input>
+			<Model class="Models" type="ROM">armaROM</Model>
+			<Sampler class="Samplers" type=""></Sampler>
+		</MultiRun>
+		<IOStep name='write'>
+			<Input class='DataObjects' type='HistorySet'>histories</Input>
+			<Output class='OutStreams' type='Print'>syntheticHistories</Output>
+		</IOStep>
+	</Steps>
+
+
+</Simulation>
