@@ -90,47 +90,14 @@ def make_increasing(data, sort=False, strict=True):
     
     
     if (strict is True) and (sort is False):
-        curr_value = data[0]
-        data_inc = [curr_value]
-        for i in range(len(data)):
-            next_value = data_inc[i]
-            print("next value is {} : current value is {}".format(next_value, curr_value))
-            if next_value > curr_value:
-                print("inside if")
-                data_inc.append(next_value)
+        for i in range(1, len(data)):
+            prev_value = data[i-1]
+            curr_value = data[i]
+            if curr_value > prev_value:
+                continue
             else:
-                append_val = next_value
-                while append_val <= curr_value:
-                    print("inside while")
-                    append_val = append_val + 0.000001
-                data_inc.append(round(append_val,6))       
-            curr_value = round(append_val,6)
+                while curr_value <= prev_value:
+                    curr_value = curr_value + 0.000001
+                data[i] = (round(curr_value,6))       
 
-    return data_inc
-
-# def make_increasing(df, cols=None):
-#     if cols is None:
-#         cols = df.columns
-
-#     df1 = df.copy()[cols]
-#     # print(df1)
-#     while True:
-#         mon_inc = (df1.diff().fillna(0) >= 0).all(axis=1)
-#         if mon_inc.all():
-#             break
-#         df1 = df1[mon_inc]
-#     return df1
-
-
-# single_digits = np.array([i for i in range(10)])
-# repeat_vals = np.ones(10)
-
-# # dataframe_pd = pd.DataFrame({'digits':single_digits, 'repeats':repeat_vals})
-# inc = make_increasing(repeat_vals)
-# print(inc)
-
-# num = 1
-# for i in range(10):
-#     num = num + 0.1
-#     print(num)
-# # print(inc)
+    return data

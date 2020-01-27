@@ -92,7 +92,7 @@ def test_to_float3():
 # ===================================================================
 
 single_digits = np.array([i for i in range(10)])
-repeat_vals = np.ones(10)
+repeat_vals = np.array([1,1,1,1,1, 2, 3, 7, 8, 8, 24])
 
 
 def test_make_increasing1():
