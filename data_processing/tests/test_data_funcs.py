@@ -92,7 +92,7 @@ def test_to_float3():
 # ===================================================================
 
 single_digits = np.array([i for i in range(10)])
-repeat_vals = np.array([1,1,1,1,1, 2, 3, 7, 8, 8, 24])
+repeat_vals = [1,1,1,1,1, 2, 3, 7, 8, 8, 24]
 
 
 def test_make_increasing1():
@@ -100,8 +100,11 @@ def test_make_increasing1():
     Test case 1: A data series that is already increasing is passed.
     """
     inc_data = make_increasing(single_digits, sort=False, strict=True)
-    increasing  = all(i < j for i, j in zip(inc_data, inc_data[1:])) 
-    assert increasing
+    increasing  = all(i < j for i, j in zip(inc_data, inc_data[1:]))
+    old_mean = single_digits.mean()
+    new_mean = inc_data.mean()
+    same_stats = abs(old_mean - new_mean) < 0.1
+    assert increasing and same_stats
 
 def test_make_increasing2():
     """
@@ -109,7 +112,12 @@ def test_make_increasing2():
     """
 
     inc_data = make_increasing(repeat_vals, sort=False, strict=True)
-    increasing  = all(i < j for i, j in zip(inc_data, inc_data[1:])) 
-    assert increasing
+    print(inc_data)
+    print(repeat_vals)
+    increasing  = all(i < j for i, j in zip(inc_data, inc_data[1:]))
+    old_mean = np.array(repeat_vals).mean()
+    new_mean = np.array(inc_data).mean()
+    same_stats = abs(old_mean - new_mean) < 0.1 
+    assert increasing and same_stats
 
    
