@@ -111,7 +111,6 @@ def test_make_increasing2():
     """
 
     inc_data = make_increasing(repeat_vals, sort=False, strict=True)
-    print(repeat_vals)
     increasing = all(i < j for i, j in zip(inc_data, inc_data[1:]))
     old_mean = np.array(repeat_vals).mean()
     new_mean = np.array(inc_data).mean()
