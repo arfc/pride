@@ -3,94 +3,112 @@
 	<!-- RUNINFO -->
 	<RunInfo>
 		<WorkingDir>../../data/</WorkingDir>
-		<Sequence>read,get_history, trainARMA, sampleARMA, write</Sequence>
+		<Sequence>read, trainARMA, romMeta, sampleARMA, write</Sequence>
 		<batchSize>1</batchSize>
 	</RunInfo>
 
 	<!-- FILES -->
 	<Files>
-		<Input name='demand_data'>./annual_load_H.csv</Input>
+		<Input name='typicalDemand'>./TypicalDemand.csv</Input>
 	</Files>
 
 
 	<!-- MODELS -->
 	<Models>
-		<!-- TYPICAL HISTORY -->
-		<PostProcessor name='typicalHistory' subType='InterfacedPostProcessor'>
-			<method>TypicalHistoryFromHistorySet</method>
-			<subseqLen>730</subseqLen>
-			<outputLen>8760</outputLen>
-			<pivotParameter>time</pivotParameter>
-		</PostProcessor>
 		<!-- SYNTHETIC HISTORY -->
 		<ROM name='armaROM' subType='ARMA'>
 			<pivotParameter>time</pivotParameter>
-			<Target>kw</Target>
-			<Pmax>5</Pmax>
-			<Pmin>1</Pmin>
-			<Qmax>4</Qmax>
-			<Qmin>1</Qmin>
-			<Fourier>31536000, 604800, 86400, 3600</Fourier>
-			<FourierOrder>1, 1, 1, 3</FourierOrder>
+			<Features>n</Features>
+			<Target>time,kw</Target>
+			<P>5</P>
+			<Q>4</Q>
+			<Fourier>31536000, 604800, 86400, 10800</Fourier>
 		</ROM>
 	</Models>
 
+	<!-- SAMPLERS -->
+	<Samplers>
+		<MonteCarlo name="MCsampler">
+			<samplerInit>
+				<limit>10</limit>
+				<initialSeed>0</initialSeed>
+			</samplerInit>
+			<variable name="kw">
+				<distribution>cdf_custom</distribution>
+			</variable>
+		</MonteCarlo>
+	</Samplers>
+
+	<!-- DISTRIBUTIONS -->
+	<Distributions>
+		<Custom1D name="cdf_custom">
+			<dataFilename>grid_cdf.csv</dataFilename>
+			<functionID>cdf</functionID>
+			<variableID>kw</variableID>
+			<functionType>cdf</functionType>
+			<workingDir>../data/</workingDir>
+		</Custom1D>
+	</Distributions>
+
 	<!-- OUTSTREAMS -->
 	<OutStreams>
-		<Print name='syntheticHistories'>
+		<Print name='demandHistories'>
 			<type>csv</type>
-			<source>histories</source>
+			<source>synHist</source>
 		</Print>
+	    <Print name="romMeta">
+	      <type>csv</type>
+	      <source>romMeta</source>
+	    </Print>
 	</OutStreams>
 
 	<!-- DATA OBJECTS -->
 	<DataObjects>
-		<HistorySet name='raw_power'>
+	    <PointSet name="inputPlaceHolder">
+	      <Input>n</Input>
+	      <Output>OutputPlaceHolder</Output>
+	    </PointSet>
+		<HistorySet name='typHist'>
 			<Input>n</Input>
 			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
-		<HistorySet name='typicalDemand'>
+		<HistorySet name="synHist">
 			<Input>n</Input>
 			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
-		<HistorySet name='histories'>
-			<Input>n</Input>
-			<Output>time,kw</Output>
-			<options>
-				<pivotParameter>time</pivotParameter>
-			</options>
-		</HistorySet>
+	    <DataSet name="romMeta"/>
 	</DataObjects>
 
 	<!-- STEPS -->
 	<Steps>
 		<IOStep name='read'>
-			<Input class='Files' type=''>demand_data</Input>
-			<Output class='DataObjects' type='HistorySet'>raw_power</Output>
+			<Input class='Files' type=''>typicalDemand</Input>
+			<Output class='DataObjects' type='HistorySet'>typHist</Output>
 		</IOStep>
-		<PostProcess name='get_history'>
-			<Input class='DataObjects' type='HistorySet'>raw_power</Input>
-			<Model class='Models' type='PostProcessor'>typicalHistory</Model>
-			<Output class='DataObjects' type='HistorySet'>typicalDemand</Output>
-		</PostProcess>
 		<RomTrainer name="trainARMA">
-			<Input class="DataObjects" type="HistorySet">typicalDemand</Input>
+			<Input class="DataObjects" type="HistorySet">typHist</Input>
 			<Output class="Models" type="ROM">armaROM</Output>
 		</RomTrainer>
+	    <IOStep name="romMeta">
+	      <Input class="Models" type="ROM">armaROM</Input>
+	      <Output class="DataObjects" type="DataSet">romMeta</Output>
+	      <Output class="OutStreams" type="Print">romMeta</Output>
+	    </IOStep>
 		<MultiRun name='sampleARMA'>
 			<Input class="DataObjects" type="PointSet">inputPlaceHolder</Input>
 			<Model class="Models" type="ROM">armaROM</Model>
-			<Sampler class="Samplers" type=""></Sampler>
+			<Sampler class="Samplers" type="MonteCarlo">MCsampler</Sampler>
+			<Output class="DataObjects" type="HistorySet">synHist</Output>
 		</MultiRun>
 		<IOStep name='write'>
-			<Input class='DataObjects' type='HistorySet'>histories</Input>
-			<Output class='OutStreams' type='Print'>syntheticHistories</Output>
+			<Input class='DataObjects' type="HistorySet">synHist</Input>
+			<Output class='OutStreams' type="Print">demandHistories</Output>
 		</IOStep>
 	</Steps>
 
