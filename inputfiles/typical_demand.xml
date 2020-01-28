@@ -27,14 +27,14 @@
 
 	<DataObjects>
 		<HistorySet name='raw_power'>
-			<Input>n</Input>
+			<Input>scaling</Input>
 			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
 		<HistorySet name='typicalDemand'>
-			<Input>n</Input>
+			<Input>scaling</Input>
 			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
