@@ -1,6 +1,12 @@
 import pandas as pd
+import numpy as np
 from data_funcs import isfloat
 from data_funcs import to_float
+from data_funcs import make_increasing
+
+import pprint
+import sys
+pprint.pprint(sys.path)
 
 
 # ===================================================================
@@ -78,3 +84,35 @@ def test_to_float3():
     """
     new_df = to_float(dataframe_pd, 'mixed')
     assert new_df['integers'].dtype == float
+
+
+# ===================================================================
+# Test for make_increasing()
+# ===================================================================
+single_digits = np.array([i for i in range(10)])
+repeat_vals = [1, 1, 1, 1, 1, 2, 3, 7, 8, 8, 24]
+
+
+def test_make_increasing1():
+    """
+    Test case 1: A data series that is already increasing is passed.
+    """
+    inc_data = make_increasing(single_digits, sort=False, strict=True)
+    increasing = all(i < j for i, j in zip(inc_data, inc_data[1:]))
+    old_mean = single_digits.mean()
+    new_mean = inc_data.mean()
+    same_stats = abs(old_mean - new_mean)/abs(old_mean) < 0.01
+    assert increasing and same_stats
+
+
+def test_make_increasing2():
+    """
+    Test case 2: A data series with repeated values is passed.
+    """
+
+    inc_data = make_increasing(repeat_vals, sort=False, strict=True)
+    increasing = all(i < j for i, j in zip(inc_data, inc_data[1:]))
+    old_mean = np.array(repeat_vals).mean()
+    new_mean = np.array(inc_data).mean()
+    same_stats = abs(old_mean - new_mean)/abs(old_mean) < 0.01
+    assert increasing and same_stats

@@ -1,0 +1,115 @@
+<Simulation verbosity='debug'>
+
+	<!-- RUNINFO -->
+	<RunInfo>
+		<WorkingDir>../../data/</WorkingDir>
+		<!-- UNCOMMENT TOP SEQUENCE FOR ROM METADATA -->
+		<!-- <Sequence>read, trainARMA, romMeta, sampleARMA, write</Sequence> -->
+		<Sequence>read, trainARMA, sampleARMA, write</Sequence>
+		<batchSize>1</batchSize>
+	</RunInfo>
+
+	<!-- FILES -->
+	<Files>
+		<Input name='typicalWind'>./TypicalSolar.csv</Input>
+	</Files>
+
+
+	<!-- MODELS -->
+	<Models>
+		<ROM name='armaROM' subType='ARMA'>
+			<Target>time,power_data,power_norm</Target>
+			<Features>scaling</Features>
+			<pivotParameter>time</pivotParameter>
+			<Fourier>31536000,86400, 3600</Fourier>
+			<P>2</P>
+			<Q>0</Q>
+		</ROM>
+	</Models>
+
+	<!-- SAMPLERS -->
+	<Samplers>
+		<MonteCarlo name="MCsampler">
+			<samplerInit>
+				<limit>10</limit>
+				<initialSeed>891</initialSeed>
+			</samplerInit>
+			<constant name="scaling">1.0</constant>
+<!-- 			<variable name="power_data" shape="8760">
+				<distribution>norm</distribution>
+			</variable> -->
+		</MonteCarlo>
+	</Samplers>
+
+	<!-- DISTRIBUTIONS -->
+	<Distributions>
+		<Normal name="norm">
+			<mean>891.75</mean>
+			<sigma>1324.26</sigma>
+		</Normal>
+	</Distributions>
+
+	<!-- OUTSTREAMS -->
+	<OutStreams>
+		<Print name='windHistories'>
+			<type>csv</type>
+			<source>synHist</source>
+		</Print>
+	    <Print name="romMeta">
+	      <type>csv</type>
+	      <source>romMeta</source>
+	    </Print>
+	</OutStreams>
+
+	<!-- DATA OBJECTS -->
+	<DataObjects>
+	    <PointSet name="inputPlaceHolder">
+	      <Input>scaling</Input>
+	      <Output>OutputPlaceHolder</Output>
+	    </PointSet>
+		<HistorySet name='typHist'>
+			<Input>scaling</Input>
+			<Output>power_data,power_norm</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+		<HistorySet name="synHist">
+			<Input>scaling</Input>
+			<Output>power_data,power_norm</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+	    <DataSet name="romMeta"/>
+	</DataObjects>
+
+	<!-- STEPS -->
+	<Steps>
+		<IOStep name='read'>
+			<Input class='Files' type=''>typicalWind</Input>
+			<Output class='DataObjects' type='HistorySet'>typHist</Output>
+		</IOStep>
+		<RomTrainer name="trainARMA">
+			<Input class="DataObjects" type="HistorySet">typHist</Input>
+			<Output class="Models" type="ROM">armaROM</Output>
+		</RomTrainer>
+		<!-- UNCOMMENT THIS IOSTEP FOR ROM METADATA -->
+<!-- 	    <IOStep name="romMeta">
+	      <Input class="Models" type="ROM">armaROM</Input>
+	      <Output class="DataObjects" type="DataSet">romMeta</Output>
+	      <Output class="OutStreams" type="Print">romMeta</Output>
+	    </IOStep> -->
+		<MultiRun name='sampleARMA'>
+			<Input class="DataObjects" type="PointSet">inputPlaceHolder</Input>
+			<Model class="Models" type="ROM">armaROM</Model>
+			<Sampler class="Samplers" type="MonteCarlo">MCsampler</Sampler>
+			<Output class="DataObjects" type="HistorySet">synHist</Output>
+		</MultiRun>
+		<IOStep name='write'>
+			<Input class='DataObjects' type="HistorySet">synHist</Input>
+			<Output class='OutStreams' type="Print">windHistories</Output>
+		</IOStep>
+	</Steps>
+
+</Simulation>

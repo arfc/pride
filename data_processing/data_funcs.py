@@ -1,4 +1,7 @@
 import re
+import numba as nb
+import numpy as np
+import pandas as pd
 
 # ===================================================================
 # Useful functions
@@ -48,7 +51,7 @@ def to_float(dataframe, column):
 
         if isfloat(value):
             float_df.at[index, column] = float(value)
-        elif (type(value) == str):
+        elif (isinstance(value, str)):
             value_float = re.findall(r"[-+]?\d*\.\d+|\d+", value)
             # value_float = [i for i in value.split() if i.isdigit()]
             if len(value_float) > 0:
@@ -60,3 +63,40 @@ def to_float(dataframe, column):
 
     float_df[column] = float_df[column].astype(float)
     return float_df
+
+
+# @nb.jit
+def make_increasing(data, sort=False, strict=True):
+    """
+    This function accepts a dataset or series that is not strictly
+    increasing and forces it to be increasing.
+
+    Parameters:
+    -----------
+    data : array or array-like
+        The data you want to make monotonically increasing.
+    sort : boolean, optional
+        Indicates whether the data needs to be sorted. Default is False.
+    strict : boolean, optional
+        Indicates if the data should be strictly increasing or not.
+        Example: [1,1,2,3,4,5,5] is NOT strictly increasing because it
+        has repeated values.
+
+    Returns:
+    --------
+    data_inc : numpy array, array, or array-like
+        The monotonically increasing data.
+    """
+
+    if (strict is True) and (sort is False):
+        for i in range(1, len(data)):
+            prev_value = data[i - 1]
+            curr_value = data[i]
+            if curr_value > prev_value:
+                continue
+            else:
+                while curr_value <= prev_value:
+                    curr_value = curr_value + 0.000001
+                data[i] = (round(curr_value, 6))
+
+    return data
