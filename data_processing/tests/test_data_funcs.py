@@ -101,7 +101,7 @@ def test_make_increasing1():
     increasing = all(i < j for i, j in zip(inc_data, inc_data[1:]))
     old_mean = single_digits.mean()
     new_mean = inc_data.mean()
-    same_stats = abs(old_mean - new_mean) < 0.1
+    same_stats = abs(old_mean - new_mean)/abs(old_mean) < 0.01
     assert increasing and same_stats
 
 
@@ -111,10 +111,8 @@ def test_make_increasing2():
     """
 
     inc_data = make_increasing(repeat_vals, sort=False, strict=True)
-    print(inc_data)
-    print(repeat_vals)
     increasing = all(i < j for i, j in zip(inc_data, inc_data[1:]))
     old_mean = np.array(repeat_vals).mean()
     new_mean = np.array(inc_data).mean()
-    same_stats = abs(old_mean - new_mean) < 0.1
+    same_stats = abs(old_mean - new_mean)/abs(old_mean) < 0.01
     assert increasing and same_stats
