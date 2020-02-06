@@ -11,19 +11,22 @@
 
 	<!-- FILES -->
 	<Files>
-		<Input name='typicalWind'>./TypicalSolar.csv</Input>
+		<Input name='typicalWind'>./TypicalWind.csv</Input>
 	</Files>
 
 
 	<!-- MODELS -->
 	<Models>
 		<ROM name='armaROM' subType='ARMA'>
-			<Target>time,power_data,power_norm</Target>
+			<Target>time,power,u_ex</Target>
 			<Features>scaling</Features>
+			<ZeroFilter>power</ZeroFilter>
 			<pivotParameter>time</pivotParameter>
-			<Fourier>31536000,86400, 3600</Fourier>
-			<P>2</P>
-			<Q>0</Q>
+			<correlate>power,u_ex</correlate>
+			<outTruncation domain="positive">power</outTruncation>
+			<Fourier>31536000, 604800, 86400, 10800</Fourier>
+			<P>4</P>
+			<Q>3</Q>
 		</ROM>
 	</Models>
 
@@ -32,22 +35,11 @@
 		<MonteCarlo name="MCsampler">
 			<samplerInit>
 				<limit>10</limit>
-				<initialSeed>891</initialSeed>
+				<initialSeed>3605</initialSeed>
 			</samplerInit>
 			<constant name="scaling">1.0</constant>
-<!-- 			<variable name="power_data" shape="8760">
-				<distribution>norm</distribution>
-			</variable> -->
 		</MonteCarlo>
 	</Samplers>
-
-	<!-- DISTRIBUTIONS -->
-	<Distributions>
-		<Normal name="norm">
-			<mean>891.75</mean>
-			<sigma>1324.26</sigma>
-		</Normal>
-	</Distributions>
 
 	<!-- OUTSTREAMS -->
 	<OutStreams>
@@ -69,14 +61,14 @@
 	    </PointSet>
 		<HistorySet name='typHist'>
 			<Input>scaling</Input>
-			<Output>power_data,power_norm</Output>
+			<Output>power,u_ex</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
 		<HistorySet name="synHist">
 			<Input>scaling</Input>
-			<Output>power_data,power_norm</Output>
+			<Output>power,u_ex</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
