@@ -54,7 +54,7 @@
 
 	<!-- OUTSTREAMS -->
 	<OutStreams>
-		<Print name='steam`Histories'>
+		<Print name='steamHistories'>
 			<type>csv</type>
 			<source>synHist</source>
 		</Print>
