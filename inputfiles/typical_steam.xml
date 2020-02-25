@@ -6,7 +6,7 @@
 	</RunInfo>
 
 	<Files>
-		<Input name='demand_data'>./annual_steam_H.csv</Input>
+		<Input name='kw_data'>./annual_steam_H.csv</Input>
 	</Files>
 
 	<Models>
@@ -28,14 +28,14 @@
 	<DataObjects>
 		<HistorySet name='raw_power'>
 			<Input>scaling</Input>
-			<Output>time,demand</Output>
+			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
 		<HistorySet name='typicalDemand'>
 			<Input>scaling</Input>
-			<Output>time,demand</Output>
+			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
@@ -44,7 +44,7 @@
 
 	<Steps>
 		<IOStep name='read'>
-			<Input class='Files' type=''>demand_data</Input>
+			<Input class='Files' type=''>kw_data</Input>
 			<Output class='DataObjects' type='HistorySet'>raw_power</Output>
 		</IOStep>
 		<PostProcess name='get_history'>
