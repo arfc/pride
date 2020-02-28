@@ -1,0 +1,107 @@
+<Simulation verbosity='debug'>
+
+	<!-- RUNINFO -->
+	<RunInfo>
+		<WorkingDir>../../data/</WorkingDir>
+		<!-- UNCOMMENT TOP SEQUENCE FOR ROM METADATA -->
+		<!-- <Sequence>read, trainARMA, romMeta, sampleARMA, write</Sequence> -->
+		<Sequence>read, trainARMA, sampleARMA, write</Sequence>
+		<batchSize>1</batchSize>
+	</RunInfo>
+
+	<!-- FILES -->
+	<Files>
+		<Input name='typicalWind'>./TypicalRailSplitter.csv</Input>
+	</Files>
+
+
+	<!-- MODELS -->
+	<Models>
+		<ROM name='armaROM' subType='ARMA'>
+			<Target>time,mw,u</Target>
+			<Features>scaling</Features>
+			<ZeroFilter>mw</ZeroFilter>
+			<pivotParameter>time</pivotParameter>
+			<correlate>mw,u</correlate>
+			<outTruncation domain="positive">mw</outTruncation>
+			<Fourier>31536000, 604800, 86400, 10800</Fourier>
+			<P>4</P>
+			<Q>3</Q>
+		</ROM>
+	</Models>
+
+	<!-- SAMPLERS -->
+	<Samplers>
+		<MonteCarlo name="MCsampler">
+			<samplerInit>
+				<limit>10</limit>
+				<initialSeed>3605</initialSeed>
+			</samplerInit>
+			<constant name="scaling">1.0</constant>
+		</MonteCarlo>
+	</Samplers>
+
+	<!-- OUTSTREAMS -->
+	<OutStreams>
+		<Print name='RailSplitterHistories'>
+			<type>csv</type>
+			<source>synHist</source>
+		</Print>
+	    <Print name="romMeta">
+	      <type>csv</type>
+	      <source>romMeta</source>
+	    </Print>
+	</OutStreams>
+
+	<!-- DATA OBJECTS -->
+	<DataObjects>
+	    <PointSet name="inputPlaceHolder">
+	      <Input>scaling</Input>
+	      <Output>OutputPlaceHolder</Output>
+	    </PointSet>
+		<HistorySet name='typHist'>
+			<Input>scaling</Input>
+			<Output>mw,u</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+		<HistorySet name="synHist">
+			<Input>scaling</Input>
+			<Output>mw,u</Output>
+			<options>
+				<pivotParameter>time</pivotParameter>
+			</options>
+		</HistorySet>
+	    <DataSet name="romMeta"/>
+	</DataObjects>
+
+	<!-- STEPS -->
+	<Steps>
+		<IOStep name='read'>
+			<Input class='Files' type=''>typicalWind</Input>
+			<Output class='DataObjects' type='HistorySet'>typHist</Output>
+		</IOStep>
+		<RomTrainer name="trainARMA">
+			<Input class="DataObjects" type="HistorySet">typHist</Input>
+			<Output class="Models" type="ROM">armaROM</Output>
+		</RomTrainer>
+		<!-- UNCOMMENT THIS IOSTEP FOR ROM METADATA -->
+<!-- 	    <IOStep name="romMeta">
+	      <Input class="Models" type="ROM">armaROM</Input>
+	      <Output class="DataObjects" type="DataSet">romMeta</Output>
+	      <Output class="OutStreams" type="Print">romMeta</Output>
+	    </IOStep> -->
+		<MultiRun name='sampleARMA'>
+			<Input class="DataObjects" type="PointSet">inputPlaceHolder</Input>
+			<Model class="Models" type="ROM">armaROM</Model>
+			<Sampler class="Samplers" type="MonteCarlo">MCsampler</Sampler>
+			<Output class="DataObjects" type="HistorySet">synHist</Output>
+		</MultiRun>
+		<IOStep name='write'>
+			<Input class='DataObjects' type="HistorySet">synHist</Input>
+			<Output class='OutStreams' type="Print">RailSplitterHistories</Output>
+		</IOStep>
+	</Steps>
+
+</Simulation>
