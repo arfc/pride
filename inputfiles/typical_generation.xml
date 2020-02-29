@@ -6,7 +6,7 @@
 	</RunInfo>
 
 	<Files>
-		<Input name='power_data'>./annual_wind_H.csv</Input>
+		<Input name='demand_data'>./annual_generation_H.csv</Input>
 	</Files>
 
 	<Models>
@@ -19,23 +19,23 @@
 	</Models>
 
 	<OutStreams>
-		<Print name='TypicalWind'>
+		<Print name='TypicalGeneration'>
 			<type>csv</type>
-			<source>typicalWindPower</source>
+			<source>typicalGeneration</source>
 		</Print>
 	</OutStreams>
 
 	<DataObjects>
 		<HistorySet name='raw_power'>
 			<Input>scaling</Input>
-			<Output>time,power,u_ex</Output>
+			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
 		</HistorySet>
-		<HistorySet name='typicalWindPower'>
+		<HistorySet name='typicalGeneration'>
 			<Input>scaling</Input>
-			<Output>time,power,u_ex</Output>
+			<Output>time,kw</Output>
 			<options>
 				<pivotParameter>time</pivotParameter>
 			</options>
@@ -44,17 +44,19 @@
 
 	<Steps>
 		<IOStep name='read'>
-			<Input class='Files' type=''>power_data</Input>
+			<Input class='Files' type=''>demand_data</Input>
 			<Output class='DataObjects' type='HistorySet'>raw_power</Output>
 		</IOStep>
 		<PostProcess name='get_history'>
 			<Input class='DataObjects' type='HistorySet'>raw_power</Input>
 			<Model class='Models' type='PostProcessor'>typicalHistory</Model>
-			<Output class='DataObjects' type='HistorySet'>typicalWindPower</Output>
+			<Output class='DataObjects' type='HistorySet'>typicalGeneration</Output>
 		</PostProcess>
 		<IOStep name='write'>
-			<Input class='DataObjects' type='HistorySet'>typicalWindPower</Input>
-			<Output class='OutStreams' type='Print'>TypicalWind</Output>
+			<Input class='DataObjects' type='HistorySet'>typicalGeneration</Input>
+			<Output class='OutStreams' type='Print'>TypicalGeneration</Output>
 		</IOStep>
 	</Steps>
+
+
 </Simulation>
