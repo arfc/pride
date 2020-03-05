@@ -65,7 +65,10 @@ The value for peak output is based on the UIUC wind power purchase agreement \ci
 \end{align}
 These values were obtained from the iSEE facts sheet about the UIUC solar farm \cite{white_solar_2017}. \\
 
-The steam demand is given in units of klbs/hr. APP currently generates steam at both 850 psi and 325 psi \cite{noauthor_abbott_nodate}. The steam demand does not distinguish between these two pressures, so we assume that all of the steam generated is at 850 psi. The inlet temperature is $120^\circ$C and exits the boilers at $399^\circ$C \cite{affiliated_engineers_inc_utilities_2015}. We can convert the steam flow rate at this pressure to thermal power by 
+The steam demand is given in units of klbs/hr. APP currently generates steam at both 850 psi and 325 psi \cite{noauthor_abbott_nodate}.
+The steam demand does not distinguish between these two pressures, so we assume that all of the steam generated is at 850 psi.
+The inlet temperature is $120^\circ$C and exits the boilers at $399^\circ$C \cite{affiliated_engineers_inc_utilities_2015}.
+We can convert the steam flow rate at this pressure to thermal power by 
 
 \begin{align}
 	P_{th} &= \dot{m}_{steam}c\Delta T \mbox{ [$MW_{th}$]}\\
