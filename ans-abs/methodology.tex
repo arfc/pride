@@ -81,7 +81,17 @@ We can convert the steam flow rate at this pressure to thermal power by
 \subsection{Dispatch Model}
 
 The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}. The net demand is defined by 
-Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy the campus grid demand. This can never happen with the current installed renewable capacity at UIUC. Then a hypothetical micro-reactor will produce electricity to the grid. Two assumptions will be made: First, the micro-reactor will only produce electricity and not co-generate like APP; second, the micro-reactor will operate at 100\% capacity all of the time. This second assumption is a real possibility given the range of sizes we are investigating. If the reactor can meet and exceed the net demand then the dispatch model will attempt to store the surplus in the campus chilled water system. If the chilled water tank is full, then the surplus must be sold back to the grid operator (MISO) and a penalty will be incurred. When the reactor cannot meet the electric demand, APP will produce electricity to fill the difference. UIUC will rely on APP for load following because natural gas boilers can, currently, ramp more quickly than nuclear reactors. If either the demand is not covered or all surplus power is not used then a penalty is incurred. The penalty is given by \cite{baker_optimal_2018}
+Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy the campus grid demand.
+This can never happen with the current installed renewable capacity at UIUC.
+Then a hypothetical micro-reactor will produce electricity to the grid.
+Two assumptions will be made: First, the micro-reactor will only produce electricity and not co-generate like APP; second, the micro-reactor will operate at 100\% capacity all of the time.
+This second assumption is a real possibility given the range of sizes we are investigating.
+If the reactor can meet and exceed the net demand then the dispatch model will attempt to store the surplus in the campus chilled water system.
+If the chilled water tank is full, then the surplus must be sold back to the grid operator (MISO) and a penalty will be incurred.
+When the reactor cannot meet the electric demand, APP will produce electricity to fill the difference.
+UIUC will rely on APP for load following because natural gas boilers can, currently, ramp more quickly than nuclear reactors.
+If either the demand is not covered or all surplus power is not used then a penalty is incurred.
+The penalty is given by \cite{baker_optimal_2018}
 \begin{align}
  	p &= \sum_h^{8760} \left(0.4699e^{0.10141\Delta E}\right)\\
  	\intertext{where }\\
