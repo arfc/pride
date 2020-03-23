@@ -1,63 +1,66 @@
-import numpy as np 
+import numpy as np
 
 
-def abbott_elec(): 
+def abbott_elec():
 	"""
 	This function returns the price per kWh at APP
 
 	Returns:
 	--------
 	per_kwh : float
-		The price in dollars per kWh for electricity produced 
+		The price in dollars per kWh for electricity produced
 		by APP
 	"""
-	per_kwh = 0.08 # [$/kWh]
+	per_kwh = 0.08  # [$/kWh]
 
-	return 
+	return
+
 
 def to_kwh(m):
 	"""
 	This function converts a mass flow rate in klbs/hr of steam
-	to an energy in kWh. Known values are currently hard coded. 
-	
+	to an energy in kWh. Known values are currently hard coded.
+
 	Parameters:
 	-----------
 	m : float
 		This is the mass of Abbott steam in klbs/hr
-	
+
 	Returns:
 	--------
 	kwh : float
-		The energy equivalent in kWh thermal. 
+		The energy equivalent in kWh thermal.
 	"""
 
-	cp = 4243.5 # specific heat of water [J/ kg K]
-	dT = 179 # change in steam temperature [deg C]
-	h_in = 196 # inlet enthalpy [BTU/lb]
-	h_out = 1368 # outlet enthalpy [BTU/lb]
+	cp = 4243.5  # specific heat of water [J/ kg K]
+	dT = 179  # change in steam temperature [deg C]
+	h_in = 196  # inlet enthalpy [BTU/lb]
+	h_out = 1368  # outlet enthalpy [BTU/lb]
 
 	# times 0.29307107 to convert from BTU/hr to kilowatts
-	kwh = (m*(h_out-h_in))*0.29307107
+	kwh = (m * (h_out - h_in)) * 0.29307107
 	return kwh
+
 
 def abbott_steam():
 	"""
 	This function returns the price per kwh thermal when that
-	power is used to produce steam at APP. 
+	power is used to produce steam at APP.
 
 	Returns:
 	--------
 	per_kwh : float
-		The price per thermal kwh in dollars. 
+		The price per thermal kwh in dollars.
 	"""
 
-	per_klb = 20 # dollars per klb of steam
+	per_klb = 20  # dollars per klb of steam
 
-	kwh_eq = to_kwh(1) # kwh equivalent of steam
+	kwh_eq = to_kwh(1)  # kwh equivalent of steam
 
-	per_kwh = per_klb/kwh_eq
-	
+	per_kwh = per_klb / kwh_eq
+
 	return per_kwh
+
 
 def solar_ppa():
 	"""
@@ -67,11 +70,12 @@ def solar_ppa():
 	Returns:
 	--------
 	per_kwh : float
-		The price per electric kWh in dollars. 
+		The price per electric kWh in dollars.
 	"""
-	per_kwh = 0.196 # [$/kWh] 
+	per_kwh = 0.196  # [$/kWh]
 
 	return per_kwh
+
 
 def wind_ppa():
 		"""
@@ -81,7 +85,7 @@ def wind_ppa():
 	Returns:
 	--------
 	per_kwh : float
-		The price per electric kWh in dollars. 
+		The price per electric kWh in dollars.
 	"""
 	per_kwh = 0.0384 # [$/kWh]
 
