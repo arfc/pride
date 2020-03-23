@@ -112,6 +112,9 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 		Where 'abbott_th' refers to thermal capacity from APP and 
 		'abbott_e' refers to electricity production. 
 
+	eta : float
+		The thermal to electric conversion efficiency. Default is 0.33
+		
 	Returns: 
 	--------
 	offset : float
