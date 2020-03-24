@@ -31,7 +31,6 @@ def to_kwh(m):
 	kwh : float
 		The energy equivalent in kWh thermal.
 	"""
-
 	cp = 4243.5  # specific heat of water [J/ kg K]
 	dT = 179  # change in steam temperature [deg C]
 	h_in = 196  # inlet enthalpy [BTU/lb]
