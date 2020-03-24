@@ -50,7 +50,6 @@ def abbott_steam():
 	per_kwh : float
 		The price per thermal kwh in dollars.
 	"""
-
 	per_klb = 20  # dollars per klb of steam
 	kwh_eq = to_kwh(1)  # kwh equivalent of steam
 	per_kwh = per_klb / kwh_eq
