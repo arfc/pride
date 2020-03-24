@@ -12,7 +12,6 @@ def abbott_elec():
 		by APP
 	"""
 	per_kwh = 0.08  # [$/kWh]
-
 	return
 
 
