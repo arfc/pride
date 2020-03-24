@@ -120,7 +120,6 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 		The number dollars required to produce an amount of energy
 		equivalent to some reactor by some other method.
 	"""
-
 	use_switcher = {
 	'electricity': capacity*cf*lifetime*eta, 
 	'steam':capacity*cf*lifetime,
