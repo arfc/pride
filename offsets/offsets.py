@@ -55,7 +55,6 @@ def abbott_steam():
 
 	per_klb = 20  # dollars per klb of steam
 	kwh_eq = to_kwh(1)  # kwh equivalent of steam
-
 	per_kwh = per_klb / kwh_eq
 
 	return per_kwh
