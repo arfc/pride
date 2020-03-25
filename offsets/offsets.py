@@ -119,6 +119,14 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 		The number dollars required to produce an amount of energy
 		equivalent to some reactor by some other method.
 	"""
+	allowed_cases = {
+	'electricity':['solar','wind', 'abbott_e'],
+	'steam':['abbott_th']
+	}
+
+	if replacing not in allowed_cases[use]:
+		raise IndexError(f'{replacing} is not an allowed case in {allowed_cases[use]}')
+
 	use_switcher = {
 	'electricity': capacity*cf*lifetime*eta, 
 	'steam':capacity*cf*lifetime,
