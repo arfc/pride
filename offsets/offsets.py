@@ -12,7 +12,7 @@ def abbott_elec():
 		by APP
 	"""
 	per_kwh = 0.08  # [$/kWh]
-	return
+	return per_kwh
 
 
 def to_kwh(m):
@@ -72,7 +72,7 @@ def solar_ppa():
 
 
 def wind_ppa():
-		"""
+	"""
 	This function returns the price per kwh of electricity
 	when it is produced by solar power at the UIUC solar farm.
 
@@ -81,7 +81,7 @@ def wind_ppa():
 	per_kwh : float
 		The price per electric kWh in dollars.
 	"""
-	per_kwh = 0.0384 # [$/kWh]
+	per_kwh = 0.0384  # [$/kWh]
 
 	return per_kwh
 
@@ -125,7 +125,7 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 	}
 
 	if replacing not in allowed_cases[use]:
-		raise IndexError(f'{replacing} is not an allowed case in {allowed_cases[use]}')
+		raise IndexError(f'{replacing} for {use} is not an allowed case.')
 
 	use_switcher = {
 	'electricity': capacity*cf*lifetime*eta, 
