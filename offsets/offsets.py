@@ -127,6 +127,9 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
     if replacing not in allowed_cases[use]:
         raise IndexError(f'{replacing} for {use} is not an allowed case.')
 
+    hrs_per_year = 365*24
+    lifetime = lifetime*hrs_per_year
+
     use_switcher = {
     'electricity': capacity*cf*lifetime*eta, 
     'steam':capacity*cf*lifetime,
