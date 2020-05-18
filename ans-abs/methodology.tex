@@ -1,6 +1,11 @@
 \section{Methodology}
 
-In this work we use and extend the methodology described in Baker et. al using the \texttt{RAVEN} framework \cite{baker_optimal_2018,alfonsi_raven_2016}. This methodology allows for empirical quantification of energy system flexibility. Baker et. al used a fixed amount of nuclear power production from a small modular reactor (300 MWe) and varied the penetration of VRE in the form of wind power. They also included grid flexibility in the form of a fixed amount of battery storage. UIUC has wind and solar power purchase agreements that fix the amount of VRE the campus receives. Rather than fixing the nuclear power production, this methodology will be extended to search for the optimal size of a micro-reactor for the campus. \\
+In this work we use and extend the methodology described in Baker et. al using the \texttt{RAVEN} framework \cite{baker_optimal_2018,alfonsi_raven_2016}.
+This methodology allows for empirical quantification of energy system flexibility.
+Baker et. al used a fixed amount of nuclear power production from a small modular reactor (300 MWe) and varied the penetration of VRE in the form of wind power.
+They also included grid flexibility in the form of a fixed amount of battery storage. UIUC has wind and solar power purchase agreements that fix the amount of VRE the campus receives.
+Rather than fixing the nuclear power production, this methodology will be extended to search for the optimal size of a micro-reactor for the campus.
+Additionally, the reactor will serve as baseload for steam demand with excess thermal power diverted to generate electricity.\\
 There are three main steps to this methodology \cite{baker_optimal_2018}: 
 
 \begin{enumerate}
@@ -58,12 +63,41 @@ The value for peak output is based on the UIUC wind power purchase agreement \ci
 	\gamma &=\mbox{ temperature coefficient (0.0045)}\nonumber\\
 	\tau &=\mbox{ transmittance of the PV module}\nonumber
 \end{align}
-These values were obtained from the iSEE facts sheet about the UIUC solar farm \cite{white_solar_2017}. 
+These values were obtained from the iSEE facts sheet about the UIUC solar farm \cite{white_solar_2017}. \\
+
+The steam demand is given in units of klbs/hr. APP currently generates steam at both 850 psi and 325 psi \cite{noauthor_abbott_nodate}.
+The steam demand does not distinguish between these two pressures, so we assume that all of the steam generated is at 850 psi.
+The inlet temperature is $120^\circ$C and exits the boilers at $399^\circ$C \cite{affiliated_engineers_inc_utilities_2015}.
+We can convert the steam flow rate at this pressure to thermal power by 
+
+\begin{align}
+	P_{th} &= \dot{m}_{steam}c\Delta T \mbox{ [$MW_{th}$]}\\
+\intertext{where}
+	\dot{m} &= \mbox{ steam flow rate [kg/hr]}\nonumber\\
+	c &= \mbox{ specific heat of water [J/kg K]}\nonumber\\
+	\Delta T &= \mbox{ the change in temperature [K]}\nonumber
+\end{align}
 
 \subsection{Dispatch Model}
 
 The dispatch model is similar to that used by Baker et. al \cite{baker_optimal_2018}. The net demand is defined by 
-Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy the campus grid demand. This can never happen with the current installed renewable capacity at UIUC. Then a hypothetical micro-reactor will produce electricity to the grid. Two assumptions will be made: First, the micro-reactor will only produce electricity and not co-generate like APP; second, the micro-reactor will operate at 100\% capacity all of the time. This second assumption is a real possibility given the range of sizes we are investigating. If the reactor can meet and exceed the net demand then the dispatch model will attempt to store the surplus in the campus chilled water system. If the chilled water tank is full, then the surplus must be sold back to the grid operator (MISO) and a penalty will be incurred. When the reactor cannot meet the electric demand, APP will produce electricity to fill the difference. UIUC will rely on APP for load following because natural gas boilers can, currently, ramp more quickly than nuclear reactors. If either the demand is not covered or all surplus power is not used then a penalty is incurred.
+Eq. \ref{eqn:net-demand}. The dispatch model first checks if renewables satisfy the campus grid demand.
+This can never happen with the current installed renewable capacity at UIUC.
+Then a hypothetical micro-reactor will produce electricity to the grid.
+Two assumptions will be made: First, the micro-reactor will only produce electricity and not co-generate like APP; second, the micro-reactor will operate at 100\% capacity all of the time.
+This second assumption is a real possibility given the range of sizes we are investigating.
+If the reactor can meet and exceed the net demand then the dispatch model will attempt to store the surplus in the campus chilled water system.
+If the chilled water tank is full, then the surplus must be sold back to the grid operator (MISO) and a penalty will be incurred.
+When the reactor cannot meet the electric demand, APP will produce electricity to fill the difference.
+UIUC will rely on APP for load following because natural gas boilers can, currently, ramp more quickly than nuclear reactors.
+If either the demand is not covered or all surplus power is not used then a penalty is incurred.
+The penalty is given by \cite{baker_optimal_2018}
+\begin{align}
+ 	p &= \sum_h^{8760} \left(0.4699e^{0.10141\Delta E}\right)\\
+ 	\intertext{where }\\
+ 	\Delta E &= \mbox{ $P_{KWh} - netDemand$}\nonumber
+\end{align} 
+The penalty function is applied to a given reactor size and is not reflected in the LCOE. If a reactor is appropriately sized, it will not incur a penalty. 
 \begin{figure}[H]
 	\centering
 	\label{fig:dispatch-model}
