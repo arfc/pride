@@ -8,6 +8,19 @@ Multiple scenarios will be addressed:
 3. Increasing penetration of variable renewable energy sources.
 4. Add grid flexibility in the form of H2 and thermal storage.
 
+## Instructions to Run TEMOA
+TEMOA is an open source modeling tool available on GitHub (link). Follow the installation instructions here (link). 
+
+After creating a database in sql, navigate to the directory with your database:
+
+``sqlite3 [filename].sqlite < [filename].sql``
+
+if you don't have sqlite installed, run:
+
+``sudo apt-get install sqlite``
+
+TEMOA models can be run from the command line, current iterations use the online model platform at ``model.temoacloud.com``.
+
 ## Timeline (approximate):
 2/14/20 : The optimal reactor size for scenario one (basic recommendation).
 
