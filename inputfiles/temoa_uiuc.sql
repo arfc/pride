@@ -86,8 +86,8 @@ INSERT INTO "technologies" VALUES('HEAT', 'p', 'steam', 'heating', 'steam delive
 INSERT INTO "technologies" VALUES('COOL', 'p', 'chwater', 'cooling', 'chilled water delivery');
 INSERT INTO "technologies" VALUES('CHILL', 'p', 'chwater', 'water chillers', 'chilled water');
 INSERT INTO "technologies" VALUES('CWS', 'ps', 'chwater', 'chilled water storage', 'chilled water');
--- INSERT INTO "technologies" VALUES('WIND', 'p', 'electric', 'rail splitter wind farm', 'renewable');
--- INSERT INTO "technologies" VALUES('SOLAR', 'p', 'electric', 'south phoenix solar', 'renewable');
+INSERT INTO "technologies" VALUES('WIND', 'p', 'electric', 'rail splitter wind farm', 'renewable');
+INSERT INTO "technologies" VALUES('SOLAR', 'p', 'electric', 'south phoenix solar', 'renewable');
 
 CREATE TABLE commodities (
   comm_name text primary key,
@@ -217,21 +217,21 @@ CREATE TABLE Demand (
    PRIMARY KEY(periods, demand_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(demand_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "Demand" VALUES (2005, 'UELC', 763.7,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2010, 'UELC', 783.3,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2005, 'UELC', 763.7,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2010, 'UELC', 783.3,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2015, 'UELC', 803.4,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2020, 'UELC', 823.5,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2025, 'UELC', 844.1,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2005, 'USTM', 393.9,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2025, 'UELC', 844.1,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2005, 'USTM', 393.9,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2010, 'USTM', 404.3,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2015, 'USTM', 414.7,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2015, 'USTM', 414.7,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2020, 'USTM', 425.1,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2025, 'USTM', 435.6,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2025, 'USTM', 435.6,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2005, 'UCHW', 807.0,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2010, 'UCHW', 826.0,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2015, 'UCHW', 830.0,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2015, 'UCHW', 830.0,'thermal GWh','');
 INSERT INTO "Demand" VALUES (2020, 'UCHW', 847.0,'thermal GWh','');
--- INSERT INTO "Demand" VALUES (2025, 'UCHW', 858.0,'thermal GWh','');
+INSERT INTO "Demand" VALUES (2025, 'UCHW', 858.0,'thermal GWh','');
 
 CREATE TABLE TechInputSplit (
    periods integer,
@@ -466,58 +466,58 @@ INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2005,'GAS',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2010,'GAS',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2015,'GAS',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2020,'GAS',1.00,'');
--- INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2025,'GAS',1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos','IMPNATGAS',2025,'GAS',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPSOL',2015,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPSOL',2020,'ELC',1.00,'');
--- INSERT INTO "Efficiency" VALUES('ethos','IMPSOL',2025,'ELC',1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos','IMPSOL',2025,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPWIND',2015,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPWIND',2020,'ELC',1.00,'');
--- INSERT INTO "Efficiency" VALUES('ethos','IMPWIND',2025,'ELC',1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos','IMPWIND',2025,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2005,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2010,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2015,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2020,'ELC',1.00,'');
--- INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2025,'ELC',1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos','IMPELC',2025,'ELC',1.00,'');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2005,'ELC',0.33,'# Efficiency 33%');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2010,'ELC',0.33,'# Efficiency 33%');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2015,'ELC',0.33,'# Efficiency 33%');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2020,'ELC',0.33,'# Efficiency 33%');
--- INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2025,'ELC',0.33,'# Efficiency 33%');
+INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2025,'ELC',0.33,'# Efficiency 33%');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2005,'STM',1.00,'# Direct to STM');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2010,'STM',1.00,'# Direct to STM');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2015,'STM',1.00,'# Direct to STM');
 INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2020,'STM',1.00,'# Direct to STM');
--- INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2025,'STM',1.00,'# Direct to STM');
+INSERT INTO "Efficiency" VALUES('GAS','ABBOTT',2025,'STM',1.00,'# Direct to STM');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2005, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2010, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2015, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2020, 'CHW', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2025, 'CHW', 1.00,'');
-INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2005, 'USTM', 1.00,'');
-INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2010, 'USTM', 1.00,'');
-INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2015, 'USTM', 1.00,'');
-INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2020, 'USTM', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2025, 'USTM', 1.00,'');
+INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2025, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2005, 'USTM', .2,'');
+INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2010, 'USTM', .2,'');
+INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2015, 'USTM', .2,'');
+INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2020, 'USTM', .2,'');
+INSERT INTO "Efficiency" VALUES('STM', 'HEAT', 2025, 'USTM', .2,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2005, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2010, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2015, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2020, 'UELC', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2025, 'UELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2025, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2005, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2015, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2025, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2025, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2005, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2010, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2015, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2020, 'CHW', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2025, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2025, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2005, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2010, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2015, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2020, 'UCHW', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2025, 'UCHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('CHW', 'COOL', 2025, 'UCHW', 1.00,'');
 -- ========================================================================
 -- Add H2 capacity later
 -- ========================================================================
@@ -548,6 +548,8 @@ INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2015, 0.00468,'','');
 -- INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2020, 0.00468,'','');
 INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2015, 0.00864,'','');
 -- INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2020, 0.00864,'','');
+
+-- I'm noticing that this lacks existing capacity for several technologies...
 
  CREATE TABLE CostInvest (
    tech text,
