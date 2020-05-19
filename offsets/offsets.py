@@ -112,16 +112,16 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 
     eta : float
         The thermal to electric conversion efficiency. Default is 0.33
-       
+
     Returns:
     --------
     offset : float
         The number dollars required to produce an amount of energy
         equivalent to some reactor by some other method.
     """
-    allowed_cases = {
-    'electricity':['solar','wind', 'abbott_e'],
-    'steam':['abbott_th']
+    allowed_cases = { 
+            'electricity':['solar','wind', 'abbott_e'],
+            'steam':['abbott_th']
     }
 
     if replacing not in allowed_cases[use]:
@@ -131,18 +131,18 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
     lifetime = lifetime*hrs_per_year
 
     use_switcher = {
-    'electricity': capacity*cf*lifetime*eta,
-    'steam':capacity*cf*lifetime,
-    'hydrogen': np.nan
+            'electricity': capacity*cf*lifetime*eta,
+            'steam':capacity*cf*lifetime,
+            'hydrogen': np.nan
     }
 
     energy_total = use_switcher[use]
 
     alternative_switcher = {
-    'solar': solar_ppa(),
-    'wind': wind_ppa(),
-    'abbott_th': abbott_steam(),
-    'abbott_e': abbott_elec()
+            'solar': solar_ppa(),
+            'wind': wind_ppa(),
+            'abbott_th': abbott_steam(),
+            'abbott_e': abbott_elec()
     }
 
     alt_cost = alternative_switcher[replacing]
