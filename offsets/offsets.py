@@ -119,8 +119,8 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
         The number dollars required to produce an amount of energy
         equivalent to some reactor by some other method.
     """
-    allowed_cases = { 
-            'electricity': ['solar','wind', 'abbott_e'],
+    allowed_cases = {
+            'electricity': ['solar', 'wind', 'abbott_e'],
             'steam': ['abbott_th']
     }
 
