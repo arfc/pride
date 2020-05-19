@@ -120,8 +120,8 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
         equivalent to some reactor by some other method.
     """
     allowed_cases = { 
-            'electricity':['solar','wind', 'abbott_e'],
-            'steam':['abbott_th']
+            'electricity': ['solar','wind', 'abbott_e'],
+            'steam': ['abbott_th']
     }
 
     if replacing not in allowed_cases[use]:
@@ -132,7 +132,7 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
 
     use_switcher = {
             'electricity': capacity*cf*lifetime*eta,
-            'steam':capacity*cf*lifetime,
+            'steam': capacity*cf*lifetime,
             'hydrogen': np.nan
     }
 
