@@ -88,7 +88,7 @@ def wind_ppa():
 
 def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
     """
-    This function returns the cost of producing an amount of energy, 
+    This function returns the cost of producing an amount of energy,
     equivalent to a nuclear reactor with given parameters, by some other
     method.
 
@@ -97,23 +97,23 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
     capacity : float
         The thermal capacity of the nuclear reactor in [kWth]
     cf : float
-        The capacity factor of the nuclear reactor. [-] 
+        The capacity factor of the nuclear reactor. [-]
     lifetime : integer
         The energy producing lifetime of the nuclear reactor in [years]
-    use : string 
-        The desired end use of the energy produced by the nuclear reactor. 
+    use : string
+        The desired end use of the energy produced by the nuclear reactor.
         Accepted values: 'electricity', 'steam', 'hydrogen'
-        Note: 'hydrogen' is not supported, yet. 
+        Note: 'hydrogen' is not supported, yet.
     replacing : string
-        The proposed replacement for the energy produced by a reactor. 
+        The proposed replacement for the energy produced by a reactor.
         Accepted values: 'solar', 'wind', 'abbott_th', 'abbott_e'
-        Where 'abbott_th' refers to thermal capacity from APP and 
-        'abbott_e' refers to electricity production. 
+        Where 'abbott_th' refers to thermal capacity from APP and
+        'abbott_e' refers to electricity production.
 
     eta : float
         The thermal to electric conversion efficiency. Default is 0.33
-        
-    Returns: 
+       
+    Returns:
     --------
     offset : float
         The number dollars required to produce an amount of energy
@@ -131,7 +131,7 @@ def dollars_offset(capacity, cf, lifetime, use, replacing, eta=0.33):
     lifetime = lifetime*hrs_per_year
 
     use_switcher = {
-    'electricity': capacity*cf*lifetime*eta, 
+    'electricity': capacity*cf*lifetime*eta,
     'steam':capacity*cf*lifetime,
     'hydrogen': np.nan
     }
