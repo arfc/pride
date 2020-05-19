@@ -125,14 +125,14 @@ CREATE TABLE DemandSpecificDistribution (
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(demand_name) REFERENCES commodities(comm_name) );
    -- There is no reason for these numbers right now... Will be updated later.
-INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','UELC',.12,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','UELC',.06,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','UELC',.5467,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','UELC',.2733,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',.12,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',.06,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',.5467,'');
-INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',.2733,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','UELC',.12,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','UELC',.06,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','UELC',.5467,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','UELC',.2733,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',.12,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',.06,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',.5467,'');
+-- INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',.2733,'');
 
 CREATE TABLE CapacityToActivity (
    tech text primary key,
@@ -225,14 +225,14 @@ CREATE TABLE TechOutputSplit (
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
-INSERT INTO "TechOutputSplit" VALUES(2000,'ABBOTT','ELC',0.6543,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES(2010,'ABBOTT','ELC',0.6543,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES(2020,'ABBOTT','ELC',0.6543,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES(2000,'ABBOTT','STM',0.3457,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES(2010,'ABBOTT','STM',0.3457,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES(2020,'ABBOTT','STM',0.3457,'NOTES');
+-- INSERT INTO "TechOutputSplit" VALUES('2000','ABBOTT','ELC',0.65,'NOTES');
+-- INSERT INTO "TechOutputSplit" VALUES('2010','ABBOTT','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','ELC',0.65,'NOTES');
+-- INSERT INTO "TechOutputSplit" VALUES('2000','ABBOTT','STM',0.35,'NOTES');
+-- INSERT INTO "TechOutputSplit" VALUES('2010','ABBOTT','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','STM',0.35,'NOTES');
 
-
+-- possibly need a min capacity?
 CREATE TABLE MinCapacity (
    periods integer,
    tech text,
@@ -242,6 +242,7 @@ CREATE TABLE MinCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+-- INSERT INTO "MinCapacity" VALUES(2000,'ABBOTT',88,'','');
 
 
 CREATE TABLE MaxCapacity (
@@ -392,8 +393,8 @@ INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 88, 'units: MWe', 'if 100%
 INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2010, 88, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UL', 2010, 88, 'units: MWe', 'moves output from APP to UIUC');
-INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWth', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWth', 'moves output from APP to UIUC');
+INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWth', 'moves output from APP to UIUC');
 
 -- need to add an existing capacity for the heating system!
 
