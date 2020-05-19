@@ -74,6 +74,7 @@ CREATE TABLE technologies (
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
+INSERT INTO "technologies" VALUES('CWS', 'pb', 'chilled water', 'chilled water storage', 'chilled water');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
 INSERT INTO "technologies" VALUES('UC', 'p', 'university', 'university cooling', 'chilled water');
@@ -219,6 +220,8 @@ CREATE TABLE TechInputSplit (
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(input_comm) REFERENCES commodities(comm_name),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+INSERT INTO "TechInputSplit" VALUES('2020','ELC','CHILL',0.81,'NOTES');
+INSERT INTO "TechInputSplit" VALUES('2020','STM','CHILL',0.19,'NOTES');
 
 
 CREATE TABLE TechOutputSplit (
@@ -307,6 +310,7 @@ INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('UC',40,'');
+INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeTech" VALUES('CHILL',40,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
 
@@ -321,6 +325,8 @@ CREATE TABLE LifetimeProcess (
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "LifetimeProcess" VALUES('UL',2000,40,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('UH',2000,40,'#forexistingcap');
+INSERT INTO "LifetimeProcess" VALUES('UC',2000,40,'#forexistingcap');
+INSERT INTO "LifetimeProcess" VALUES('CWS',2000,40,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('CHILL',2000,40,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('ABBOTT',2000,40,'#forexistingcap');
 
@@ -332,6 +338,8 @@ CREATE TABLE LifetimeLoanTech (
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeLoanTech" VALUES('ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UH',40,'');
 
@@ -381,9 +389,12 @@ INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts st
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 -- INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2030, 'ELC', 0.33, '');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2000, 'CHW', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2000, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2000, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2010, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2020, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2000, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2010, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2020, 'UELC', 1.00,'');
@@ -393,6 +404,9 @@ INSERT INTO "Efficiency" VALUES('STM', 'UH', 2020, 'USTM', 1.00,'Convert GWth to
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2000, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2010, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2020, 'UCHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2000, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2010, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2020, 'CHW', 1.00,'');
 -- INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2030, 'UELC', 1.00,'');
 
 
@@ -415,6 +429,8 @@ INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves outp
 INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UC', 2000, 36, 'units: MWe', 'creates chilled water');
 INSERT INTO "ExistingCapacity" VALUES('UC', 2010, 36, 'units: MWe', 'creates chilled water');
+INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
+INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
 
 -- need to add an existing capacity for the heating system!
 
