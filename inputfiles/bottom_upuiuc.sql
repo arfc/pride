@@ -71,6 +71,8 @@ CREATE TABLE technologies (
   tech_category text,
   FOREIGN KEY(flag) REFERENCES technology_labels(tech_labels),
   FOREIGN KEY(sector) REFERENCES sector_labels(sector));
+INSERT INTO "technologies" VALUES('IMPWIND','r','supply', 'imported wind energy','electricity');
+INSERT INTO "technologies" VALUES('IMPSOL','r','supply', 'imported solar energy','electricity');
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
@@ -193,6 +195,8 @@ CREATE TABLE EmissionLimit  (
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
 
 
+-- There must be a demand for every year in "future," listed in time_periods
+-- Should not include years listed as "existing."
 CREATE TABLE Demand (
    periods integer,
    demand_comm text,
@@ -202,14 +206,12 @@ CREATE TABLE Demand (
    PRIMARY KEY(periods, demand_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(demand_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "Demand" VALUES(2000, 'UELC', 252, 'electric GWh', ' ');
--- INSERT INTO "Demand" VALUES(2010, 'UELC', 264.4, 'electric GWh', ' ');
 INSERT INTO "Demand" VALUES(2020, 'UELC', 1352.5, 'electric GWh', ' ');
--- INSERT INTO "Demand" VALUES(2030, 'UELC', 293.6, 'electric GWh', ' ');
 INSERT INTO "Demand" VALUES(2020, 'USTM', 154.0, 'electric GWh', ' ');
 INSERT INTO "Demand" VALUES(2020, 'UCHW', 283.1, 'electric GWh', ' ');
 
 
+-- TechInputSplit and TechOutputSplit should only include "future" time_periods.
 CREATE TABLE TechInputSplit (
    periods integer,
    input_comm text,
@@ -234,11 +236,7 @@ CREATE TABLE TechOutputSplit (
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "TechOutputSplit" VALUES('2000','ABBOTT','ELC',0.65,'NOTES');
--- INSERT INTO "TechOutputSplit" VALUES('2010','ABBOTT','ELC',0.65,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','ELC',0.65,'NOTES');
--- INSERT INTO "TechOutputSplit" VALUES('2000','ABBOTT','STM',0.35,'NOTES');
--- INSERT INTO "TechOutputSplit" VALUES('2010','ABBOTT','STM',0.35,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','STM',0.35,'NOTES');
 
 -- possibly need a min capacity?
@@ -307,6 +305,8 @@ CREATE TABLE  LifetimeTech (
    PRIMARY KEY(tech),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
+INSERT INTO "LifetimeTech" VALUES('IMPWIND',1000,'');
+INSERT INTO "LifetimeTech" VALUES('IMPSOL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('UC',40,'');
@@ -381,14 +381,18 @@ CREATE TABLE Efficiency (
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2030, 'GAS', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
--- INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2030, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2000, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 0.33,'');
@@ -407,7 +411,6 @@ INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2020, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2000, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2010, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2020, 'CHW', 1.00,'');
--- INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2030, 'UELC', 1.00,'');
 
 
 CREATE TABLE ExistingCapacity (
@@ -419,10 +422,12 @@ CREATE TABLE ExistingCapacity (
    PRIMARY KEY(tech, vintage),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
+INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2010, 8.6, 'units: MWe', 'if 100% to electricity');
+INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2010, 4.8, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 88, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2010, 88, 'units: MWe', 'if 100% to electricity');
-INSERT INTO "ExistingCapacity" VALUES('CHILL', 2000, 36, 'units: MWth', 'creates chilled water');
-INSERT INTO "ExistingCapacity" VALUES('CHILL', 2010, 36, 'units: MWth', 'creates chilled water');
+INSERT INTO "ExistingCapacity" VALUES('CHILL', 2000, 36, 'units: MWe', 'creates chilled water');
+INSERT INTO "ExistingCapacity" VALUES('CHILL', 2010, 36, 'units: MWe', 'creates chilled water');
 INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UL', 2010, 88, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves output from APP to UIUC');
@@ -434,6 +439,10 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MW
 
 -- need to add an existing capacity for the heating system!
 
+
+-- Let's add some investment costs, consider ABBOTT first.
+-- We need one entry for each optimization year, thus only 2020.
+-- It ran, but didn't change anything because existing capacity was sufficient
  CREATE TABLE CostInvest (
    tech text,
    vintage integer,
@@ -443,7 +452,7 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MW
    PRIMARY KEY(tech, vintage),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
-
+INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installing a natural gas unit');
 
   CREATE TABLE CostFixed (
    periods integer NOT NULL,
@@ -458,7 +467,11 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MW
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 
 
-
+-- Let's add a variable cost to APP
+-- The vintage is specified in existing capacity...
+-- nat gas at APP is 8 cents/ kWh
+-- perhaps I need to add costs for other tech
+-- Hold on, I forgot to add the ';'... MF
  CREATE TABLE CostVariable (
    periods integer NOT NULL,
    tech text NOT NULL,
@@ -470,6 +483,10 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MW
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
+INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2010, 0.08, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'IMPSOL', 2010, 0.19, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'IMPWIND', 2010, 0.13, 'M$/GWh', '');
 
 /*
 -------------------------------------------------------
