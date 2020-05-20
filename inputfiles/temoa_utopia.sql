@@ -42,7 +42,7 @@ INSERT INTO "sector_labels" VALUES('industrial');
 CREATE TABLE time_periods (
   t_periods integer primary key,
   flag text,
-  FOREIGN KEY(flag) REFERENCES time_period_labels(t_period_labels));  
+  FOREIGN KEY(flag) REFERENCES time_period_labels(t_period_labels));
 INSERT INTO "time_periods" VALUES(1960,'e');
 INSERT INTO "time_periods" VALUES(1970,'e');
 INSERT INTO "time_periods" VALUES(1980,'e');
@@ -93,7 +93,7 @@ INSERT INTO "technologies" VALUES('TXG','p','transport',' gasoline powered vehic
 --can include a column that designates the commodity type (physical, emissions, demand)
 CREATE TABLE commodities (
   comm_name text primary key,
-  flag text,  
+  flag text,
   comm_desc text,
   FOREIGN KEY(flag) REFERENCES commodity_labels(comm_labels));
 INSERT INTO "commodities" VALUES('ethos','p','# dummy commodity to supply inputs (makes graph easier to read)');
@@ -132,7 +132,7 @@ INSERT INTO "SegFrac" VALUES('summer','day',0.1667,'# S-D');
 INSERT INTO "SegFrac" VALUES('summer','night',0.0833,'# S-N');
 INSERT INTO "SegFrac" VALUES('winter','day',0.3333,'# W-D');
 INSERT INTO "SegFrac" VALUES('winter','night',0.1667,'# W-N');
-	
+
 CREATE TABLE DemandSpecificDistribution (
    season_name text,
    time_of_day_name text,
@@ -141,7 +141,7 @@ CREATE TABLE DemandSpecificDistribution (
    dds_notes text,
    PRIMARY KEY(season_name, time_of_day_name, demand_name),
    FOREIGN KEY(season_name) REFERENCES time_season(t_season),
-   FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day), 
+   FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(demand_name) REFERENCES commodities(comm_name) );
 INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','RH',.12,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','RH',.06,'');
@@ -199,10 +199,10 @@ CREATE TABLE EmissionActivity  (
    emis_act_units text,
    emis_act_notes text,
    PRIMARY KEY(emis_comm, input_comm, tech, vintage, output_comm),
-   FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name), 
-   FOREIGN KEY(input_comm) REFERENCES commodities(comm_name), 
+   FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name),
+   FOREIGN KEY(input_comm) REFERENCES commodities(comm_name),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
-   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods), 
+   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 INSERT INTO "EmissionActivity" VALUES('co2','ethos','IMPDSL1',1990,'DSL',0.075,'','');
 INSERT INTO "EmissionActivity" VALUES('co2','ethos','IMPGSL1',1990,'GSL',0.075,'','');
@@ -277,7 +277,7 @@ CREATE TABLE TechOutputSplit (
  INSERT INTO "TechOutputSplit" VALUES('2000','SRE','DSL',0.7,'');
  INSERT INTO "TechOutputSplit" VALUES('2010','SRE','DSL',0.7,'');
  INSERT INTO "TechOutputSplit" VALUES('1990','SRE','GSL',0.3,'');
- INSERT INTO "TechOutputSplit" VALUES('2000','SRE','GSL',0.3,'');	
+ INSERT INTO "TechOutputSplit" VALUES('2000','SRE','GSL',0.3,'');
  INSERT INTO "TechOutputSplit" VALUES('2010','SRE','GSL',0.3,'');
 
 CREATE TABLE MinCapacity (
@@ -293,7 +293,7 @@ INSERT INTO "MinCapacity" VALUES(1990,'E31',0.13,'','');
 INSERT INTO "MinCapacity" VALUES(2000,'E31',0.13,'','');
 INSERT INTO "MinCapacity" VALUES(2010,'E31',0.13,'','');
 INSERT INTO "MinCapacity" VALUES(1990,'SRE',0.1,'','');
-	
+
 
 CREATE TABLE MaxCapacity (
    periods integer,
@@ -320,7 +320,7 @@ CREATE TABLE MinActivity (
    minact_notes text,
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
-   FOREIGN KEY(tech) REFERENCES technologies(tech) ); 
+   FOREIGN KEY(tech) REFERENCES technologies(tech) );
 
 CREATE TABLE MaxActivity (
    periods integer,
@@ -345,9 +345,9 @@ CREATE TABLE GrowthRateSeed (
    growthrate_seed real,
    growthrate_seed_units text,
    growthrate_seed_notes text,
-   FOREIGN KEY(tech) REFERENCES technologies(tech) );	
+   FOREIGN KEY(tech) REFERENCES technologies(tech) );
 
- 
+
 CREATE TABLE  LifetimeTech (
    tech text,
    life real,
@@ -373,7 +373,7 @@ INSERT INTO "LifetimeTech" VALUES('IMPOIL1',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPURN1',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPHYD',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPFEQ',1000,'');
-	
+
 
 CREATE TABLE LifetimeProcess (
    tech text,
@@ -388,7 +388,7 @@ INSERT INTO "LifetimeProcess" VALUES('TXD',1970,30,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('TXD',1980,30,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('TXG',1970,30,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('TXG',1980,30,'#forexistingcap');
-	
+
 CREATE TABLE LifetimeLoanTech (
    tech text,
    loan real,
@@ -449,7 +449,7 @@ INSERT INTO "CapacityFactorTech" VALUES('winter','day','E70',0.8,'');
 INSERT INTO "CapacityFactorTech" VALUES('winter','night','E70',0.8,'');
 INSERT INTO "CapacityFactorTech" VALUES('summer','day','E70',0.8,'');
 INSERT INTO "CapacityFactorTech" VALUES('summer','night','E70',0.8,'');
-	
+
 
 CREATE TABLE CapacityFactorProcess (
    season_name text,
@@ -484,9 +484,9 @@ CREATE TABLE Efficiency (
   efficiency real check (efficiency>0),
   eff_notes text,
   PRIMARY KEY(input_comm, tech, vintage, output_comm),
-  FOREIGN KEY(input_comm) REFERENCES commodities(comm_name), 
+  FOREIGN KEY(input_comm) REFERENCES commodities(comm_name),
   FOREIGN KEY(tech) REFERENCES technologies(tech),
-  FOREIGN KEY(vintage) REFERENCES time_periods(t_periods), 
+  FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 INSERT INTO "Efficiency" VALUES('ethos','IMPDSL1',1990,'DSL',1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos','IMPGSL1',1990,'GSL',1.00,'');
@@ -539,7 +539,7 @@ INSERT INTO "Efficiency" VALUES('HCO','E01',1990,'ELC',0.32,'# 1/3.125');
  INSERT INTO "Efficiency" VALUES('OIL','SRE',1990,'GSL',1.00,'# direct translation from PRC_INP2, PRC_OUT');
  INSERT INTO "Efficiency" VALUES('OIL','SRE',2000,'GSL',1.00,'# direct translation from PRC_INP2, PRC_OUT');
  INSERT INTO "Efficiency" VALUES('OIL','SRE',2010,'GSL',1.00,'# direct translation from PRC_INP2, PRC_OUT');
- INSERT INTO "Efficiency" VALUES('DSL','TXD',1970,'TX',0.231,'# direct translation from DMD_EFF');    
+ INSERT INTO "Efficiency" VALUES('DSL','TXD',1970,'TX',0.231,'# direct translation from DMD_EFF');
  INSERT INTO "Efficiency" VALUES('DSL','TXD',1980,'TX',0.231,'# direct translation from DMD_EFF');
  INSERT INTO "Efficiency" VALUES('DSL','TXD',1990,'TX',0.231,'# direct translation from DMD_EFF');
  INSERT INTO "Efficiency" VALUES('DSL','TXD',2000,'TX',0.231,'# direct translation from DMD_EFF');
@@ -577,7 +577,7 @@ INSERT INTO "ExistingCapacity" VALUES('TXD',1970,0.4,'','');
 INSERT INTO "ExistingCapacity" VALUES('TXD',1980,0.2,'','');
 INSERT INTO "ExistingCapacity" VALUES('TXG',1970,3.1,'','');
 INSERT INTO "ExistingCapacity" VALUES('TXG',1980,1.5,'','');
- 
+
  CREATE TABLE CostInvest (
    tech text,
    vintage integer,
@@ -714,8 +714,8 @@ INSERT INTO "ExistingCapacity" VALUES('TXG',1980,1.5,'','');
  INSERT INTO "CostFixed" VALUES(2000,'TXG',2000,48,'','');
  INSERT INTO "CostFixed" VALUES(2010,'TXG',2000,48,'','');
  INSERT INTO "CostFixed" VALUES(2010,'TXG',2010,48,'','');
- 
- 
+
+
  CREATE TABLE CostVariable (
    periods integer NOT NULL,
    tech text NOT NULL,
@@ -778,7 +778,7 @@ INSERT INTO "ExistingCapacity" VALUES('TXG',1980,1.5,'','');
  INSERT INTO "CostVariable" VALUES(2010,'SRE',1990,10,'','');
  INSERT INTO "CostVariable" VALUES(2010,'SRE',2000,10,'','');
  INSERT INTO "CostVariable" VALUES(2010,'SRE',2010,10,'','');
- 
+
 /*
 -------------------------------------------------------
 Tables in this section store model outputs
@@ -788,7 +788,7 @@ Tables in this section store model outputs
 
 CREATE TABLE Output_VFlow_Out (
    scenario text,
-   sector text,   
+   sector text,
    t_periods integer,
    t_season text,
    t_day text,
@@ -798,13 +798,13 @@ CREATE TABLE Output_VFlow_Out (
    output_comm text,
    vflow_out real,
    PRIMARY KEY(scenario, t_periods, t_season, t_day, input_comm, tech, vintage, output_comm),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector), 
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
    FOREIGN KEY(t_periods) REFERENCES time_periods(t_periods),
-   FOREIGN KEY(t_season) REFERENCES time_periods(t_periods),   
+   FOREIGN KEY(t_season) REFERENCES time_periods(t_periods),
    FOREIGN KEY(t_day) REFERENCES time_of_day(t_day),
    FOREIGN KEY(input_comm) REFERENCES commodities(comm_name),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
-   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods), 
+   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name));
 
 
@@ -821,15 +821,15 @@ CREATE TABLE Output_VFlow_In (
    output_comm text,
    vflow_in real,
    PRIMARY KEY(scenario, t_periods, t_season, t_day, input_comm, tech, vintage, output_comm),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector),   
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
    FOREIGN KEY(t_periods) REFERENCES time_periods(t_periods),
-   FOREIGN KEY(t_season) REFERENCES time_periods(t_periods),   
+   FOREIGN KEY(t_season) REFERENCES time_periods(t_periods),
    FOREIGN KEY(t_day) REFERENCES time_of_day(t_day),
    FOREIGN KEY(input_comm) REFERENCES commodities(comm_name),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
-   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods), 
+   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name));
- 
+
 
 CREATE TABLE Output_V_Capacity (
    scenario text,
@@ -838,7 +838,7 @@ CREATE TABLE Output_V_Capacity (
    vintage integer,
    capacity real,
    PRIMARY KEY(scenario, tech, vintage),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector), 
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods));
 
@@ -847,17 +847,17 @@ CREATE TABLE Output_V_Capacity (
 CREATE TABLE Output_CapacityByPeriodAndTech (
    scenario text,
    sector text,
-   t_periods integer,   
+   t_periods integer,
    tech text,
    capacity real,
    PRIMARY KEY(scenario, t_periods, tech),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector), 
-   FOREIGN KEY(t_periods) REFERENCES time_periods(t_periods),   
-   FOREIGN KEY(tech) REFERENCES technologies(tech)); 
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
+   FOREIGN KEY(t_periods) REFERENCES time_periods(t_periods),
+   FOREIGN KEY(tech) REFERENCES technologies(tech));
 
 
 
-CREATE TABLE Output_Emissions (    
+CREATE TABLE Output_Emissions (
    scenario text,
    sector text,
    t_periods integer,
@@ -866,7 +866,7 @@ CREATE TABLE Output_Emissions (
    vintage integer,
    emissions real,
    PRIMARY KEY(scenario, t_periods, emissions_comm, tech, vintage),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector), 
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
    FOREIGN KEY(emissions_comm) REFERENCES EmissionActivity(emis_comm),
    FOREIGN KEY(t_periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech)
@@ -880,9 +880,9 @@ CREATE TABLE Output_Costs (
    vintage integer,
    output_cost real,
    PRIMARY KEY(scenario, output_name, tech, vintage),
-   FOREIGN KEY(sector) REFERENCES sector_labels(sector), 
-   FOREIGN KEY(tech) REFERENCES technologies(tech),   
-   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods)); 
+   FOREIGN KEY(sector) REFERENCES sector_labels(sector),
+   FOREIGN KEY(tech) REFERENCES technologies(tech),
+   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods));
 
 CREATE TABLE Output_Objective (
    scenario text,

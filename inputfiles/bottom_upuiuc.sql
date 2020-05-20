@@ -147,6 +147,7 @@ CREATE TABLE CapacityToActivity (
    c2a_notes,
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "CapacityToActivity" VALUES('ABBOTT',8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UC', 1, '');
@@ -413,6 +414,8 @@ INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2010, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2020, 'CHW', 1.00,'');
 
 
+-- I think each additional year might just ADD to existing capacity...
+-- in which case I shouldn't have APP building anything in 2010
 CREATE TABLE ExistingCapacity (
    tech text,
    vintage integer,
@@ -425,17 +428,17 @@ CREATE TABLE ExistingCapacity (
 INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2010, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2010, 4.8, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 88, 'units: MWe', 'if 100% to electricity');
-INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2010, 88, 'units: MWe', 'if 100% to electricity');
+-- INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2010, 88, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('CHILL', 2000, 36, 'units: MWe', 'creates chilled water');
-INSERT INTO "ExistingCapacity" VALUES('CHILL', 2010, 36, 'units: MWe', 'creates chilled water');
+-- INSERT INTO "ExistingCapacity" VALUES('CHILL', 2010, 36, 'units: MWe', 'creates chilled water');
 INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
-INSERT INTO "ExistingCapacity" VALUES('UL', 2010, 88, 'units: MWe', 'moves output from APP to UIUC');
+-- INSERT INTO "ExistingCapacity" VALUES('UL', 2010, 88, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves output from APP to UIUC');
-INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWe', 'moves output from APP to UIUC');
+-- INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWe', 'moves output from APP to UIUC');
 INSERT INTO "ExistingCapacity" VALUES('UC', 2000, 36, 'units: MWe', 'creates chilled water');
-INSERT INTO "ExistingCapacity" VALUES('UC', 2010, 36, 'units: MWe', 'creates chilled water');
+-- INSERT INTO "ExistingCapacity" VALUES('UC', 2010, 36, 'units: MWe', 'creates chilled water');
 INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
-INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
+-- INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
 
 -- need to add an existing capacity for the heating system!
 
@@ -453,6 +456,7 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MW
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2000, 'M$/GW', 'cost of installing a new cooling tower');
 
   CREATE TABLE CostFixed (
    periods integer NOT NULL,
@@ -470,8 +474,7 @@ INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installin
 -- Let's add a variable cost to APP
 -- The vintage is specified in existing capacity...
 -- nat gas at APP is 8 cents/ kWh
--- perhaps I need to add costs for other tech
--- Hold on, I forgot to add the ';'... MF
+-- Only add cost for each vintage...
  CREATE TABLE CostVariable (
    periods integer NOT NULL,
    tech text NOT NULL,
@@ -484,9 +487,8 @@ INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installin
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2010, 0.08, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2020, 'IMPSOL', 2010, 0.19, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2020, 'IMPWIND', 2010, 0.13, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'IMPSOL', 2010, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'IMPWIND', 2010, 0.0384, 'M$/GWh', '');
 
 /*
 -------------------------------------------------------
