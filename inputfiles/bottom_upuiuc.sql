@@ -79,10 +79,7 @@ INSERT INTO "technologies" VALUES('IMPSOL','r','supply', 'imported solar energy'
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
-<<<<<<< HEAD
-=======
 INSERT INTO "technologies" VALUES('NUKE', 'p', 'electric', 'micro nuclear power plant', 'electricity');
->>>>>>> 8da86bf... adds nuclear plant to temoa model
 INSERT INTO "technologies" VALUES('CWS', 'pb', 'chilled water', 'chilled water storage', 'chilled water');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
@@ -400,17 +397,6 @@ CREATE TABLE Efficiency (
   FOREIGN KEY(tech) REFERENCES technologies(tech),
   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
-<<<<<<< HEAD
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'');
-=======
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'pure gas import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'pure gas import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'pure gas import');
@@ -422,7 +408,6 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'pure elect
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'ELC', 0.33, 'generates electricity, no refueling');
 INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'STM', 1.00, 'generates steam, no refueling');
->>>>>>> 8da86bf... adds nuclear plant to temoa model
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'ELC', 0.33, '');
