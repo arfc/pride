@@ -76,6 +76,7 @@ INSERT INTO "technologies" VALUES('IMPSOL','r','supply', 'imported solar energy'
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
+INSERT INTO "technologies" VALUES('NUKE', 'p', 'electric', 'micro nuclear power plant', 'electricity')
 INSERT INTO "technologies" VALUES('CWS', 'pb', 'chilled water', 'chilled water storage', 'chilled water');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
@@ -207,9 +208,9 @@ CREATE TABLE Demand (
    PRIMARY KEY(periods, demand_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(demand_comm) REFERENCES commodities(comm_name) );
-INSERT INTO "Demand" VALUES(2020, 'UELC', 1352.5, 'electric GWh', ' ');
-INSERT INTO "Demand" VALUES(2020, 'USTM', 154.0, 'electric GWh', ' ');
-INSERT INTO "Demand" VALUES(2020, 'UCHW', 283.1, 'electric GWh', ' ');
+INSERT INTO "Demand" VALUES(2020, 'UELC', 375.6, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2020, 'USTM', 564.5, 'thermal GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2020, 'UCHW', 80, 'electric GWh', 'from iCAP report 2015');
 
 
 -- TechInputSplit and TechOutputSplit should only include "future" time_periods.
@@ -306,8 +307,8 @@ CREATE TABLE  LifetimeTech (
    PRIMARY KEY(tech),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
-INSERT INTO "LifetimeTech" VALUES('IMPWIND',1000,'');
-INSERT INTO "LifetimeTech" VALUES('IMPSOL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('IMPWIND',20,'');
+INSERT INTO "LifetimeTech" VALUES('IMPSOL',20,'');
 INSERT INTO "LifetimeTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('UC',40,'');
@@ -379,33 +380,33 @@ CREATE TABLE Efficiency (
   FOREIGN KEY(tech) REFERENCES technologies(tech),
   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2000, 'CHW', 0.33,'');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 0.33,'');
-INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 0.33,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2000, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2010, 'CHW', 1.00,'');
+INSERT INTO "Efficiency" VALUES('ELC', 'CHILL', 2020, 'CHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2000, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2010, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('STM', 'CHILL', 2020, 'CHW', 0.33,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2000, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2010, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2020, 'UELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('STM', 'UH', 2000, 'USTM', 1.00,'Convert GWth to demand?');
-INSERT INTO "Efficiency" VALUES('STM', 'UH', 2010, 'USTM', 1.00,'Convert GWth to demand?');
-INSERT INTO "Efficiency" VALUES('STM', 'UH', 2020, 'USTM', 1.00,'Convert GWth to demand?');
+INSERT INTO "Efficiency" VALUES('STM', 'UH', 2000, 'USTM', 1.00,'');
+INSERT INTO "Efficiency" VALUES('STM', 'UH', 2010, 'USTM', 1.00,'');
+INSERT INTO "Efficiency" VALUES('STM', 'UH', 2020, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2000, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2010, 'UCHW', 1.00,'');
 INSERT INTO "Efficiency" VALUES('CHW', 'UC', 2020, 'UCHW', 1.00,'');
@@ -427,18 +428,12 @@ CREATE TABLE ExistingCapacity (
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2010, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2010, 4.8, 'units: MWe', 'if 100% to electricity');
-INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 88, 'units: MWe', 'if 100% to electricity');
--- INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2010, 88, 'units: MWe', 'if 100% to electricity');
+INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 257, 'units: MWth', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('CHILL', 2000, 36, 'units: MWe', 'creates chilled water');
--- INSERT INTO "ExistingCapacity" VALUES('CHILL', 2010, 36, 'units: MWe', 'creates chilled water');
-INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
--- INSERT INTO "ExistingCapacity" VALUES('UL', 2010, 88, 'units: MWe', 'moves output from APP to UIUC');
-INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves output from APP to UIUC');
--- INSERT INTO "ExistingCapacity" VALUES('UH', 2010, 266, 'units: MWe', 'moves output from APP to UIUC');
-INSERT INTO "ExistingCapacity" VALUES('UC', 2000, 36, 'units: MWe', 'creates chilled water');
--- INSERT INTO "ExistingCapacity" VALUES('UC', 2010, 36, 'units: MWe', 'creates chilled water');
+-- INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
+-- INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves output from APP to UIUC');
+-- INSERT INTO "ExistingCapacity" VALUES('UC', 2000, 36, 'units: MWe', 'creates chilled water');
 INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
--- INSERT INTO "ExistingCapacity" VALUES('CWS', 2010, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
 
 -- need to add an existing capacity for the heating system!
 
@@ -455,8 +450,9 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MW
    PRIMARY KEY(tech, vintage),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
-INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installing a natural gas unit');
-INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2000, 'M$/GW', 'cost of installing a new cooling tower');
+INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 83.70, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('NUKE', 2020, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2.24, 'M$/MWe', 'cost of installing a new cooling tower');
 
   CREATE TABLE CostFixed (
    periods integer NOT NULL,
