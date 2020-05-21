@@ -74,8 +74,9 @@ CREATE TABLE technologies (
   tech_category text,
   FOREIGN KEY(flag) REFERENCES technology_labels(tech_labels),
   FOREIGN KEY(sector) REFERENCES sector_labels(sector));
-INSERT INTO "technologies" VALUES('IMPWIND','r','supply', 'imported wind energy','electricity');
-INSERT INTO "technologies" VALUES('IMPSOL','r','supply', 'imported solar energy','electricity');
+INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity','MISO');
+INSERT INTO "technologies" VALUES('IMPWIND','r','electric', 'imported wind energy','electricity');
+INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energy','electricity');
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
@@ -154,6 +155,9 @@ CREATE TABLE CapacityToActivity (
 INSERT INTO "CapacityToActivity" VALUES('ABBOTT',8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('NUKE', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UC', 1, '');
@@ -190,11 +194,23 @@ CREATE TABLE EmissionActivity  (
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'STM',0.192,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'ELC',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'ELC',0.58,'tCO2/MWe','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2010,'STM',0.192,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2010,'ELC',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2010,'ELC',0.58,'tCO2/MWe','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'STM',0.192,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'ELC',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'ELC',0.58,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2030,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2030,'ELC',0.58,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2040,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2040,'ELC',0.58,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2050,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2050,'ELC',0.58,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2010,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2040,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2050,'ELC',0.825,'tCO2/MWe','from iCAP');
 
 
 CREATE TABLE EmissionLimit  (
@@ -280,6 +296,10 @@ CREATE TABLE MaxCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPSOL', 17.2, 'MWe', 'after Solar Farm 2.0');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2020, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 
 CREATE TABLE MinActivity (
    periods integer,
@@ -403,6 +423,17 @@ CREATE TABLE Efficiency (
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'pure gas import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'pure gas import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2030, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2040, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2050, 'GAS', 1.00,'pure gas import');
+
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2010, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2030, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2040, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2050, 'ELC', 1.00,'pure electricity import');
+
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
@@ -515,6 +546,14 @@ INSERT INTO "CostVariable" VALUES(2020, 'NUKE', 2020, 0.027, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'IMPSOL', 2010, 0.196, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'IMPWIND', 2010, 0.0384, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2030, 'IMPWIND', 2020, 0.0384, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2040, 'IMPWIND', 2030, 0.0384, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2050, 'IMPWIND', 2040, 0.0384, 'M$/GWh', '');
+
+-- INSERT INTO "CostVariable" VALUES(2020, 'IMPELC', 2010, 0.13, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES(2030, 'IMPELC', 2020, 0.13, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES(2040, 'IMPELC', 2030, 0.13, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES(2050, 'IMPELC', 2040, 0.13, 'M$/GWh', 'typical electricity price');
 
 /*
 -------------------------------------------------------
