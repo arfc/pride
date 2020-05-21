@@ -51,6 +51,9 @@ INSERT INTO "time_periods" VALUES(2000,'e');
 INSERT INTO "time_periods" VALUES(2010,'e');
 INSERT INTO "time_periods" VALUES(2020,'f');
 INSERT INTO "time_periods" VALUES(2030,'f');
+INSERT INTO "time_periods" VALUES(2040,'f');
+INSERT INTO "time_periods" VALUES(2050,'f');
+INSERT INTO "time_periods" VALUES(2060,'f');
 
 CREATE TABLE time_season (
   t_season text primary key );
@@ -76,6 +79,10 @@ INSERT INTO "technologies" VALUES('IMPSOL','r','supply', 'imported solar energy'
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
+<<<<<<< HEAD
+=======
+INSERT INTO "technologies" VALUES('NUKE', 'p', 'electric', 'micro nuclear power plant', 'electricity');
+>>>>>>> 8da86bf... adds nuclear plant to temoa model
 INSERT INTO "technologies" VALUES('CWS', 'pb', 'chilled water', 'chilled water storage', 'chilled water');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
@@ -88,6 +95,7 @@ CREATE TABLE commodities (
   flag text,
   comm_desc text,
   FOREIGN KEY(flag) REFERENCES commodity_labels(comm_labels));
+INSERT INTO "commodities" VALUES('co2eq','e','co2 equivalent');
 INSERT INTO "commodities" VALUES('ethos','p','# dummy commodity');
 INSERT INTO "commodities" VALUES('GAS', 'p', 'natural gas');
 INSERT INTO "commodities" VALUES('ELC', 'p', 'electricity');
@@ -146,8 +154,9 @@ CREATE TABLE CapacityToActivity (
    c2a real,
    c2a_notes,
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
-INSERT INTO "CapacityToActivity" VALUES('ABBOTT',8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('ABBOTT',8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('NUKE', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UC', 1, '');
@@ -183,6 +192,12 @@ CREATE TABLE EmissionActivity  (
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'ELC',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2010,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2010,'ELC',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'STM',0.192,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'ELC',0.192,'tCO2/MWth','from iCAP');
 
 
 CREATE TABLE EmissionLimit  (
@@ -194,7 +209,7 @@ CREATE TABLE EmissionLimit  (
    PRIMARY KEY(periods, emis_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
-
+INSERT INTO "EmissionLimit" VALUES (2020, 'co2eq', 347, 'tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
@@ -239,6 +254,9 @@ CREATE TABLE TechOutputSplit (
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','ELC',0.65,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2020','ABBOTT','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','NUKE','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','NUKE','STM',0.35,'NOTES');
+
 
 -- possibly need a min capacity?
 CREATE TABLE MinCapacity (
@@ -305,6 +323,7 @@ CREATE TABLE  LifetimeTech (
    life_notes text,
    PRIMARY KEY(tech),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+-- INSERT INTO "LifetimeTech" VALUES('IMPURN',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPWIND',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPSOL',1000,'');
@@ -314,6 +333,7 @@ INSERT INTO "LifetimeTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeTech" VALUES('CHILL',40,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
+INSERT INTO "LifetimeTech" VALUES('NUKE',40,'');
 
 
 CREATE TABLE LifetimeProcess (
@@ -339,6 +359,7 @@ CREATE TABLE LifetimeLoanTech (
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeLoanTech" VALUES('ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('NUKE',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UL',40,'');
@@ -379,6 +400,7 @@ CREATE TABLE Efficiency (
   FOREIGN KEY(tech) REFERENCES technologies(tech),
   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
+<<<<<<< HEAD
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'');
@@ -388,6 +410,19 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'');
+=======
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2000, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2010, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2000, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2010, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2000, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2010, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'ELC', 0.33, 'generates electricity, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'STM', 1.00, 'generates steam, no refueling');
+>>>>>>> 8da86bf... adds nuclear plant to temoa model
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'ELC', 0.33, '');
@@ -458,6 +493,8 @@ INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MW
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2020, 245, 'M$/GW', 'cost of installing a natural gas unit');
 INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2000, 'M$/GW', 'cost of installing a new cooling tower');
 
+-- By not adding anything to this table, I am assuming everything is paid off.
+-- I.E. if TEMOA doesn't use a technology, it won't be penalized, besides the investment cost.
   CREATE TABLE CostFixed (
    periods integer NOT NULL,
    tech text NOT NULL,
@@ -486,6 +523,7 @@ INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2000, 'M$/GW', 'cost of installin
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
+INSERT INTO "CostVariable" VALUES(2020, 'NUKE', 2020, 0.027, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'IMPSOL', 2010, 0.196, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2020, 'IMPWIND', 2010, 0.0384, 'M$/GWh', '');
