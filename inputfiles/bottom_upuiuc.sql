@@ -213,6 +213,9 @@ CREATE TABLE EmissionLimit  (
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
 INSERT INTO "EmissionLimit" VALUES (2020, 'co2eq', 347, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 297, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2040, 'co2eq', 247, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2050, 'co2eq', 0, 'tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
