@@ -78,7 +78,7 @@ CREATE TABLE technologies (
   tech_category text,
   FOREIGN KEY(flag) REFERENCES technology_labels(tech_labels),
   FOREIGN KEY(sector) REFERENCES sector_labels(sector));
--- INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity','MISO');
+INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity','MISO');
 INSERT INTO "technologies" VALUES('IMPWIND','r','electric', 'imported wind energy','electricity');
 INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energy','electricity');
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
@@ -169,7 +169,7 @@ INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 -- INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
 -- INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
--- INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
 -- INSERT INTO "CapacityToActivity" VALUES('UC', 1, '');
 
@@ -336,7 +336,16 @@ INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
 -- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 -- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+
 INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 INSERT INTO "MaxCapacity" VALUES(2021, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
 
@@ -384,6 +393,7 @@ CREATE TABLE  LifetimeTech (
    PRIMARY KEY(tech),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 -- INSERT INTO "LifetimeTech" VALUES('IMPURN',1000,'');
+INSERT INTO "LifetimeTech" VALUES('IMPELC',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('TURBINE',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPWIND',10,'');
@@ -502,20 +512,10 @@ CREATE TABLE Efficiency (
   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 
-  --Defines the ABBOTT parameters
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2020, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2022, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2023, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2024, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2025, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2026, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2027, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2028, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2029, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2030, 'GAS', 1.00,'pure gas import');
 
+--Defines the ABBOTT parameters
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
@@ -595,13 +595,9 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2027, 'ELC', 1.00,'pure elect
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2028, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2029, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'ELC', 0.33, 'generates electricity, no refueling');
---
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'generates steam, no refueling');
 
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2021, 'ELC', 1.00,'pure electricity import');
+-- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'ELC', 0.33, 'generates electricity, no refueling');
+-- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'generates steam, no refueling');
 
   -- Defines Chilled Water parameters. We are ignoring for now.
   -- If I want to add CHW later, I need to adjust electric demand accordingly.
@@ -622,7 +618,6 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure elect
 -- INSERT INTO "Efficiency" VALUES('CHW', 'CWS', 2021, 'CHW', 1.00,'');
 
 
-
 -- I think each additional year might just ADD to existing capacity...
 -- in which case I shouldn't have APP building anything in 2020
 CREATE TABLE ExistingCapacity (
@@ -634,6 +629,7 @@ CREATE TABLE ExistingCapacity (
    PRIMARY KEY(tech, vintage),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
+INSERT INTO "ExistingCapacity" VALUES('IMPELC', 2000, 60, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 257, 'units: MWth', '');
@@ -705,8 +701,7 @@ INSERT INTO "CostVariable" VALUES(2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
 -- INSERT INTO "CostVariable" VALUES(2022, 'IMPSOL', 2022, 0.046, 'M$/GWh', '');
 
 INSERT INTO "CostVariable" VALUES(2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-
--- INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2020, 0.13, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2000, 0.13, 'M$/GWh', 'typical electricity price');
 
 /*
 -------------------------------------------------------
