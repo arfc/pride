@@ -478,12 +478,12 @@ CREATE TABLE CapacityFactorTech (
    FOREIGN KEY(season_name) REFERENCES time_season(t_season),
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0.168,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0.168,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0.168,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0.168,'no solar at night');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
