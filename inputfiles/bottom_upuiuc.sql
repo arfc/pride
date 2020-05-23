@@ -427,31 +427,33 @@ CREATE TABLE CapacityFactorTech (
    FOREIGN KEY(season_name) REFERENCES time_season(t_season),
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0,'no solar at night');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0,'no solar at night');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0,'no solar at night');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0.168,'no solar at night');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0.168,'no solar at night');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0.168,'no solar at night');
 INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
+
 -- The nuclear capacity factor is a parameter of interest if it's also used for rearch!
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.55,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.55,'average NGCC CF');
 
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
