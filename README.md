@@ -9,7 +9,7 @@ Multiple scenarios will be addressed:
 4. Add grid flexibility in the form of H2 and thermal storage.
 
 ## Instructions to Run TEMOA
-TEMOA is an open source modeling tool available on GitHub (link). Follow the installation instructions here (link). 
+TEMOA is an open source modeling tool available on [GitHub](https://github.com/TemoaProject/temoa). Follow the installation instructions [here](https://temoacloud.com/download/). 
 
 After creating a database in sql, navigate to the directory with your database:
 
@@ -17,7 +17,7 @@ After creating a database in sql, navigate to the directory with your database:
 
 if you don't have sqlite installed, run:
 
-``sudo apt-get install sqlite``
+``sudo apt-get install sqlite`` or ``sudo apt-get install sqlite3``
 
 TEMOA models can be run from the command line, current iterations use the online model platform at ``model.temoacloud.com``.
 
