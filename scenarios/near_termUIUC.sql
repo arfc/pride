@@ -243,16 +243,16 @@ CREATE TABLE Demand (
    PRIMARY KEY(periods, demand_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(demand_comm) REFERENCES commodities(comm_name) );
-INSERT INTO "Demand" VALUES(2021, 'UELC', 398.7, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2022, 'UELC', 402.7, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2023, 'UELC', 406.7, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2024, 'UELC', 410.8, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2025, 'UELC', 414.9, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2026, 'UELC', 419.0, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2027, 'UELC', 423.2, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2028, 'UELC', 427.5, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2029, 'UELC', 431.7, 'electric GWh', 'from 2015 eDNA data');
-INSERT INTO "Demand" VALUES(2030, 'UELC', 436.1, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2021, 'UELC', 478.7, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2022, 'UELC', 482.7, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2023, 'UELC', 486.7, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2024, 'UELC', 490.8, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2025, 'UELC', 494.9, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2026, 'UELC', 499.0, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2027, 'UELC', 503.2, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2028, 'UELC', 507.5, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2029, 'UELC', 511.7, 'electric GWh', 'from 2015 eDNA data');
+INSERT INTO "Demand" VALUES(2030, 'UELC', 516.1, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES(2021, 'USTM', 599.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES(2022, 'USTM', 605.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES(2023, 'USTM', 611.2, 'thermal GWh', 'from 2015 eDNA data');
