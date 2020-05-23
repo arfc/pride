@@ -216,10 +216,19 @@ INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2027,'STM',0.192
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2028,'STM',0.192,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2029,'STM',0.192,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2030,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2021,'ELC',0.825,'tCO2/MWe','from iCAP');
 
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2021,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2022,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2023,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2024,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2025,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2026,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2027,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2028,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2029,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'tCO2/MWe','from iCAP');
 
 CREATE TABLE EmissionLimit  (
    periods integer,
@@ -230,7 +239,16 @@ CREATE TABLE EmissionLimit  (
    PRIMARY KEY(periods, emis_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 347, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
@@ -512,8 +530,19 @@ CREATE TABLE Efficiency (
   FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
   FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
 
-INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2021, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2022, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2023, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2024, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2025, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2026, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2027, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2028, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2029, 'ELC', 1.00,'pure electricity import');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2030, 'ELC', 1.00,'pure electricity import');
 
 --Defines the ABBOTT parameters
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
