@@ -138,14 +138,19 @@ CREATE TABLE DemandSpecificDistribution (
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(demand_name) REFERENCES commodities(comm_name) );
    -- There is no reason for these numbers right now... Will be updated later.
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','UELC',.12,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','UELC',.06,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','UELC',.5467,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','UELC',.2733,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',.12,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',.06,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',.5467,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',.2733,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','UELC',0.25,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','UELC',0.24,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','UELC',0.112,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','UELC',0.108,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','day','UELC',0.148,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','night','UELC',0.142,'');
+
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',0.219,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',0.218,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',0.19,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',0.189,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','day','USTM',0.092,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','night','USTM',0.092,'');
 
 CREATE TABLE CapacityToActivity (
    tech text primary key,
