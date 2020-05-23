@@ -80,7 +80,7 @@ INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energ
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','p','electric', 'natural gas power plant','electricity');
 INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
-INSERT INTO "technologies" VALUES('NUKE', 'p', 'electric', 'micro nuclear power plant', 'electricity');
+INSERT INTO "technologies" VALUES('NUCLEAR', 'p', 'electric', 'micro nuclear power plant', 'electricity');
 INSERT INTO "technologies" VALUES('CWS', 'pb', 'chilled water', 'chilled water storage', 'chilled water');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
@@ -159,7 +159,7 @@ CREATE TABLE CapacityToActivity (
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "CapacityToActivity" VALUES('ABBOTT',8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
-INSERT INTO "CapacityToActivity" VALUES('NUKE', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
@@ -296,14 +296,14 @@ INSERT INTO "TechOutputSplit" VALUES('2040','ABBOTT','ELC',0.65,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2040','ABBOTT','STM',0.35,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2050','ABBOTT','ELC',0.65,'NOTES');
 INSERT INTO "TechOutputSplit" VALUES('2050','ABBOTT','STM',0.35,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2020','NUKE','ELC',0.65,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2020','NUKE','STM',0.35,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2030','NUKE','ELC',0.65,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2030','NUKE','STM',0.35,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2040','NUKE','ELC',0.65,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2040','NUKE','STM',0.35,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2050','NUKE','ELC',0.65,'NOTES');
-INSERT INTO "TechOutputSplit" VALUES('2050','NUKE','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','NUCLEAR','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2020','NUCLEAR','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2030','NUCLEAR','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2030','NUCLEAR','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2040','NUCLEAR','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2040','NUCLEAR','STM',0.35,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2050','NUCLEAR','ELC',0.65,'NOTES');
+INSERT INTO "TechOutputSplit" VALUES('2050','NUCLEAR','STM',0.35,'NOTES');
 
 
 -- possibly need a min capacity?
@@ -385,7 +385,7 @@ INSERT INTO "LifetimeTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeTech" VALUES('CHILL',40,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
-INSERT INTO "LifetimeTech" VALUES('NUKE',40,'');
+INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
 
 
 CREATE TABLE LifetimeProcess (
@@ -411,7 +411,7 @@ CREATE TABLE LifetimeLoanTech (
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeLoanTech" VALUES('ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('NUKE',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UL',40,'');
@@ -427,6 +427,39 @@ CREATE TABLE CapacityFactorTech (
    FOREIGN KEY(season_name) REFERENCES time_season(t_season),
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
+-- The nuclear capacity factor is a parameter of interest if it's also used for rearch!
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
+-- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', '', ,'');
+-- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', '', ,'');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', '', ,'');
+-- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', '', ,'');
+
 
 CREATE TABLE CapacityFactorProcess (
    season_name text,
@@ -480,15 +513,15 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure elect
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2040, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2050, 'ELC', 1.00,'pure electricity imports');
 
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'ELC', 0.33, 'generates electricity, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2030, 'ELC', 0.33, 'generates electricity, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2040, 'ELC', 0.33, 'generates electricity, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2050, 'ELC', 0.33, 'generates electricity, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'ELC', 0.33, 'generates electricity, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'ELC', 0.33, 'generates electricity, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2040, 'ELC', 0.33, 'generates electricity, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2050, 'ELC', 0.33, 'generates electricity, no refueling');
 
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2020, 'STM', 1.00, 'generates steam, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2030, 'STM', 1.00, 'generates steam, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2040, 'STM', 1.00, 'generates steam, no refueling');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUKE', 2050, 'STM', 1.00, 'generates steam, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'generates steam, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'generates steam, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2040, 'STM', 1.00, 'generates steam, no refueling');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2050, 'STM', 1.00, 'generates steam, no refueling');
 
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'ELC', 0.33, '');
 INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2010, 'ELC', 0.33, '');
@@ -588,10 +621,10 @@ INSERT INTO "CostInvest" VALUES('ABBOTT', 2030, 83.70, 'M$/MWth', 'cost of insta
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2040, 83.70, 'M$/MWth', 'cost of installing a natural gas unit');
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2050, 83.70, 'M$/MWth', 'cost of installing a natural gas unit');
 
-INSERT INTO "CostInvest" VALUES('NUKE', 2020, 8, 'M$/MWth', 'cost of installing a natural gas unit');
-INSERT INTO "CostInvest" VALUES('NUKE', 2030, 8, 'M$/MWth', 'cost of installing a natural gas unit');
-INSERT INTO "CostInvest" VALUES('NUKE', 2040, 8, 'M$/MWth', 'cost of installing a natural gas unit');
-INSERT INTO "CostInvest" VALUES('NUKE', 2050, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('NUCLEAR', 2020, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('NUCLEAR', 2030, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('NUCLEAR', 2040, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('NUCLEAR', 2050, 8, 'M$/MWth', 'cost of installing a natural gas unit');
 
 INSERT INTO "CostInvest" VALUES('CHILL', 2020, 2.24, 'M$/MWe', 'cost of installing a new cooling tower');
 INSERT INTO "CostInvest" VALUES('CHILL', 2030, 2.24, 'M$/MWe', 'cost of installing a new cooling tower');
@@ -629,10 +662,10 @@ INSERT INTO "CostInvest" VALUES('CHILL', 2050, 2.24, 'M$/MWe', 'cost of installi
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
-INSERT INTO "CostVariable" VALUES(2020, 'NUKE', 2020, 0.027, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2030, 'NUKE', 2030, 0.027, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2040, 'NUKE', 2040, 0.027, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2050, 'NUKE', 2050, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2020, 'NUCLEAR', 2020, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2030, 'NUCLEAR', 2030, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2040, 'NUCLEAR', 2040, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2050, 'NUCLEAR', 2050, 0.027, 'M$/GWh', '');
 
 INSERT INTO "CostVariable" VALUES(2020, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2030, 'ABBOTT', 2030, 0.08, 'M$/GWh', '');
