@@ -499,12 +499,12 @@ CREATE TABLE CapacityFactorTech (
 -- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.55,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.55,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.55,'average NGCC CF');
 
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
