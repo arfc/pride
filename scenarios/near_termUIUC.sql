@@ -340,7 +340,6 @@ CREATE TABLE MaxCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
-INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
 -- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
@@ -348,7 +347,7 @@ INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 
 -- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
 
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'solar PPA');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
@@ -365,7 +364,7 @@ INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 
 -- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 
--- INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
