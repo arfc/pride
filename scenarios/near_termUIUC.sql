@@ -369,7 +369,7 @@ INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits,
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 
 INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
