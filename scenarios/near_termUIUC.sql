@@ -484,12 +484,12 @@ INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average
 INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0.168,'no solar at night');
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
 
 -- The nuclear capacity factor is a parameter of interest if it's also used for rearch!
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
