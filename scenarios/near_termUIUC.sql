@@ -169,6 +169,7 @@ INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 -- INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
 -- INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('CWS', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
@@ -240,16 +241,16 @@ CREATE TABLE EmissionLimit  (
    PRIMARY KEY(periods, emis_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
@@ -351,12 +352,19 @@ CREATE TABLE MaxCapacity (
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 
+-- We are sort of assuming that we can add 12.1 MWe capacity every 6 years.
+-- This should be constrained because we can't add an arbitrary amount of solar
+-- power.
 INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
 INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
 INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2027, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2028, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2029, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 
 INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
@@ -368,16 +376,18 @@ INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits,
 -- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 
+-- Abbott should be capped at its current capacity because we are trying to
+-- retire part of its capacity
 INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2030, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2026, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2027, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2028, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2029, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2030, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2021, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
 
 
