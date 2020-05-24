@@ -391,7 +391,19 @@ INSERT INTO "MinActivity" VALUES(2022, 'IMPSOL', 24.69, 'electric GWh','must buy
 INSERT INTO "MinActivity" VALUES(2023, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES(2024, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES(2025, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2026, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2027, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2028, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2029, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2030, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+
+-- until 2026 because that's when the PPA ends, then we can buy more if we choose.
 INSERT INTO "MinActivity" VALUES(2021, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2022, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2023, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2024, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 
 CREATE TABLE MaxActivity (
    periods integer,
