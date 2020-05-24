@@ -386,6 +386,12 @@ CREATE TABLE MinActivity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
+INSERT INTO "MinActivity" VALUES(2021, 'IMPSOL', 6.88, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2022, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2023, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2024, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2025, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2021, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 
 CREATE TABLE MaxActivity (
    periods integer,
