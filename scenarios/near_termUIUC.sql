@@ -340,25 +340,25 @@ CREATE TABLE MaxCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
-INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+-- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 
 INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
+INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
@@ -369,7 +369,7 @@ INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 
 -- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 
 INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
@@ -481,13 +481,12 @@ CREATE TABLE LifetimeLoanTech (
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
 INSERT INTO "LifetimeLoanTech" VALUES('ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('TURBINE',40,'');
-
--- INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
--- INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
--- INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UH',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 
 CREATE TABLE CapacityFactorTech (
    season_name text,
@@ -512,6 +511,13 @@ INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'aver
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
 
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.568,'average NGCC CF');
+
 -- The nuclear capacity factor is a parameter of interest if it's also used for resarch!
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
@@ -519,13 +525,6 @@ INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'aver
 -- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
-
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.568,'average NGCC CF');
-INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.568,'average NGCC CF');
 
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
