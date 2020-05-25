@@ -82,7 +82,7 @@ INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity
 INSERT INTO "technologies" VALUES('IMPWIND','r','electric', 'imported wind energy','electricity');
 INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energy','electricity');
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
-INSERT INTO "technologies" VALUES('ABBOTT','pb','electric', 'natural gas power plant','electricity');
+INSERT INTO "technologies" VALUES('ABBOTT','pb','industrial', 'natural gas power plant','steam');
 INSERT INTO "technologies" VALUES('TURBINE', 'p', 'electric', 'turbine that converts steam to elc', 'electricity');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
