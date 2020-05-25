@@ -366,7 +366,7 @@ INSERT INTO "MaxCapacity" VALUES(2028, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES(2029, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES(2030, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
 
-INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
 -- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPELC', 60, 'MWe', 'UIUC import limits, unless increased');
