@@ -87,7 +87,7 @@ INSERT INTO "technologies" VALUES('TURBINE', 'p', 'electric', 'turbine that conv
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
 -- INSERT INTO "technologies" VALUES('CHILL','p', 'chilled water', 'water chillers', 'chilled water');
--- INSERT INTO "technologies" VALUES('NUCLEAR', 'p', 'electric', 'micro nuclear power plant', 'electricity');
+INSERT INTO "technologies" VALUES('NUCLEAR', 'p', 'industrial', 'micro nuclear power plant', 'electricity');
 INSERT INTO "technologies" VALUES('CWS', 'ps', 'electric', 'chilled water storage', 'chilled water');
 -- INSERT INTO "technologies" VALUES('UC', 'p', 'university', 'university cooling', 'chilled water');
 -- INSERT INTO "technologies" VALUES('', '', '', '', '');
@@ -150,12 +150,12 @@ INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','UELC',0.108,''
 INSERT INTO "DemandSpecificDistribution" VALUES('summer','day','UELC',0.148,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('summer','night','UELC',0.142,'');
 
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',0.219,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',0.218,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',0.19,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',0.189,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('summer','day','USTM',0.092,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES('summer','night','USTM',0.092,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','day','USTM',0.219,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('inter','night','USTM',0.218,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','day','USTM',0.19,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('winter','night','USTM',0.189,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','day','USTM',0.092,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('summer','night','USTM',0.092,'');
 
 
 CREATE TABLE CapacityToActivity (
@@ -168,7 +168,7 @@ INSERT INTO "CapacityToActivity" VALUES('TURBINE', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 -- INSERT INTO "CapacityToActivity" VALUES('CHILL',8.76, 'electric GWh');
--- INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('CWS', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
@@ -341,16 +341,16 @@ CREATE TABLE MaxCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2027, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2028, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 
 -- We are assuming that we can add 12.1 MWe capacity every 6 years.
 -- This should be constrained because we can't add an arbitrary amount of solar
@@ -462,7 +462,7 @@ INSERT INTO "LifetimeTech" VALUES('UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
 -- INSERT INTO "LifetimeTech" VALUES('UC',40,'');
 -- INSERT INTO "LifetimeTech" VALUES('CHILL',40,'');
--- INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
+INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
 
 
@@ -495,7 +495,7 @@ INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('UH',40,'');
 -- INSERT INTO "LifetimeLoanTech" VALUES('CHILL',40,'');
--- INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
 -- INSERT INTO "LifetimeLoanTech" VALUES('UC',40,'');
 
 CREATE TABLE CapacityFactorTech (
@@ -529,12 +529,12 @@ INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.568,'averag
 INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.568,'average NGCC CF');
 
 -- The nuclear capacity factor is a parameter of interest if it's also used for resarch!
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
@@ -652,6 +652,21 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2028, 'ELC', 1.00,'pure elect
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2029, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure electricity imports');
 
+-- Define nuclear here
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2024, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2025, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2026, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2027, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2028, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2029, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+
+
 -- Define what happens to intermediate commodities here
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2000, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2020, 'UELC', 1.00,'');
@@ -678,9 +693,6 @@ INSERT INTO "Efficiency" VALUES('STM', 'UH', 2027, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'UH', 2028, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'UH', 2029, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'UH', 2030, 'USTM', 1.00,'');
-
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'ELC', 0.33, 'generates electricity, no refueling');
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'generates steam, no refueling');
 
   -- Defines Chilled Water parameters. We are ignoring for now.
   -- If I want to add CHW later, I need to adjust electric demand accordingly.
@@ -779,12 +791,11 @@ INSERT INTO "CostInvest" VALUES('IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 
 -- INSERT INTO "CostVariable" VALUES(2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
 
 INSERT INTO "CostVariable" VALUES(2021, 'ABBOTT', 2000, 0.08, 'M$/GWh', '');
-
+INSERT INTO "CostVariable" VALUES(2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2000, 0.13, 'M$/GWh', 'typical electricity price');
 INSERT INTO "CostVariable" VALUES(2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
 -- INSERT INTO "CostVariable" VALUES(2022, 'IMPSOL', 2022, 0.046, 'M$/GWh', '');
 
-INSERT INTO "CostVariable" VALUES(2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2000, 0.13, 'M$/GWh', 'typical electricity price');
 
 /*
 -------------------------------------------------------
