@@ -12,6 +12,7 @@ import pytest
 # Tests for units()
 # ============================================================================
 
+
 def test_units():
 
     """
@@ -32,6 +33,7 @@ def test_units():
 # ============================================================================
 # Tests for gge_dictionary()
 # ============================================================================
+
 
 def test_gge_dictionary():
 
@@ -54,6 +56,7 @@ def test_gge_dictionary():
 # Tests for unit_cost_dictionary()
 # ============================================================================
 
+
 def test_unit_cost_dictionary():
 
     """
@@ -75,6 +78,7 @@ def test_unit_cost_dictionary():
 # Tests for gge_cost_dictionary()
 # ============================================================================
 
+
 def test_gge_cost_dictionary():
 
     """
@@ -95,6 +99,7 @@ def test_gge_cost_dictionary():
 # ============================================================================
 # Tests for fuel_equivalent()
 # ============================================================================
+
 
 def test_fuel_equivalent_1():
 
@@ -124,6 +129,7 @@ def test_fuel_equivalent_2():
 # Tests for fuel_equivalent_cost()
 # ============================================================================
 
+
 def test_fuel_equivalent_cost_1():
 
     """
@@ -152,6 +158,7 @@ def test_fuel_equivalent_cost_2():
 # ============================================================================
 # Tests for co2_equivalent()
 # ============================================================================
+
 
 def test_co2_equivalent():
 
