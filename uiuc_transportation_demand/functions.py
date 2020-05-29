@@ -129,8 +129,7 @@ def fuel_equivalent(Fuel):
 
     if Fuel not in Dict:
         raise IndexError(
-            f'{Fuel} not supported. Try "Gasoline", "Diesel", "E85",'
-            ' "Hydrogen", or "Electricity".'
+            f"{Fuel} not supported. Try {list(GGEDictionary.keys())}."
         )
 
     FuelData = 'fuel_data.csv'
@@ -206,8 +205,7 @@ def fuel_equivalent_cost(Fuel):
 
     if Fuel not in GGEDictionary:
         raise IndexError(
-            f"{Fuel} not supported. Try 'Gasoline', 'Diesel', 'E85',"
-            " 'Hydrogen', or 'Electricity'."
+            f"{Fuel} not supported. Try {list(GGEDictionary.keys())}."
         )
 
     Fuel_Amount = fuel_equivalent(Fuel)
@@ -274,8 +272,7 @@ def co2_emissions(Fuel):
 
     if Fuel not in GGEDictionary:
         raise IndexError(
-            f"{Fuel} not supported. Try 'Gasoline', 'Diesel', 'E85',"
-            " 'Hydrogen', or 'Electricity'."
+            f"{Fuel} not supported. Try {list(GGEDictionary.keys())}."
         )
 
     Fuel_Amount = fuel_equivalent(Fuel)
