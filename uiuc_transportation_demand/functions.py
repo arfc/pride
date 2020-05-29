@@ -129,7 +129,7 @@ def fuel_equivalent(Fuel):
 
     if Fuel not in Dict:
         raise IndexError(
-            f"{Fuel} not supported. Try {list(GGEDictionary.keys())}."
+            f"{Fuel} not supported. Try {list(Dict.keys())}."
         )
 
     FuelData = 'fuel_data.csv'
