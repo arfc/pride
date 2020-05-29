@@ -1,5 +1,5 @@
 def units():
- 
+
     """
     This function creates a dictionary linking the fuel technology
     to its unit for clarity.
@@ -38,7 +38,7 @@ def gge_dictionary():
     GGE = dict()
 
     GGE = {
-        'Gasoline': 1.0, 
+        'Gasoline': 1.0,
         'Diesel': 1.155,
         'E85': 0.734,
         'Hydrogen': 1.019,
@@ -51,13 +51,13 @@ def gge_dictionary():
 def unit_cost_dictionary():
 
     """
-    This function generates a hard coded dictionary of the $/unit 
+    This function generates a hard coded dictionary of the $/unit
     for the five most relevant fuel technologies.
 
     Returns:
     --------
     Cost: dict
-        The dictionary linking fuel technologies to their cost per unit ($/unit)
+        Dictionary linking fuel technologies to their cost per unit ($/unit)
 
     """
 
@@ -111,26 +111,30 @@ def fuel_equivalent(Fuel):
     Fuel: string
         Desired fuel type to analyze ('Gasoline', 'Diesel', 'E85',
         'Hydrogen', or 'Electicity')
- 
+
     Returns:
     --------
     amount: float
-        The total amount of units for desired fuel technology that would 
+        The total amount of units for desired fuel technology that would
         have powered the UIUC fleet in 2019
 
     """
 
     if type(Fuel) != str:
-        raise TypeError('Please ensure that the input parameter is of type "str".')
+        raise TypeError(
+         'Please ensure that the input parameter is of type "str".'
+        )
 
-    Dictionary = gge_dictionary()
+    Dict = gge_dictionary()
 
-    if Fuel not in Dictionary:
-        raise IndexError(f'{Fuel} not supported. Try "Gasoline", "Diesel", "E85", "Hydrogen", or "Electricity".')
+    if Fuel not in Dict:
+        raise IndexError(
+         f'{Fuel} not supported. Try "Gasoline", "Diesel", "E85", "Hydrogen", or "Electricity".'
+        )
 
     FuelData = 'fuel_data.csv'
 
-    with open(FuelData,'r') as i:
+    with open(FuelData, 'r') as i:
         fueldata = i.readlines()
 
     lines = list()
@@ -147,22 +151,22 @@ def fuel_equivalent(Fuel):
         else:
             if line[16].split(' ')[2] == 'UNLEADED':
 
-                counter += Dictionary['Gasoline'] * (float(line[16].split(' ')[0]))
+                counter += Dict['Gasoline'] * (float(line[16].split(' ')[0]))
 
             elif line[16].split(' ')[2] == 'DIESEL':
 
-                counter += Dictionary['Diesel'] * (float(line[16].split(' ')[0]))
+                counter += Dict['Diesel'] * (float(line[16].split(' ')[0]))
 
             elif line[16].split(' ')[2] == 'E85':
 
-                counter += Dictionary['E85'] * (float(line[16].split(' ')[0]))
+                counter += Dict['E85'] * (float(line[16].split(' ')[0]))
 
     allowed_fuels_function = {
-        'Gasoline': round(counter,2),
-        'Diesel': round(counter / Dictionary['Diesel'],2),
-        'E85': round(counter / Dictionary['E85'],2),
-        'Hydrogen': round(counter / Dictionary['Hydrogen']),
-        'Electricity': round(counter / Dictionary['Electricity'])
+        'Gasoline': round(counter, 2),
+        'Diesel': round(counter / Dict['Diesel'], 2),
+        'E85': round(counter / Dict['E85'], 2),
+        'Hydrogen': round(counter / Dict['Hydrogen']),
+        'Electricity': round(counter / Dict['Electricity'])
     }
 
     amount = allowed_fuels_function[Fuel]
@@ -181,7 +185,7 @@ def fuel_equivalent_cost(Fuel):
     Fuel: string
         Type of fuel technology to be analyzed ('Gasoline', 'Diesel',
         'E85', 'Hydrogen', or 'Electricity').
-    
+
     Returns:
     --------
     cost: float
@@ -191,18 +195,22 @@ def fuel_equivalent_cost(Fuel):
     """
 
     if type(Fuel) != str:
-        raise TypeError('Please ensure that the input parameter is of type "str".')
+        raise TypeError(
+         'Please ensure that the input parameter is of type "str".'
+        )
 
     CostDictionary = unit_cost_dictionary()
 
     GGEDictionary = gge_dictionary()
 
     if Fuel not in GGEDictionary:
-        raise IndexError(f"{Fuel} not supported in this function. Try 'Gasoline', 'Diesel', 'E85', 'Hydrogen', or 'Electricity'.")
+        raise IndexError(
+         f"{Fuel} not supported. Try 'Gasoline', 'Diesel', 'E85', 'Hydrogen', or 'Electricity'."
+        )
 
     Fuel_Amount = fuel_equivalent(Fuel)
 
-    cost = round(Fuel_Amount * CostDictionary[Fuel],2)
+    cost = round(Fuel_Amount * CostDictionary[Fuel], 2)
 
     return cost
 
@@ -254,17 +262,21 @@ def co2_emissions(Fuel):
     """
 
     if type(Fuel) != str:
-        raise TypeError('Please ensure that the input parameter is of type "str".')
+        raise TypeError(
+         'Please ensure that the input parameter is of type "str".'
+        )
 
     GGEDictionary = gge_dictionary()
 
     CO2Dictionary = co2_equivalent()
 
     if Fuel not in GGEDictionary:
-        raise IndexError(f"{Fuel} not supported in this function. Try 'Gasoline', 'Diesel', 'E85', 'Hydrogen', or 'Electricity'.")
+        raise IndexError(
+         f"{Fuel} not supported. Try 'Gasoline', 'Diesel', 'E85', 'Hydrogen', or 'Electricity'."
+        )
 
     Fuel_Amount = fuel_equivalent(Fuel)
 
-    emissions = round(Fuel_Amount * (CO2Dictionary[Fuel]),2)
+    emissions = round(Fuel_Amount * (CO2Dictionary[Fuel]), 2)
 
     return emissions
