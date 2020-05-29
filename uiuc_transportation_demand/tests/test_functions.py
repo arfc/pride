@@ -110,7 +110,8 @@ def test_fuel_equivalent_1():
 
     fuel_test = 'Plutonium'
 
-    assert fuel_equivalent(fuel_test)
+    with pytest.raises(IndexError, match='Plutonium not supported.'):
+        fuel_equivalent(fuel_test)
 
 
 def test_fuel_equivalent_2():
@@ -123,7 +124,8 @@ def test_fuel_equivalent_2():
 
     fuel_test = Hydrogen
 
-    assert fuel_equivalent(fuel_test)
+    with pytest.raises(TypeError, match='Please'):
+        fuel_equivalent(fuel_test)
 
 # ============================================================================
 # Tests for fuel_equivalent_cost()
@@ -139,7 +141,8 @@ def test_fuel_equivalent_cost_1():
 
     fuel_test = 'Plutonium'
 
-    assert fuel_equivalent_cost(fuel_test)
+    with pytest.raises(IndexError, match='Plutonium not supported.'):
+        fuel_equivalent(fuel_test)
 
 
 def test_fuel_equivalent_cost_2():
@@ -153,7 +156,8 @@ def test_fuel_equivalent_cost_2():
 
     fuel_test = Hydrogen
 
-    assert fuel_equivalent(fuel_test)
+    with pytest.raises(TypeError, match='Please'):
+        fuel_equivalent(fuel_test)
 
 # ============================================================================
 # Tests for co2_equivalent()
@@ -191,7 +195,8 @@ def test_co2_emissions_1():
 
     fuel_test = 'Plutonium'
 
-    assert co2_emissions(fuel_test)
+    with pytest.raises(IndexError, match='Plutonium not supported.'):
+        fuel_equivalent(fuel_test)
 
 
 def test_co2_emissions_2():
@@ -205,4 +210,5 @@ def test_co2_emissions_2():
 
     fuel_test = Hydrogen
 
-    assert co2_emissions(fuel_test)
+    with pytest.raises(TypeError, match='Please'):
+        fuel_equivalent(fuel_test)
