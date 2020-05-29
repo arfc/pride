@@ -1,4 +1,4 @@
-manuscript = optimal-sizing-presentation
+manuscript = optimal-sizing-pres
 references = $(wildcard *.bib)
 latexopt   = -halt-on-error -file-line-error -shell-escape
 
