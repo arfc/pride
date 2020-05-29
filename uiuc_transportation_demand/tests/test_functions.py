@@ -43,7 +43,7 @@ def test_gge_dictionary():
     test = gge_dictionary()
 
     assert test == {
-        'Gasoline': 1.0, 
+        'Gasoline': 1.0,
         'Diesel': 1.155,
         'E85': 0.734,
         'Hydrogen': 1.019,
@@ -104,7 +104,7 @@ def test_fuel_equivalent_1():
     """
 
     fuel_test = 'Plutonium'
-    
+
     assert fuel_equivalent(fuel_test)
 
 
@@ -117,7 +117,7 @@ def test_fuel_equivalent_2():
     Hydrogen = 4
 
     fuel_test = Hydrogen
-    
+
     assert fuel_equivalent(fuel_test)
 
 # ============================================================================
@@ -172,7 +172,8 @@ def test_co2_equivalent():
 
 # ============================================================================
 # Tests for co2_emissions()
-# ============================================================================    
+# ============================================================================
+
 
 def test_co2_emissions_1():
 
