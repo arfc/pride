@@ -56,15 +56,38 @@
       \label{table:scenarios}
       \resizebox{\columnwidth}{!}{
       \begin{tabular}{cccc}
+        \hline
         Scenario & Operation Costs & Capital Costs & Maximum Capacity \\
         & [\$/MWh(th)]& [M\$/MWth] & [MWth] \\
+        \hline
         1 & 8.91 & - & - \\
         2 & 8.91 & 1.982 & - \\
         3 & 8.91 & 1.982 & 100 \\
+        \hline
       \end{tabular}
       }
     \end{table}
   \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Assumptions}
+  \begin{enumerate}
+    \item Assumes fixed capital and variable costs throughout the model time horizon.
+    \item Nuclear Reactor
+    \begin{itemize}
+      \item Assumes LWR due to availability of cost estimates.
+      \item Assumes 92\% capacity factor.
+    \end{itemize}
+    \item Wind Power
+    \begin{itemize}
+      \item Assumes 31\% capacity factor.
+    \end{itemize}
+    \item Solar Power
+    \begin{itemize}
+      \item Assumes capacity factor of 16.8\%, based on the UIUC solar farm data \cite{alsoenergy_university_2019}.
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}
@@ -126,6 +149,23 @@
       \includegraphics[width=\textwidth]{scenario3_generation_stm.png}
       \caption{The steam generation with constrained nuclear}
       \label{fig:gen02stm}
+    \end{figure}
+  \end{columns}
+\end{frame}
+\begin{frame}
+  \frametitle{Scenario 3: Generation}
+  \begin{columns}
+    \column[t]{5cm}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{scenario3_capacity_elc.png}
+      \caption{The electric capacity with constrained nuclear.}
+      \label{fig:cap03elc}
+    \end{figure}
+    \column[t]{5cm}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{scenario3_capacity_stm.png}
+      \caption{The steam capacity with constrained nuclear.}
+      \label{fig:cap02stm}
     \end{figure}
   \end{columns}
 \end{frame}
