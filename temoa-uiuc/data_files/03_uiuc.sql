@@ -78,15 +78,15 @@ CREATE TABLE technologies (
   tech_category text,
   FOREIGN KEY(flag) REFERENCES technology_labels(tech_labels),
   FOREIGN KEY(sector) REFERENCES sector_labels(sector));
-  -- INSERT INTO "technologies" VALUES('IMPWIND','r','electric', 'imported wind energy','electricity');
-  -- INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energy','electricity');
+INSERT INTO "technologies" VALUES('IMPWIND','r','electric', 'imported wind energy','electricity');
+INSERT INTO "technologies" VALUES('IMPSOL','r','electric', 'imported solar energy','electricity');
 INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity','MISO');
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','pb','industrial', 'natural gas power plant','steam');
 INSERT INTO "technologies" VALUES('TURBINE', 'p', 'electric', 'turbine that converts steam to elc', 'electricity');
 INSERT INTO "technologies" VALUES('UL', 'p', 'university', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'university', 'university heating', 'steam');
--- INSERT INTO "technologies" VALUES('NUCLEAR', 'p', 'electric', 'micro nuclear power plant', 'electricity');
+INSERT INTO "technologies" VALUES('NUCLEAR', 'pb', 'steam', 'micro nuclear power plant', 'electricity');
 -- INSERT INTO "technologies" VALUES('CWS', 'ps', 'electric', 'chilled water storage', 'chilled water');
 -- INSERT INTO "technologies" VALUES('', '', '', '', '');
 
@@ -164,10 +164,10 @@ INSERT INTO "CapacityToActivity" VALUES('TURBINE', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('UL', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('UH', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('IMPELC', 8.76, 'electric GWh');
--- INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('NUCLEAR', 8.76, 'thermal GWh');
 -- INSERT INTO "CapacityToActivity" VALUES('CWS', 8.76, 'electric GWh');
--- INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
--- INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPSOL', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('IMPWIND', 8.76, 'electric GWh');
 
 
 CREATE TABLE GlobalDiscountRate (
@@ -200,31 +200,31 @@ CREATE TABLE EmissionActivity  (
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods),
    FOREIGN KEY(output_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2021,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2022,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2023,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2024,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2025,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2026,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2027,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2028,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2029,'STM',0.192,'tCO2/MWth','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2030,'STM',0.192,'tCO2/MWth','from iCAP');
--- --
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2021,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2022,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2023,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2024,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2025,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2026,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2027,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2028,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2029,'ELC',0.825,'tCO2/MWe','from iCAP');
--- INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2000,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2020,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2021,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2022,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2023,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2024,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2025,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2026,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2027,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2028,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2029,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'GAS','ABBOTT', 2030,'STM',0.192,'kilo-tCO2/MWth','from iCAP');
+--
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2021,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2022,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2023,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2024,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2025,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2026,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2027,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2028,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2029,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
 
 CREATE TABLE EmissionLimit  (
    periods integer,
@@ -235,29 +235,16 @@ CREATE TABLE EmissionLimit  (
    PRIMARY KEY(periods, emis_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
--- INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'tCO2', 'projection from iCAP');
-
---dummy limits
--- INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'tCO2', 'projection from iCAP');
-
+INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'kilo-tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
@@ -291,27 +278,6 @@ INSERT INTO "Demand" VALUES(2028, 'USTM', 642.4, 'thermal GWh', 'from 2015 eDNA 
 INSERT INTO "Demand" VALUES(2029, 'USTM', 648.8, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES(2030, 'USTM', 655.3, 'thermal GWh', 'from 2015 eDNA data');
 
--- dummy demand
--- INSERT INTO "Demand" VALUES(2021, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2022, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2023, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2024, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2025, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2026, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2027, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2028, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2029, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2030, 'UELC', 455, 'electric GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2021, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2022, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2023, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2024, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2025, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2026, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2027, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2028, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2029, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
--- INSERT INTO "Demand" VALUES(2030, 'USTM', 575, 'thermal GWh', 'from 2015 eDNA data');
 
 
 
@@ -350,13 +316,6 @@ CREATE TABLE MinCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "MinCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MinCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MinCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MinCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MinCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MinCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
-
 
 CREATE TABLE MaxCapacity (
    periods integer,
@@ -367,54 +326,76 @@ CREATE TABLE MaxCapacity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2023, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2024, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2025, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2026, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2027, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2028, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2029, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPWIND', 100.5, 'MWe', 'wind PPA, unless increased');
 
 -- We are assuming that we can add 12.1 MWe capacity every 6 years.
 -- This should be constrained because we can't add an arbitrary amount of solar
 -- power.
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
--- INSERT INTO "MaxCapacity" VALUES(2030, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
+INSERT INTO "MaxCapacity" VALUES(2023, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2024, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2025, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2026, 'IMPSOL', 16.78, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2027, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2028, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2029, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES(2030, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
 --
--- INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2021, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2022, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2023, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2024, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2025, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2026, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2027, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2028, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
+INSERT INTO "MaxCapacity" VALUES(2029, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
 
 -- Abbott should be capped at its current capacity because we are trying to
 -- retire part of its capacity
--- INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2026, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2027, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2028, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2029, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2030, 'ABBOTT', 257, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES(2021, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2021, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2022, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2023, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2024, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2025, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2026, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2027, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2028, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2029, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2030, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+
+INSERT INTO "MaxCapacity" VALUES(2021, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2022, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2023, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2024, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2025, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2026, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2027, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2028, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2029, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES(2030, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+
+
+INSERT INTO "MaxCapacity" VALUES(2021, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2022, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2023, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2024, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2025, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2026, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2027, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2028, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2029, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES(2030, 'TURBINE', 85, 'MWe', 'Max electric capacity of abbott');
 
 
 CREATE TABLE MinActivity (
@@ -426,24 +407,24 @@ CREATE TABLE MinActivity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "MinActivity" VALUES(2021, 'IMPSOL', 6.88, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2022, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2023, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2024, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2025, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2026, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2027, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2028, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2029, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2030, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2021, 'IMPSOL', 6.88, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2022, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2023, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2024, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2025, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2026, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2027, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2028, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2029, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2030, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 
 -- until 2026 because that's when the PPA ends, then we can buy more if we choose.
--- INSERT INTO "MinActivity" VALUES(2021, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2022, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2023, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2024, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
--- INSERT INTO "MinActivity" VALUES(2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2021, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2022, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2023, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2024, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES(2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 
 CREATE TABLE MaxActivity (
    periods integer,
@@ -454,18 +435,18 @@ CREATE TABLE MaxActivity (
    PRIMARY KEY(periods, tech),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
-INSERT INTO "MaxActivity" VALUES(2021, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2022, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2023, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2024, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2025, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2026, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2027, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2028, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2029, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
-INSERT INTO "MaxActivity" VALUES(2030, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2021, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2022, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2023, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2024, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2025, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2026, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2027, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2028, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2029, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES(2030, 'ABBOTT', 1661.8, 'thermal GWh', 'based on 0.568 average CapFactor');
 
-INSERT INTO "MaxActivity" VALUES(2021, 'IMPELC', 1051.2, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES(2021, 'IMPELC', 525.6, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES(2022, 'IMPELC', 1051.2, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES(2023, 'IMPELC', 1051.2, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES(2024, 'IMPELC', 1051.2, 'electric GWh', '120 MWe imp limit met year round');
@@ -503,12 +484,12 @@ CREATE TABLE  LifetimeTech (
 INSERT INTO "LifetimeTech" VALUES('IMPELC',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('TURBINE',1000,'');
--- INSERT INTO "LifetimeTech" VALUES('IMPWIND',10,'');
--- INSERT INTO "LifetimeTech" VALUES('IMPSOL',25,'');
+INSERT INTO "LifetimeTech" VALUES('IMPWIND',10,'');
+INSERT INTO "LifetimeTech" VALUES('IMPSOL',25,'');
 INSERT INTO "LifetimeTech" VALUES('UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('UH',40,'');
 -- INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
--- INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
+INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
 
 
@@ -538,7 +519,7 @@ INSERT INTO "LifetimeLoanTech" VALUES('UH',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('TURBINE',40,'');
 -- INSERT INTO "LifetimeLoanTech" VALUES('CWS',40,'');
--- INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('NUCLEAR',40,'');
 
 CREATE TABLE CapacityFactorTech (
    season_name text,
@@ -550,33 +531,26 @@ CREATE TABLE CapacityFactorTech (
    FOREIGN KEY(season_name) REFERENCES time_season(t_season),
    FOREIGN KEY(time_of_day_name) REFERENCES time_of_day(t_day),
    FOREIGN KEY(tech) REFERENCES technologies(tech) );
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.168,'average CF for UIUC farm');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0.168,'no solar at night');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
-
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'ABBOTT', 0.568,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'ABBOTT', 0.568,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'ABBOTT', 0.568,'average NGCC CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'ABBOTT', 0.568,'average NGCC CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPSOL',0.336,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPSOL',0.336,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPSOL',0.336,'average CF for UIUC farm');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPSOL',0,'no solar at night');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'IMPWIND', 0.31,'average annual CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'IMPWIND', 0.31,'average annual CF');
 
 -- The nuclear capacity factor is a parameter of interest if it's also used for resarch!
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
--- INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'day', '', ,'');
 -- INSERT INTO "CapacityFactorTech" VALUES('inter', 'night', '', ,'');
@@ -653,6 +627,21 @@ INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2028, 'ELC', 0.33, 'converts S
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2029, 'ELC', 0.33, 'converts STM to ELC');
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2030, 'ELC', 0.33, 'converts STM to ELC');
 
+-- Define nuclear here
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2024, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2025, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2026, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2027, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2028, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2029, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+
+
 -- INSERT INTO "Efficiency" VALUES('ELC', 'CWS', 2000, 'ELC', 0.72, 'converts STM to ELC');
 -- INSERT INTO "Efficiency" VALUES('ELC', 'CWS', 2020, 'ELC', 0.72, 'converts STM to ELC');
 -- INSERT INTO "Efficiency" VALUES('ELC', 'CWS', 2021, 'ELC', 0.72, 'converts STM to ELC');
@@ -668,31 +657,31 @@ INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2030, 'ELC', 0.33, 'converts S
 
 
   -- Define renewables here
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2016, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2021, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2022, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2023, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2024, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2025, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2026, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2027, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2028, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2029, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2030, 'ELC', 1.00,'pure electricity imports');
---
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2016, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2021, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2022, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2023, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2024, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2025, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2026, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2027, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2028, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2029, 'ELC', 1.00,'pure electricity imports');
--- INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2016, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2021, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2022, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2023, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2024, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2025, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2026, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2027, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2028, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2029, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPWIND', 2030, 'ELC', 1.00,'pure electricity imports');
+
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2016, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2021, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2022, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2023, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2024, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2025, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2026, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2027, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2028, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2029, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure electricity imports');
 
 -- Define what happens to intermediate commodities here
 INSERT INTO "Efficiency" VALUES('ELC', 'UL', 2000, 'UELC', 1.00,'');
@@ -721,13 +710,8 @@ INSERT INTO "Efficiency" VALUES('STM', 'UH', 2028, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'UH', 2029, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('STM', 'UH', 2030, 'USTM', 1.00,'');
 
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'ELC', 0.33, 'generates electricity, no refueling');
--- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'generates steam, no refueling');
-
   -- Defines Chilled Water parameters. We are ignoring for now.
   -- If I want to add CHW later, I need to adjust electric demand accordingly.
-
-
 
 
 
@@ -743,10 +727,10 @@ CREATE TABLE ExistingCapacity (
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "ExistingCapacity" VALUES('IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
-INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 257, 'units: MWth', '');
+INSERT INTO "ExistingCapacity" VALUES('ABBOTT', 2000, 334, 'units: MWth', '');
 INSERT INTO "ExistingCapacity" VALUES('TURBINE', 2000, 85, 'units: MWe','');
--- INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
--- INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
+INSERT INTO "ExistingCapacity" VALUES('IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
+INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
 -- INSERT INTO "ExistingCapacity" VALUES('CWS', 2000, 8, 'units: MWe', 'shaves 8 MWe off of peak load');
 -- INSERT INTO "ExistingCapacity" VALUES('UL', 2000, 88, 'units: MWe', 'moves output from APP to UIUC');
 -- INSERT INTO "ExistingCapacity" VALUES('UH', 2000, 266, 'units: MWe', 'moves output from APP to UIUC');
@@ -767,9 +751,9 @@ INSERT INTO "ExistingCapacity" VALUES('TURBINE', 2000, 85, 'units: MWe','');
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
-
--- INSERT INTO "CostInvest" VALUES('NUCLEAR', 2021, 8, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('IMPWIND', 2021, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 
 
 
@@ -803,13 +787,12 @@ INSERT INTO "CostInvest" VALUES('ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of insta
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
--- INSERT INTO "CostVariable" VALUES(2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
-
+INSERT INTO "CostVariable" VALUES(2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
-INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
--- INSERT INTO "CostVariable" VALUES(2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
--- INSERT INTO "CostVariable" VALUES(2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2020, 0.13, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES(2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES(2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
 -- INSERT INTO "CostVariable" VALUES(2022, 'IMPSOL', 2022, 0.046, 'M$/GWh', '');
 
 
