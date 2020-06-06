@@ -44,10 +44,11 @@ every node/.style={fill=white, font=\sffamily}, align=center
   \node (div2) [process, below of=div1, yshift=-0.5cm] {$\gamma$};
   \node (conv2) [process, below of=conv1, yshift=-0.5cm] {$\eta$};
   \node (hydro) [process, right of=conv2, xshift=0.9cm, yshift=-0.5cm] {H$_2$\\Plant};
+  \node (grid) [process, right of=conv1, xshift=0.8cm] {Campus\\Grid};
 
   \draw[->]     (reactor) -- (div1);
   \draw[->]     (div1) -- (conv1) node[midway] {$\beta P_{th}$};
-  \draw[->]     (conv1) ++(0.4,0.)-- ++(2.0,0.) node[midway] {P$_E$};
+  \draw[->]     (conv1) -- (grid) node[midway] {P$_E$};
   \draw[->]     (div1) -- (div2) node[midway] {$(1-\beta) P_{th}$};
   \draw[->]     (div2) -- (conv2);
   \draw[->]     (conv2) -- (hydro) node[midway] {P$_{EH2}$};
