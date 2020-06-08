@@ -209,14 +209,14 @@ def si_prod_rate(P, To):
     pth: sepecific energy [kWh(th)/kg-H2]
     """
     Ts = 0.97*To
-    if Ts >= 750:
+    if Ts >= 700:
         temp = [750, 800, 850, 900, 950, 1000]
         sel = [600, 400, 300, 265, 245, 230]  # specfic energy [MJ/kg-H2]
         se = 1e3/3600 * np.array(sel)  # [kWh/kg-H2]
         pth = np.interp(Ts, temp, se)
         pr = P/pth*1e3
     else:
-        print('Error Tout has to be above 773 C.')
+        print('Error Tout has to be above 722 C.')
         sys.exit()
     return pr, pth
 
