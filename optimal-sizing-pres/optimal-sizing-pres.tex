@@ -111,9 +111,10 @@
 % \subsection{RAVEN}
 % \subsection{TEMOA}
 
-\section{Results}
-\subsection{RAVEN results}
+% \section{Results}
+\section{Grid Characterization: RAVEN}
 \input{ravenres}
+\section{Optimal Sizing: Temoa}
 \input{temoares}
 \section{Conclusion}
 \input{conclusion}
@@ -127,6 +128,51 @@
   \bibliographystyle{plain}
   {\footnotesize \bibliography{bibliography.bib} }
 
+\end{frame}
+\begin{frame}
+  \begin{center}
+    \Huge{\textbf{Questions?}}
+  \end{center}
+\end{frame}
+
+
+% Back up slides
+\begin{frame}
+  \frametitle{Mathematics of \texttt{Temoa}}
+  \begin{columns}
+    \column[t]{3cm}
+    \begin{align}
+      \intertext{Minimize}
+      C_{total} &= \sum_{t, v}C_{t, v}\\
+      \intertext{Subject to}
+      D_{s,p} &= \sum_{s,p}G_{s,p}\nonumber\\
+      L_{p} &= \sum_{t,p}\hat{R}_{CO_2,\{t,p\}}\nonumber
+    \end{align}
+    \column[t]{4cm}
+    \begin{align}
+      \intertext{Where}
+      C_{total} &= \text{total cost}\nonumber\\
+      D_{s,p} &= \text{energy demand by sector, time period}\nonumber\\
+      G_{s,p} &= \text{energy generation by sector, time period}\nonumber\\
+      L_{p} &= \text{emission limits by time period}\nonumber\\
+      \hat{R}_{CO_2,\{t,p\}} &= \text{emissions by technology, time period}\nonumber
+    \end{align}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{FAQ}
+    \begin{itemize}
+      \item \textit{What does "TURBINE" mean?}\\
+      The "TURBINE" technology simply converts steam to electricity since Abbott
+      power plant is actually a cogeneration plant. We assumed that a nuclear
+      reactor that could replace Abbott would also be used for cogeneration.
+      \item \textit{Can this analysis be applied to other universities or energy
+      systems?}\\
+      Yes. While the University of Illinois is unique in its self-reliance, the
+      idea that nuclear power fulfills a role in the energy mix that is not easily
+      satisfied by renewables is not.
+    \end{itemize}
 \end{frame}
 
 %%--------------------------------%%
