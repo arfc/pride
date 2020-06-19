@@ -285,11 +285,13 @@ def emissions_plot(dataframe, variable, scenario, sector):
             color='tab:purple',
             label='CO$_2$ Emissions')
 
-    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable}", fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize = 16)
+    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable}",
+                 fontsize=21)
+    plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
-    ax.legend(loc=(1.02,0.5),fancybox=True, shadow=True, fontsize=12,prop={'size': 21})
+    ax.legend(loc=(1.02, 0.5), fancybox=True,
+              shadow=True, fontsize=12, prop={'size': 21})
     plt.grid()
     plt.yticks(fontsize=18)
     ax.set_xticks(dataframe.index)
