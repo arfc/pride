@@ -13,12 +13,15 @@ rule all:
         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
                zip,
                db=DBS, scenario=SCENARIOS),
-        # expand("data_files/run_{scenario}.txt", scenario=SCENARIOS)
-        expand("figures/{scenario}_{sector}_capacity.png", sector=SECTORS, scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS, scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_emissions.png", sector=SECTORS, scenario=SCENARIOS)
-    # wildcard_constraints:
-    #     filename = "\.+"
+        expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
+               zip,
+               db=DBS, scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_capacity.png", sector=SECTORS,
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS,
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_emissions.png", sector=SECTORS,
+               scenario=SCENARIOS)
 
 rule make_temoa_input:
     input:
@@ -32,9 +35,7 @@ rule temoa_run:
     input:
         "data_files/run_{scenario}.txt"
     output:
-        r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log"
-    # params:
-    #     name = "{scenario}"
+        r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
     shell:
         "set +o pipefail; yes | python ~/research/temoa/temoa_model --config={input}"
 
