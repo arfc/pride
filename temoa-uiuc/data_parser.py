@@ -46,7 +46,7 @@ def data_by_year(datalines, year):
     for line in datalines:
         if string in line:
             datayear.append(line)
-            # print(line)
+            # (line)
 
     return datayear
 
@@ -72,7 +72,7 @@ def data_by_variable(datalines, variable):
         data for a particular variable.
     """
     datavariable = []
-    print(variable)
+    (variable)
 
     for line in datalines:
         if variable in line:
@@ -106,7 +106,7 @@ def data_by_tech(datalines, tech):
     for line in datalines:
         if tech in line:
             datatech.append(line)
-            # print(line)
+            # (line)
 
     return datatech
 
@@ -130,7 +130,7 @@ def get_total(lines):
     total = 0.0
     for line in lines:
         data_sep = line.split()
-        # print(data_sep)
+        # (data_sep)
         total += float(data_sep[0])
 
     return total
@@ -256,8 +256,8 @@ def bar_plot(dataframe, variable, scenario, sector):
     plt.xlabel("Year", fontsize=18)
     # plt.show()
 
-    plt.savefig(f"{target_folder}{scenario}_{variable.lower()}.png")
-
+    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+    plt.close()
     return
 
 
@@ -303,8 +303,8 @@ def emissions_plot(dataframe, variable, scenario, sector):
     ax.set_xticks(dataframe.index)
     plt.xticks(fontsize=18)
     # plt.show()
-    plt.savefig(f"{target_folder}{scenario}_{variable.lower()}.png")
-
+    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+    plt.close()
     return
 
 def get_output_files():

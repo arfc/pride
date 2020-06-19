@@ -1,5 +1,6 @@
 DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc"]
 SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03"]
+SECTORS = ["ind", "elc", "all"]
 
 FOLDER = ["bau_uiuc_bau_model",
           "01_uiuc_scenario01_model",
@@ -9,11 +10,13 @@ FOLDER = ["bau_uiuc_bau_model",
 rule all:
     input:
         expand("data_files/{db}.sqlite", db=DBS),
-        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log", zip, db=DBS, scenario=SCENARIOS)
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+               zip,
+               db=DBS, scenario=SCENARIOS),
         # expand("data_files/run_{scenario}.txt", scenario=SCENARIOS)
-        # "figures/{scenario}_capacity.png",
-        # "figures/{scenario}_generation.png",
-        # "figures/{scenario}_emissions.png"
+        expand("figures/{scenario}_{sector}_capacity.png", sector=SECTORS, scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS, scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_emissions.png", sector=SECTORS, scenario=SCENARIOS)
     # wildcard_constraints:
     #     filename = "\.+"
 
@@ -34,3 +37,15 @@ rule temoa_run:
     #     name = "{scenario}"
     shell:
         "set +o pipefail; yes | python ~/research/temoa/temoa_model --config={input}"
+
+rule make_plots:
+    input:
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+               zip,
+               db=DBS, scenario=SCENARIOS)
+    output:
+        "figures/{scenario}_{sector}_capacity.png",
+        "figures/{scenario}_{sector}_generation.png",
+        "figures/{scenario}_{sector}_emissions.png"
+    script:
+        "data_parser.py"
