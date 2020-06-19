@@ -3,15 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import glob
-# import re
 
 plt.rcParams['figure.figsize'] = (12, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
 plt.rcParams['savefig.dpi'] = 200
 plt.rcParams['savefig.bbox'] = 'tight'
-
-path = "./data_files/03_uiuc_test_run_model/"
 
 variables = {'Generation': 'V_ActivityByPeriodAndProcess',
              'Capacity': 'V_Capacity',
@@ -46,7 +43,6 @@ def data_by_year(datalines, year):
     for line in datalines:
         if string in line:
             datayear.append(line)
-            # (line)
 
     return datayear
 
@@ -72,7 +68,6 @@ def data_by_variable(datalines, variable):
         data for a particular variable.
     """
     datavariable = []
-    (variable)
 
     for line in datalines:
         if variable in line:
@@ -106,7 +101,6 @@ def data_by_tech(datalines, tech):
     for line in datalines:
         if tech in line:
             datatech.append(line)
-            # (line)
 
     return datatech
 
@@ -130,7 +124,6 @@ def get_total(lines):
     total = 0.0
     for line in lines:
         data_sep = line.split()
-        # (data_sep)
         total += float(data_sep[0])
 
     return total
@@ -235,7 +228,6 @@ def bar_plot(dataframe, variable, scenario, sector):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-
     units = {'Generation': '[GWh]', 'Capacity': '[MW]'}
 
     years = list(dataframe.index)
@@ -249,12 +241,12 @@ def bar_plot(dataframe, variable, scenario, sector):
     ax.set_xticks(idx)
     ax.set_xticklabels(years, rotation=0, fontsize=18)
     plt.yticks(fontsize=18)
-    ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True, fontsize=12, prop={'size': 21})
+    ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
+              fontsize=12, prop={'size': 21})
     plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable} in {units[variable]}", fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize = 16)
+    plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
-    # plt.show()
 
     plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
     plt.close()
@@ -286,12 +278,12 @@ def emissions_plot(dataframe, variable, scenario, sector):
     fig, ax = plt.subplots()
 
     ax.plot(dataframe.index,
-             dataframe.total,
-             lw=3, linestyle = '--',
-             marker='o',
-             markersize=10,
-             color='tab:purple',
-             label='CO$_2$ Emissions')
+            dataframe.total,
+            lw=3, linestyle='--',
+            marker='o',
+            markersize=10,
+            color='tab:purple',
+            label='CO$_2$ Emissions')
 
     plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable}", fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize = 16)
@@ -302,10 +294,11 @@ def emissions_plot(dataframe, variable, scenario, sector):
     plt.yticks(fontsize=18)
     ax.set_xticks(dataframe.index)
     plt.xticks(fontsize=18)
-    # plt.show()
+
     plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
     plt.close()
     return
+
 
 def get_output_files():
     """
@@ -345,6 +338,7 @@ def get_scenario_name(file):
 
     return scenario_name
 
+
 def parse_datalines(filepath):
     """
     This function opens a file and returns the
@@ -365,6 +359,7 @@ def parse_datalines(filepath):
 
     return lines
 
+
 def make_plots(data_paths):
     """
     This function produces all plots and puts them in a folder
@@ -378,8 +373,8 @@ def make_plots(data_paths):
     """
 
     plots_dict = {'Emissions': emissions_plot,
-                'Generation': bar_plot,
-                'Capacity': bar_plot}
+                  'Generation': bar_plot,
+                  'Capacity': bar_plot}
 
     # for each outputfile
     for file in data_paths:
@@ -407,6 +402,7 @@ def make_plots(data_paths):
                  sector='all')
 
     return
+
 
 if __name__ == "__main__":
 
