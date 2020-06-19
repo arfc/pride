@@ -9,7 +9,7 @@ FOLDER = ["bau_uiuc_bau_model",
 rule all:
     input:
         expand("data_files/{db}.sqlite", db=DBS),
-        expand(r"data_files/*_{scenario}_model/*_OutputLog.log", scenario=SCENARIOS),
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log", zip, db=DBS, scenario=SCENARIOS)
         # expand("data_files/run_{scenario}.txt", scenario=SCENARIOS)
         # "figures/{scenario}_capacity.png",
         # "figures/{scenario}_generation.png",
@@ -29,7 +29,7 @@ rule temoa_run:
     input:
         "data_files/run_{scenario}.txt"
     output:
-        r"data_files/*_{scenario}_model/*_OutputLog.log"
+        r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log"
     # params:
     #     name = "{scenario}"
     shell:
