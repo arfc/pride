@@ -1,10 +1,22 @@
 \section{Background}
 
-This is the background section. I was walking alone in the forest when suddenly, divine
-inspiration struck me to do the research for this presentation. Heat stroke is an alternative explanation shown in Figure \ref{fig:bar-chart} that I find wholly uninteresting.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.65\columnwidth]{the_data_so_far}
-  \caption{According to XKCD, it was probably the heat stroke.}
-  \label{fig:bar-chart}
-\end{figure}
+Reservoir computing (RC) is a modern machine learning algorithm that enables
+accurate short
+to medium term predictions. Ott et. al demonstrated that reservoir computing
+can be used to accurately predict the evolution of a chaotic system up to seven
+Lyapunov times in the
+future \cite{pathak_model-free_2018, wikner_combining_2020}. A Lyapunov time is
+the timescale on which a dynamic system expresses chaos
+due to small deviations in initial conditions. Conventional predictions succumb
+to chaos after one
+Lyapunov time and thus become useless. The Lyapunov time for a
+weather system is on the order of a few days but depends on regional
+environment.
+Electricity production from solar and wind are tightly coupled to regional
+weather. Electricity demand exhibits some seasonal regularity but is still
+subject to stochasticity. Combining accurate demand predictions with reliable
+renewable energy predictions will enable an artificially intelligent reactor
+operator to adjust power in a relaxed manner. Additionally, reservoir computing
+is relatively computationally inexpensive and fast to train. This is owed to its
+sparse network architecture \cite{pathak_model-free_2018,
+wikner_combining_2020, vannitsem_predictability_2017}.
