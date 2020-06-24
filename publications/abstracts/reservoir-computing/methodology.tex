@@ -1,76 +1,44 @@
 \section{Methodology}
 
-This work consists of three parts, data generation model training, and
-prediction. To generate
-data needed for training our RC model we used the \texttt{TrainARMA}
-functionality
-in the \texttt{RAVEN} tool from INL to generate synthetic histories. These
-scenarios
-are passed to the RC model for training and testing.
 
-\subsection{Training Data Generation}
-In this work we use the scenario generation method described in Baker et. al
-using the \texttt{RAVEN} framework \cite{baker_optimal_2018}. The algorithm for
-producing synthetic histories is:
-\begin{enumerate}
-	\item Create a ``typical year`` from historical data.
-	\item Fit an Autoregressive Moving Average (ARMA) model using
-	\texttt{TrainARMA}.
-	\item Use Monte Carlo sampling to generate synthetic histories from ARMA
-	 model.
-\end{enumerate}
-
-We perform this process for three datasets: Electricity demand, wind generation,
-and solar generation. This allows us to train an RC model to predict generation
-from wind and solar farms and to predict the net demand profile given by
-\begin{equation}
-	\label{eqn:net-demand}
-	\begin{split}
-		D_{net} & = (D_{total} - P_{wind} - P_{pv})_h \text{ $\forall$ $h$ in }
-		[0,8759]
-	\end{split}
-\end{equation}
-
-Where $D_{total}$ is the total demand at a given hour, $h$, of a synthetic
-demand profile from the
-ARMA model.
-
-\subsection{Reservoir Computing Model}
-
-Unlike a typical feed forward neural network, a reservoir computer (sometimes
-called an ``echo state network'' or a ``liquid state machine'') is a type of
-recurrent neural network that uses a single layer of many neurons called a
-``reservoir''. The reservoir has an adjacency matrix $\bm{A}$ that is
-\begin{enumerate}
-	\item sparsely populated
-	\item connected by uniformly random weights centered at zero
-	\item has a large number of neurons
-\end{enumerate}
-A reservoir computer also satisfies the \textit{echo state property}
-\cite{pathak_model-free_2018, lukosevicius_reservoir_2009}. This
-property ensures that a system's state has a decaying influence on future states
-(like an echo of sound or ripples on water). This property is satisfied when the
-spectral radius (the absolute value of the greatest eigenvalue of
-$\bm{A}$)\cite{lukosevicius_reservoir_2009},
-\begin{align}
-	\rho(\bm{A}) < 1.
-\end{align}
-
+Explain what methods you used to arrive at your results. For example,
+in this work we adopted XKCD's machine learning algorithm. The algorithm is
+popularly known as ``linear algebra'' and ``statistics.''
 \begin{figure}[H]
-	\includegraphics[width=\columnwidth]{reservoir_network}
-	\caption{A basic reservoir computer or echo state network. Image taken from
-	\cite{chouikhi_genesis_2018}. The connections in the reservoir are given by
-	$\bm{A}$}
-	\label{fig:RCmodel}
+	\centering
+	\includegraphics[width=0.65\columnwidth]{machine_learning}
+	\caption{Graphical representation of XKCD's algorithm.}
+	\label{fig:ML}
 \end{figure}
 
-Figure \ref{fig:RCmodel} gives an visual representation of a basic network. An
-input vector of length \textit{K} is mapped to the reservoir layer by an input
-weight matrix $\bm{W_{in}}$. The state of the reservoir is mapped to an output
-layer of length \textit{N} with an output weight matrix $\bm{W_{out}}$. In this
-work, the input vector is a function of time, $\bm{u}(t)$, and the output
-vector is the next state of the system, $\bm{u}_p(t+\Delta t)$. Ideally, the
-difference between the prediction, $\bm{u}_p$, and the actual, $\bm{u}_a$, is
-minimized. During training, the output weight matrix is trained through
-backpropagation using a loss function like cross entropy
-\cite{pathak_model-free_2018, vlachas_backpropagation_2020}.
+If you used an equation with ten variables that you need to explain, do it here.
+
+Guidance for equations:
+\begin{itemize}
+	\item All variables should be one letter.
+	\item Use the \texttt{align} environment.
+	\item Use \texttt{intertext} to add text inbetween lines.
+	\item Variables should not get their own equation numbers.
+	\item Do your best to make the equation a part of a sentence.
+\end{itemize}
+
+\begin{align}
+ 	P_{pv} &= G_T\tau_{pv}\eta_{ref}A[1-\gamma(T-25)]\\
+\intertext{where}
+	G_T &= I_{DNI}*\cos(\beta+\delta-lat)+I_{DHI}*\frac{180-\beta}{180}\\
+	\delta &= 23.44*\sin\left(\frac{\pi}{180}\frac{360}{365}(N+284)\right)
+	\intertext{where }
+	N &=\mbox{ day of the year}\nonumber\\
+	I_{DNI} &=\mbox{ Direct Normal Irradiance [kW]}\nonumber\\
+	I_{DHI} &=\mbox{ Diffuse Horizontal Irradiance [kW]}\nonumber\\
+	G_T &=\mbox{ total irradiance [kW]}\nonumber\\
+	\eta &=\mbox{ conversion efficiency (0.15)}\nonumber\\
+	\beta &=\mbox{ tilt of the solar panels [$degrees$]}\nonumber\\
+	\delta &=\mbox{ declination of the Earth [$degrees$]}\nonumber\\
+	T &=\mbox{ temperature [$^\circ$C]}\nonumber\\
+	A &=\mbox{ area covered by solar farm [$m^2$]} \nonumber\\
+	\gamma &=\mbox{ temperature coefficient (0.0045)}\nonumber\\
+	\tau &=\mbox{ transmittance of the PV module}\nonumber
+\end{align}
+
+That's one ugly equation \cite{baker_optimal_2018}.
