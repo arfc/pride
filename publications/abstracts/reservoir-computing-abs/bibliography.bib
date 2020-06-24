@@ -79,7 +79,7 @@
 	booktitle = {{IECON} 2016 - 42nd Annual Conference of the {IEEE} Industrial Electronics Society},
 	author = {Marino, D. L. and Amarasinghe, K. and Manic, M.},
 	date = {2016-10},
-	keywords = {Building Energy, building energy load forecasting, building management systems, Buildings, Computer architecture, decision making, Deep Learning, deep neural network, Deep Neural Networks, electricity consumption data benchmark data set, Energy, Energy Load forecasting, energy management, energy management systems, energy wastage minimization, intelligent decision making, load forecasting, Load forecasting, Load modeling, Logic gates, long short term memory algorithm, Long-Short-Term memory, {LSTM}, {LSTM}-based S2S architecture, {LSTM}-based sequence to sequence architecture, neural nets, one-minute time-step resolution dataset, power engineering computing, power grid, power grids, Predictive models, Standards},
+	keywords = {neural nets, decision making, Energy, Load forecasting, Computer architecture, Building Energy, building energy load forecasting, building management systems, Buildings, Deep Learning, deep neural network, Deep Neural Networks, electricity consumption data benchmark data set, Energy Load forecasting, energy management, energy management systems, energy wastage minimization, intelligent decision making, load forecasting, Load modeling, Logic gates, long short term memory algorithm, Long-Short-Term memory, {LSTM}, {LSTM}-based S2S architecture, {LSTM}-based sequence to sequence architecture, one-minute time-step resolution dataset, power engineering computing, power grid, power grids, Predictive models, Standards},
 	file = {IEEE Xplore Abstract Record:/home/dotson/Zotero/storage/B37JLJIG/7793413.html:text/html;IEEE Xplore Full Text PDF:/home/dotson/Zotero/storage/PPFZKTHM/Marino et al. - 2016 - Building energy load forecasting using Deep Neural.pdf:application/pdf}
 }
 
@@ -219,7 +219,7 @@
 	date = {2019-02-25},
 	eprinttype = {arxiv},
 	eprint = {1712.04323},
-	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning},
+	keywords = {Computer Science - Machine Learning, Computer Science - Artificial Intelligence, Statistics - Machine Learning},
 	file = {arXiv Fulltext PDF:/home/dotson/Zotero/storage/FPRLPH7Q/Gallicchio and Micheli - 2019 - Deep Echo State Network (DeepESN) A Brief Survey.pdf:application/pdf;arXiv.org Snapshot:/home/dotson/Zotero/storage/N7LAGAHF/1712.html:text/html}
 }
 
@@ -235,4 +235,98 @@
 	eprint = {1804.08996},
 	keywords = {Computer Science - Neural and Evolutionary Computing},
 	file = {arXiv Fulltext PDF:/home/dotson/Zotero/storage/34A62833/Chouikhi et al. - 2018 - Genesis of Basic and Multi-Layer Echo State Networ.pdf:application/pdf;arXiv.org Snapshot:/home/dotson/Zotero/storage/3Y4U4VQK/1804.html:text/html}
+}
+
+@article{verzelli_echo_2019,
+	title = {Echo State Networks with Self-Normalizing Activations on the Hyper-Sphere},
+	volume = {9},
+	rights = {2019 The Author(s)},
+	issn = {2045-2322},
+	url = {https://www.nature.com/articles/s41598-019-50158-4},
+	doi = {10.1038/s41598-019-50158-4},
+	abstract = {Among the various architectures of Recurrent Neural Networks, Echo State Networks ({ESNs}) emerged due to their simplified and inexpensive training procedure. These networks are known to be sensitive to the setting of hyper-parameters, which critically affect their behavior. Results show that their performance is usually maximized in a narrow region of hyper-parameter space called edge of criticality. Finding such a region requires searching in hyper-parameter space in a sensible way: hyper-parameter configurations marginally outside such a region might yield networks exhibiting fully developed chaos, hence producing unreliable computations. The performance gain due to optimizing hyper-parameters can be studied by considering the memory–nonlinearity trade-off, i.e., the fact that increasing the nonlinear behavior of the network degrades its ability to remember past inputs, and vice-versa. In this paper, we propose a model of {ESNs} that eliminates critical dependence on hyper-parameters, resulting in networks that provably cannot enter a chaotic regime and, at the same time, denotes nonlinear behavior in phase space characterized by a large memory of past inputs, comparable to the one of linear networks. Our contribution is supported by experiments corroborating our theoretical findings, showing that the proposed model displays dynamics that are rich-enough to approximate many common nonlinear systems used for benchmarking.},
+	pages = {13887},
+	number = {1},
+	journaltitle = {Scientific Reports},
+	author = {Verzelli, Pietro and Alippi, Cesare and Livi, Lorenzo},
+	urldate = {2020-06-24},
+	date = {2019-09-25},
+	langid = {english},
+	note = {Number: 1
+Publisher: Nature Publishing Group},
+	file = {Full Text PDF:/home/dotson/Zotero/storage/VUP8QT4W/Verzelli et al. - 2019 - Echo State Networks with Self-Normalizing Activati.pdf:application/pdf;Snapshot:/home/dotson/Zotero/storage/79Q2E8LG/s41598-019-50158-4.html:text/html}
+}
+
+@article{ma_deepr-esn_2020,
+	title = {{DeePr}-{ESN}: A deep projection-encoding echo-state network},
+	volume = {511},
+	issn = {00200255},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0020025519309053},
+	doi = {10.1016/j.ins.2019.09.049},
+	shorttitle = {{DeePr}-{ESN}},
+	abstract = {As a recurrent neural network that requires no training, the reservoir computing ({RC}) model has attracted widespread attention in the last decade, especially in the context of time series prediction. However, most time series have a multiscale structure, which a single-hidden-layer {RC} model may have diﬃculty capturing. In this paper, we propose a novel multiple projection-encoding hierarchical reservoir computing framework called Deep Projection-encoding Echo State Network ({DeePr}-{ESN}). The most distinctive feature of our model is its ability to learn multiscale dynamics through stacked {ESNs}, connected via subspace projections. Speciﬁcally, when an input time series is projected into the highdimensional echo-state space of a reservoir, a subsequent encoding layer (e.g., an autoencoder or {PCA}) projects the echo-state representations into a lower-dimensional feature space. These representations are the principal components of the echo-state representations, which removes the high frequency components of the representations. These can then be processed by another {ESN} through random connections. By using projection layers and encoding layers alternately, our {DeePr}-{ESN} can provide much more robust generalization performance than previous methods, and also fully takes advantage of the temporal kernel property of {ESNs} to encode the multiscale dynamics of time series. In our experiments, the {DeePr}-{ESNs} outperform both standard {ESNs} and existing hierarchical reservoir computing models on some artiﬁcial and real-world time series prediction tasks.},
+	pages = {152--171},
+	journaltitle = {Information Sciences},
+	shortjournal = {Information Sciences},
+	author = {Ma, Qianli and Shen, Lifeng and Cottrell, Garrison W.},
+	urldate = {2020-06-24},
+	date = {2020-02},
+	langid = {english},
+	file = {Ma et al. - 2020 - DeePr-ESN A deep projection-encoding echo-state n.pdf:/home/dotson/Zotero/storage/FXM6TRPX/Ma et al. - 2020 - DeePr-ESN A deep projection-encoding echo-state n.pdf:application/pdf}
+}
+
+@incollection{lukosevicius_practical_2012,
+	location = {Berlin, Heidelberg},
+	title = {A Practical Guide to Applying Echo State Networks},
+	isbn = {978-3-642-35289-8},
+	url = {https://doi.org/10.1007/978-3-642-35289-8_36},
+	series = {Lecture Notes in Computer Science},
+	abstract = {Reservoir computing has emerged in the last decade as an alternative to gradient descent methods for training recurrent neural networks. Echo State Network ({ESN}) is one of the key reservoir computing “flavors”. While being practical, conceptually simple, and easy to implement, {ESNs} require some experience and insight to achieve the hailed good performance in many tasks. Here we present practical techniques and recommendations for successfully applying {ESNs}, as well as some more advanced application-specific modifications.},
+	pages = {659--686},
+	booktitle = {Neural Networks: Tricks of the Trade: Second Edition},
+	publisher = {Springer},
+	author = {Lukoševičius, Mantas},
+	editor = {Montavon, Grégoire and Orr, Geneviève B. and Müller, Klaus-Robert},
+	urldate = {2020-06-24},
+	date = {2012},
+	langid = {english},
+	doi = {10.1007/978-3-642-35289-8_36},
+	keywords = {Little Mean Square, Output Feedback, Recurrent Neural Network, Ridge Regression, Spectral Radius},
+	file = {Springer Full Text PDF:/home/dotson/Zotero/storage/HZVQFIJD/Lukoševičius - 2012 - A Practical Guide to Applying Echo State Networks.pdf:application/pdf}
+}
+
+@article{li_temporalspatial_2011,
+	title = {Temporal–Spatial Distribution of Atmospheric Predictability Limit by Local Dynamical Analogs},
+	volume = {139},
+	issn = {0027-0644},
+	url = {https://journals.ametsoc.org/mwr/article/139/10/3265/71306/Temporal-Spatial-Distribution-of-Atmospheric},
+	doi = {10.1175/MWR-D-10-05020.1},
+	pages = {3265--3283},
+	number = {10},
+	journaltitle = {Monthly Weather Review},
+	shortjournal = {Mon. Wea. Rev.},
+	author = {Li, Jianping and Ding, Ruiqiang},
+	urldate = {2020-06-24},
+	date = {2011-10-01},
+	langid = {english},
+	note = {Publisher: American Meteorological Society},
+	file = {Full Text PDF:/home/dotson/Zotero/storage/EGN4TQZF/Li and Ding - 2011 - Temporal–Spatial Distribution of Atmospheric Predi.pdf:application/pdf;Snapshot:/home/dotson/Zotero/storage/N5VUGZPZ/Temporal-Spatial-Distribution-of-Atmospheric.html:text/html}
+}
+
+@article{jaeger_harnessing_2004,
+	title = {Harnessing Nonlinearity: Predicting Chaotic Systems and Saving Energy in Wireless Communication},
+	volume = {304},
+	issn = {0036-8075, 1095-9203},
+	url = {https://www.sciencemag.org/lookup/doi/10.1126/science.1091277},
+	doi = {10.1126/science.1091277},
+	shorttitle = {Harnessing Nonlinearity},
+	pages = {78--80},
+	number = {5667},
+	journaltitle = {Science},
+	shortjournal = {Science},
+	author = {Jaeger, H.},
+	urldate = {2020-06-24},
+	date = {2004-04-02},
+	langid = {english},
+	file = {Jaeger - 2004 - Harnessing Nonlinearity Predicting Chaotic System.pdf:/home/dotson/Zotero/storage/95LH9UQN/Jaeger - 2004 - Harnessing Nonlinearity Predicting Chaotic System.pdf:application/pdf}
 }

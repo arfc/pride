@@ -37,8 +37,8 @@ ARMA model.
 
 \subsection{Reservoir Computing Model}
 
-Unlike a typical feed forward neural network, a reservoir computer (sometimes
-called an ``echo state network'' or a ``liquid state machine'') is a type of
+Unlike a typical feed forward neural network, an ``echo state network'' (also
+called a ``liquid state machine'') is a type of
 recurrent neural network that uses a single layer of many neurons called a
 ``reservoir''. The reservoir has an adjacency matrix $\bm{A}$ that is
 \begin{enumerate}
@@ -49,12 +49,14 @@ recurrent neural network that uses a single layer of many neurons called a
 A reservoir computer also satisfies the \textit{echo state property}
 \cite{pathak_model-free_2018, lukosevicius_reservoir_2009}. This
 property ensures that a system's state has a decaying influence on future states
-(like an echo of sound or ripples on water). This property is satisfied when the
-spectral radius (the absolute value of the greatest eigenvalue of
-$\bm{A}$)\cite{lukosevicius_reservoir_2009},
+(like an echo of sound or ripples on water). This property is satisfied in most
+cases when the spectral radius (the absolute value of the greatest eigenvalue of
+$\bm{A}$)\cite{lukosevicius_reservoir_2009} is,
 \begin{align}
 	\rho(\bm{A}) < 1.
 \end{align}
+However, the echo state property can still be satisfied for a spectral radius
+greater than unity \cite{lukosevicius_practical_2012}.
 
 \begin{figure}[H]
 	\includegraphics[width=\columnwidth]{reservoir_network}
@@ -64,7 +66,8 @@ $\bm{A}$)\cite{lukosevicius_reservoir_2009},
 	\label{fig:RCmodel}
 \end{figure}
 
-Figure \ref{fig:RCmodel} gives an visual representation of a basic network. An
+Figure \ref{fig:RCmodel} gives an visual representation of a basic
+\acrshort{ESN}. An
 input vector of length \textit{K} is mapped to the reservoir layer by an input
 weight matrix $\bm{W_{in}}$. The state of the reservoir is mapped to an output
 layer of length \textit{N} with an output weight matrix $\bm{W_{out}}$. In this
@@ -74,3 +77,18 @@ difference between the prediction, $\bm{u}_p$, and the actual, $\bm{u}_a$, is
 minimized. During training, the output weight matrix is trained through
 backpropagation using a loss function like cross entropy
 \cite{pathak_model-free_2018, vlachas_backpropagation_2020}.
+
+\subsection{Hyperparameter Search}
+Due to the architecture of \acrshort{ESN}s the weights and connections
+inside the reservoir do not need to be trained and, in our choice of
+implementation, cannot be. This dramatically reduces the training time because
+only the linear output layer needs to be trained. One drawback of this approach
+is its sensitivity to hyperparameters, which must be carefully chosen before
+running the network. Here, we perform grid searches over a variety of networks
+to establish which combination of hyperparameters minimizes the mean squared
+error of the model,
+\begin{align}
+	MSE &= \frac{1}{N}\sum_i^N (\hat{y} - y_i)^2\\
+	\intertext{where}
+	\hat{y} &= \mbox{the average value of the ouput.}\nonumber
+\end{align}

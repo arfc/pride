@@ -1,16 +1,15 @@
 \section{Background}
 
-Reservoir computing (RC) is a modern machine learning algorithm that enables
-accurate short
-to medium term predictions. Ott et. al demonstrated that reservoir computing
+Echo State Networks (ESN), a flavor of reservoir computing, are a modern
+machine learning algorithm that enables accurate short
+to medium term predictions. Pathak et. al demonstrated that reservoir computing
 can be used to accurately predict the evolution of a chaotic system up to seven
 Lyapunov times in the
 future \cite{pathak_model-free_2018, wikner_combining_2020}. A Lyapunov time is
 the timescale on which a dynamic system expresses chaos
 due to small deviations in initial conditions. Conventional predictions succumb
-to chaos after one
-Lyapunov time and thus become useless. The Lyapunov time for a
-weather system is on the order of a few days but depends on regional
+to chaos after one Lyapunov time and thus become useless. The Lyapunov time for
+a weather system is on the order of a few days but depends on regional
 environment.
 Electricity production from solar and wind are tightly coupled to regional
 weather. Electricity demand exhibits some seasonal regularity but is still
