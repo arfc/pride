@@ -1,14 +1,14 @@
 \section{Methodology}
 
-This work consists of three parts, data generation model training, and
-prediction. To generate
-data needed for training our RC model we used the \texttt{TrainARMA}
+This work consists of three parts, data generation, hyperparameter search,
+model training, and prediction. To generate
+data needed for training our \ model we used the \texttt{TrainARMA}
 functionality
 in the \texttt{RAVEN} tool from INL to generate synthetic histories. These
-scenarios
-are passed to the RC model for training and testing.
-
-\subsection{Training Data Generation}
+scenarios are passed to the \acrshort{ESN} model for training and testing.
+The \acrshort{ESN} is implemented with the open-source code \texttt{pyESN}
+\cite{korndorfer_pyesn_2015}.
+\subsection{Scenario Generation}
 In this work we use the scenario generation method described in Baker et. al
 using the \texttt{RAVEN} framework \cite{baker_optimal_2018}. The algorithm for
 producing synthetic histories is:
@@ -21,7 +21,8 @@ producing synthetic histories is:
 \end{enumerate}
 
 We perform this process for three datasets: Electricity demand, wind generation,
-and solar generation. This allows us to train an RC model to predict generation
+and solar generation. This allows us to train an \acrshort{ESN} model to
+predict generation
 from wind and solar farms and to predict the net demand profile given by
 \begin{equation}
 	\label{eqn:net-demand}
@@ -59,10 +60,9 @@ However, the echo state property can still be satisfied for a spectral radius
 greater than unity \cite{lukosevicius_practical_2012}.
 
 \begin{figure}[H]
-	\includegraphics[width=\columnwidth]{reservoir_network}
-	\caption{A basic reservoir computer or echo state network. Image taken from
-	\cite{chouikhi_genesis_2018}. The connections in the reservoir are given by
-	$\bm{A}$}
+	\includegraphics[width=\columnwidth]{reservoir_network.jpg}
+	\caption{A basic reservoir computer or echo state network.The connections in
+	the reservoir are given by $\bm{A}$}
 	\label{fig:RCmodel}
 \end{figure}
 

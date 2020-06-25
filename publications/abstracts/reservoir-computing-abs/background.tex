@@ -1,16 +1,27 @@
 \section{Background}
-
+The University of Illinois at Urbana-Champaign is an ideal model system for
+this work because of its diverse energy mix. Previous work has been done to
+characterize this energy grid and optimize the size of a nuclear reactor \cite{dotson_optimal_2020}. Due to the degree of wind penetration, the University is sometimes
+forced to sell electricity back to MISO at a loss because of overproduction
+from wind energy. Thus, a reliable prediction of electricity production from
+wind and other variable sources will reduce the likelihood of these events,
+specifically. In general, this prediction will also allow nuclear power plants
+to bid on the wholesale market, rather than act as price takers.
 Echo State Networks (ESN), a flavor of reservoir computing, are a modern
 machine learning algorithm that enables accurate short
-to medium term predictions. Pathak et. al demonstrated that reservoir computing
-can be used to accurately predict the evolution of a chaotic system up to seven
-Lyapunov times in the
-future \cite{pathak_model-free_2018, wikner_combining_2020}. A Lyapunov time is
-the timescale on which a dynamic system expresses chaos
-due to small deviations in initial conditions. Conventional predictions succumb
-to chaos after one Lyapunov time and thus become useless. The Lyapunov time for
-a weather system is on the order of a few days but depends on regional
-environment.
+to medium term predictions. Pathak et. al used an \acrshort{ESN} to predict the
+evolution of a chaotic system, a laminar flame front, up to seven Lyapunov
+times in the future \cite{pathak_model-free_2018, wikner_combining_2020}. A
+Lyapunov time simply measures the timescale at which chaos makes initial
+predictions useless. The effect of chaos typically overwhelms conventional
+predictions after a single Lyapunov time, by definition.
+The Lyapunov time for a weather system is on the order of a few days but
+depends on regional environment. \acrshort{ESN}s have also been used to
+forecast multivariate time series
+\cite{bianchi_reservoir_2020}. Echo state networks are unique among neural
+networks in their ease of implementation. However, the simplicity of their
+implementation is balanced by the need for carefully chosen hyperparameters for
+the desired task \cite{lukosevicius_practical_2012}.
 Electricity production from solar and wind are tightly coupled to regional
 weather. Electricity demand exhibits some seasonal regularity but is still
 subject to stochasticity. Combining accurate demand predictions with reliable
