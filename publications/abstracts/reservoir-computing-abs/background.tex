@@ -7,7 +7,7 @@ from wind energy. Thus, a reliable prediction of electricity production from
 wind and other variable sources will reduce the likelihood of these events,
 specifically. In general, this prediction will also allow nuclear power plants
 to bid on the wholesale market, rather than act as price takers.
-Echo State Networks (ESN), a flavor of reservoir computing, are a modern
+\acrshort{ESN}s, a flavor of reservoir computing, are a modern
 machine learning algorithm that enables accurate short
 to medium term predictions. Pathak et. al used an \acrshort{ESN} to predict the
 evolution of a chaotic system, a laminar flame front, up to seven Lyapunov
@@ -19,14 +19,11 @@ The Lyapunov time for a weather system is on the order of a few days but
 depends on regional environment. \acrshort{ESN}s have also been used to
 forecast multivariate time series
 \cite{bianchi_reservoir_2020}. Echo state networks are unique among neural
-networks in their ease of implementation. However, the simplicity of their
-implementation is balanced by the need for carefully chosen hyperparameters for
-the desired task \cite{lukosevicius_practical_2012}.
-Electricity production from solar and wind are tightly coupled to regional
-weather. Electricity demand exhibits some seasonal regularity but is still
-subject to stochasticity. Combining accurate demand predictions with reliable
-renewable energy predictions will enable an artificially intelligent reactor
-operator to adjust power in a relaxed manner. Additionally, reservoir computing
-is relatively computationally inexpensive and fast to train. This is owed to its
+networks in their ease of implementation and training speed. This is owed to its
 sparse network architecture \cite{pathak_model-free_2018,
-wikner_combining_2020, vannitsem_predictability_2017}.
+wikner_combining_2020, vannitsem_predictability_2017}. However,
+their simplicity is balanced by the need for carefully chosen hyperparameters
+for the desired task \cite{lukosevicius_practical_2012}.
+Combining accurate demand predictions with reliable
+renewable energy predictions will enable an artificially intelligent reactor
+operator to adjust power in a relaxed manner.

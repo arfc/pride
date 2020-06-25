@@ -1,15 +1,19 @@
 \section{Conclusions}
 
-In this work we demonstrated the \texttt{RAVEN} tool's scenario generation
-capability. We have also demonstrated that \acrlong{ESN} can
+We have demonstrated that even a basic \acrshort{ESN} can
 powerfully predict the evolution of dynamic, chaotic, systems as others have
 \cite{pathak_model-free_2018,wikner_combining_2020,bianchi_reservoir_2020}.
+Future work will include:
+\begin{enumerate}
+  \item Identifying ideal input vectors, whether a single value for net demand
+  history will suffice or some combination of values (e.g. local weather and
+  total demand) will improve predictive power.
+  \item Grid searches to tune hyperparameters.
+  \item Predict generation from the UIUC solar farm and Railsplitter Wind Farm
+  independently.
+\end{enumerate}
+Fairer comparisons on the effectiveness of training length will be done by
+fixing the prediction time period for each ESN.
 Accurate predictions of chaotic systems, like wind energy production, will
-enable nuclear power plants to maintain their economic feasibility.
-Knowledge, in advance, of renewable electricity generation will enable
-operators to ramp the reactor power within the constraints given by reactor
-physics. Future work will include identifying ideal input vectors, grid
-searches and random searches to tune hyperparameters, and averaging over
-several reservoirs, to achieve further
-improvements. \acrshort{ESN}s will also be used to predict solar and wind
-energy production.
+enable nuclear power plants to improve their economic feasibility through
+relaxed load following.
