@@ -3,8 +3,8 @@ import numpy as np
 path = 'C:\\Users\\Atwater\\research\\data\\'
 
 
-def fuel_type_code(sheet: str=f'{path}eia_layout.csv',
-                   simple: bool=False):
+def fuel_type_code(sheet: str = f'{path}eia_layout.csv',
+                   simple: bool = False):
 
     """
     This function creates a dictionary to correlate the
@@ -150,7 +150,7 @@ def mover_database():
     return mover
 
 
-def generation(sheet: str=f'{path}eia_generation_2018.csv'):
+def generation(sheet: str = f'{path}eia_generation_2018.csv'):
 
     '''
     This function generates a nested dictionary of the Universities
@@ -363,7 +363,7 @@ def university_top_producers():
     return dict(top_producers)
 
 
-def energy_type_breakdown(simplified: bool=False):
+def energy_type_breakdown(simplified: bool = False):
 
     """
     Uses previous functions to generate a dictionary of the various
@@ -494,7 +494,7 @@ def university_top_renewables():
     return dict(top_renewables)
 
 
-def usage(sort: str='installed'):
+def usage(sort: str = 'installed'):
 
     """
     This function generates a dictionary detailing how many universities
@@ -694,7 +694,7 @@ def university_capacity():
     return capacity
 
 
-def sources(capacity_factor: bool=True):
+def sources(capacity_factor: bool = True):
 
     """
     This function provides the links to the sources used
@@ -785,59 +785,59 @@ def split_dictionary(dictionary: dict):
 
         try:
             NG.append(value['NG'])
-        except:
+        except KeyError:
             NG.append(0)
         try:
             DFO.append(value['DFO'])
-        except:
+        except KeyError:
             DFO.append(0)
         try:
             RFO.append(value['RFO'])
-        except:
+        except KeyError:
             RFO.append(0)
         try:
             BIT.append(value['BIT'])
-        except:
+        except KeyError:
             BIT.append(0)
         try:
             SUB.append(value['SUB'])
-        except:
+        except KeyError:
             SUB.append(0)
         try:
             WAT.append(value['WAT'])
-        except:
+        except KeyError:
             WAT.append(0)
         try:
             WDS.append(value['WDS'])
-        except:
+        except KeyError:
             WDS.append(0)
         try:
             WND.append(value['WND'])
-        except:
+        except KeyError:
             WND.append(0)
         try:
             LFG.append(value['LFG'])
-        except:
+        except KeyError:
             LFG.append(0)
         try:
             SUN.append(value['SUN'])
-        except:
+        except KeyError:
             SUN.append(0)
         try:
             PC.append(value['PC'])
-        except:
+        except KeyError:
             PC.append(0)
         try:
             OBS.append(value['OBS'])
-        except:
+        except KeyError:
             OBS.append(0)
         try:
             OBL.append(value['OBL'])
-        except:
+        except KeyError:
             OBL.append(0)
         try:
             MWH.append(value['MWH'])
-        except:
+        except KeyError:
             MWH.append(0)
 
     split = [
@@ -861,12 +861,12 @@ def split_dictionary(dictionary: dict):
     return split
 
 
-def plot_data(total: bool=False,
-              top_producers: bool=False,
-              top_renewables: bool=False,
-              fuel_breakdown: bool=False,
-              capacity: bool=False,
-              use: bool=False):
+def plot_data(total: bool = False,
+              top_producers: bool = False,
+              top_renewables: bool = False,
+              fuel_breakdown: bool = False,
+              capacity: bool = False,
+              use: bool = False):
 
     """
     This function plots the data in the EIA spreadsheet
