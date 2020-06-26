@@ -45,7 +45,7 @@ in Figure \ref{fig:uiuc_emissions_breakdown}. \gls{icap} 2015 showed that
 \gls{uiuc} made progress towards its emissions goals. Further, in 2016
 \gls{uiuc} entered a power purchase agreement with Railsplitter Wind Farm
 \cite{breitweiser_wind_2016} and completed Solar Farm 1.0
-\cite{white_solar_2017}. These investments indicate \gls{uiuc}'s dedication to
+\cite{white_solar_2017}. Though these investments indicate \gls{uiuc}'s dedication to
 emissions goals, they have not been enough to curb emissions as shown in Figure
 \ref{fig:uiuc_ghg}.
 
@@ -85,7 +85,6 @@ half of \gls{uiuc}'s energy demand comes from steam \cite{isee_illinois_2015}
 efficiently produce heat in a manner that is simultaneosly cost effective and
 friendly to the environment.
 
-\subsection{The Nuclear Option}
 Nuclear energy was conspicuously absent from the Master Plan's analysis. Yet
 the life cycle carbon emissions of a nuclear power plant is rivaled only by on-
 shore wind power, shown in Figure \ref{fig:co2sources} and is capable of
@@ -110,10 +109,23 @@ on energy production.
   \label{fig:co2sources}
 \end{figure}
 
+ \glspl{esom} are useful for
+exploring different policy scenarios and energy mixes when faced with future
+uncertainty
+\cite{decarolis_modelling_2016,hunter_modeling_2013,li_open_2020,decarolis_multi-stage_nodate}.
 In this work, we use an \gls{esom} called \gls{temoa}
 to analyze future energy mixes that will allow \gls{uiuc} to meet the
-\gls{icap} goals.
+\gls{icap} goals \cite{decarolis_tools_2020}. This study is unique because we do
+not consider all possible technologies that could replace natural gas and coal
+capacity, which have a range of maturity and readiness. Rather, we
+consider \gls{uiuc}'s existing energy mix and use \gls{temoa} to find the
+minimum capacity of a nuclear power plant that will enable \gls{uiuc} to
+satisfy its emissions goals.
 
 We first examine a business-as-usual model to verify that \gls{temoa} agrees
 with the findings in the Master Plan
-\cite{affiliated_engineers_inc_utilities_2015}.
+\cite{affiliated_engineers_inc_utilities_2015}. Then we consider three scenarios
+that introduce a nuclear power plant to the energy mix. Finally we employ an
+uncertainty analysis method known as \gls{mga} to evaluate futures
+that also meet the emissions limits for \gls{uiuc} but where system cost is not
+perfectly minimized.
