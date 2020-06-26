@@ -1,0 +1,204 @@
+%        File: arfc-beamer.tex
+%     Created: Sun May 5 10:00 PM 2013 C
+%
+
+
+%\documentclass[11pt,handout]{beamer}
+\documentclass[9pt]{beamer}
+\usetheme[white]{Illinois}
+%\title[short title]{long title}
+\title[Short Title]{Optimal Sizing of a Nuclear Reactor for Embedded Grid Systems}
+\subtitle[short subtitle]{ANS National Conference 2020}
+% \subtitle[Short SubTitle]{Preliminary Work}
+%\author[short name]{long name}
+\author[Samuel Dotson]{\textbf{Samuel G. Dotson} and Kathryn D. Huff\\Advanced Reactors and Fuel Cycles Group}
+%\date[short date]{long date}
+% \date[05.21.2020]{May 21, 2020}
+\date{June 10, 2020}
+%\institution[short name]{long name}
+\institute[UIUC]{University of Illinois at Urbana-Champaign}
+
+%\usepackage{bbding}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{graphicx}
+\graphicspath{{../../../figures/}}
+\usepackage{subfigure}
+\usepackage{booktabs} % nice rules for tables
+\usepackage{microtype} % if using PDF
+\usepackage{bigints}
+\usepackage{minted}
+
+\newcommand{\units}[1] {\:\text{#1}}%
+\newcommand{\SN}{S$_N$}%{S$_\text{N}$}%{$S_N$}%
+\DeclareMathOperator{\erf}{erf}
+%I need some complimentary error funcitons...
+\DeclareMathOperator{\erfc}{erfc}
+%Those icons in the references are terrible looking
+\setbeamertemplate{bibliography item}[text]
+
+%%%% Acronym support
+
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+
+\makeglossaries
+
+%try to get rid of header on title page\dots
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \rightline{\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}}
+  }%
+  \vskip0pt%
+}
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% From uw-beamer Here's a handy bit of code to place at
+%% the beginning of your presentation (after \begin{document}):
+\newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
+\newlength{\highlightheight}
+\newlength{\highlightdepth}
+\newlength{\highlightmargin}
+\setlength{\highlightmargin}{2pt}
+\settoheight{\highlightheight}{\alphabet}
+\settodepth{\highlightdepth}{\alphabet}
+\addtolength{\highlightheight}{\highlightmargin}
+\addtolength{\highlightdepth}{\highlightmargin}
+\addtolength{\highlightheight}{\highlightdepth}
+\newcommand*{\Highlight}{\rlap{\textcolor{HighlightBackground}{\rule[-\highlightdepth]{\linewidth}{\highlightheight}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%--------------------------------%%
+\begin{withoutheadline}
+\frame{
+  \titlepage
+}
+\end{withoutheadline}
+
+%%--------------------------------%%
+\AtBeginSection[]{
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Motivation}
+\subsection{Illinois Climate Action Plan (iCAP)}
+\input{icap}
+% \subsection{Problems}
+% \input{cat_math}
+\section{Methods}
+\input{Methods}
+% \subsection{RAVEN}
+% \subsection{TEMOA}
+
+% \section{Results}
+\section{Grid Characterization: RAVEN}
+\input{ravenres}
+\section{Optimal Sizing: Temoa}
+\input{temoares}
+\section{Conclusion}
+\input{conclusion}
+\section{Future Work}
+\input{futurework}
+\input{acks}
+%%--------------------------------%%
+%%--------------------------------%%
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{plain}
+  {\footnotesize \bibliography{bibliography.bib} }
+
+\end{frame}
+\begin{frame}
+  \begin{center}
+    \Huge{\textbf{Questions?}}
+  \end{center}
+\end{frame}
+
+
+% Back up slides
+\begin{frame}
+  \frametitle{Mathematics of \texttt{Temoa}}
+  \begin{columns}
+    \column[t]{3cm}
+    \begin{align}
+      \intertext{Minimize}
+      C_{total} &= \sum_{t, v}C_{t, v}\\
+      \intertext{Subject to}
+      D_{s,p} &= \sum_{s,p}G_{s,p}\nonumber\\
+      L_{p} &= \sum_{t,p}\hat{R}_{CO_2,\{t,p\}}\nonumber
+    \end{align}
+    \column[t]{4cm}
+    \begin{align}
+      \intertext{Where}
+      C_{total} &= \text{total cost}\nonumber\\
+      D_{s,p} &= \text{energy demand by sector, time period}\nonumber\\
+      G_{s,p} &= \text{energy generation by sector, time period}\nonumber\\
+      L_{p} &= \text{emission limits by time period}\nonumber\\
+      \hat{R}_{CO_2,\{t,p\}} &= \text{emissions by technology, time period}\nonumber
+    \end{align}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{FAQ}
+    \begin{itemize}
+      \item \textit{What does "TURBINE" mean?}\\
+      The "TURBINE" technology simply converts steam to electricity since Abbott
+      power plant is actually a cogeneration plant. We assumed that a nuclear
+      reactor that could replace Abbott would also be used for cogeneration.
+      \item \textit{Can this analysis be applied to other universities or energy
+      systems?}\\
+      Yes. While the University of Illinois is unique in its self-reliance, the
+      idea that nuclear power fulfills a role in the energy mix that is not easily
+      satisfied by renewables is not.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\#ShutDownSTEM}
+  \begin{columns}
+    \column[t]{5cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{shutdownstem.png}
+    \end{figure}
+    \column[t]{5cm}
+    \vspace{2cm}
+    \newline
+    % \begin{minipage}[c]{0.6\textheight}
+      This lecture has been pre-recorded.\\
+      Questions can be directed to:\\
+      Samuel G. Dotson\\
+      sgd2@illinois.edu\\
+      Thank you.
+    % \end{minipage}
+
+
+  \end{columns}
+\end{frame}
+
+%%--------------------------------%%
+
+
+\end{document}
