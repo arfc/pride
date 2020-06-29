@@ -1,24 +1,40 @@
 \section{Background}
+Variability has been the primary drawback for renewable energy sources like
+wind turbines, solar PV, and solar concentrators since their inception. This
+flaw has become more pronounced as renewable penetration on the electricity
+grid increased in recent years. Forecasting electricity production from
+renewable sources is therefore important for successful management of power
+systems \cite{kobylinski_high-resolution_2020}. Recent studies have applied
+\glspl{ann}, specifically multi-layer perceptrons, to the task of net load
+forecasting \cite{kobylinski_high-resolution_2020,dutta_load_2017,lee_development_2016}. These studies made short
+term forecasts of 4-6 hours. Forecasts at this time scale enable load following
+for natural gas plants, but challenges nuclear power plants. Nuclear plants
+need accurate forecasts further ahead to facilitate relaxed load following.
+This study will be the first to apply \glspl{ESN} to the task of net load
+prediction.
+
 The University of Illinois at Urbana-Champaign is an ideal model system for
 this work because of its diverse energy mix. Previous work has been done to
-characterize this energy grid and optimize the size of a nuclear reactor \cite{dotson_optimal_2020}. Due to the degree of wind penetration, the University is sometimes
-forced to sell electricity back to the grid operator, MISO, at a loss because of overproduction
+characterize this energy grid and optimize the size of a nuclear reactor
+\cite{dotson_optimal_2020}. Due to the degree of wind penetration, the
+University is sometimes
+forced to sell electricity back to the grid operator, MISO, at a loss because
+of overproduction
 from wind energy. Thus, a reliable prediction of electricity production from
-wind and other variable sources will reduce the likelihood of these events,
-specifically. In general, this prediction will also allow nuclear power plants
-to bid on the wholesale market, rather than act as price takers.
-\acrshort{ESN}s, a flavor of reservoir computing, are a modern
+wind and other variable sources will reduce the likelihood of these events.
+
+\glspl{ESN}, a flavor of reservoir computing, are a modern
 machine learning algorithm that enables accurate short
-to medium term predictions. Pathak et. al used an \acrshort{ESN} to predict the
+to medium term predictions. Pathak et. al used an \gls{ESN} to predict the
 evolution of a chaotic system, a laminar flame front, up to seven Lyapunov
 times in the future \cite{pathak_model-free_2018, wikner_combining_2020}. A
 Lyapunov time simply measures the timescale at which chaos makes initial
 predictions useless. The effect of chaos typically overwhelms conventional
 predictions after a single Lyapunov time, by definition.
 The Lyapunov time for a weather system is on the order of a few days but
-depends on the regional environment. \acrshort{ESN}s have also been used to
-forecast multivariate time series
-\cite{bianchi_reservoir_2020}. Echo state networks are unique among neural
+depends on the regional environment. \glspl{ESN} have also been used to
+forecast multivariate time series \cite{bianchi_reservoir_2020}. Echo state
+networks are unique among neural
 networks in their ease of implementation and training speed. This is owed to its
 sparse network architecture \cite{pathak_model-free_2018,
 wikner_combining_2020, vannitsem_predictability_2017}. However,
