@@ -11,6 +11,7 @@ from eia import university_capacity
 from eia import sources
 from eia import split_dictionary
 from eia import plot_data
+from eia import plot_energy_change
 
 
 def test_fuel_type_code():
@@ -532,3 +533,41 @@ def test_plot_data_3():
     with pytest.raises(ValueError, match="Not a valid"):
 
         plot_data(year_=arg)
+
+
+def test_plot_energy_change_1():
+    """
+    This function will pass if plot_energy_data is
+    correctly designed to raise a TypeError if either
+    of its arguments is not of type 'str'.
+
+    """
+
+    arg = 20
+
+    with pytest.raises(TypeError, match="All arguments"):
+
+        plot_energy_change(university=arg, energy='NG')
+
+    with pytest.raises(TypeError, match="All arguments"):
+
+        plot_energy_change(university='all', energy=arg)
+
+
+def test_plot_energy_change_2():
+    """
+    This function will pass if plot_energy_data is
+    correctly designed to raise a ValueError if
+    either of the arguments is not supported.
+
+    """
+
+    arg = 'NUC'
+
+    with pytest.raises(ValueError, match="University"):
+
+        plot_energy_change(university=arg, energy='NG')
+
+    with pytest.raises(ValueError, match="Energy type"):
+
+        plot_energy_change(university='all', energy=arg)
