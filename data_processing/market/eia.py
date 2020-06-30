@@ -1670,7 +1670,7 @@ def plot_data(year_: str,
         plt.figure()
 
         plt.title(
-            f'Top Renewable Electrical Production from Education Sector ({year_})'
+            f'Top Renewable Electric Production from Education Sector ({year_})'
         )
 
         plt.ylabel('Renewable Electicity Production (MWhr)')
@@ -1896,7 +1896,7 @@ def plot_data(year_: str,
             plt.figure(figsize=(15, 6))
 
             plt.title(
-                f'Electrical Production Capacity from Education Sector ({year_})'
+                f'Electric Production Capacity from Education Sector ({year_})'
             )
 
             plt.ylabel('Capacity (MW)')
