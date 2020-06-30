@@ -1670,7 +1670,7 @@ def plot_data(year_: str,
         plt.figure()
 
         plt.title(
-            f'Top Renewable Electric Production in Education({year_})'
+            f'Top Renewable Electrical Production from Education Sector ({year_})'
         )
 
         plt.ylabel('Renewable Electicity Production (MWhr)')
@@ -1896,7 +1896,7 @@ def plot_data(year_: str,
             plt.figure(figsize=(15, 6))
 
             plt.title(
-                f'Electrical Production Capacity from Education ({year_})'
+                f'Electrical Production Capacity from Education Sector ({year_})'
             )
 
             plt.ylabel('Capacity (MW)')
@@ -1954,3 +1954,134 @@ def plot_data(year_: str,
             plt.xticks(rotation='vertical')
 
             plt.bar(fuels, unis)
+
+
+def plot_energy_change(energy: str, university: str = 'all'):
+    """
+    This function plots how the a specific energy generation type
+    has changed since 2008 for a desired university.
+
+    Parameters:
+    -----------
+    energy: str
+        This is the type of energy to be analyzed. Must be entered
+        by fuel type code. For instance, natural gas is 'NG'.
+
+    university: str
+        This is the university whose data is to be examined.
+        Default is 'all'
+
+    """
+
+    if not isinstance(energy, str):
+
+        raise TypeError(
+            "All arguments for this function must be of type 'str'."
+        )
+
+    if not isinstance(university, str):
+
+        raise TypeError(
+            "All arguments for this function must be of type 'str'."
+        )
+
+    data08 = generation('2008')
+    data12 = generation('2012')
+    data16 = generation('2016')
+    data18 = generation('2018')
+
+    dic_list = [
+        data08,
+        data12,
+        data16,
+        data18
+    ]
+
+    if (
+            university not in data08.keys()) and (
+            university not in data12.keys()) and (
+            university not in data16.keys()) and (
+            university not in data18.keys()):
+
+        if university != 'all':
+
+            raise ValueError(
+                f"University '{university}' not supported."
+            )
+
+    try:
+
+        energy_1 = fuel_type_code()[energy]
+
+    except KeyError:
+
+        raise ValueError(
+            f"Energy type '{energy}' not supported."
+        )
+
+    if (
+            energy_1 not in energy_type_breakdown('2008')) and (
+            energy_1 not in energy_type_breakdown('2012')) and (
+            energy_1 not in energy_type_breakdown('2016')) and (
+            energy_1 not in energy_type_breakdown('2018')):
+
+        raise ValueError(
+            f"Energy type '{energy}' not present in education sector."
+        )
+
+    years = [
+        '2008',
+        '2012',
+        '2016',
+        '2018'
+    ]
+
+    amounts = list()
+
+    if university == 'all':
+
+        for year in years:
+
+            try:
+
+                amounts.append(energy_type_breakdown(year)[energy_1])
+
+            except KeyError:
+
+                amounts.append(0)
+
+    else:
+
+        for dic in dic_list:
+
+            summ = 0
+
+            try:
+
+                for key in dic[university][energy]:
+
+                    summ += dic[university][energy][key]
+
+                amounts.append(summ)
+
+            except KeyError:
+
+                amounts.append(0)
+
+    plt.figure()
+
+    if university == 'all':
+
+        plt.title(
+            f'{energy_1} Change in Education Electricity Generation'
+        )
+
+    else:
+
+        plt.title(
+            f'{energy_1} Change in {university} Electricity Generation'
+        )
+
+    plt.ylabel('Generation (MWhr)')
+
+    plt.bar(years, amounts)
