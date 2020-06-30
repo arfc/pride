@@ -1670,7 +1670,7 @@ def plot_data(year_: str,
         plt.figure()
 
         plt.title(
-            f'Top Renewable Electric Production from Education Sector ({year_})'
+            f'Top Renewable Electric Production in Education Sector ({year_})'
         )
 
         plt.ylabel('Renewable Electicity Production (MWhr)')
