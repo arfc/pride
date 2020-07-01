@@ -4,7 +4,7 @@
 An ``echo state network'' (also
 called a ``liquid state machine'' \cite{lukosevicius_practical_2012}) is a type
 of recurrent neural network that uses a single layer of many neurons called a
-``reservoir''. The reservoir has an adjacency matrix $\bm{A}$ that
+``reservoir.'' The reservoir has an adjacency matrix $\bm{A}$ that
 \begin{enumerate}
 	\item is sparsely populated
 	\item is connected by uniformly random weights centered at zero
@@ -15,7 +15,7 @@ A reservoir computer also satisfies the \textit{echo state property}
 property ensures that a system's state has a decaying influence on future states
 (like an echo of sound or ripples on water). This property is satisfied in most
 cases when the the absolute value of the greatest eigenvalue of
-$\bm{A}$ (spectral radius, $\rho$) \cite{lukosevicius_reservoir_2009} is,
+$\bm{A}$ (the spectral radius, $\rho$) \cite{lukosevicius_reservoir_2009} is,
 \begin{align}
 	\rho(\bm{A}) < 1.
 \end{align}
@@ -45,10 +45,10 @@ difference between the prediction, $\bm{u}_p$, and the actual, $\bm{u}_a$, is
 minimized. \glspl{ESN} are capable of mapping an input vector of any size to
 an output vector of any size. For example, $\bm{u}(t)$ could be the total
 demand
-at $t$ and $\bm{u}_p(t+\Delta t)$ the total demand at $t+\Delta t$ and the
-reservoir would a one-to-one map. Alternatively, $\bm{u}(t)$ could be several
-data points, temperature, air pressure, irradiance, wind speed, and total
-demand, at time $t$ and $\bm{u}_p(t+\Delta t)$ could be the net demand at
+at $t$ and $\bm{u}_p(t+\Delta t)$ could be the total demand at $t+\Delta t$;
+the reservoir would be a one-to-one map. Alternatively, $\bm{u}(t)$ could be
+several data points, temperature, air pressure, irradiance, wind speed, and
+total demand, at time $t$ and $\bm{u}_p(t+\Delta t)$ could be the net demand at
 $t+\Delta t$; the reservoir is then a many-to-one map. Determining the
 combination of input data that leads to the most accurate predictions is a key
 area of research and an important part of this study \cite{kobylinski_high-resolution_2020,bianchi_reservoir_2020}.
@@ -72,16 +72,16 @@ error of the model,
 
 \subsection{Contstructing the \gls{ESN}}
 
-We used the open source Python package \texttt{pyESN} to construct the
-\gls{ESN} in our initial demonstration \cite{korndorfer_pyesn_2015}. The code
-is freely available on GitHub.Two models were trained
-historical demand data from \gls{uiuc} in 2017.  Each model starts with a
+We constructed the \gls{ESN} in our initial demonstration with the open source
+Python package \texttt{pyESN} \cite{korndorfer_pyesn_2015}. The code
+is freely available on GitHub. Two models were trained with
+historical demand data from \gls{uiuc} in 2017.  Each model had a
 reservoir of 500 neurons. One was trained on 1000 hours of
 data and predicted the following 100 hours of demand in two hour
 increments. The other was trained on 3500 hours of data and, once again,
 predicted the following 100 hours.
 
-The hyperparameters for these models were informed by a grid search shown in
+A grid search informed our choice of hyperparameters for these models, shown in
 Figure \ref{fig:gridsearch}. This search determined the optimal combination of
 spectral radius ($\rho$) and noise injection (for regularization of reservoir
 neurons), shown in Figure \ref{fig:gridsearch}, following the recommendations
