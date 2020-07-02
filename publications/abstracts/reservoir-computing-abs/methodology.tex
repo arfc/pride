@@ -45,13 +45,14 @@ difference between the prediction, $\bm{u}_p$, and the actual, $\bm{u}_a$, is
 minimized. \glspl{ESN} are capable of mapping an input vector of any size to
 an output vector of any size. For example, $\bm{u}(t)$ could be the total
 demand
-at $t$ and $\bm{u}_p(t+\Delta t)$ could be the total demand at $t+\Delta t$;
-the reservoir would be a one-to-one map. Alternatively, $\bm{u}(t)$ could be
-several data points, temperature, air pressure, irradiance, wind speed, and
-total demand, at time $t$ and $\bm{u}_p(t+\Delta t)$ could be the net demand at
-$t+\Delta t$; the reservoir is then a many-to-one map. Determining the
-combination of input data that leads to the most accurate predictions is a key
-area of research and an important part of this study \cite{kobylinski_high-resolution_2020,bianchi_reservoir_2020}.
+at $t$ and $\bm{u}_p(t+\Delta t)$ could be the total demand at $t+\Delta t$. In
+that scenario the reservoir is a one-to-one map. Alternatively, $\bm{u}(t)$
+could be several data points, temperature, air pressure, irradiance, wind
+speed, and total demand, at time $t$ and $\bm{u}_p(t+\Delta t)$ could be the
+net demand at $t+\Delta t$. In this case the reservoir is a many-to-one map.
+Determining the combination of input data that leads to the most accurate
+predictions is a key area of research and an important part of this study
+\cite{kobylinski_high-resolution_2020,bianchi_reservoir_2020}.
 
 \subsection{Hyperparameter Search}
 Due to the architecture of \glspl{ESN}, the weights and connections
