@@ -2,11 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#Commenting out the path for the actual data
+# Commenting out the path for the actual data
 
 # path = 'C:\\Users\\Atwater\\research\\data\\eia_generation_'
 
 path = '.\\tests\\eia_sample_'
+
 
 def fuel_type_code():
     """
