@@ -224,7 +224,13 @@ def generation(year: str):
 
                 totalgen += netgen_list[i]
 
-                mover_dict.update({mover_list[i]: netgen_list[i]})
+                if mover_list[i] in mover_dict:
+
+                    mover_dict[mover_list[i]] += netgen_list[i]
+
+                else:
+
+                    mover_dict.update({mover_list[i]: netgen_list[i]})
 
             fuel_dict.update({fuel: mover_dict})
 
@@ -535,190 +541,32 @@ def usage(year: str, sort: str = 'installed'):
 
     inp = year
 
-    if year == '2018':
+    if int(inp) < 2011:
 
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'MWH'
-        ]
+        netGen = 'NET GENERATION (megawatthours)'
 
-        if sort == 'installed':
+        headers = 7
 
-            labels.append('KER')
+    elif int(inp) >= 2011:
 
-            labels.append('PG')
+        netGen = 'Net Generation (Megawatthours)'
 
-            labels.append('OBL')
+        headers = 5
 
-    elif year == '2017':
+    label_generation = pd.read_csv((path + year + '.csv'),
+                                   header=headers,
+                                   usecols=['Operator Name',
+                                            'NERC Region',
+                                            'NAICS Code',
+                                            'Reported Prime Mover',
+                                            'Reported Fuel Type Code',
+                                            netGen])
 
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'OBL',
-            'KER',
-            'PG',
-            'MWH'
-        ]
+    universities = label_generation['NAICS Code'] == 611
 
-    elif year == '2016':
+    label_generation = label_generation.loc[universities]
 
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'OBL',
-            'KER',
-            'PG',
-            'MWH'
-        ]
-
-    elif year == '2015':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'OBL',
-            'KER',
-            'PG'
-        ]
-
-    elif year == '2014':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'OBL',
-            'KER',
-            'PG',
-            'TDF'
-        ]
-
-    elif year == '2013':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'OBL',
-            'KER',
-            'PG',
-            'TDF'
-        ]
-
-    elif year == '2012' or year == '2011':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'WND',
-            'LFG',
-            'SUN',
-            'PC',
-            'OBS',
-            'KER',
-            'TDF',
-            'OTH'
-        ]
-
-    elif year == '2010':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'LFG',
-            'PC',
-            'OBS',
-            'KER',
-            'TDF',
-            'WH'
-        ]
-
-    elif year == '2008' or year == '2009':
-
-        labels = [
-            'NG',
-            'DFO',
-            'RFO',
-            'BIT',
-            'SUB',
-            'WAT',
-            'WDS',
-            'LFG',
-            'PC',
-            'OBS',
-            'KER',
-            'TDF'
-        ]
+    labels = label_generation['Reported Fuel Type Code'].unique().tolist()
 
     base_dict = dict()
 
@@ -963,802 +811,58 @@ def split_dictionary(dictionary: dict, year: str):
 
     universities = list()
 
-    if year == '2018':
+    label_dictionary = dict()
 
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        OBL = list()
-        MWH = list()
+    if int(year) < 2011:
 
-        for university, value in dictionary.items():
+        netGen = 'NET GENERATION (megawatthours)'
 
-            universities.append(university)
+        headers = 7
 
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                OBL.append(value['OBL'])
-            except KeyError:
-                OBL.append(0)
-            try:
-                MWH.append(value['MWH'])
-            except KeyError:
-                MWH.append(0)
+    elif int(year) >= 2011:
 
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            OBL,
-            MWH
-        ]
+        netGen = 'Net Generation (Megawatthours)'
 
-    elif year == '2017':
+        headers = 5
 
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        OBL = list()
-        KER = list()
-        PG = list()
-        MWH = list()
+    label_generation = pd.read_csv((path + year + '.csv'),
+                                   header=headers,
+                                   usecols=['Operator Name',
+                                            'NERC Region',
+                                            'NAICS Code',
+                                            'Reported Prime Mover',
+                                            'Reported Fuel Type Code',
+                                            netGen])
 
-        for university, value in dictionary.items():
+    univers = label_generation['NAICS Code'] == 611
 
-            universities.append(university)
+    label_generation = label_generation.loc[univers]
+
+    labels = label_generation['Reported Fuel Type Code'].unique().tolist()
+
+    for label in labels:
+
+        label_dictionary.update({label: list()})
+
+    for university, value in dictionary.items():
+
+        universities.append(university)
+
+        for fuel in label_dictionary:
 
             try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                OBL.append(value['OBL'])
-            except KeyError:
-                OBL.append(0)
-            try:
-                KER.append(value['KER'])
-            except KeyError:
-                KER.append(0)
-            try:
-                PG.append(value['PG'])
-            except KeyError:
-                PG.append(0)
-            try:
-                MWH.append(value['MWH'])
-            except KeyError:
-                MWH.append(0)
 
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            OBL,
-            KER,
-            PG,
-            MWH
-        ]
+                label_dictionary[fuel].append(value[fuel])
 
-    elif year == '2016':
+            except KeyError:
 
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        OBL = list()
-        KER = list()
-        PG = list()
-        MWH = list()
+                label_dictionary[fuel].append(0)
 
-        for university, value in dictionary.items():
+    split = [universities]
 
-            universities.append(university)
+    for fuel in label_dictionary:
 
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                OBL.append(value['OBL'])
-            except KeyError:
-                OBL.append(0)
-            try:
-                KER.append(value['KER'])
-            except KeyError:
-                KER.append(0)
-            try:
-                PG.append(value['PG'])
-            except KeyError:
-                PG.append(0)
-            try:
-                MWH.append(value['MWH'])
-            except KeyError:
-                MWH.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            OBL,
-            KER,
-            PG,
-            MWH
-        ]
-    elif year == '2015':
-
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        OBL = list()
-        KER = list()
-        PG = list()
-
-        for university, value in dictionary.items():
-
-            universities.append(university)
-
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                OBL.append(value['OBL'])
-            except KeyError:
-                OBL.append(0)
-            try:
-                KER.append(value['KER'])
-            except KeyError:
-                KER.append(0)
-            try:
-                PG.append(value['PG'])
-            except KeyError:
-                PG.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            OBL,
-            KER,
-            PG
-        ]
-
-    elif year == '2014' or year == '2013':
-
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        OBL = list()
-        KER = list()
-        PG = list()
-        TDF = list()
-
-        for university, value in dictionary.items():
-
-            universities.append(university)
-
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                OBL.append(value['OBL'])
-            except KeyError:
-                OBL.append(0)
-            try:
-                KER.append(value['KER'])
-            except KeyError:
-                KER.append(0)
-            try:
-                PG.append(value['PG'])
-            except KeyError:
-                PG.append(0)
-            try:
-                TDF.append(value['TDF'])
-            except KeyError:
-                TDF.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            OBL,
-            KER,
-            PG,
-            TDF
-        ]
-
-    elif year == '2012' or year == '2011':
-
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        WND = list()
-        LFG = list()
-        SUN = list()
-        PC = list()
-        OBS = list()
-        KER = list()
-        TDF = list()
-        OTH = list()
-
-        for university, value in dictionary.items():
-
-            universities.append(university)
-
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                WND.append(value['WND'])
-            except KeyError:
-                WND.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                SUN.append(value['SUN'])
-            except KeyError:
-                SUN.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                KER.append(value['KER'])
-            except KeyError:
-                KER.append(0)
-            try:
-                TDF.append(value['TDF'])
-            except KeyError:
-                TDF.append(0)
-            try:
-                OTH.append(value['OTH'])
-            except KeyError:
-                OTH.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            WND,
-            LFG,
-            SUN,
-            PC,
-            OBS,
-            KER,
-            TDF,
-            OTH
-        ]
-
-    elif year == '2010':
-
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        LFG = list()
-        PC = list()
-        OBS = list()
-        KER = list()
-        TDF = list()
-        WH = list()
-
-        for university, value in dictionary.items():
-
-            universities.append(university)
-
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                KER.append(value['MWH'])
-            except KeyError:
-                KER.append(0)
-            try:
-                TDF.append(value['TDF'])
-            except KeyError:
-                TDF.append(0)
-            try:
-                WH.append(value['WH'])
-            except KeyError:
-                WH.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            LFG,
-            PC,
-            OBS,
-            KER,
-            TDF,
-            WH
-        ]
-
-    elif year == '2008' or year == '2009':
-
-        NG = list()
-        DFO = list()
-        RFO = list()
-        BIT = list()
-        SUB = list()
-        WAT = list()
-        WDS = list()
-        LFG = list()
-        PC = list()
-        OBS = list()
-        KER = list()
-        TDF = list()
-
-        for university, value in dictionary.items():
-
-            universities.append(university)
-
-            try:
-                NG.append(value['NG'])
-            except KeyError:
-                NG.append(0)
-            try:
-                DFO.append(value['DFO'])
-            except KeyError:
-                DFO.append(0)
-            try:
-                RFO.append(value['RFO'])
-            except KeyError:
-                RFO.append(0)
-            try:
-                BIT.append(value['BIT'])
-            except KeyError:
-                BIT.append(0)
-            try:
-                SUB.append(value['SUB'])
-            except KeyError:
-                SUB.append(0)
-            try:
-                WAT.append(value['WAT'])
-            except KeyError:
-                WAT.append(0)
-            try:
-                WDS.append(value['WDS'])
-            except KeyError:
-                WDS.append(0)
-            try:
-                LFG.append(value['LFG'])
-            except KeyError:
-                LFG.append(0)
-            try:
-                PC.append(value['PC'])
-            except KeyError:
-                PC.append(0)
-            try:
-                OBS.append(value['OBS'])
-            except KeyError:
-                OBS.append(0)
-            try:
-                KER.append(value['MWH'])
-            except KeyError:
-                KER.append(0)
-            try:
-                TDF.append(value['TDF'])
-            except KeyError:
-                TDF.append(0)
-
-        split = [
-            universities,
-            NG,
-            DFO,
-            RFO,
-            BIT,
-            SUB,
-            WAT,
-            WDS,
-            LFG,
-            PC,
-            OBS,
-            KER,
-            TDF
-        ]
+        split.append(label_dictionary[fuel])
 
     return split
 
@@ -1918,262 +1022,51 @@ def plot_data(year_: str,
 
         plt.xticks(rotation='vertical')
 
-        if year_ == '2018':
+        if int(year_) < 2011:
 
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'WND',
-                'LFG',
-                'SUN',
-                'PC',
-                'OBS',
-                'OBL',
-                'MWH'
-            ]
+            netGen = 'NET GENERATION (megawatthours)'
 
-            colors = [
-                '#008b8b',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#FFFF00',
-                '#0000FF',
-                '#000000',
-            ]
+            headers = 7
 
-        elif year_ == '2016' or year_ == '2017':
+        elif int(year_) >= 2011:
 
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'WND',
-                'LFG',
-                'SUN',
-                'PC',
-                'OBS',
-                'OBL',
-                'KER',
-                'PG',
-                'MWH'
-            ]
+            netGen = 'Net Generation (Megawatthours)'
 
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
+            headers = 5
 
-        elif year_ == '2015':
+        label_generation = pd.read_csv((path + year_ + '.csv'),
+                                       header=headers,
+                                       usecols=['Operator Name',
+                                                'NERC Region',
+                                                'NAICS Code',
+                                                'Reported Prime Mover',
+                                                'Reported Fuel Type Code',
+                                                netGen])
 
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'WND',
-                'LFG',
-                'SUN',
-                'PC',
-                'OBS',
-                'OBL',
-                'KER',
-                'PG'
-            ]
+        univers = label_generation['NAICS Code'] == 611
 
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999'
-            ]
-        elif year_ == '2014' or year_ == '2013':
+        label_generation = label_generation.loc[univers]
 
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'WND',
-                'LFG',
-                'SUN',
-                'PC',
-                'OBS',
-                'OBL',
-                'KER',
-                'PG',
-                'TDF'
-            ]
+        labels = label_generation['Reported Fuel Type Code'].unique().tolist()
 
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
-
-        elif year_ == '2012' or year_ == '2011':
-
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'WND',
-                'LFG',
-                'SUN',
-                'PC',
-                'OBS',
-                'KER',
-                'TDF',
-                'OTH'
-            ]
-
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-            ]
-
-        elif year_ == '2010':
-
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'LFG',
-                'PC',
-                'OBS',
-                'KER',
-                'TDF',
-                'WH'
-            ]
-
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#0000FF',
-                '#999999'
-            ]
-
-        elif year_ == '2008' or year_ == '2009':
-
-            labels = [
-                'NG',
-                'DFO',
-                'RFO',
-                'BIT',
-                'SUB',
-                'WAT',
-                'WDS',
-                'LFG',
-                'PC',
-                'OBS',
-                'KER',
-                'TDF'
-            ]
-
-            colors = [
-                '#008B8B',
-                '#FFFF00',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#0000FF',
-            ]
+        colors = [
+            '#FFFF00',
+            '#008B8B',
+            '#800080',
+            '#FF0000',
+            '#FF00FF',
+            '#008000',
+            '#DC7633',
+            '#00FF00',
+            '#00FFFF',
+            '#000080',
+            '#F08080',
+            '#008080',
+            '#0000FF',
+            '#000000',
+            '#999999',
+            '#FFA500'
+        ]
 
         bot = np.zeros(len(split[0]))
 
@@ -2297,413 +1190,60 @@ def plot_data(year_: str,
 
         pi_energy = list()
 
-        if year_ == '2018':
+        percentages = {
+            '2018': ('90.3%', ''),
+            '2017': ('89.9%', ''),
+            '2016': ('89.3%', ''),
+            '2015': ('86.9%', ''),
+            '2014': ('85.2%', ''),
+            '2013': ('84.1%', ''),
+            '2012': ('83.2%', ''),
+            '2011': ('76.9%', '18.6%'),
+            '2010': ('74.9%', '21.3%'),
+            '2009': ('69.7%', '23.6%'),
+            '2008': ('69.9%', '26.2%')
+        }
 
-            label = [
-                '',
-                '90.3%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#e1ad01',
-                '#b19cd9'
-            ]
-
-        elif year_ == '2017':
-
-            label = [
-                '',
-                '89.9%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
-
-        elif year_ == '2016':
-
-            label = [
-                '',
-                '89.3%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
-
-        elif year_ == '2015':
-
-            label = [
-                '',
-                '86.9%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999'
-            ]
-
-        elif year_ == '2014':
-
-            label = [
-                '',
-                '85.2%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
-
-        elif year_ == '2013':
-
-            label = [
-                '',
-                '84.1%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-                '#FFA500'
-            ]
-
-        elif year_ == '2012':
-
-            label = [
-                '',
-                '83.2%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-            ]
-
-        elif year_ == '2011':
-
-            label = [
-                '',
-                '76.9%',
-                '',
-                '18.6%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-            ]
-            color = [
-                '#FFFF00',
-                '#FFA500',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#DC7633',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#0000FF',
-                '#000000',
-                '#999999',
-            ]
-
-        elif year_ == '2010':
-
-            color = [
-                '#008B8B',
-                '#DC7633',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#FFFF00',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-                '#999999'
-            ]
-            label = [
-                '',
-                '74.9%',
-                '',
-                '21.3%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-
-        elif year_ == '2009':
-
-            color = [
-                '#008B8B',
-                '#DC7633',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#FFFF00',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-            ]
-            label = [
-                '',
-                '69.7%',
-                '',
-                '23.6%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
-
-        elif year_ == '2008':
-
-            color = [
-                '#008B8B',
-                '#DC7633',
-                '#800080',
-                '#FF0000',
-                '#FF00FF',
-                '#008000',
-                '#FFFF00',
-                '#00FF00',
-                '#00FFFF',
-                '#000080',
-                '#F08080',
-                '#008080',
-            ]
-            label = [
-                '',
-                '69.9%',
-                '',
-                '26.2%',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            ]
+        label = list()
 
         for key, value in breakdown.items():
 
             pi_fuels.append(key)
 
             pi_energy.append(value)
+
+        for i in range(len(pi_fuels)):
+
+            label.append('')
+
+        label[1] = percentages[year_][0]
+
+        label[3] = percentages[year_][1]
+
+        color_base = [
+            '#FFFF00',
+            '#FFA500',
+            '#800080',
+            '#FF0000',
+            '#FF00FF',
+            '#008000',
+            '#DC7633',
+            '#00FF00',
+            '#00FFFF',
+            '#000080',
+            '#F08080',
+            '#008080',
+            '#0000FF',
+            '#000000',
+            '#999999',
+            '#b5651d'
+        ]
+
+        color = list()
+
+        for i in range(len(pi_fuels)):
+
+            color.append(color_base[i])
 
         plt.figure()
 
