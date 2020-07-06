@@ -2,11 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Commenting out the path for the actual data
-
-# path = 'C:\\Users\\Atwater\\research\\data\\eia_generation_'
-
-path = '.\\tests\\eia_sample_'
+path = '../../data/eia_generation_'
 
 
 def fuel_type_code():
@@ -152,47 +148,34 @@ def generation(year: str):
             f"Not a valid year. Possibilities include: {*allowed_years,}."
         )
 
-    headers = {
-        '2008': 7,
-        '2009': 7,
-        '2010': 7,
-        '2011': 5,
-        '2012': 5,
-        '2013': 5,
-        '2014': 5,
-        '2015': 5,
-        '2016': 5,
-        '2017': 5,
-        '2018': 5
-    }
+    if int(year) < 2011:
 
-    netGen = {
-        '2008': 'NET GENERATION (megawatthours)',
-        '2009': 'NET GENERATION (megawatthours)',
-        '2010': 'NET GENERATION (megawatthours)',
-        '2011': 'Net Generation (Megawatthours)',
-        '2012': 'Net Generation (Megawatthours)',
-        '2013': 'Net Generation (Megawatthours)',
-        '2014': 'Net Generation (Megawatthours)',
-        '2015': 'Net Generation (Megawatthours)',
-        '2016': 'Net Generation (Megawatthours)',
-        '2017': 'Net Generation (Megawatthours)',
-        '2018': 'Net Generation (Megawatthours)'
-    }
+        netGen = 'NET GENERATION (megawatthours)'
+
+        headers = 7
+
+    elif int(year) >= 2011:
+
+        netGen = 'Net Generation (Megawatthours)'
+
+        headers = 5
 
     generation = pd.read_csv((path + year + '.csv'),
-                             header=headers[year],
+                             header=headers,
                              usecols=['Operator Name',
                                       'NERC Region',
                                       'NAICS Code',
                                       'Reported Prime Mover',
                                       'Reported Fuel Type Code',
-                                      str(netGen[year])])
+                                      netGen])
 
-    generation = generation.loc[generation['NAICS Code'] == 611]
+    universities = generation['NAICS Code'] == 611
 
-    generation['University'] = generation['Operator Name'].astype(
-        str) + ' ' + generation['NERC Region']
+    generation = generation.loc[universities]
+
+    generation['University'] = generation[
+        'Operator Name'
+    ] + ' ' + generation['NERC Region']
 
     generation = generation.drop(
         ['Operator Name', 'NERC Region'],
@@ -234,7 +217,7 @@ def generation(year: str):
             ].values.tolist()
 
             netgen_list = fuel_dataframe[
-                netGen[year]
+                netGen
             ].values.tolist()
 
             for i in range(len(mover_list)):
@@ -248,8 +231,6 @@ def generation(year: str):
         fuel_dict.update({'Total Generation': totalgen})
 
         final.update({uni: fuel_dict})
-
-    final
 
     return final
 
@@ -923,6 +904,8 @@ def sources(capacity_factor: bool = True):
             'https://www.hydrogen.energy.gov/pdfs/review16/tv016_saur_2016' +
             '_p.pdf'
         )
+
+        return None
 
 
 def split_dictionary(dictionary: dict, year: str):
@@ -2828,6 +2811,8 @@ def plot_data(year_: str,
 
             plt.bar(fuels, unis)
 
+    return None
+
 
 def plot_energy_change(energy: str, university: str = 'all'):
     """
@@ -2997,3 +2982,5 @@ def plot_energy_change(energy: str, university: str = 'all'):
     plt.xticks(rotation='vertical')
 
     plt.bar(years, amounts)
+
+    return None
