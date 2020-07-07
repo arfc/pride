@@ -2,8 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-path = '../../data/eia_generation_'
-
 
 def fuel_type_code():
     """
@@ -102,7 +100,9 @@ def mover_database():
     return mover
 
 
-def generation(year: str):
+def generation(year: str,
+               path: str = '../../data/',
+               prefix: str = 'eia_generation_'):
     '''
     This function generates a nested dictionary of the Universities
     present in the EIA spreadsheet and their generation amounts
@@ -112,6 +112,10 @@ def generation(year: str):
     -----------
     year: str
         This is the string for the year being analyzed.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
 
     Returns:
     --------
@@ -126,6 +130,18 @@ def generation(year: str):
 
         raise TypeError(
             "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     allowed_years = [
@@ -160,7 +176,7 @@ def generation(year: str):
 
         headers = 5
 
-    generation = pd.read_csv((path + year + '.csv'),
+    generation = pd.read_csv((path + prefix + year + '.csv'),
                              header=headers,
                              usecols=['Operator Name',
                                       'NERC Region',
@@ -241,7 +257,9 @@ def generation(year: str):
     return final
 
 
-def university_top_producers(year: str):
+def university_top_producers(year: str,
+                             path: str = '../../data/',
+                             prefix: str = 'eia_generation_'):
     """
     This function uses earlier functions to generate a dictionary in
     descending order of the highest energy producing universities
@@ -251,6 +269,10 @@ def university_top_producers(year: str):
     -----------
     year: str
         The year that is being analyzed.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
 
     Returns:
     --------
@@ -263,6 +285,18 @@ def university_top_producers(year: str):
 
         raise TypeError(
             "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     allowed_years = [
@@ -286,8 +320,10 @@ def university_top_producers(year: str):
         )
 
     inp = year
+    path_arg = path
+    prefix_arg = prefix
 
-    global_dict = generation(inp)
+    global_dict = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
     new_dict = dict()
 
@@ -300,7 +336,9 @@ def university_top_producers(year: str):
     return dict(top_producers)
 
 
-def energy_type_breakdown(year: str):
+def energy_type_breakdown(year: str,
+                          path: str = '../../data/',
+                          prefix: str = 'eia_generation_'):
     """
     Uses previous functions to generate a dictionary of the various
     types of fuel used by the university system in the US for 20XX.
@@ -309,6 +347,10 @@ def energy_type_breakdown(year: str):
     -----------
     year: str
         This is the year to be analyzed.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
 
     Returns:
     --------
@@ -324,6 +366,18 @@ def energy_type_breakdown(year: str):
             "Argument 'year' must be of type 'str'."
         )
 
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
+        )
+
     allowed_years = [
         '2008',
         '2009',
@@ -345,8 +399,10 @@ def energy_type_breakdown(year: str):
         )
 
     inp = year
+    path_arg = path
+    prefix_arg = prefix
 
-    data = generation(inp)
+    data = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
     rosetta_stone = fuel_type_code()
 
@@ -391,7 +447,9 @@ def energy_type_breakdown(year: str):
     return fuel_breakdown
 
 
-def university_top_renewables(year: str):
+def university_top_renewables(year: str,
+                              path: str = '../../data/',
+                              prefix: str = 'eia_generation_'):
     """
     This function uses earlier functions to establish an
     ordered dictionary of the top universities for
@@ -401,6 +459,10 @@ def university_top_renewables(year: str):
     -----------
     year: str
         This is the year being analyzed.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
 
     Returns:
     --------
@@ -415,6 +477,18 @@ def university_top_renewables(year: str):
 
         raise TypeError(
             "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     allowed_years = [
@@ -440,8 +514,10 @@ def university_top_renewables(year: str):
     renewables_list = ['GEO', 'WND', 'SUN', 'WAT', 'OBG', 'OBL', 'OBS']
 
     inp = year
+    path_arg = path
+    prefix_arg = prefix
 
-    global_dict = generation(inp)
+    global_dict = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
     renewables_dict = dict()
 
@@ -480,16 +556,23 @@ def university_top_renewables(year: str):
     return dict(top_renewables)
 
 
-def usage(year: str, sort: str = 'installed'):
+def usage(year: str,
+          path: str = '../../data/',
+          prefix: str = 'eia_generation_',
+          sort: str = 'installed'):
     """
     This function generates a dictionary detailing how many universities
     are using each fuel type.
 
     Parameters:
     -----------
-    usage: str
+    sort: str
         An argument that signals whether 'active' or 'installed' information
         will be gathered from the 20XX year.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
     year: str
         This is the year being analyzed.
 
@@ -505,6 +588,18 @@ def usage(year: str, sort: str = 'installed'):
 
         raise TypeError(
             "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     allowed_years = [
@@ -540,6 +635,8 @@ def usage(year: str, sort: str = 'installed'):
         )
 
     inp = year
+    path_arg = path
+    prefix_arg = prefix
 
     if int(inp) < 2011:
 
@@ -553,7 +650,7 @@ def usage(year: str, sort: str = 'installed'):
 
         headers = 5
 
-    label_generation = pd.read_csv((path + year + '.csv'),
+    label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
                                    header=headers,
                                    usecols=['Operator Name',
                                             'NERC Region',
@@ -574,7 +671,7 @@ def usage(year: str, sort: str = 'installed'):
 
         base_dict.update({fuel: 0})
 
-    data = generation(inp)
+    data = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
     for university in data:
 
@@ -608,7 +705,10 @@ def capacity_factors():
     This function generates a hard-coded dictionary
     containing the capacity factors for different fuels
     and movers. The values are defaulted to 1.0 if no
-    capacity factor information can be found.
+    capacity factor information can be found. The
+    numbers are specific to the 2018 year and may lead
+    to innacurate results or KeyErrors if applied to
+    other years.
 
     Returns:
     --------
@@ -668,12 +768,23 @@ def capacity_factors():
     return cf
 
 
-def university_capacity():
+def university_capacity(year: str = '2018',
+                        path: str = '../../data/',
+                        prefix: str = 'eia_generation_'):
     """
 
     This function uses previous functions to generate
     a dictionary containing an estimate for the total
     capacity of each university in 2018.
+
+    Parameters:
+    -----------
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
+    year: str
+        This is the year being analyzed.
 
     Returns:
     --------
@@ -684,7 +795,49 @@ def university_capacity():
 
     """
 
-    data = generation('2018')
+    if not isinstance(year, str):
+
+        raise TypeError(
+            "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
+        )
+
+    allowed_years = [
+        '2008',
+        '2009',
+        '2010',
+        '2011',
+        '2012',
+        '2013',
+        '2014',
+        '2015',
+        '2016',
+        '2017',
+        '2018'
+    ]
+
+    if year not in allowed_years:
+
+        raise ValueError(
+            f"Not a valid year. Possibilities include: {*allowed_years,}."
+        )
+
+    inp = year
+    path_arg = path
+    prefix_arg = prefix
+
+    data = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
     cf = capacity_factors()
 
@@ -756,7 +909,10 @@ def sources(capacity_factor: bool = True):
         return None
 
 
-def split_dictionary(dictionary: dict, year: str):
+def split_dictionary(dictionary: dict,
+                     year: str,
+                     path: str = '../../data/',
+                     prefix: str = 'eia_generation_'):
     """
     This function generates a nested list containing
     plottable portions of data. This is specifically for
@@ -766,9 +922,12 @@ def split_dictionary(dictionary: dict, year: str):
     -----------
     dictionary: dict
         This is the dictionary to be split up.
-
     year: str
         This is the year the dictionary is based on.
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
 
     Returns:
     --------
@@ -781,6 +940,18 @@ def split_dictionary(dictionary: dict, year: str):
 
         raise TypeError(
             "Argument 'year' must be of type 'str'."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     allowed_years = [
@@ -809,23 +980,27 @@ def split_dictionary(dictionary: dict, year: str):
             "Argument 'dictionary' must be of type 'dict'."
         )
 
+    inp = year
+    path_arg = path
+    prefix_arg = prefix
+
     universities = list()
 
     label_dictionary = dict()
 
-    if int(year) < 2011:
+    if int(inp) < 2011:
 
         netGen = 'NET GENERATION (megawatthours)'
 
         headers = 7
 
-    elif int(year) >= 2011:
+    elif int(inp) >= 2011:
 
         netGen = 'Net Generation (Megawatthours)'
 
         headers = 5
 
-    label_generation = pd.read_csv((path + year + '.csv'),
+    label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
                                    header=headers,
                                    usecols=['Operator Name',
                                             'NERC Region',
@@ -867,7 +1042,9 @@ def split_dictionary(dictionary: dict, year: str):
     return split
 
 
-def plot_data(year_: str,
+def plot_data(year: str,
+              path: str = '../../data/',
+              prefix: str = 'eia_generation_',
               total: bool = False,
               top_producers: bool = False,
               top_renewables: bool = False,
@@ -881,7 +1058,7 @@ def plot_data(year_: str,
 
     Parameters:
     -----------
-    year_: str
+    year: str
         This is the year to be analyzed.
 
     total: bool
@@ -913,13 +1090,16 @@ def plot_data(year_: str,
         This argument determines whether or not the results
         for the function 'usage' will be plotted. Default is
         false.
-
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
     """
 
-    if not isinstance(year_, str):
+    if not isinstance(year, str):
 
         raise TypeError(
-            "Argument 'year_' must be of type 'str'."
+            "Argument 'year' must be of type 'str'."
         )
 
     allowed_years = [
@@ -936,10 +1116,22 @@ def plot_data(year_: str,
         '2018'
     ]
 
-    if year_ not in allowed_years:
+    if year not in allowed_years:
 
         raise ValueError(
             f"Not a valid year. Possibilities include: {*allowed_years,}."
+        )
+
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
         )
 
     if not isinstance(total, bool):
@@ -980,11 +1172,13 @@ def plot_data(year_: str,
 
     plt.rcParams['figure.dpi'] = 600
 
-    inp = year_
+    inp = year
+    path_arg = path
+    prefix_arg = prefix
 
     if total is True:
 
-        data = generation(inp)
+        data = generation(year=inp, path=path_arg, prefix=prefix_arg)
 
         data = dict(sorted(
             data.items(), key=lambda x: x[1]['Total Generation'], reverse=True
@@ -1010,11 +1204,14 @@ def plot_data(year_: str,
 
             segmented_dict.update({university: uni_dict})
 
-        split = split_dictionary(dictionary=segmented_dict, year=inp)
+        split = split_dictionary(dictionary=segmented_dict,
+                                 year=inp,
+                                 path=path_arg,
+                                 prefix=prefix_arg)
 
         plt.figure(figsize=(25, 10))
 
-        plt.title(f'Top Electric Production in Education Sector ({year_})')
+        plt.title(f'Top Electric Production in Education Sector ({inp})')
 
         plt.ylabel('Electicity Production (MWhr)')
 
@@ -1022,19 +1219,19 @@ def plot_data(year_: str,
 
         plt.xticks(rotation='vertical')
 
-        if int(year_) < 2011:
+        if int(inp) < 2011:
 
             netGen = 'NET GENERATION (megawatthours)'
 
             headers = 7
 
-        elif int(year_) >= 2011:
+        elif int(inp) >= 2011:
 
             netGen = 'Net Generation (Megawatthours)'
 
             headers = 5
 
-        label_generation = pd.read_csv((path + year_ + '.csv'),
+        label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
                                        header=headers,
                                        usecols=['Operator Name',
                                                 'NERC Region',
@@ -1086,7 +1283,9 @@ def plot_data(year_: str,
 
     if top_producers is True:
 
-        producers = university_top_producers(year=year_)
+        producers = university_top_producers(year=inp,
+                                             path=path_arg,
+                                             prefix=prefix_arg)
 
         top_10 = dict()
 
@@ -1106,7 +1305,7 @@ def plot_data(year_: str,
 
         for uni in producers:
 
-            if producers[uni] >= top_10_criteria[year_]:
+            if producers[uni] >= top_10_criteria[inp]:
 
                 top_10.update({uni: producers[uni]})
 
@@ -1122,7 +1321,7 @@ def plot_data(year_: str,
 
         plt.figure()
 
-        plt.title(f'Top Electric Production in Education Sector ({year_})')
+        plt.title(f'Top Electric Production in Education Sector ({inp})')
 
         plt.ylabel('Electicity Production (MWhr)')
 
@@ -1134,7 +1333,9 @@ def plot_data(year_: str,
 
     if top_renewables is True:
 
-        renewables = university_top_renewables(year=year_)
+        renewables = university_top_renewables(year=inp,
+                                               path=path_arg,
+                                               prefix=prefix_arg)
 
         ren_top_10 = dict()
 
@@ -1154,7 +1355,7 @@ def plot_data(year_: str,
 
         for uni in renewables:
 
-            if renewables[uni] >= ren_top_10_criteria[year_]:
+            if renewables[uni] >= ren_top_10_criteria[inp]:
 
                 ren_top_10.update({uni: renewables[uni]})
 
@@ -1171,7 +1372,7 @@ def plot_data(year_: str,
         plt.figure()
 
         plt.title(
-            f'Top Renewable Electric Production in Education Sector ({year_})'
+            f'Top Renewable Electric Production in Education Sector ({inp})'
         )
 
         plt.ylabel('Renewable Electicity Production (MWhr)')
@@ -1184,7 +1385,9 @@ def plot_data(year_: str,
 
     if fuel_breakdown is True:
 
-        breakdown = energy_type_breakdown(year=year_)
+        breakdown = energy_type_breakdown(year=inp,
+                                          path=path_arg,
+                                          prefix=prefix_arg)
 
         pi_fuels = list()
 
@@ -1216,9 +1419,9 @@ def plot_data(year_: str,
 
             label.append('')
 
-        label[1] = percentages[year_][0]
+        label[1] = percentages[inp][0]
 
-        label[3] = percentages[year_][1]
+        label[3] = percentages[inp][1]
 
         color_base = [
             '#FFFF00',
@@ -1249,7 +1452,7 @@ def plot_data(year_: str,
 
         fig1, ax1 = plt.subplots()
 
-        plt.title(f'{year_} Energy Breakdown in Education')
+        plt.title(f'{inp} Energy Breakdown in Education')
 
         ax1.pie(
             pi_energy,
@@ -1265,55 +1468,57 @@ def plot_data(year_: str,
 
     if capacity is True:
 
-        if year_ == '2018':
+        cap = university_capacity(year=inp,
+                                  path=path_arg,
+                                  prefix=prefix_arg)
 
-            cap = university_capacity()
+        new_cap = dict()
 
-            new_cap = dict()
+        for uni in cap:
 
-            for uni in cap:
+            if cap[uni] >= 2:
 
-                if cap[uni] >= 2:
+                new_cap.update({uni: cap[uni]})
 
-                    new_cap.update({uni: cap[uni]})
+        cap = new_cap
 
-            cap = new_cap
+        unis = list()
 
-            unis = list()
+        capac = list()
 
-            capac = list()
+        for key, value in cap.items():
 
-            for key, value in cap.items():
+            unis.append(key)
 
-                unis.append(key)
+            capac.append(value)
 
-                capac.append(value)
+        plt.figure(figsize=(15, 6))
 
-            plt.figure(figsize=(15, 6))
+        plt.title(
+            f'Electric Production Capacity in Education Sector ({inp})'
+        )
 
-            plt.title(
-                f'Electric Production Capacity in Education Sector ({year_})'
-            )
+        plt.ylabel('Capacity (MW)')
 
-            plt.ylabel('Capacity (MW)')
+        plt.xlabel('Universities', fontsize=8)
 
-            plt.xlabel('Universities', fontsize=8)
+        plt.xticks(rotation='vertical')
 
-            plt.xticks(rotation='vertical')
-
-            plt.bar(unis, capac)
-
-        else:
-
-            raise IndexError('Only allowed for 2018.')
+        plt.bar(unis, capac)
 
     if use is True:
 
-        inst = usage(year=year_, sort='installed')
+        inst = usage(year=inp,
+                     path=path_arg,
+                     prefix=prefix_arg,
+                     sort='installed')
 
         inst = sorted(inst.items(), key=lambda x: x[1], reverse=True)
 
-        act = usage(year=year_, sort='active')
+        act = usage(year=inp,
+                    path=path_arg,
+                    prefix=prefix_arg,
+                    sort='active')
 
         act = sorted(act.items(), key=lambda x: x[1], reverse=True)
 
@@ -1341,7 +1546,7 @@ def plot_data(year_: str,
 
             plt.figure()
 
-            plt.title(f'{title} Fuel Usage by Universities in {year_}.')
+            plt.title(f'{title} Fuel Usage by Universities in {inp}.')
 
             plt.ylabel('Number of Universities')
 
@@ -1354,7 +1559,10 @@ def plot_data(year_: str,
     return None
 
 
-def plot_energy_change(energy: str, university: str = 'all'):
+def plot_energy_change(energy: str,
+                       path: str = '../../data/',
+                       prefix: str = 'eia_generation_',
+                       university: str = 'all'):
     """
     This function plots how the a specific energy generation type
     has changed since 2008 for a desired university.
@@ -1368,7 +1576,10 @@ def plot_energy_change(energy: str, university: str = 'all'):
     university: str
         This is the university whose data is to be examined.
         Default is 'all'
-
+    path: str
+        This is the path to the location of the file to be analyzed.
+    prefix: str
+        This is the prefix to the year in the title of the csv file.
     """
 
     if not isinstance(energy, str):
@@ -1383,17 +1594,32 @@ def plot_energy_change(energy: str, university: str = 'all'):
             "All arguments for this function must be of type 'str'."
         )
 
-    data08 = generation('2008')
-    data09 = generation('2009')
-    data10 = generation('2010')
-    data11 = generation('2011')
-    data12 = generation('2012')
-    data13 = generation('2013')
-    data14 = generation('2014')
-    data15 = generation('2015')
-    data16 = generation('2016')
-    data17 = generation('2017')
-    data18 = generation('2018')
+    if not isinstance(path, str):
+
+        raise TypeError(
+            "Argument 'path' must be of type 'str'."
+        )
+
+    if not isinstance(prefix, str):
+
+        raise TypeError(
+            "Argument 'prefix' must be of type 'str'."
+        )
+
+    path_arg = path
+    prefix_arg = prefix
+
+    data08 = generation(year='2008', path=path_arg, prefix=prefix_arg)
+    data09 = generation(year='2009', path=path_arg, prefix=prefix_arg)
+    data10 = generation(year='2010', path=path_arg, prefix=prefix_arg)
+    data11 = generation(year='2011', path=path_arg, prefix=prefix_arg)
+    data12 = generation(year='2012', path=path_arg, prefix=prefix_arg)
+    data13 = generation(year='2013', path=path_arg, prefix=prefix_arg)
+    data14 = generation(year='2014', path=path_arg, prefix=prefix_arg)
+    data15 = generation(year='2015', path=path_arg, prefix=prefix_arg)
+    data16 = generation(year='2016', path=path_arg, prefix=prefix_arg)
+    data17 = generation(year='2017', path=path_arg, prefix=prefix_arg)
+    data18 = generation(year='2018', path=path_arg, prefix=prefix_arg)
 
     dic_list = [
         data08,
@@ -1439,17 +1665,39 @@ def plot_energy_change(energy: str, university: str = 'all'):
         )
 
     if (
-            energy_1 not in energy_type_breakdown('2008')) and (
-            energy_1 not in energy_type_breakdown('2009')) and (
-            energy_1 not in energy_type_breakdown('2010')) and (
-            energy_1 not in energy_type_breakdown('2011')) and (
-            energy_1 not in energy_type_breakdown('2012')) and (
-            energy_1 not in energy_type_breakdown('2013')) and (
-            energy_1 not in energy_type_breakdown('2014')) and (
-            energy_1 not in energy_type_breakdown('2015')) and (
-            energy_1 not in energy_type_breakdown('2016')) and (
-            energy_1 not in energy_type_breakdown('2017')) and (
-            energy_1 not in energy_type_breakdown('2018')):
+            energy_1 not in energy_type_breakdown(year='2008',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2009',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2010',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2011',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2012',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2013',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2014',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2015',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2016',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2017',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)) and (
+            energy_1 not in energy_type_breakdown(year='2018',
+                                                  path=path_arg,
+                                                  prefix=prefix_arg)):
 
         raise ValueError(
             f"Energy type '{energy}' not present in education sector."
@@ -1473,11 +1721,13 @@ def plot_energy_change(energy: str, university: str = 'all'):
 
     if university == 'all':
 
-        for year in years:
+        for inp in years:
 
             try:
 
-                amounts.append(energy_type_breakdown(year)[energy_1])
+                amounts.append(energy_type_breakdown(year=inp,
+                                                     path=path_arg,
+                                                     prefix=prefix_arg)[energy_1])
 
             except KeyError:
 
