@@ -1725,9 +1725,12 @@ def plot_energy_change(energy: str,
 
             try:
 
-                amounts.append(energy_type_breakdown(year=inp,
-                                                     path=path_arg,
-                                                     prefix=prefix_arg)[energy_1])
+                amounts.append(
+                    energy_type_breakdown(year=inp,
+                                          path=path_arg,
+                                          prefix=prefix_arg
+                                         )[energy_1]
+                )
 
             except KeyError:
 
