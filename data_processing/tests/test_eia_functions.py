@@ -13,7 +13,7 @@ from eia import split_dictionary
 from eia import plot_data
 from eia import plot_energy_change
 
-path_arg = './'
+path_arg = './data_processing/tests'
 prefix_arg = 'eia_sample_'
 
 
