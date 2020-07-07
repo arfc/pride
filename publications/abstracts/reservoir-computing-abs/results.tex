@@ -1,7 +1,9 @@
 \section{Results}
-
 The first model, shown in Figure \ref{fig:ESN1}, we trained with 1000 hours of
-historical data. By inspection, the \gls{ESN} successfully predicted a general
+historical data. The blue line is a snapshot of historical demand data. The
+dashed line indicates the end of the model training and the beginning of the
+model prediction. The red line is the prediction made by the \gls{ESN}. By
+inspection, the \gls{ESN} successfully predicted a general
 trend but had difficulty with accuracy at the desired hourly resolution.
 
 \begin{figure}[h]
@@ -12,10 +14,10 @@ trend but had difficulty with accuracy at the desired hourly resolution.
   \label{fig:ESN1}
 \end{figure}
 
-The second model, shown in Figure \ref{fig:ESN2}, we trained with 3500 hours of
-historical data. This \gls{ESN} made better predictions than the first model.
-This is most likely due to longer training. However, it is hard to say because
-two models are predicting different periods of time. The effect of training
+The second model, shown in Figure \ref{fig:ESN2}, we trained with the same
+dataset as before and extended the training to 3500 hours of
+historical data. This \gls{ESN} made better predictions than the first model
+and is most likely due to longer training. The effect of training
 length on model accuracy will be explored in future work.
 
 \begin{figure}[h]

@@ -1,6 +1,6 @@
 \section{Methodology}
 
-\subsection{Echo State Networks}
+\subsection{\textbf{Echo State Networks}}
 An ``echo state network'' (also
 called a ``liquid state machine'' \cite{lukosevicius_practical_2012}) is a type
 of recurrent neural network that uses a single layer of many neurons called a
@@ -52,9 +52,10 @@ speed, and total demand, at time $t$ and $\bm{u}_p(t+\Delta t)$ could be the
 net demand at $t+\Delta t$. In this case the reservoir is a many-to-one map.
 Determining the combination of input data that leads to the most accurate
 predictions is a key area of research and an important part of this study
-\cite{kobylinski_high-resolution_2020,bianchi_reservoir_2020}.
+\cite{kobylinski_high-resolution_2020,bianchi_reservoir_2020}. For the results
+shown below, $\bm{u}(t)$ is just the hourly demand.
 
-\subsection{Hyperparameter Search}
+\subsection{\textbf{Hyperparameter Search}}
 Due to the architecture of \glspl{ESN}, the weights and connections
 inside the reservoir do not need to be trained and, in our choice of
 implementation, cannot be. This dramatically reduces the training time because
@@ -71,7 +72,7 @@ error of the model,
 	\hat{y} &= \mbox{the average value of the ouput.}\nonumber
 \end{align}
 
-\subsection{Contstructing the \gls{ESN}}
+\subsection{\textbf{Constructing the \gls{ESN}}}
 
 We constructed the \gls{ESN} in our initial demonstration with the open source
 Python package \texttt{pyESN} \cite{korndorfer_pyesn_2015}. The code
