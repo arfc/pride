@@ -12,7 +12,9 @@ from eia import sources
 from eia import split_dictionary
 from eia import plot_data
 from eia import plot_energy_change
-path = 'eia_sample_'
+
+path_arg = './'
+prefix_arg = 'eia_sample_'
 
 
 def test_fuel_type_code():
@@ -116,7 +118,9 @@ def test_generation_1():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        generation(year=arg)
+        generation(year=arg,
+                   path=path_arg,
+                   prefix=prefix_arg)
 
 
 def test_generation_2():
@@ -131,7 +135,9 @@ def test_generation_2():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        generation(year=arg)
+        generation(year=arg,
+                   path=path_arg,
+                   prefix=prefix_arg)
 
 
 def test_university_top_producers_1():
@@ -142,9 +148,13 @@ def test_university_top_producers_1():
 
     """
 
-    top_list = list(university_top_producers('2018'))
+    top_list = list(university_top_producers(year='2018',
+                                             path=path_arg,
+                                             prefix=prefix_arg))
 
-    top_dict = university_top_producers('2018')
+    top_dict = university_top_producers(year='2018',
+                                        path=path_arg,
+                                        prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
@@ -163,7 +173,9 @@ def test_university_top_producers_2():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        university_top_producers(year=arg)
+        university_top_producers(year=arg,
+                                 path=path_arg,
+                                 prefix=prefix_arg)
 
 
 def test_university_top_producers_3():
@@ -178,7 +190,9 @@ def test_university_top_producers_3():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        university_top_producers(year=arg)
+        university_top_producers(year=arg,
+                                 path=path_arg,
+                                 prefix=prefix_arg)
 
 
 def test_energy_type_breakdown_1():
@@ -193,7 +207,9 @@ def test_energy_type_breakdown_1():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        energy_type_breakdown(year=arg)
+        energy_type_breakdown(year=arg,
+                              path=path_arg,
+                              prefix=prefix_arg)
 
 
 def test_energy_type_breakdown_2():
@@ -208,7 +224,9 @@ def test_energy_type_breakdown_2():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        energy_type_breakdown(year=arg)
+        energy_type_breakdown(year=arg,
+                              path=path_arg,
+                              prefix=prefix_arg)
 
 
 def test_university_top_renewables_1():
@@ -219,9 +237,13 @@ def test_university_top_renewables_1():
 
     """
 
-    top_list = list(university_top_renewables('2018'))
+    top_list = list(university_top_renewables(year='2018',
+                                              path=path_arg,
+                                              prefix=prefix_arg))
 
-    top_dict = university_top_renewables('2018')
+    top_dict = university_top_renewables(year='2018',
+                                         path=path_arg,
+                                         prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
@@ -240,7 +262,9 @@ def test_university_top_renewables_2():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        university_top_renewables(year=arg)
+        university_top_renewables(year=arg,
+                                  path=path_arg,
+                                  prefix=prefix_arg)
 
 
 def test_university_top_renewables_3():
@@ -255,7 +279,9 @@ def test_university_top_renewables_3():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        university_top_renewables(year=arg)
+        university_top_renewables(year=arg,
+                                  path=path_arg,
+                                  prefix=prefix_arg)
 
 
 def test_usage_1():
@@ -269,7 +295,10 @@ def test_usage_1():
 
     with pytest.raises(TypeError, match="Argument 'sort' must be"):
 
-        usage(year='2018', sort=arg)
+        usage(year='2018',
+              path=path_arg,
+              prefix=prefix_arg,
+              sort=arg)
 
 
 def test_usage_2():
@@ -284,7 +313,10 @@ def test_usage_2():
 
     with pytest.raises(ValueError, match="Argument 'sort' must take value"):
 
-        usage(year='2018', sort=arg)
+        usage(year='2018',
+              path=path_arg,
+              prefix=prefix_arg,
+              sort=arg)
 
 
 def test_usage_3():
@@ -298,7 +330,9 @@ def test_usage_3():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        usage(year=arg)
+        usage(year=arg,
+              path=path_arg,
+              prefix=prefix_arg)
 
 
 def test_usage_4():
@@ -312,7 +346,9 @@ def test_usage_4():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        usage(year=arg)
+        usage(year=arg,
+              path=path_arg,
+              prefix=prefix_arg)
 
 
 def test_capacity_factor():
@@ -380,9 +416,11 @@ def test_university_capacity():
 
     """
 
-    top_list = list(university_capacity())
+    top_list = list(university_capacity(path=path_arg,
+                                        prefix=prefix_arg))
 
-    top_dict = university_capacity()
+    top_dict = university_capacity(path=path_arg,
+                                   prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
@@ -416,7 +454,10 @@ def test_split_dictionary_1():
 
     with pytest.raises(TypeError, match="Argument 'dictionary' "):
 
-        split_dictionary(year='2018', dictionary=arg)
+        split_dictionary(year='2018',
+                         dictionary=arg,
+                         path=path_arg,
+                         prefix=prefix_arg)
 
 
 def test_split_dictionary_2():
@@ -431,7 +472,10 @@ def test_split_dictionary_2():
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        split_dictionary(year=arg, dictionary=dict())
+        split_dictionary(year=arg,
+                         dictionary=dict(),
+                         path=path_arg,
+                         prefix=prefix_arg)
 
 
 def test_split_dictionary_3():
@@ -446,7 +490,10 @@ def test_split_dictionary_3():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        split_dictionary(year=arg, dictionary=dict())
+        split_dictionary(year=arg,
+                         dictionary=dict(),
+                         path=path_arg,
+                         prefix=prefix_arg)
 
 
 def test_plot_data_1():
@@ -462,53 +509,73 @@ def test_plot_data_1():
     with pytest.raises(TypeError,
                        match="Argument 'total' must be"):
 
-        plot_data(year_='2018', total=arg)
+        plot_data(year='2018',
+                  total=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
     with pytest.raises(TypeError,
                        match="Argument 'top_producers' must be"):
 
-        plot_data(year_='2018', top_producers=arg)
+        plot_data(year='2018',
+                  top_producers=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
     with pytest.raises(TypeError,
                        match="Argument 'top_renewables' must be"):
 
-        plot_data(year_='2018', top_renewables=arg)
+        plot_data(year='2018',
+                  top_renewables=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
     with pytest.raises(TypeError,
                        match="Argument 'fuel_breakdown' must be"):
 
-        plot_data(year_='2018', fuel_breakdown=arg)
+        plot_data(year='2018',
+                  fuel_breakdown=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
     with pytest.raises(TypeError,
                        match="Argument 'capacity' must be"):
 
-        plot_data(year_='2018', capacity=arg)
+        plot_data(year='2018',
+                  capacity=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
     with pytest.raises(TypeError,
                        match="Argument 'use' must be"):
 
-        plot_data(year_='2018', use=arg)
+        plot_data(year='2018',
+                  use=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
 
 def test_plot_data_2():
     """
     This function will pass if plot_data is correctly
-    designed to raise a TypeError if argument 'year_'
+    designed to raise a TypeError if argument 'year'
     is not of type 'str'.
 
     """
 
     arg = 12
 
-    with pytest.raises(TypeError, match="Argument 'year_'"):
+    with pytest.raises(TypeError, match="Argument 'year'"):
 
-        plot_data(year_=arg)
+        plot_data(year=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
 
 def test_plot_data_3():
     """
     This function will pass if plot_data is correctly
-    designed to raise an ValueError if argument 'year_'
+    designed to raise an ValueError if argument 'year'
     is not supported.
 
     """
@@ -517,7 +584,9 @@ def test_plot_data_3():
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        plot_data(year_=arg)
+        plot_data(year=arg,
+                  path=path_arg,
+                  prefix=prefix_arg)
 
 
 def test_plot_energy_change():
@@ -532,8 +601,14 @@ def test_plot_energy_change():
 
     with pytest.raises(TypeError, match="All arguments"):
 
-        plot_energy_change(university=arg, energy='NG')
+        plot_energy_change(university=arg,
+                           energy='NG',
+                           path=path_arg,
+                           prefix=prefix_arg)
 
     with pytest.raises(TypeError, match="All arguments"):
 
-        plot_energy_change(university='all', energy=arg)
+        plot_energy_change(university='all',
+                           energy=arg,
+                           path=path_arg,
+                           prefix=prefix_arg)
