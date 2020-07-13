@@ -1,8 +1,8 @@
 \section{Introduction}
 
-
-
-
+In this work we use an \gls{esom} called \gls{temoa} to determine the optimal
+size of a nuclear reactor for a microgrid system. The optimal reactor capacity
+satisfies carbon emissions limits and minimizes system cost.
 
 
 The looming threat of irreversible damage to global ecosystems due to
@@ -18,14 +18,16 @@ become carbon neutral by 2050 or sooner \cite{isee_illinois_2015}. Emissions
 projections shown in Figure \ref{fig:icap_emissions} illustrate the needed
 policy changes to meet climate goals.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\columnwidth]{icap_uiucemissions.png}
-  \caption{The projected carbon emissions with corresponding policy changes.
-  ``Offsets" includes shutting down the Blue Waters Supercomputer. Image
-  originally published in \gls{icap} 2015 \cite{isee_illinois_2015}.}
-  \label{fig:icap_emissions}
-\end{figure}
+
+\textbf{[iCAP river plot here]} 
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=\columnwidth]{icap_uiucemissions.png}
+%   \caption{The projected carbon emissions with corresponding policy changes.
+%   ``Offsets" includes shutting down the Blue Waters Supercomputer. Image
+%   originally published in \gls{icap} 2015 \cite{isee_illinois_2015}.}
+%   \label{fig:icap_emissions}
+% \end{figure}
 
 \gls{uiuc} poses an interesting opportunity to explore options for rapid
 decarbonization because it: (1) is a mostly self-contained micro-grid (2) has a
@@ -54,22 +56,26 @@ in Figure \ref{fig:uiuc_emissions_breakdown}. \gls{icap} 2015 showed that
 emissions goals, they have not been enough to curb emissions as shown in Figure
 \ref{fig:uiuc_ghg}.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\columnwidth]{uiuc_emissions_breakdown.png}
-  \caption{Shows three scopes of university related emissions: on-campus
-  (blue), purchased electricity (red), and off-campus (green). Image originally
-  published in \gls{icap} 2015 \cite{isee_illinois_2015}.}
-  \label{fig:uiuc_emissions_breakdown}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=\columnwidth]{uiuc_emissions_breakdown.png}
+%   \caption{Shows three scopes of university related emissions: on-campus
+%   (blue), purchased electricity (red), and off-campus (green). Image originally
+%   published in \gls{icap} 2015 \cite{isee_illinois_2015}.}
+%   \label{fig:uiuc_emissions_breakdown}
+% \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{uiuc_ghgtargets.png}
+  \includegraphics[width=\columnwidth]{icap_goals.eps}
+  % \resizebox{\textwidth}{!}{\input{images/icap_goals.pgf}}
+  % \begin{center}
+  %   \input{images/icap_goals.pgf}
+  % \end{center}
   \caption{\gls{uiuc}'s actual net emissions compared with \gls{icap}'s
   stated goals. Data taken from the iCAP Sustainability Portal
   \cite{noauthor_metric_nodate}.}
-  \label{fig:uiuc_ghg}
+    \label{fig:uiuc_ghg}
 \end{figure}
 
 The struggle to meet these climate goals demonstrates the challenge decision
@@ -106,13 +112,13 @@ wind and solar
 indicates that other premiums might be overlooked in favor of lasting decisions
 on energy production.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\columnwidth]{co2emissions_source.png}
-  \caption{The carbon lifecycle carbon emissions by energy source. Data is from
-  IPCC 2018 Report on Climate Change \cite{allen_framing_2018}.}
-  \label{fig:co2sources}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=\columnwidth]{co2emissions_source.png}
+%   \caption{The carbon lifecycle carbon emissions by energy source. Data is from
+%   IPCC 2018 Report on Climate Change \cite{allen_framing_2018}.}
+%   \label{fig:co2sources}
+% \end{figure}
 
  \glspl{esom} are useful for
 exploring different policy scenarios and energy mixes when faced with future

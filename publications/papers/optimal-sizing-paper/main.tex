@@ -1,11 +1,15 @@
-\documentclass[review]{elsarticle}
-% \documentclass[3p, twocolumn]{elsarticle}
+% \documentclass[review]{elsarticle}
+\documentclass[3p, twocolumn]{elsarticle}
 
 \usepackage{multirow}
 \usepackage{lineno}
 \usepackage{xspace}
 \usepackage{threeparttable}
 \usepackage{subfig}
+% \usepackage{pgfplots}
+\usepackage{layouts}
+
+
 \modulolinenumbers[5]
 
 %% Journal name here
@@ -22,7 +26,7 @@
 \usepackage{hhline}
 \usepackage{amsmath}
 \usepackage{subfig}
-
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{threeparttable, tablefootnote}
 
@@ -72,6 +76,8 @@ like: \sep
 simulation \sep
 spent nuclear fuel
 \end{keyword}
+
+\printinunitsof{in}\prntlen{\columnwidth}
 
 \input{abstract}
 \end{frontmatter}

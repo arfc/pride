@@ -7,8 +7,17 @@ import glob
 plt.rcParams['figure.figsize'] = (12, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
-plt.rcParams['savefig.dpi'] = 200
+plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['savefig.bbox'] = 'tight'
+# plt.rcParams['font.family'] = 'sans-serif'
+# plt.rcParams['font.sans-serif'] = 'cm'
+# plt.rcParams['text.usetex'] = True
+
+plt.rcParams['font.color'] = 'darkred'  # just to check the files
+plt.rcParams['text.usetex'] = True
+plt.rcParams['text.latex.preamble'] = [r'\usepackage[cm]{sfmath}']
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.sans-serif'] = 'cm'
 
 variables = {'Generation': 'V_ActivityByPeriodAndProcess',
              'Capacity': 'V_Capacity',
