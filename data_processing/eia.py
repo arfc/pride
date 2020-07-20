@@ -1861,7 +1861,7 @@ def plot_data(year: str,
         plt.figure(figsize=(15, 6))
 
         plt.title(
-            f'Electric Production Capacity in {graph[facility][0]} Sector ({inp})'
+            f'Electric Capacity in {graph[facility][0]} Sector ({inp})'
         )
 
         plt.ylabel('Capacity (MW)')
