@@ -13,7 +13,7 @@ plt.rcParams['savefig.bbox'] = 'tight'
 # plt.rcParams['font.sans-serif'] = 'cm'
 # plt.rcParams['text.usetex'] = True
 
-plt.rcParams['font.color'] = 'darkred'  # just to check the files
+# plt.rcParams['font.color'] = 'darkred'  # just to check the files
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = [r'\usepackage[cm]{sfmath}']
 plt.rcParams['font.family'] = 'serif'
