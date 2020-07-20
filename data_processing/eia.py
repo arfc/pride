@@ -1376,7 +1376,7 @@ def plot_data(year: str,
     prefix_arg = prefix
     facility_arg = facility
 
-    l = {
+    graph = {
         'University': ('Education', 'Universities'),
         'Hospital': ('Medical', 'Hospitals'),
         'Newsprint': ('Newsprint', 'Companies'),
@@ -1423,12 +1423,12 @@ def plot_data(year: str,
         plt.figure(figsize=(25, 10))
 
         plt.title(
-            f'Top Electric Production in {l[facility][0]} Sector ({inp})'
+            f'Top Electric Production in {graph[facility][0]} Sector ({inp})'
         )
 
         plt.ylabel('Electicity Production (MWhr)')
 
-        plt.xlabel(l[facility][1], fontsize=8)
+        plt.xlabel(graph[facility][1], fontsize=8)
 
         plt.xticks(rotation='vertical')
 
@@ -1592,12 +1592,12 @@ def plot_data(year: str,
         plt.figure()
 
         plt.title(
-            f'Top Electric Production in {l[facility][0]} Sector ({inp})'
+            f'Top Electric Production in {graph[facility][0]} Sector ({inp})'
         )
 
         plt.ylabel('Electicity Production (MWhr)')
 
-        plt.xlabel(l[facility][1])
+        plt.xlabel(graph[facility][1])
 
         plt.xticks(rotation='vertical')
 
@@ -1686,12 +1686,12 @@ def plot_data(year: str,
         plt.figure()
 
         plt.title(
-            f'Top Renewable Production in {l[facility][0]} Sector ({inp})'
+            f'Top Renewable Production in {graph[facility][0]} Sector ({inp})'
         )
 
         plt.ylabel('Renewable Electicity Production (MWhr)')
 
-        plt.xlabel(l[facility][1])
+        plt.xlabel(graph[facility][1])
 
         plt.xticks(rotation='vertical')
 
@@ -1817,7 +1817,7 @@ def plot_data(year: str,
 
         fig1, ax1 = plt.subplots()
 
-        plt.title(f'{inp} Energy Breakdown in {l[facility][0]}')
+        plt.title(f'{inp} Energy Breakdown in {graph[facility][0]}')
 
         ax1.pie(
             pi_energy,
@@ -1861,12 +1861,12 @@ def plot_data(year: str,
         plt.figure(figsize=(15, 6))
 
         plt.title(
-            f'Electric Production Capacity in {l[facility][0]} Sector ({inp})'
+            f'Electric Production Capacity in {graph[facility][0]} Sector ({inp})'
         )
 
         plt.ylabel('Capacity (MW)')
 
-        plt.xlabel(l[facility][1], fontsize=8)
+        plt.xlabel(graph[facility][1], fontsize=8)
 
         plt.xticks(rotation='vertical')
 
@@ -1914,9 +1914,9 @@ def plot_data(year: str,
 
             plt.figure()
 
-            plt.title(f'{title} Fuel Usage by {l[facility][1]} in {inp}.')
+            plt.title(f'{title} Fuel Usage by {graph[facility][1]} in {inp}.')
 
-            plt.ylabel(f'Number of {l[facility][1]}')
+            plt.ylabel(f'Number of {graph[facility][1]}')
 
             plt.xlabel('Fuel Type')
 
@@ -2215,7 +2215,7 @@ def plot_energy_change(energy: str,
 
     plt.figure()
 
-    l = {
+    graph = {
         'University': 'Education',
         'Hospital': 'Medical',
         'Newsprint': 'Newsprint',
@@ -2225,7 +2225,7 @@ def plot_energy_change(energy: str,
     if operator == 'all':
 
         plt.title(
-            f'{energy_1} Change in {l[facility]} Electricity Generation'
+            f'{energy_1} Change in {graph[facility]} Electricity Generation'
         )
 
     else:
