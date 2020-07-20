@@ -741,7 +741,7 @@ INSERT INTO "ExistingCapacity" VALUES('IMPSOL', 2016, 4.68, 'units: MWe', 'if 10
 INSERT INTO "CostInvest" VALUES('ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
 INSERT INTO "CostInvest" VALUES('IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
 INSERT INTO "CostInvest" VALUES('IMPWIND', 2021, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
-INSERT INTO "CostInvest" VALUES('NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+-- INSERT INTO "CostInvest" VALUES('NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 
 
 
@@ -775,7 +775,7 @@ INSERT INTO "CostInvest" VALUES('NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of util
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(tech) REFERENCES technologies(tech),
    FOREIGN KEY(vintage) REFERENCES time_periods(t_periods) );
-INSERT INTO "CostVariable" VALUES(2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+-- INSERT INTO "CostVariable" VALUES(2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES(2021, 'IMPELC', 2020, 0.13, 'M$/GWh', 'typical electricity price');
