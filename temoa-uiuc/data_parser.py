@@ -9,6 +9,8 @@ plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
 plt.rcParams['savefig.dpi'] = 200
 plt.rcParams['savefig.bbox'] = 'tight'
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = "serif"
 
 variables = {'Generation': 'V_ActivityByPeriodAndProcess',
              'Capacity': 'V_Capacity',
@@ -208,7 +210,7 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
     return dataframe
 
 
-def bar_plot(dataframe, variable, scenario, sector):
+def bar_plot(dataframe, variable, scenario, sector, save=True):
     """
     This function creates a bar chart for
     a given dataframe and returns nothing.
@@ -223,6 +225,14 @@ def bar_plot(dataframe, variable, scenario, sector):
         Accepts "Generation", "Capacity", "Emissions".
     scenario : string
         The name of model run you are conducting.
+    sector : string
+        The sector you are plotting.
+        "ind" = Industrial/steam
+        "elc" = Electricity
+        "all"
+    save : boolean
+        If save is true, the plot will be saved rather than
+        shown. Default is true.
     """
     target_folder = "./figures/"
     if not os.path.isdir(target_folder):
@@ -248,12 +258,15 @@ def bar_plot(dataframe, variable, scenario, sector):
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
 
-    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-    plt.close()
+    if save is True:
+        plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.close()
+    else:
+        plt.show()
     return
 
 
-def emissions_plot(dataframe, variable, scenario, sector):
+def emissions_plot(dataframe, variable, scenario, sector, save=True):
     """
     This function creates an emissions plot for
     a given dataframe and returns nothing.
@@ -268,6 +281,14 @@ def emissions_plot(dataframe, variable, scenario, sector):
         Accepts "Generation", "Capacity", "Emissions".
     scenario : string
         The name of model run you are conducting.
+    sector : string
+        The sector you are plotting.
+        "ind" = Industrial/steam
+        "elc" = Electricity
+        "all"
+    save : boolean
+        If save is true, the plot will be saved rather than
+        shown. Default is true.
     """
     target_folder = "./figures/"
     if not os.path.isdir(target_folder):
@@ -297,8 +318,11 @@ def emissions_plot(dataframe, variable, scenario, sector):
     ax.set_xticks(dataframe.index)
     plt.xticks(fontsize=18)
 
-    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-    plt.close()
+    if save is True:
+        plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.close()
+    else:
+        plt.show()
     return
 
 
@@ -362,7 +386,7 @@ def parse_datalines(filepath):
     return lines
 
 
-def make_plots(data_paths):
+def make_plots(data_paths, to_save):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -393,15 +417,18 @@ def make_plots(data_paths):
             plot(dataframe=df_elc,
                  variable=var,
                  scenario=scenario,
-                 sector='elc')
+                 sector='elc',
+                 save=to_save)
             plot(dataframe=df_ind,
                  variable=var,
                  scenario=scenario,
-                 sector='ind')
+                 sector='ind',
+                 save=to_save)
             plot(dataframe=df_all,
                  variable=var,
                  scenario=scenario,
-                 sector='all')
+                 sector='all',
+                 save=to_save)
 
     return
 
@@ -409,4 +436,4 @@ def make_plots(data_paths):
 if __name__ == "__main__":
 
     output = get_output_files()
-    make_plots(output)
+    make_plots(output, True)
