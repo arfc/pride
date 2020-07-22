@@ -248,7 +248,11 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
         bar.set_hatch(hatch)
 
     ax.set_xticks(idx)
-    ax.set_xticklabels(years, rotation=0, fontsize=18)
+    if len(dataframe) > 11:
+        ax.set_xticklabels(years, rotation=60, fontsize=18)
+    else:
+        ax.set_xticklabels(years, rotation=0, fontsize=18)
+
     plt.yticks(fontsize=18)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 21})
@@ -315,7 +319,14 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     plt.grid()
     plt.yticks(fontsize=18)
     ax.set_xticks(dataframe.index)
-    plt.xticks(fontsize=18)
+
+    if len(dataframe) > 11:
+        plt.xticks(fontsize=18, rotation=60)
+
+    else:
+        plt.xticks(fontsize=18)
+
+
 
     if save is True:
         plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
