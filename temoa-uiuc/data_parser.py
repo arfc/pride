@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
-plt.rcParams['figure.figsize'] = (12, 9)
+plt.rcParams['figure.figsize'] = (16, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
-plt.rcParams['savefig.dpi'] = 200
+plt.rcParams['savefig.dpi'] = 400
 plt.rcParams['savefig.bbox'] = 'tight'
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = "serif"
@@ -157,7 +157,6 @@ def create_column(lines, years, tech):
     """
     column = {"Year": years, tech: []}
     tech_data = data_by_tech(lines, tech)
-
     for year in years:
         year_data = data_by_year(tech_data, year)
         year_total = get_total(year_data)
@@ -253,7 +252,7 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     plt.yticks(fontsize=18)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 21})
-    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable} in {units[variable]}", fontsize=21)
+    plt.suptitle(f"{scenario.upper()}: Total Annual {variable} in {units[variable]}", fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
@@ -306,7 +305,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
             color='tab:purple',
             label='CO$_2$ Emissions')
 
-    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable}",
+    plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
                  fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
