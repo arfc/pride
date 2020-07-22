@@ -243,7 +243,7 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     idx = np.asarray([i for i in range(len(years))])
     ax = dataframe.loc[1:, ].plot.bar(stacked=True)
     bars = ax.patches
-    hatches = ''.join(h*len(dataframe) for h in 'x/O.')
+    hatches = ''.join(h * len(dataframe) for h in 'x/O.')
     for bar, hatch in zip(bars, hatches):
         bar.set_hatch(hatch)
 
@@ -256,13 +256,16 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     plt.yticks(fontsize=18)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 21})
-    plt.suptitle(f"{scenario.upper()}: Total Annual {variable} in {units[variable]}", fontsize=21)
+    plt.suptitle(
+        f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
+        fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
 
     if save is True:
-        plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.savefig(
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
         plt.close()
     else:
         plt.show()
@@ -326,10 +329,9 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     else:
         plt.xticks(fontsize=18)
 
-
-
     if save is True:
-        plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.savefig(
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
         plt.close()
     else:
         plt.show()
