@@ -4,11 +4,13 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
-plt.rcParams['figure.figsize'] = (12, 9)
+plt.rcParams['figure.figsize'] = (16, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
-plt.rcParams['savefig.dpi'] = 200
+plt.rcParams['savefig.dpi'] = 400
 plt.rcParams['savefig.bbox'] = 'tight'
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = "serif"
 
 variables = {'Generation': 'V_ActivityByPeriodAndProcess',
              'Capacity': 'V_Capacity',
@@ -155,7 +157,6 @@ def create_column(lines, years, tech):
     """
     column = {"Year": years, tech: []}
     tech_data = data_by_tech(lines, tech)
-
     for year in years:
         year_data = data_by_year(tech_data, year)
         year_total = get_total(year_data)
@@ -208,7 +209,7 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
     return dataframe
 
 
-def bar_plot(dataframe, variable, scenario, sector):
+def bar_plot(dataframe, variable, scenario, sector, save=True):
     """
     This function creates a bar chart for
     a given dataframe and returns nothing.
@@ -223,6 +224,14 @@ def bar_plot(dataframe, variable, scenario, sector):
         Accepts "Generation", "Capacity", "Emissions".
     scenario : string
         The name of model run you are conducting.
+    sector : string
+        The sector you are plotting.
+        "ind" = Industrial/steam
+        "elc" = Electricity
+        "all"
+    save : boolean
+        If save is true, the plot will be saved rather than
+        shown. Default is true.
     """
     target_folder = "./figures/"
     if not os.path.isdir(target_folder):
@@ -234,26 +243,36 @@ def bar_plot(dataframe, variable, scenario, sector):
     idx = np.asarray([i for i in range(len(years))])
     ax = dataframe.loc[1:, ].plot.bar(stacked=True)
     bars = ax.patches
-    hatches = ''.join(h*len(dataframe) for h in 'x/O.')
+    hatches = ''.join(h * len(dataframe) for h in 'x/O.')
     for bar, hatch in zip(bars, hatches):
         bar.set_hatch(hatch)
 
     ax.set_xticks(idx)
-    ax.set_xticklabels(years, rotation=0, fontsize=18)
+    if len(dataframe) > 11:
+        ax.set_xticklabels(years, rotation=60, fontsize=18)
+    else:
+        ax.set_xticklabels(years, rotation=0, fontsize=18)
+
     plt.yticks(fontsize=18)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 21})
-    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable} in {units[variable]}", fontsize=21)
+    plt.suptitle(
+        f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
+        fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
     plt.xlabel("Year", fontsize=18)
 
-    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-    plt.close()
+    if save is True:
+        plt.savefig(
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.close()
+    else:
+        plt.show()
     return
 
 
-def emissions_plot(dataframe, variable, scenario, sector):
+def emissions_plot(dataframe, variable, scenario, sector, save=True):
     """
     This function creates an emissions plot for
     a given dataframe and returns nothing.
@@ -268,6 +287,14 @@ def emissions_plot(dataframe, variable, scenario, sector):
         Accepts "Generation", "Capacity", "Emissions".
     scenario : string
         The name of model run you are conducting.
+    sector : string
+        The sector you are plotting.
+        "ind" = Industrial/steam
+        "elc" = Electricity
+        "all"
+    save : boolean
+        If save is true, the plot will be saved rather than
+        shown. Default is true.
     """
     target_folder = "./figures/"
     if not os.path.isdir(target_folder):
@@ -285,7 +312,7 @@ def emissions_plot(dataframe, variable, scenario, sector):
             color='tab:purple',
             label='CO$_2$ Emissions')
 
-    plt.suptitle(f"Scenario {scenario.upper()}: Total Annual {variable}",
+    plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
                  fontsize=21)
     plt.title(f"Sector: {sector.upper()}", fontsize=16)
     plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
@@ -295,10 +322,19 @@ def emissions_plot(dataframe, variable, scenario, sector):
     plt.grid()
     plt.yticks(fontsize=18)
     ax.set_xticks(dataframe.index)
-    plt.xticks(fontsize=18)
 
-    plt.savefig(f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-    plt.close()
+    if len(dataframe) > 11:
+        plt.xticks(fontsize=18, rotation=60)
+
+    else:
+        plt.xticks(fontsize=18)
+
+    if save is True:
+        plt.savefig(
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+        plt.close()
+    else:
+        plt.show()
     return
 
 
@@ -362,7 +398,7 @@ def parse_datalines(filepath):
     return lines
 
 
-def make_plots(data_paths):
+def make_plots(data_paths, to_save):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -393,15 +429,18 @@ def make_plots(data_paths):
             plot(dataframe=df_elc,
                  variable=var,
                  scenario=scenario,
-                 sector='elc')
+                 sector='elc',
+                 save=to_save)
             plot(dataframe=df_ind,
                  variable=var,
                  scenario=scenario,
-                 sector='ind')
+                 sector='ind',
+                 save=to_save)
             plot(dataframe=df_all,
                  variable=var,
                  scenario=scenario,
-                 sector='all')
+                 sector='all',
+                 save=to_save)
 
     return
 
@@ -409,4 +448,4 @@ def make_plots(data_paths):
 if __name__ == "__main__":
 
     output = get_output_files()
-    make_plots(output)
+    make_plots(output, True)
