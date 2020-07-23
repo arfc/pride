@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
-plt.rcParams['figure.figsize'] = (16, 9)
+plt.rcParams['figure.figsize'] = (12, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
 plt.rcParams['savefig.dpi'] = 400
@@ -372,7 +372,7 @@ def get_scenario_name(file):
 
     filename = file.split('/')
     fname_split = filename[-1].split('_')
-    scenario_name = '_'.join(fname_split[:-1])
+    scenario_name = ' '.join(fname_split[:-1])
 
     return scenario_name
 
