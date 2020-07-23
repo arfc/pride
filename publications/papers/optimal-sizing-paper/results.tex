@@ -18,7 +18,7 @@ at \gls{app} in 2014, respectively.
 	\label{fig:bau-2014}
 \end{figure}
 
-UIUC had neither a solar farm nor a power purchase agreement with a wind farm
+UIUC had neither a solar farm nor a \gls{ppa} with a wind farm
 in 2015 when \gls{icap} was published.
 The electricity that those two sources now displace would have been produced by
 the natural gas plant, \gls{app}.
@@ -51,7 +51,7 @@ emissions at \gls{uiuc} if nuclear reactors could be built with no capital cost.
 For this idealized case, Figure \ref{fig:s01_ind_cap} and \ref{fig:s01_ind_gen}
 show that \gls{app} would be immediately replaced by a nuclear reactor. Even
 though Figure \ref{fig:s01_ind_cap} shows the nuclear reactor capacity growing
-to huge 2000 MW$_{th}$, Figure \ref{fig:s01_ind_gen} shows that this is
+to 2000 MW$_{th}$, Figure \ref{fig:s01_ind_gen} shows that this is
 unecessary and the demand for steam and electricity could be satisfied by
 a reactor around 375 MW$_{th}$.
 
@@ -75,7 +75,7 @@ Even though a nuclear reactor is ``free'' in this scenario, Temoa still uses
 solar power, wind power, and electricity imports, as shown in Figure
 \ref{fig:s01_elc_gen}. In the model description,
 Temoa must use energy produced by the solar and wind farms for the duration of
-those power purchase agreements. Temoa continues to use electricity imports
+those \gls{ppa}s. Temoa continues to use electricity imports
 because, in addition to having a carbon constraint, Temoa minimizes the system
 cost.
 
@@ -131,7 +131,7 @@ thereof, in the carbon limits to determine the lowest cost solution. Since some
 carbon emissions are allowed, the most cost effective approach is to use
 imported electricity as shown in Figure \ref{fig:s02_elc_gen}. In addition to
 electricity imports, Figure \ref{fig:s02_elc_cap} shows \gls{uiuc} expanding
-it's wind power purchase agreement after the current one expires in 2026
+it's wind \gls{ppa} after the current one expires in 2026
 \cite{breitweiser_wind_2016}.
 
 \begin{figure}[ht!]
@@ -146,7 +146,9 @@ it's wind power purchase agreement after the current one expires in 2026
 Increasing the amount of electricity purchased
 from a wind farm is cheaper than building more nuclear capacity because the
 reactor is responsible for steam demand, while electricity demand can be met
-through other means.
+through other means. In this scenario, the wind \gls{ppa} grows to a capacity of
+100.5 MW$_e$, which is the entire installed capacity of Rail Splitter Wind Farm
+\cite{breitweiser_wind_2016}.
 
 \begin{figure}[ht!]
 	\centering
@@ -166,4 +168,23 @@ year when \gls{app} is still being used to produce steam and electricity.
 	\caption{The carbon emissions projected by Temoa for the next 10 years at
 	\gls{uiuc}.}
 	\label{fig:s02_all_co2}
+\end{figure}
+These results show that \gls{uiuc}'s carbon goals can be initially met with a
+slower introduction of nuclear power.
+
+
+\subsection{Scenario 3: Small Modular Reactor}
+The final scenario limited the capacity of a nuclear reactor to 100  MW$_th$
+for a \gls{smr}. Due to physical size constraints a nuclear reactor
+for power production on a university campus will most likely be an \gls{smr}.
+Figure \ref{fig:s03_ind_cap} shows that an \gls{smr} is not large enough
+to replace \gls{app} but a reactor with a rated capacity less than 100 MW$_th$
+can still help \gls{uiuc} satisfy the carbon goals outlined in \gls{icap}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03_ind_capacity.png}
+	\caption{The projected steam capacity in MW$_{th}$ for the next 10 years if
+	\gls{uiuc} invests in \glspl{smr}.}
+	\label{fig:s03_ind_cap}
 \end{figure}
