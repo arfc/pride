@@ -271,6 +271,37 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
         plt.show()
     return
 
+def get_icap_goals(year_start=2021, year_end=2030):
+    """
+    This function returns an interpolated list of annual emissions goals
+    based on the Illinois Climate Action Plan (iCAP). This list is
+    linearly interpolated. Returns a pandas dataframe with the desired
+    number of years. Where "year" is a column and not an index.
+
+    year_start : integer
+        This is the first year in the interpolated dataframe. The default
+        is 2021. The first possible year is 2015 (when iCAP was published).
+
+    year_end : integer
+        This is the last year in the interpolated dataframe. The default
+        is 2030. The last possible year is 2050 (when the goal is zero
+        emissions).
+    """
+
+    data = np.empty(36)
+    data[:] = np.NaN
+    data[0] = 459.875
+    data[5] = 402.562
+    data[10] = 344.906
+    data[-1] = 0.0
+
+    icap_df = pd.DataFrame({'year':np.arange(2015,2051,1), 'goal':data})
+
+    mask = (icap_df['year'] <= 2030) & (icap_df['year'] >= 2021)
+
+    return icap_df[mask]
+
+
 
 def emissions_plot(dataframe, variable, scenario, sector, save=True):
     """
@@ -302,22 +333,12 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     units = {'Emissions': '[ktons CO2 equivalent]'}
 
-    goals = {2021:337,
-             2022:329,
-             2023:317,
-             2024:304,
-             2025:297,
-             2026:290,
-             2027:282,
-             2028:268,
-             2029:256,
-             2030:247}
-
+    goals = get_icap_goals()
 
     fig, ax = plt.subplots()
 
-    ax.scatter(goals.keys(),
-               goals.values(),
+    ax.scatter(goals['year'],
+               goals['goal'],
                label='iCAP Target',
                marker='*',
                s=500, color='tab:red')
