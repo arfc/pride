@@ -122,7 +122,7 @@ the first year and the capital costs of a nuclear power plant.
 	\centering
 	\includegraphics[width=\columnwidth]{scenario02_ind_generation.png}
 	\caption{The projected breakdown of steam generation by source in GWh(th)
-	for the next 10 years if \gls{uiuc} could build nuclear reactors at no cost.}
+	for the next 10 years at \gls{uiuc}.}
 	\label{fig:s02_ind_gen}
 \end{figure}
 
@@ -136,10 +136,9 @@ it's wind \gls{ppa} after the current one expires in 2026
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=\columnwidth]{scenario01_elc_generation.png}
+	\includegraphics[width=\columnwidth]{scenario02_elc_generation.png}
 	\caption{The projected breakdown of electricity generation in GWh(e), by
-	source, for the next 10 years at
-	\gls{uiuc}.}
+	source, for the next 10 years at \gls{uiuc}.}
 	\label{fig:s02_elc_gen}
 \end{figure}
 
@@ -160,7 +159,8 @@ through other means. In this scenario, the wind \gls{ppa} grows to a capacity of
 
 The carbon emissions in this scenario, shown in Figure \ref{fig:s02_all_co2},
 also follow a similar trend to Scenario 1. The key difference is in the first
-year when \gls{app} is still being used to produce steam and electricity.
+year when \gls{app} is still being used to produce steam and electricity. In
+both cases, the campus carbon emissions follow the amount of
 
 \begin{figure}[ht!]
 	\centering
@@ -174,12 +174,14 @@ slower introduction of nuclear power.
 
 
 \subsection{Scenario 3: Small Modular Reactor}
-The final scenario limited the capacity of a nuclear reactor to 100  MW$_th$
+The final scenario limited the capacity of a nuclear reactor to 100  MW$_{th}$
 for a \gls{smr}. Due to physical size constraints a nuclear reactor
 for power production on a university campus will most likely be an \gls{smr}.
 Figure \ref{fig:s03_ind_cap} shows that an \gls{smr} is not large enough
 to replace \gls{app} but a reactor with a rated capacity less than 100 MW$_th$
 can still help \gls{uiuc} satisfy the carbon goals outlined in \gls{icap}.
+Figure \ref{fig:s03_ind_gen} shows the amount of steam produced by \gls{app} and
+the \gls{smr} in GWh(th).
 
 \begin{figure}[ht!]
 	\centering
@@ -187,4 +189,40 @@ can still help \gls{uiuc} satisfy the carbon goals outlined in \gls{icap}.
 	\caption{The projected steam capacity in MW$_{th}$ for the next 10 years if
 	\gls{uiuc} invests in \glspl{smr}.}
 	\label{fig:s03_ind_cap}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03_ind_generation.png}
+	\caption{The projected breakdown of steam generation by source in GWh(th)
+	for the next 10 years at \gls{uiuc}.}
+	\label{fig:s03_ind_gen}
+\end{figure}
+The share of electricity produced by the \texttt{TURBINE} decreases in
+that last few years of the decade when the wind \gls{ppa} increases, as
+illustrated in Figure \ref{fig:s03_elc_gen}. As in Scenario 2, the wind
+\gls{ppa} is a somewhat cheap renewable energy source for \gls{uiuc} because
+it requires no capital investment on the part of the university, whereas
+building another solar farm or nuclear reactor would require some capital cost.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03_elc_generation.png}
+	\caption{The projected breakdown of electricity generation in GWh(e), by
+	source, for the next 10 years at \gls{uiuc}.}
+	\label{fig:s03_elc_gen}
+\end{figure}
+
+Finally, Figure \ref{fig:s03_all_co2} shows the projected carbon emissions at
+\gls{uiuc} until 2030 if the university invests in an \gls{smr} up to
+100MW$_{th}$ capacity. Further this Figure \ref{fig:s03_all_co2} and Figure
+\ref{fig:s03_ind_cap} together show that the \gls{icap} goals for the next ten
+years can be met with a reactor that has a capacity of less than 100MW$_{th}$. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03_all_emissions.png}
+	\caption{The carbon emissions projected by Temoa for the next 10 years at
+	\gls{uiuc} with a nuclear reactor up to 100MW$_{th}$.}
+	\label{fig:s03_all_co2}
 \end{figure}
