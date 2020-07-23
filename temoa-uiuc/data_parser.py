@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
-plt.rcParams['figure.figsize'] = (16, 9)
+plt.rcParams['figure.figsize'] = (12, 9)
 plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
 plt.rcParams['savefig.dpi'] = 400
@@ -249,19 +249,19 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
 
     ax.set_xticks(idx)
     if len(dataframe) > 11:
-        ax.set_xticklabels(years, rotation=60, fontsize=18)
+        ax.set_xticklabels(years, rotation=60, fontsize=24)
     else:
-        ax.set_xticklabels(years, rotation=0, fontsize=18)
+        ax.set_xticklabels(years, rotation=0, fontsize=24)
 
-    plt.yticks(fontsize=18)
+    plt.yticks(fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
-              fontsize=12, prop={'size': 21})
+              fontsize=12, prop={'size': 24})
     plt.suptitle(
         f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
-        fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize=16)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
-    plt.xlabel("Year", fontsize=18)
+        fontsize=36)
+    plt.title(f"Sector: {sector.upper()}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.xlabel("Year", fontsize=24)
 
     if save is True:
         plt.savefig(
@@ -302,7 +302,25 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     units = {'Emissions': '[ktons CO2 equivalent]'}
 
+    goals = {2021:337,
+             2022:329,
+             2023:317,
+             2024:304,
+             2025:297,
+             2026:290,
+             2027:282,
+             2028:268,
+             2029:256,
+             2030:247}
+
+
     fig, ax = plt.subplots()
+
+    ax.scatter(goals.keys(),
+               goals.values(),
+               label='iCAP Target',
+               marker='*',
+               s=500, color='tab:red')
 
     ax.plot(dataframe.index,
             dataframe.total,
@@ -313,21 +331,21 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
             label='CO$_2$ Emissions')
 
     plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
-                 fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize=16)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
-    plt.xlabel("Year", fontsize=18)
+                 fontsize=36)
+    plt.title(f"Sector: {sector.upper()}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.xlabel("Year", fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True,
-              shadow=True, fontsize=12, prop={'size': 21})
+              shadow=True, fontsize=12, prop={'size': 24})
     plt.grid()
-    plt.yticks(fontsize=18)
+    plt.yticks(fontsize=24)
     ax.set_xticks(dataframe.index)
 
     if len(dataframe) > 11:
-        plt.xticks(fontsize=18, rotation=60)
+        plt.xticks(fontsize=24, rotation=60)
 
     else:
-        plt.xticks(fontsize=18)
+        plt.xticks(fontsize=24)
 
     if save is True:
         plt.savefig(
