@@ -412,7 +412,7 @@ def get_scenario_name(file):
 
     filename = file.split('/')
     fname_split = filename[-1].split('_')
-    scenario_name = '_'.join(fname_split[:-1])
+    scenario_name = ' '.join(fname_split[:-1])
 
     return scenario_name
 
