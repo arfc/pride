@@ -235,16 +235,16 @@ CREATE TABLE EmissionLimit  (
    PRIMARY KEY(periods, emis_comm),
    FOREIGN KEY(periods) REFERENCES time_periods(t_periods),
    FOREIGN KEY(emis_comm) REFERENCES commodities(comm_name) );
-INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 337, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 329, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 317, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 304, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 297, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 290, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 282, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 268, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 256, 'kilo-tCO2', 'projection from iCAP');
-INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 247, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2021, 'co2eq', 391.031, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2022, 'co2eq', 379.500, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2023, 'co2eq', 367.968, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2024, 'co2eq', 356.437, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2025, 'co2eq', 344.906, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2026, 'co2eq', 331.110, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2027, 'co2eq', 317.314, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2028, 'co2eq', 303.517, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2029, 'co2eq', 289.721, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES (2030, 'co2eq', 275.925, 'kilo-tCO2', 'projection from iCAP');
 
 -- There must be a demand for every year in "future," listed in time_periods
 -- Should not include years listed as "existing."
