@@ -217,7 +217,7 @@ Finally, Figure \ref{fig:s03_all_co2} shows the projected carbon emissions at
 \gls{uiuc} until 2030 if the university invests in an \gls{smr} up to
 100MW$_{th}$ capacity. Further this Figure \ref{fig:s03_all_co2} and Figure
 \ref{fig:s03_ind_cap} together show that the \gls{icap} goals for the next ten
-years can be met with a reactor that has a capacity of less than 100MW$_{th}$. 
+years can be met with a reactor that has a capacity of less than 100MW$_{th}$.
 
 \begin{figure}[ht!]
 	\centering
@@ -225,4 +225,40 @@ years can be met with a reactor that has a capacity of less than 100MW$_{th}$.
 	\caption{The carbon emissions projected by Temoa for the next 10 years at
 	\gls{uiuc} with a nuclear reactor up to 100MW$_{th}$.}
 	\label{fig:s03_all_co2}
+\end{figure}
+
+\subsection{MGA Analysis}
+
+The \gls{mga} method is useful for capturing solutions that are
+considered sub-optimal but may be viable alternatives in practice
+\cite{decarolis_modelling_2016, hunter_modeling_2013,decarolis_using_2011}.
+In this study, \gls{mga} yielded a single unique alternative that expanded
+nuclear power and wind \glspl{ppa} more aggressively than in the optimized case
+(Scenario 3). Figure \ref{fig:mga_ind_cap} shows that the capacity of the
+\gls{smr} reaches the 100 MW$_{th}$ limit after the first year and Figure
+\ref{fig:mga_elc_gen} shows that the wind \gls{ppa} increases sooner than in
+Scenario 3.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03 mga 0_ind_capacity.png}
+	\caption{The projected steam capacity in MW$_{th}$ for the next 10 years if
+	\gls{uiuc} invests in \glspl{smr}.}
+	\label{fig:mga_ind_cap}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03 mga 0_elc_generation.png}
+	\caption{The projected breakdown of electricity generation in GWh(e), by
+	source, for the next 10 years at \gls{uiuc}.}
+	\label{fig:mga_elc_gen}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{scenario03 mga 0_all_emissions.png}
+	\caption{The carbon emissions projected by \gls{mga} for the next 10 years at
+	\gls{uiuc}.}
+	\label{fig:mga_all_co2}
 \end{figure}
