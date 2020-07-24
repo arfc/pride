@@ -192,35 +192,28 @@ def generation(year: str,
 
     if int(year) < 2011:
 
-        netGen = 'NET GENERATION (megawatthours)'
-
         headers = 7
 
     elif int(year) >= 2011:
 
-        netGen = 'Net Generation (Megawatthours)'
-
         headers = 5
 
     generation = pd.read_csv((path + prefix + year + '.csv'),
+                             usecols=[4, 8, 10, 13, 14, 95],
                              header=headers,
-                             usecols=['Operator Name',
-                                      'NERC Region',
-                                      'NAICS Code',
-                                      'Reported Prime Mover',
-                                      'Reported Fuel Type Code',
-                                      netGen])
+                             encoding='unicode_escape'
+                             )
 
-    facilities = generation['NAICS Code'] == naics[facility]
+    facilities = generation[generation.columns[2]] == naics[facility]
 
     generation = generation.loc[facilities]
 
     generation[facility] = generation[
-        'Operator Name'
-    ] + ' ' + generation['NERC Region']
+        generation.columns[0]
+    ] + ' ' + generation[generation.columns[1]]
 
     generation = generation.drop(
-        ['Operator Name', 'NERC Region'],
+        generation.columns[[0, 1]],
         axis=1
     )
 
@@ -241,7 +234,7 @@ def generation(year: str,
         ]
 
         fuel_type_list = iterable_dataframe[
-            'Reported Fuel Type Code'
+            generation.columns[2]
         ].unique().tolist()
 
         for fuel in fuel_type_list:
@@ -251,15 +244,15 @@ def generation(year: str,
             fuel_dataframe = iterable_dataframe.loc[
                 generation[facility] == op
             ].loc[
-                iterable_dataframe['Reported Fuel Type Code'] == fuel
+                iterable_dataframe[generation.columns[2]] == fuel
             ]
 
             mover_list = fuel_dataframe[
-                'Reported Prime Mover'
+                generation.columns[1]
             ].values.tolist()
 
             netgen_list = fuel_dataframe[
-                netGen
+                generation.columns[3]
             ].values.tolist()
 
             for i in range(len(mover_list)):
@@ -765,32 +758,29 @@ def usage(year: str,
         'Food': 311
     }
 
-    if int(inp) < 2011:
-
-        netGen = 'NET GENERATION (megawatthours)'
+    if int(year) < 2011:
 
         headers = 7
 
-    elif int(inp) >= 2011:
-
-        netGen = 'Net Generation (Megawatthours)'
+    elif int(year) >= 2011:
 
         headers = 5
 
-    label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
+    label_generation = pd.read_csv((path + prefix + year + '.csv'),
+                                   usecols=[4, 8, 10, 13, 14, 95],
                                    header=headers,
-                                   usecols=['Operator Name',
-                                            'NERC Region',
-                                            'NAICS Code',
-                                            'Reported Prime Mover',
-                                            'Reported Fuel Type Code',
-                                            netGen])
+                                   encoding='unicode_escape'
+                                   )
 
-    facilities = label_generation['NAICS Code'] == naics[facility]
+    facilities = label_generation[
+        label_generation.columns[2]
+    ] == naics[facility]
 
     label_generation = label_generation.loc[facilities]
 
-    labels = label_generation['Reported Fuel Type Code'].unique().tolist()
+    labels = label_generation[
+        label_generation.columns[4]
+    ].unique().tolist()
 
     base_dict = dict()
 
@@ -1172,32 +1162,29 @@ def split_dictionary(dictionary: dict,
         'Food': 311
     }
 
-    if int(inp) < 2011:
-
-        netGen = 'NET GENERATION (megawatthours)'
+    if int(year) < 2011:
 
         headers = 7
 
-    elif int(inp) >= 2011:
-
-        netGen = 'Net Generation (Megawatthours)'
+    elif int(year) >= 2011:
 
         headers = 5
 
-    label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
+    label_generation = pd.read_csv((path + prefix + year + '.csv'),
+                                   usecols=[4, 8, 10, 13, 14, 95],
                                    header=headers,
-                                   usecols=['Operator Name',
-                                            'NERC Region',
-                                            'NAICS Code',
-                                            'Reported Prime Mover',
-                                            'Reported Fuel Type Code',
-                                            netGen])
+                                   encoding='unicode_escape'
+                                   )
 
-    oper = label_generation['NAICS Code'] == naics[facility]
+    oper = label_generation[
+        label_generation.columns[2]
+    ] == naics[facility]
 
     label_generation = label_generation.loc[oper]
 
-    labels = label_generation['Reported Fuel Type Code'].unique().tolist()
+    labels = label_generation[
+        label_generation.columns[4]
+    ].unique().tolist()
 
     for label in labels:
 
@@ -1439,32 +1426,29 @@ def plot_data(year: str,
             'Food': 311
         }
 
-        if int(inp) < 2011:
-
-            netGen = 'NET GENERATION (megawatthours)'
+        if int(year) < 2011:
 
             headers = 7
 
-        elif int(inp) >= 2011:
-
-            netGen = 'Net Generation (Megawatthours)'
+        elif int(year) >= 2011:
 
             headers = 5
 
-        label_generation = pd.read_csv((path_arg + prefix_arg + inp + '.csv'),
+        label_generation = pd.read_csv((path + prefix + year + '.csv'),
+                                       usecols=[4, 8, 10, 13, 14, 95],
                                        header=headers,
-                                       usecols=['Operator Name',
-                                                'NERC Region',
-                                                'NAICS Code',
-                                                'Reported Prime Mover',
-                                                'Reported Fuel Type Code',
-                                                netGen])
+                                       encoding='unicode_escape'
+                                       )
 
-        oper = label_generation['NAICS Code'] == naics[facility]
+        oper = label_generation[
+            label_generation.columns[2]
+        ] == naics[facility]
 
         label_generation = label_generation.loc[oper]
 
-        labels = label_generation['Reported Fuel Type Code'].unique().tolist()
+        labels = label_generation[
+            label_generation.columns[4]
+        ].unique().tolist()
 
         colors = [
             '#FFFF00',
