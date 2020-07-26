@@ -271,6 +271,7 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
         plt.show()
     return
 
+
 def get_icap_goals(year_start=2021, year_end=2030):
     """
     This function returns an interpolated list of annual emissions goals
@@ -295,13 +296,12 @@ def get_icap_goals(year_start=2021, year_end=2030):
     data[10] = 344.906
     data[-1] = 0.0
 
-    icap_df = pd.DataFrame({'year':np.arange(2015,2051,1), 'goal':data})
+    icap_df = pd.DataFrame({'year': np.arange(2015, 2051, 1), 'goal': data})
     icap_df['goal'] = icap_df['goal'].interpolate(method='linear')
-    
+
     mask = (icap_df['year'] <= 2030) & (icap_df['year'] >= 2021)
 
     return icap_df[mask]
-
 
 
 def emissions_plot(dataframe, variable, scenario, sector, save=True):
