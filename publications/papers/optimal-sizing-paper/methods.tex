@@ -1,2 +1,20 @@
 \section{Methodology}
-This is the methodology section.
+\gls{temoa} is an open source tool for energy system optimization that
+formulates and solves a linear optimization problem
+\cite{decarolis_tools_2020}. A linear optimization
+problem has two requirements: An objective function and constraints. The
+objective function in \gls{temoa} is total system cost over time horizon
+of interest and the minimum required constraint is annual demand (and
+technology options to meet that demand). Users can optionally add other
+constraints to match the real system being modeled. In our case we added
+emissions limits based on the carbon goals set by \gls{icap}. At each time step,
+\gls{temoa} must be able to meet the various constraints with the existing
+capacity, or build be able to build new capacity to do so. If demand and
+emissions limits cannot be satisfied, then \gls{temoa} gives ``no solution.''
+Mathematically, \gls{temoa} solves the following problem:
+\begin{align}
+  \intertext{Minimize}
+  C_{tot} &= C_{cap} + C_{fix} + C_{var}\\
+  \intertext{Subject to:}
+  D_i &= \sum_{tech}A_{tech} \mbox{ for } i \in \mbox{ years}
+\end{align}
