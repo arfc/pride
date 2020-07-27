@@ -1,15 +1,56 @@
 \section{Model and Data}
 
 The system we modeled in this study is based on the current energy mix of
-\gls{uiuc}.
+\gls{uiuc} which is summarized in Table \ref{tab:model}. \gls{temoa} optimizes
+the years 2021-2030 in single year increments. Each year is divided 6 time
+slices, three seasons, and a day-night cycle. The seasons are summer, winter,
+and an ``inter'' season that represents spring and fall. The typical demand
+breakdown for each season is determined by averaging historical data from 2015-
+2018 \cite{marquissee_uiuc_2019}. \gls{app} is a natural gas and coal fired
+cogeneration plant that fulfills all of the steam demand for \gls{uiuc} and
+much of the electricity demand \cite{affiliated_engineers_inc_utilities_2015}.
+In order to effectively capture cogeneration from \gls{app} in our model, we
+introduced an intermediate technology, \texttt{TURBINE}. Thus, \gls{app} can
+produce a steam ``commodity'' that is split between campus steam demand and
+campus electricity demand via \texttt{TURBINE}. Introducing this intermediate
+technology also allowed us to easily plug in new sources of steam to the
+energy mix, like a nuclear reactor.
+
+The capacities for solar and wind power are both capped in this \gls{temoa}
+model and reflects the real constraints on the \gls{uiuc} energy mix.
+The cap on solar energy is due to the maximum capacity of the solar
+farms on campus. Currently, the solar farm is rated to produce 4.68 MWe, but
+will be tripled in 2022 when the university finishes the planned
+Solar Farm 2.0 \cite{noauthor_solar_nodate,white_solar_2017}.The cap on wind
+energy is due to the 10-year power purchase agreement between UIUC and Rail
+Splitter Wind Farm. This contract ends in 2026, at which point the university
+can elect to purchase more or not \cite{breitweiser_wind_2016}. The current
+installed capacity of Rail Splitter Wind Farm is 100.5 MW$_e$ so we limited
+the maximum \gls{ppa} to 100.5 MW$_e$.
+
+Carbon emissions are counted as a ``CO$_2$ equivalent'' which matches the
+strategy adopted by \gls{icap}. The limits for each year are also based on
+the \gls{icap} goals which were only published for three years: 2020, 2025, and
+2050. We used linear interpolation to fill in the missing values. In our
+\gls{temoa} model, we only tracked emissions from each unit of energy generated
+rather than the lifetime carbon emissions.  
 
 \begin{table*}[ht]
   \centering
-  % \caption{A summary of the technologies at \gls{uiuc}}
-  % \label{tab:model}
-  \begin{tabular}{cc}
-    Technology & Name \\
-    Natural Gas \& Coal Plant & \texttt{ABBOTT}\\
+  \caption{A summary of the technologies at \gls{uiuc}}
+  \label{tab:model}
+  \begin{tabular}{|cccccc|}
+    \hline
+    Technology & Name & Capital Cost & Variable Cost & Emissions& Citation\\
+    & & M\$/MW & M\$/GWh & kton-CO$_2$eq/MW&\\
+    \hline
+    Natural Gas \& Coal Plant & \texttt{ABBOTT} & 0.735 & 0.0553 & 0.192&\cite{isee_illinois_2015,affiliated_engineers_inc_utilities_2015,us_department_of_energy_capital_2016,uiuc_fs_edna_nodate,energy_information_administration_electricity_nodate}\\
+    Nuclear & \texttt{NUCLEAR} & 5.945 & 0.027 & - &\cite{us_department_of_energy_capital_2016,desai_nuclear_2018,wna_nuclear_2017,noauthor_eti_2018}\\
+    Turbine & \texttt{TURBINE} & - & 0.03  & - &\cite{uiuc_fs_edna_nodate,affiliated_engineers_inc_utilities_2015}\\
+    Photovoltaic Solar & \texttt{IMPSOL} & 1.66 & 0.196 & - &\cite{noauthor_solar_nodate,uiuc_fs_edna_nodate}\\
+    Wind \gls{ppa} & \texttt{IMPWIND} & - & 0.0384 & - & \cite{breitweiser_wind_2016,uiuc_fs_edna_nodate}\\
+    MISO Electricity Imports & \texttt{IMPELC} & - & 0.13 & 0.825&\cite{isee_illinois_2015,uiuc_fs_edna_nodate,noauthor_abbott_nodate}\\
+    \hline
   \end{tabular}
 \end{table*}
 
@@ -19,8 +60,7 @@ The system we modeled in this study is based on the current energy mix of
     \item 2020 is considered a historical year and reflects the current energy
     mix of the university.
     \item The model optimizes years 2021-2030 in single year increments.
-    \item In this study, one year is divided 6 time slices. 3 seasons, and 2 times
-    of day. Future work will refine this temporal detail.
+    \item In this study, one year is  Future work will refine this temporal detail.
   \end{itemize}
   \item Typical demand for winter, summer, and the spring/fall ``inter" season
   are determined by averaging historical data from 2015-2018.

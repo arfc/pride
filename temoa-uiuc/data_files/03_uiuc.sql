@@ -601,18 +601,18 @@ INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2029, 'ELC', 1.00,'pure elect
 INSERT INTO "Efficiency" VALUES('ethos', 'IMPELC', 2030, 'ELC', 1.00,'pure electricity import');
 
 --Defines the ABBOTT parameters
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2024, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2025, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2026, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2027, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2028, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2029, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2021, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2022, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2023, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2024, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2025, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2026, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2027, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2028, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2029, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('GAS', 'ABBOTT', 2030, 'STM', 1.00, 'Converts steam to steam');
 
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2000, 'ELC', 0.33, 'converts STM to ELC');
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2020, 'ELC', 0.33, 'converts STM to ELC');
@@ -628,18 +628,18 @@ INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2029, 'ELC', 0.33, 'converts S
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2030, 'ELC', 0.33, 'converts STM to ELC');
 
 -- Define nuclear here
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2024, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2025, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2026, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2027, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2028, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2029, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2023, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2024, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2025, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2026, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2027, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2028, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2029, 'STM', 1.00, 'Converts steam to steam');
+INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'Converts steam to steam');
 
 
 -- INSERT INTO "Efficiency" VALUES('ELC', 'CWS', 2000, 'ELC', 0.72, 'converts STM to ELC');
