@@ -249,19 +249,19 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
 
     ax.set_xticks(idx)
     if len(dataframe) > 11:
-        ax.set_xticklabels(years, rotation=60, fontsize=18)
+        ax.set_xticklabels(years, rotation=60, fontsize=24)
     else:
-        ax.set_xticklabels(years, rotation=0, fontsize=18)
+        ax.set_xticklabels(years, rotation=0, fontsize=24)
 
-    plt.yticks(fontsize=18)
+    plt.yticks(fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
-              fontsize=12, prop={'size': 21})
+              fontsize=12, prop={'size': 24})
     plt.suptitle(
         f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
-        fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize=16)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
-    plt.xlabel("Year", fontsize=18)
+        fontsize=36)
+    plt.title(f"Sector: {sector.upper()}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.xlabel("Year", fontsize=24)
 
     if save is True:
         plt.savefig(
@@ -270,6 +270,38 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     else:
         plt.show()
     return
+
+
+def get_icap_goals(year_start=2021, year_end=2030):
+    """
+    This function returns an interpolated list of annual emissions goals
+    based on the Illinois Climate Action Plan (iCAP). This list is
+    linearly interpolated. Returns a pandas dataframe with the desired
+    number of years. Where "year" is a column and not an index.
+
+    year_start : integer
+        This is the first year in the interpolated dataframe. The default
+        is 2021. The first possible year is 2015 (when iCAP was published).
+
+    year_end : integer
+        This is the last year in the interpolated dataframe. The default
+        is 2030. The last possible year is 2050 (when the goal is zero
+        emissions).
+    """
+
+    data = np.empty(36)
+    data[:] = np.NaN
+    data[0] = 459.875
+    data[5] = 402.562
+    data[10] = 344.906
+    data[-1] = 0.0
+
+    icap_df = pd.DataFrame({'year': np.arange(2015, 2051, 1), 'goal': data})
+    icap_df['goal'] = icap_df['goal'].interpolate(method='linear')
+
+    mask = (icap_df['year'] <= 2030) & (icap_df['year'] >= 2021)
+
+    return icap_df[mask]
 
 
 def emissions_plot(dataframe, variable, scenario, sector, save=True):
@@ -302,7 +334,15 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     units = {'Emissions': '[ktons CO2 equivalent]'}
 
+    goals = get_icap_goals()
+
     fig, ax = plt.subplots()
+
+    ax.scatter(goals['year'],
+               goals['goal'],
+               label='iCAP Target',
+               marker='*',
+               s=500, color='tab:red')
 
     ax.plot(dataframe.index,
             dataframe.total,
@@ -313,21 +353,21 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
             label='CO$_2$ Emissions')
 
     plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
-                 fontsize=21)
-    plt.title(f"Sector: {sector.upper()}", fontsize=16)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=18)
-    plt.xlabel("Year", fontsize=18)
+                 fontsize=36)
+    plt.title(f"Sector: {sector.upper()}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.xlabel("Year", fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True,
-              shadow=True, fontsize=12, prop={'size': 21})
+              shadow=True, fontsize=12, prop={'size': 24})
     plt.grid()
-    plt.yticks(fontsize=18)
+    plt.yticks(fontsize=24)
     ax.set_xticks(dataframe.index)
 
     if len(dataframe) > 11:
-        plt.xticks(fontsize=18, rotation=60)
+        plt.xticks(fontsize=24, rotation=60)
 
     else:
-        plt.xticks(fontsize=18)
+        plt.xticks(fontsize=24)
 
     if save is True:
         plt.savefig(
