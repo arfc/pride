@@ -1,16 +1,10 @@
 \section{Results}
-
-The hyperparameters of the \acrshort{ESN} used in Figure \ref{fig:ESN1} and
-Figure \ref{fig:ESN2} were randomly assigned and therefore not optimized. In
-spite of this, preliminary predictions track reasonably well with grid demand.
-The current iteration shows a potentially
-misleading relationship between accuracy and training length. By inspection,
-Figure \ref{fig:ESN2} is more accurate but the comparison is unfair because
-the two ESNs are predicting different time periods.
-We also conducted a single grid search for the optimal combination of
-spectral radius ($\rho$) and noise injection (for regularization of reservoir
-neurons), shown in Figure \ref{fig:gridsearch}, following the recommendations from
-\cite{lukosevicius_practical_2012}.
+The first model, shown in Figure \ref{fig:ESN1}, we trained with 1000 hours of
+historical data. The blue line is a snapshot of historical demand data. The
+dashed line indicates the end of the model training and the beginning of the
+model prediction. The red line is the prediction made by the \gls{ESN}. By
+inspection, the \gls{ESN} successfully predicted a general
+trend but had difficulty with accuracy at the desired hourly resolution.
 
 \begin{figure}[h]
   \centering
@@ -19,6 +13,13 @@ neurons), shown in Figure \ref{fig:gridsearch}, following the recommendations fr
   training on 1000 hours of historical data.}
   \label{fig:ESN1}
 \end{figure}
+
+The second model, shown in Figure \ref{fig:ESN2}, we trained with the same
+dataset as before and extended the training to 3500 hours of
+historical data. This \gls{ESN} made better predictions than the first model
+and is most likely due to longer training. The effect of training
+length on model accuracy will be explored in future work.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=\columnwidth]{scaled_esn_network.png}
@@ -26,10 +27,7 @@ neurons), shown in Figure \ref{fig:gridsearch}, following the recommendations fr
   training on 3500 hours of historical data.}
   \label{fig:ESN2}
 \end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\columnwidth]{noise_spectral_radius.png}
-  \caption{A grid search over a range of spectral radii and noise levels. The
-  optimal set minimizes the mean squared error.}
-  \label{fig:gridsearch}
-\end{figure}
+
+Both models use training data with an hourly resolution. It is possible
+that data at the 15-minute or 30-minute timescale will improve prediction
+accuracy.
