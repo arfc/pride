@@ -2,12 +2,12 @@ import pytest
 from eia import fuel_type_code
 from eia import mover_database
 from eia import generation
-from eia import university_top_producers
+from eia import operator_top_producers
 from eia import energy_type_breakdown
-from eia import university_top_renewables
+from eia import operator_top_renewables
 from eia import usage
 from eia import capacity_factors
-from eia import university_capacity
+from eia import operator_capacity
 from eia import sources
 from eia import split_dictionary
 from eia import plot_data
@@ -21,7 +21,6 @@ def test_fuel_type_code():
     """
     This function should pass if fuel_type_code
     outputs the correct dictionary.
-
     """
 
     correct_dictionary = {
@@ -75,7 +74,6 @@ def test_mover_database():
     This function will pass if mover_database
     outputs the correct hard-coded dictionary
     for the translation of each mover code.
-
     """
 
     mover = {
@@ -111,7 +109,6 @@ def test_generation_1():
     This function will pass if generation is correctly
     designed to raise a TypeError if argument 'year' is
     not of type 'str'.
-
     """
 
     arg = 12
@@ -128,7 +125,6 @@ def test_generation_2():
     This function will pass if generation is correctly
     designed to raise an ValueError is argument 'year' is
     not supported.
-
     """
 
     arg = '2027'
@@ -140,59 +136,56 @@ def test_generation_2():
                    prefix=prefix_arg)
 
 
-def test_university_top_producers_1():
+def test_operator_top_producers_1():
     """
-    This function will pass if university_top_producers
+    This function will pass if operator_top_producers
     correctly orders the results of generation from largest
     to smallest.
-
     """
 
-    top_list = list(university_top_producers(year='2018',
-                                             path=path_arg,
-                                             prefix=prefix_arg))
+    top_list = list(operator_top_producers(year='2018',
+                                           path=path_arg,
+                                           prefix=prefix_arg))
 
-    top_dict = university_top_producers(year='2018',
-                                        path=path_arg,
-                                        prefix=prefix_arg)
+    top_dict = operator_top_producers(year='2018',
+                                      path=path_arg,
+                                      prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
         assert top_dict[top_list[i]] >= top_dict[top_list[i + 1]]
 
 
-def test_university_top_producers_2():
+def test_operator_top_producers_2():
     """
-    This function will pass if university_top_producers is
+    This function will pass if operator_top_producers is
     correctly designed to raise a TypeError if argument
     'year' is not of type 'str'.
-
     """
 
     arg = 12
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        university_top_producers(year=arg,
-                                 path=path_arg,
-                                 prefix=prefix_arg)
+        operator_top_producers(year=arg,
+                               path=path_arg,
+                               prefix=prefix_arg)
 
 
-def test_university_top_producers_3():
+def test_operator_top_producers_3():
     """
-    This function will pass if university_top_producers is
+    This function will pass if operator_top_producers is
     correctly designed to raise an ValueError if argument
     'year' is not supported.
-
     """
 
     arg = '2027'
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        university_top_producers(year=arg,
-                                 path=path_arg,
-                                 prefix=prefix_arg)
+        operator_top_producers(year=arg,
+                               path=path_arg,
+                               prefix=prefix_arg)
 
 
 def test_energy_type_breakdown_1():
@@ -200,7 +193,6 @@ def test_energy_type_breakdown_1():
     This function will pass if energy_type_breakdown
     is designed to raise a TypeError if argument
     'year' is not of type 'str'.
-
     """
 
     arg = 12
@@ -217,7 +209,6 @@ def test_energy_type_breakdown_2():
     This function will pass if energy_type_breakdown
     is designed to raise an ValueError if argument
     'year' is not supported.
-
     """
 
     arg = '2027'
@@ -229,66 +220,62 @@ def test_energy_type_breakdown_2():
                               prefix=prefix_arg)
 
 
-def test_university_top_renewables_1():
+def test_operator_top_renewables_1():
     """
-    This function will pass if university_top_renewables
+    This function will pass if operator_top_renewables
     correctly orders the results of generation from largest
     to smallest.
-
     """
 
-    top_list = list(university_top_renewables(year='2018',
-                                              path=path_arg,
-                                              prefix=prefix_arg))
+    top_list = list(operator_top_renewables(year='2018',
+                                            path=path_arg,
+                                            prefix=prefix_arg))
 
-    top_dict = university_top_renewables(year='2018',
-                                         path=path_arg,
-                                         prefix=prefix_arg)
+    top_dict = operator_top_renewables(year='2018',
+                                       path=path_arg,
+                                       prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
         assert top_dict[top_list[i]] >= top_dict[top_list[i + 1]]
 
 
-def test_university_top_renewables_2():
+def test_operator_top_renewables_2():
     """
-    This function will pass if university_top_renewables is
+    This function will pass if operator_top_renewables is
     correctly designed to raise a TypeError if argument 'year'
     is not of type 'str'.
-
     """
 
     arg = 12
 
     with pytest.raises(TypeError, match="Argument 'year'"):
 
-        university_top_renewables(year=arg,
-                                  path=path_arg,
-                                  prefix=prefix_arg)
+        operator_top_renewables(year=arg,
+                                path=path_arg,
+                                prefix=prefix_arg)
 
 
-def test_university_top_renewables_3():
+def test_operator_top_renewables_3():
     """
-    This function will pass if university_top_renewables is
+    This function will pass if operator_top_renewables is
     correctly designed to raise an ValueError if argument 'year'
     is not supported.
-
     """
 
     arg = '2027'
 
     with pytest.raises(ValueError, match="Not a valid"):
 
-        university_top_renewables(year=arg,
-                                  path=path_arg,
-                                  prefix=prefix_arg)
+        operator_top_renewables(year=arg,
+                                path=path_arg,
+                                prefix=prefix_arg)
 
 
 def test_usage_1():
     """
     This function will pass if usage is correctly designed to
     raise a TypeError if argument 'sort' is not of type 'str'.
-
     """
 
     arg = 0
@@ -306,7 +293,6 @@ def test_usage_2():
     This function will pass if usage is correctly designed to
     raise a ValueError if argument 'sort' is not of value
     'installed' or 'active'.
-
     """
 
     arg = 'instaled'
@@ -323,7 +309,6 @@ def test_usage_3():
     """
     This function will pass if usage is correctly designed to
     raise a TypeError if argument 'year' is not of type 'str'.
-
     """
 
     arg = 12
@@ -339,7 +324,6 @@ def test_usage_4():
     """
     This function will pass if usage is correctly designed to
     raise an ValueError if argument 'year' is not supported.
-
     """
 
     arg = '2027'
@@ -356,7 +340,6 @@ def test_capacity_factor():
     This function will pass if capacity_factor correctly
     returns the dictionary for 2018 capacity factors by
     energy type and generation type.
-
     """
     cf = {
         'DFO': {
@@ -386,7 +369,8 @@ def test_capacity_factor():
         'RFO': {
             'IC': 0.019,
             'ST': 0.142,
-            'CT': 0.019
+            'CT': 0.019,
+            'GT': 0.013
         },
         'SUN': {'PV': 26.1},
         'KER': {'GT': 1.0},
@@ -408,19 +392,18 @@ def test_capacity_factor():
     assert cf == capacity_factors()
 
 
-def test_university_capacity():
+def test_operator_capacity():
     """
-    This function will pass if university_capacity
+    This function will pass if operator_capacity
     correctly orders the results from largest to
     smallest.
-
     """
 
-    top_list = list(university_capacity(path=path_arg,
-                                        prefix=prefix_arg))
+    top_list = list(operator_capacity(path=path_arg,
+                                      prefix=prefix_arg))
 
-    top_dict = university_capacity(path=path_arg,
-                                   prefix=prefix_arg)
+    top_dict = operator_capacity(path=path_arg,
+                                 prefix=prefix_arg)
 
     for i in range(len(top_list) - 1):
 
@@ -432,7 +415,6 @@ def test_sources():
     This function will pass if sources is designed to
     correctly raise a TypeError if argument
     'capacity_factor' is not of type 'bool'.
-
     """
 
     arg = 'True'
@@ -447,7 +429,6 @@ def test_split_dictionary_1():
     This function will pass if split_dictionary is
     designed to correctly raise a TypeError if
     argument 'dictionary' is not of type 'dict'.
-
     """
 
     arg = list()
@@ -465,7 +446,6 @@ def test_split_dictionary_2():
     This function will pass if split_dictionary is
     correctly designed to raise a TypeError if
     argument 'year' is not of type 'str'.
-
     """
 
     arg = 12
@@ -483,7 +463,6 @@ def test_split_dictionary_3():
     This function will pass if split_dictionary is
     correctly designed to raise a ValueError if
     argument 'year' is not supported.
-
     """
 
     arg = '2027'
@@ -501,7 +480,6 @@ def test_plot_data_1():
     This function will pass if plot_data is designed
     to correctly raise a TypeError if each argument is
     not of type 'bool'.
-
     """
 
     arg = 'True'
@@ -560,7 +538,6 @@ def test_plot_data_2():
     This function will pass if plot_data is correctly
     designed to raise a TypeError if argument 'year'
     is not of type 'str'.
-
     """
 
     arg = 12
@@ -577,7 +554,6 @@ def test_plot_data_3():
     This function will pass if plot_data is correctly
     designed to raise an ValueError if argument 'year'
     is not supported.
-
     """
 
     arg = '2027'
@@ -594,21 +570,20 @@ def test_plot_energy_change():
     This function will pass if plot_energy_data is
     correctly designed to raise a TypeError if either
     of its arguments is not of type 'str'.
-
     """
 
     arg = 20
 
     with pytest.raises(TypeError, match="All arguments"):
 
-        plot_energy_change(university=arg,
+        plot_energy_change(operator=arg,
                            energy='NG',
                            path=path_arg,
                            prefix=prefix_arg)
 
     with pytest.raises(TypeError, match="All arguments"):
 
-        plot_energy_change(university='all',
+        plot_energy_change(operator='all',
                            energy=arg,
                            path=path_arg,
                            prefix=prefix_arg)

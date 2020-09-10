@@ -1,18 +1,16 @@
 \section{Conclusions}
 
-We have demonstrated that even a basic \acrshort{ESN} can
-predict the evolution of dynamic systems as others have
-\cite{pathak_model-free_2018,wikner_combining_2020,bianchi_reservoir_2020}.
-Future work will include:
-\begin{enumerate}
-  \item Identifying ideal input vectors, whether a single value for net demand
-  history will suffice or some combination of values (e.g. local weather and
-  total demand) will improve predictive power.
-  \item Grid searches to tune hyperparameters.
-  \item Taking advantage of fast model training to perform uncertainty analysis.
-\end{enumerate}
-Fairer comparisons on the effectiveness of training length will be done by
-fixing the prediction time period for each ESN.
-Accurate predictions of chaotic systems, like wind energy production, will
-enable nuclear power plants to improve their economic feasibility through
-relaxed load following.
+The ability of an \gls{ESN} to predict dramatic changes in electricity demand
+may cause skepticism, especially given the simplicity of its implementation.
+It is important to note that a chaotic spatiotemporal system, like weather, is
+the result of complex dynamics and not randomness. We demonstrated that even a
+basic \gls{ESN} can predict the evolution of a dynamic system, such as
+electricity demand.
+More work needs to be done to improve prediction accuracy for the purpose of
+load following with nuclear power plants. In the future we will use \glspl{ESN}
+to forecast electricity production from solar and wind. We will also explore the
+impact of training length and network size on accuracy. Finally, we must
+determine an optimum set of input values for net demand prediction. These values
+might include temperature, wind speed, air pressure, and irradiance because of
+possible interactions among this data that could influence electricity
+production from renewable sources.
