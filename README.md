@@ -1,11 +1,14 @@
-# 2020-fairhurst-hydrogen-production
+# (P)lan for (R)ap(I)d (DE)carbonization (PRIDE)
+This repository contains analysis tools, models, and publications associated with planning for rapid decarbonization.
+
+## Publication: 2020-fairhurst-hydrogen-production
 This repository holds:
 
 - data of the fuel consumed by the MTD and UI fleet.
 - analysis of the hydrogen required by those fleet to become carbon free.
 - information of different methods to produce hydrogen.
 
-# 2020-dotson-optimal-sizing
+## Publication: 2020-dotson-optimal-sizing
 This repository holds the data analysis, figures, that will lead to quantitative recommendations for the optimal reactor size.
 
 Multiple scenarios will be addressed:
