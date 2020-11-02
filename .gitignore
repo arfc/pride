@@ -1,0 +1,30 @@
+.pytest_cache
+__pycache__
+.ipynb_checkpoints
+.snakemake
+
+# no TEMOA built files
+*.dat
+*.sqlite
+temoa-uiuc/data_files/01_uiuc_scenario01_model/
+temoa-uiuc/data_files/02_uiuc_scenario02_model/
+temoa-uiuc/data_files/03_uiuc_mga_scenario03_mga_0_model/
+temoa-uiuc/data_files/03_uiuc_mga_scenario03_mga_1_model/
+temoa-uiuc/data_files/03_uiuc_mga_scenario03_mga_2_model/
+temoa-uiuc/data_files/03_uiuc_mga_scenario03_mga_3_model/
+temoa-uiuc/data_files/03_uiuc_mga_scenario03_model/
+temoa-uiuc/data_files/03_uiuc_scenario03_model/
+temoa-uiuc/figures
+temoa-uiuc/data_files/bau_uiuc_bau_model/
+
+
+# no LaTeX built files
+*.acn
+*.aux
+*.log
+*.out
+*.spl
+*.ist
+*.bbl
+*.blg
+*.glo
