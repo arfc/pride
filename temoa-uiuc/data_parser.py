@@ -12,13 +12,14 @@ plt.rcParams['savefig.bbox'] = 'tight'
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = "serif"
 
-variables = {'Generation': 'V_ActivityByPeriodAndProcess',
-             'Capacity': 'V_Capacity',
-             'Emissions': 'V_EmissionActivityByPeriodAndProcess'}
+variables = {'generation': 'V_ActivityByPeriodAndProcess',
+             'capacity': 'V_Capacity',
+             'emissions': 'V_EmissionActivityByPeriodAndProcess'}
 time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
 ind_techs = ['NUCLEAR', 'ABBOTT']
+emissions = ['co2eq', 'ewaste']
 
 
 def data_by_year(datalines, year):
@@ -164,7 +165,7 @@ def create_column(lines, years, tech):
     return column
 
 
-def create_dataframe(lines, variable, sector='elc', years=time_horizon):
+def create_dataframe(lines, variable, sector='elc', emission=None, years=time_horizon):
     """
     This function creates a pandas dataframe for
     a particular variable.
@@ -183,6 +184,9 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
 
     sector :
     """
+    if variable.lower() == 'emissions':
+        assert(emission is not None)
+
     if sector == 'elc':
         techs = elc_techs
 
@@ -194,7 +198,10 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
 
     technology_dict = {}
 
-    var_of_interest = variables[variable]
+    if variable == 'emissions':
+        lines = data_by_tech(lines, emission)
+
+    var_of_interest = variables[variable.lower()]
     variable_data = data_by_variable(lines, var_of_interest)
 
     for tech in techs:
@@ -203,13 +210,15 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
 
     dataframe = pd.DataFrame(technology_dict)
     dataframe.set_index('Year', inplace=True)
-    if variable == 'Emissions':
+    if variable == 'emissions':
         dataframe['total'] = dataframe.sum(axis=1)
+        if emission is not 'co2eq':
+            dataframe['cumulative'] = dataframe['total'].cumsum()
 
     return dataframe
 
 
-def bar_plot(dataframe, variable, scenario, sector, save=True):
+def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     """
     This function creates a bar chart for
     a given dataframe and returns nothing.
@@ -237,15 +246,32 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'Generation': '[GWh]', 'Capacity': '[MW]'}
+    units = {'generation': '[GWh]',
+             'capacity': '[MW]',
+             'emissions': '[kg]'}
 
+    hatches = ''.join(h * len(dataframe) for h in 'x/O.|-*')
     years = list(dataframe.index)
     idx = np.asarray([i for i in range(len(years))])
-    ax = dataframe.loc[1:, ].plot.bar(stacked=True)
-    bars = ax.patches
-    hatches = ''.join(h * len(dataframe) for h in 'x/O.')
-    for bar, hatch in zip(bars, hatches):
-        bar.set_hatch(hatch)
+    if (variable.lower() == 'emissions') and (emission != 'co2eq'):
+        ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
+        plt.suptitle(
+        f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
+        fontsize=36)
+        plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
+        bars = ax.patches
+        for bar, hatch in zip(bars, hatches):
+            bar.set_hatch(hatch)
+    else:
+        ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar(stacked=True)
+        bars = ax.patches
+        plt.suptitle(
+        f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
+        fontsize=36)
+        plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
+        for bar, hatch in zip(bars, hatches):
+            bar.set_hatch(hatch)
+
 
     ax.set_xticks(idx)
     if len(dataframe) > 11:
@@ -256,17 +282,18 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     plt.yticks(fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 24})
-    plt.suptitle(
-        f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
-        fontsize=36)
     plt.title(f"Sector: {sector.upper()}", fontsize=24)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
     plt.xlabel("Year", fontsize=24)
 
     if save is True:
-        plt.savefig(
-            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-        plt.close()
+        if emission is not None:
+            plt.savefig(
+                f"{target_folder}{scenario}_{sector}_{variable.lower()}_{emission}.png")
+            plt.close()
+        else:
+            plt.savefig(
+                f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+            plt.close()
     else:
         plt.show()
     return
@@ -332,7 +359,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'Emissions': '[ktons CO2 equivalent]'}
+    units = {'emissions': '[ktons CO2 equivalent]'}
 
     goals = get_icap_goals()
 
@@ -355,7 +382,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
                  fontsize=36)
     plt.title(f"Sector: {sector.upper()}", fontsize=24)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
     plt.xlabel("Year", fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True,
               shadow=True, fontsize=12, prop={'size': 24})
@@ -450,9 +477,9 @@ def make_plots(data_paths, to_save):
         from Temoa runs.
     """
 
-    plots_dict = {'Emissions': emissions_plot,
-                  'Generation': bar_plot,
-                  'Capacity': bar_plot}
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
 
     # for each outputfile
     for file in data_paths:
@@ -462,25 +489,76 @@ def make_plots(data_paths, to_save):
         # for each variable of interest
         for var in variables:
             # create dataframes
-            df_elc = create_dataframe(datalines, var, sector='elc')
-            df_ind = create_dataframe(datalines, var, sector='ind')
-            df_all = create_dataframe(datalines, var, sector='all')
-            plot = plots_dict[var]
-            plot(dataframe=df_elc,
-                 variable=var,
-                 scenario=scenario,
-                 sector='elc',
-                 save=to_save)
-            plot(dataframe=df_ind,
-                 variable=var,
-                 scenario=scenario,
-                 sector='ind',
-                 save=to_save)
-            plot(dataframe=df_all,
-                 variable=var,
-                 scenario=scenario,
-                 sector='all',
-                 save=to_save)
+            if var == 'emissions':
+                for byproduct in emissions:
+                    df_all = create_dataframe(datalines,
+                                           var,
+                                           sector='all',
+                                           emission=byproduct)
+                    df_elc = create_dataframe(datalines,
+                                           var,
+                                           sector='elc',
+                                           emission=byproduct)
+                    df_ind = create_dataframe(datalines,
+                                           var,
+                                           sector='ind',
+                                           emission=byproduct)
+                    if byproduct is not 'co2eq':
+                        bar_plot(dataframe=df_all,
+                                 variable=var,
+                                 scenario=scenario,
+                                 sector='all',
+                                 emission=byproduct,
+                                 save=to_save)
+                        bar_plot(dataframe=df_elc,
+                                 variable=var,
+                                 scenario=scenario,
+                                 sector='elc',
+                                 emission=byproduct,
+                                 save=to_save)
+                        bar_plot(dataframe=df_ind,
+                                 variable=var,
+                                 scenario=scenario,
+                                 sector='ind',
+                                 emission=byproduct,
+                                 save=to_save)
+                    else:
+                        emissions_plot(dataframe=df_all,
+                                       variable=var,
+                                       scenario=scenario,
+                                       sector='all',
+                                       save=to_save)
+                        emissions_plot(dataframe=df_elc,
+                                       variable=var,
+                                       scenario=scenario,
+                                       sector='elc',
+                                       save=to_save)
+                        emissions_plot(dataframe=df_ind,
+                                       variable=var,
+                                       scenario=scenario,
+                                       sector='ind',
+                                       save=to_save)
+
+            else:
+                df_elc = create_dataframe(datalines, var, sector='elc')
+                df_ind = create_dataframe(datalines, var, sector='ind')
+                df_all = create_dataframe(datalines, var, sector='all')
+                plot = plots_dict[var]
+                plot(dataframe=df_elc,
+                     variable=var,
+                     scenario=scenario,
+                     sector='elc',
+                     save=to_save)
+                plot(dataframe=df_ind,
+                     variable=var,
+                     scenario=scenario,
+                     sector='ind',
+                     save=to_save)
+                plot(dataframe=df_all,
+                     variable=var,
+                     scenario=scenario,
+                     sector='all',
+                     save=to_save)
 
     return
 

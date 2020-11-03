@@ -96,6 +96,7 @@ CREATE TABLE commodities (
   flag text,
   comm_desc text,
   FOREIGN KEY(flag) REFERENCES commodity_labels(comm_labels));
+INSERT INTO "commodities" VALUES('ewaste','e','waste from solar and wind');
 INSERT INTO "commodities" VALUES('co2eq','e','co2 equivalent');
 INSERT INTO "commodities" VALUES('ethos','p','# dummy commodity');
 INSERT INTO "commodities" VALUES('GAS', 'p', 'natural gas');
@@ -225,6 +226,33 @@ INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2027,'ELC',0.8
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2028,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2029,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'kilo-tCO2/MWe','from iCAP');
+-- Solar Panel and Wind Turbine Waste
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2016,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2020,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2021,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2022,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2023,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2024,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2025,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2026,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2027,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2028,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2029,'ELC',2.0462,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPSOL', 2030,'ELC',2.0462,'kg/MWe','from waste calc');
+
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2016,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2020,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2021,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2022,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2023,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2024,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2025,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2026,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2027,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2028,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2029,'ELC',0.2104,'kg/MWe','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2030,'ELC',0.2104,'kg/MWe','from waste calc');
+
 
 CREATE TABLE EmissionLimit  (
    periods integer,

@@ -1,11 +1,19 @@
-DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc"]
-SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03"]
-SECTORS = ["ind", "elc", "all"]
+# All Scenarios
+# DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc"]
 
-FOLDER = ["bau_uiuc_bau_model",
-          "01_uiuc_scenario01_model",
-          "02_uiuc_scenario02_model",
-          "03_uiuc_scenario03_model"]
+# SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03"]
+
+# FOLDER = ["bau_uiuc_bau_model",
+#           "01_uiuc_scenario01_model",
+#           "02_uiuc_scenario02_model",
+#           "03_uiuc_scenario03_model"]
+
+# Experimental Scenario
+DBS = ["04_uiuc"]
+SCENARIOS = ["scenario04"]
+FOLDER = ["04_uiuc_scenario04_model"]
+
+SECTORS = ["ind", "elc", "all"]
 
 rule all:
     input:
