@@ -1,0 +1,50 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/pride
+
+    steps:
+      - checkout
+      
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+            
+      - run: 
+          name: temoa
+          command: |
+            git clone https://github.com/TemoaProject/temoa.git ../
+            cd ../temoa
+            conda env create
+            
+      - run:
+          name: requirements
+          command: |
+            source activate temoa-py3
+            pip install -r requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{checksum "requirements.txt"}}
+      - run:
+          name: tests
+          command: |
+            source activate temoa-py3
+            py.test 
+            
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
