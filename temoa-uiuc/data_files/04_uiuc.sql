@@ -96,6 +96,7 @@ CREATE TABLE commodities (
   flag text,
   comm_desc text,
   FOREIGN KEY(flag) REFERENCES commodity_labels(comm_labels));
+INSERT INTO "commodities" VALUES('spent-fuel','e','spent nuclear fuel');
 INSERT INTO "commodities" VALUES('ewaste','e','waste from solar and wind');
 INSERT INTO "commodities" VALUES('co2eq','e','co2 equivalent');
 INSERT INTO "commodities" VALUES('ethos','p','# dummy commodity');
@@ -252,6 +253,18 @@ INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2027,'ELC',0
 INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2028,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2029,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('ewaste', 'ethos','IMPWIND', 2030,'ELC',0.2104,'kg/MWe','from waste calc');
+-- Nuclear Reactor Waste
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2020,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2021,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2022,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2023,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2024,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2025,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2026,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2027,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2028,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2029,'STM',0.000815,'kg/MWth','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('spent-fuel', 'ethos','NUCLEAR', 2030,'STM',0.000815,'kg/MWth','from waste calc');
 
 
 CREATE TABLE EmissionLimit  (
@@ -514,10 +527,10 @@ INSERT INTO "LifetimeTech" VALUES('IMPNATGAS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('TURBINE',1000,'');
 INSERT INTO "LifetimeTech" VALUES('IMPWIND',10,'');
 INSERT INTO "LifetimeTech" VALUES('IMPSOL',25,'');
-INSERT INTO "LifetimeTech" VALUES('UL',40,'');
-INSERT INTO "LifetimeTech" VALUES('UH',40,'');
+INSERT INTO "LifetimeTech" VALUES('UL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('UH',1000,'');
 -- INSERT INTO "LifetimeTech" VALUES('CWS',40,'');
-INSERT INTO "LifetimeTech" VALUES('NUCLEAR',40,'');
+INSERT INTO "LifetimeTech" VALUES('NUCLEAR',60,'');
 INSERT INTO "LifetimeTech" VALUES('ABBOTT',40,'');
 
 
@@ -656,7 +669,7 @@ INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2029, 'ELC', 0.33, 'converts S
 INSERT INTO "Efficiency" VALUES('STM', 'TURBINE', 2030, 'ELC', 0.33, 'converts STM to ELC');
 
 -- Define nuclear here
-INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+-- INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');

@@ -19,7 +19,7 @@ time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
 ind_techs = ['NUCLEAR', 'ABBOTT']
-emissions = ['co2eq', 'ewaste']
+emissions = ['co2eq', 'ewaste', 'spent-fuel']
 
 
 def data_by_year(datalines, year):
@@ -223,6 +223,13 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     This function creates a bar chart for
     a given dataframe and returns nothing.
 
+    TODO: Currently, this function will plot all technologies
+    in a given system. Even if those technologies do not produce
+    anything (i.e. zero valued). This is evident in the spent-fuel
+    and ewaste plots (which are not stacked) because space is made
+    on the plot for technologies that do not produce ewaste or
+    spent fuel. FIX THIS.
+
     Parameters:
     -----------
     dataframe : Pandas Dataframe
@@ -250,7 +257,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
              'capacity': '[MW]',
              'emissions': '[kg]'}
 
-    hatches = ''.join(h * len(dataframe) for h in 'x/O.|-*')
+    hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
     idx = np.asarray([i for i in range(len(years))])
     if (variable.lower() == 'emissions') and (emission != 'co2eq'):
@@ -398,7 +405,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     if save is True:
         plt.savefig(
-            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}_{co2eq}.png")
         plt.close()
     else:
         plt.show()
