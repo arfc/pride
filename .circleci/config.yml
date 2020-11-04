@@ -20,7 +20,7 @@ jobs:
       - run: 
           name: temoa
           command: |
-            git clone https://github.com/TemoaProject/temoa.git ../
+            git clone https://github.com/TemoaProject/temoa.git ../temoa
             cd ../temoa
             conda env create
             
