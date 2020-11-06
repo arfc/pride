@@ -165,7 +165,12 @@ def create_column(lines, years, tech):
     return column
 
 
-def create_dataframe(lines, variable, sector='elc', emission=None, years=time_horizon):
+def create_dataframe(
+        lines,
+        variable,
+        sector='elc',
+        emission=None,
+        years=time_horizon):
     """
     This function creates a pandas dataframe for
     a particular variable.
@@ -263,22 +268,22 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if (variable.lower() == 'emissions') and (emission != 'co2eq'):
         ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
         plt.suptitle(
-        f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
-        fontsize=36)
+            f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
+            fontsize=36)
         plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
         bars = ax.patches
         for bar, hatch in zip(bars, hatches):
             bar.set_hatch(hatch)
     else:
-        ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar(stacked=True)
+        ax = dataframe.loc[1:, dataframe.columns !=
+                           'total'].plot.bar(stacked=True)
         bars = ax.patches
         plt.suptitle(
-        f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
-        fontsize=36)
+            f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
+            fontsize=36)
         plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
             bar.set_hatch(hatch)
-
 
     ax.set_xticks(idx)
     if len(dataframe) > 11:
@@ -499,17 +504,17 @@ def make_plots(data_paths, to_save):
             if var == 'emissions':
                 for byproduct in emissions:
                     df_all = create_dataframe(datalines,
-                                           var,
-                                           sector='all',
-                                           emission=byproduct)
+                                              var,
+                                              sector='all',
+                                              emission=byproduct)
                     df_elc = create_dataframe(datalines,
-                                           var,
-                                           sector='elc',
-                                           emission=byproduct)
+                                              var,
+                                              sector='elc',
+                                              emission=byproduct)
                     df_ind = create_dataframe(datalines,
-                                           var,
-                                           sector='ind',
-                                           emission=byproduct)
+                                              var,
+                                              sector='ind',
+                                              emission=byproduct)
                     if byproduct is not 'co2eq':
                         bar_plot(dataframe=df_all,
                                  variable=var,
