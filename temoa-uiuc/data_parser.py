@@ -405,7 +405,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     if save is True:
         plt.savefig(
-            f"{target_folder}{scenario}_{sector}_{variable.lower()}_{co2eq}.png")
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}_co2eq.png")
         plt.close()
     else:
         plt.show()
