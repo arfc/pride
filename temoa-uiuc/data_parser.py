@@ -268,7 +268,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if (variable.lower() == 'emissions') and (emission != 'co2eq'):
         ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual {emission.upper()}"
+            f"in {units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
         bars = ax.patches
@@ -279,7 +280,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
                            'total'].plot.bar(stacked=True)
         bars = ax.patches
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual" 
+            f"{variable} in {units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
@@ -300,7 +302,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if save is True:
         if emission is not None:
             plt.savefig(
-                f"{target_folder}{scenario}_{sector}_{variable.lower()}_{emission}.png")
+                (f"{target_folder}{scenario}_"
+                f"{sector}_{variable.lower()}_{emission}.png"))
             plt.close()
         else:
             plt.savefig(
