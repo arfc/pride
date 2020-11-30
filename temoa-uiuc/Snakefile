@@ -1,11 +1,19 @@
-DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc"]
-SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03"]
-SECTORS = ["ind", "elc", "all"]
-
+# All Scenarios
+DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc", "04_uiuc"]
+SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03", "scenario04"]
 FOLDER = ["bau_uiuc_bau_model",
           "01_uiuc_scenario01_model",
           "02_uiuc_scenario02_model",
-          "03_uiuc_scenario03_model"]
+          "03_uiuc_scenario03_model",
+          "04_uiuc_scenario04_model"]
+
+# Experimental Scenario
+# DBS = ["04_uiuc"]
+# SCENARIOS = ["scenario04"]
+# FOLDER = ["04_uiuc_scenario04_model"]
+
+SECTORS = ["ind", "elc", "all"]
+EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
 
 rule all:
     input:
@@ -20,8 +28,14 @@ rule all:
                scenario=SCENARIOS),
         expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS,
                scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_emissions.png", sector=SECTORS,
+        expand("figures/{scenario}_{sector}_emissions_co2eq.png", sector=SECTORS,
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_emissions_ewaste.png", sector=SECTORS,
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_{sector}_emissions_spent-fuel.png", sector=SECTORS,
                scenario=SCENARIOS)
+
+
 
 rule make_temoa_input:
     input:
@@ -47,6 +61,8 @@ rule make_plots:
     output:
         "figures/{scenario}_{sector}_capacity.png",
         "figures/{scenario}_{sector}_generation.png",
-        "figures/{scenario}_{sector}_emissions.png"
+        "figures/{scenario}_{sector}_emissions_co2eq.png",
+        "figures/{scenario}_{sector}_emissions_spent-fuel.png",
+        "figures/{scenario}_{sector}_emissions_ewaste.png"
     script:
         "data_parser.py"
