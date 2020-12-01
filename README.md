@@ -31,8 +31,30 @@ if you don't have sqlite installed, run:
 
 TEMOA models can be run from the command line, current iterations use the online model platform at ``model.temoacloud.com``.
 
-## Timeline (approximate):
-2/14/20 : The optimal reactor size for scenario one (basic recommendation).
+## Instructions to Run TEMOA scenarios
+To run a single TEMOA scenario:
+```bash
+cd temoa-uiuc
+source activate temoa-py3
+# Example scenario, works if you have a research folder where temoa lives.
+sqlite3 data_files/bau_uiuc.sqlite < data_files/bau_uiuc.sql
+yes | python ~/research/temoa/temoa_model/ --config=data_files/run_bau.txt
+```
+The data processing must be done separately. Figures can be produced using 
+tools in ``data_parser.py``. An example of how this is done can be found in 
+``mga_analysis.ipynb``.
+
+To run all scenarios (except for MGA, which must be run individually):
+
+``snakemake`` must be installed.
+
+```bash
+cd temoa-uiuc
+source activate temoa-py3
+pip install snakemake
+snakemake --cores=4
+```
+This automatically generates figures in the ``/figures/`` folder.
 
 ## Instructions to Run the Jupyter Notebooks
 
