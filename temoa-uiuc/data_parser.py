@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 import os
 import glob
@@ -9,12 +10,19 @@ plt.rcParams['figure.edgecolor'] = 'k'
 plt.rcParams['figure.facecolor'] = 'w'
 plt.rcParams['savefig.dpi'] = 400
 plt.rcParams['savefig.bbox'] = 'tight'
-plt.rcParams['text.usetex'] = True
+plt.rcParams['text.usetex'] = False
 plt.rcParams['font.family'] = "serif"
 
-variables = {'generation': 'V_ActivityByPeriodAndProcess',
+
+variables = {'generation': 'V_FlowOut',
              'capacity': 'V_Capacity',
              'emissions': 'V_EmissionActivityByPeriodAndProcess'}
+
+
+# Pre-update... looks like V_ActivityByPeriodAndProcess is deprecated.
+# variables = {'generation': 'V_ActivityByPeriodAndProcess',
+#              'capacity': 'V_Capacity',
+#              'emissions': 'V_EmissionActivityByPeriodAndProcess'}
 time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
@@ -26,6 +34,11 @@ def data_by_year(datalines, year):
     """
     This function takes in a list of datalines and returns
     a new list of datalines for a specified year.
+
+    NOTE: This function picks out the year based on a
+    specific index of the year in a string. If Temoa changes
+    in the future (adds more columns, etc) this function
+    will probably break.
 
     Parameters:
     -----------
@@ -40,12 +53,14 @@ def data_by_year(datalines, year):
         This is a list of datalines that only contains
         data for a particular year.
     """
-    string = f"[{year},"
     datayear = []
 
     for line in datalines:
-        if string in line:
+        line_year = re.findall(r"[-+]?\d*\.\d+|\d+", line)[1]
+
+        if int(line_year) == year:
             datayear.append(line)
+
 
     return datayear
 
@@ -100,8 +115,8 @@ def data_by_tech(datalines, tech):
         data for a particular tech.
     """
     datatech = []
-
     for line in datalines:
+        # print(line)
         if tech in line:
             datatech.append(line)
 
@@ -158,6 +173,7 @@ def create_column(lines, years, tech):
     """
     column = {"Year": years, tech: []}
     tech_data = data_by_tech(lines, tech)
+
     for year in years:
         year_data = data_by_year(tech_data, year)
         year_total = get_total(year_data)
@@ -578,4 +594,27 @@ def make_plots(data_paths, to_save):
 if __name__ == "__main__":
 
     output = get_output_files()
+    # print(output)
     make_plots(output, True)
+    #
+    #
+    # data = parse_datalines(output[0])
+    # # for line in data:
+    # #     print(line)
+    # # print(data)
+    #
+    # # df_elc = create_dataframe(data, 'emissions', sector='elc', emission='co2eq')
+    # # df_elc = create_dataframe(data, 'capacity', sector='elc')
+    # # print(df_elc)
+    #
+    # dbv = data_by_variable(data, variables['capacity'])
+    #
+    # # print(dbv[0])
+    #
+    # dbt = data_by_tech(dbv, 'IMPELC')
+    #
+    # # dby = data_by_year(dbt, 2025)
+    #
+    # for line in dbt[:5]:
+    #     line_year = re.findall(r"[-+]?\d*\.\d+|\d+", line)[1]
+    #     print(line_year)
