@@ -61,7 +61,6 @@ def data_by_year(datalines, year):
         if int(line_year) == year:
             datayear.append(line)
 
-
     return datayear
 
 
