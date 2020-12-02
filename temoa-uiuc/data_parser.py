@@ -283,7 +283,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if (variable.lower() == 'emissions') and (emission != 'co2eq'):
         ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual {emission.upper()} in"
+            f" {units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
         bars = ax.patches
@@ -294,7 +295,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
                            'total'].plot.bar(stacked=True)
         bars = ax.patches
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual {variable} in"
+            f"{units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
@@ -315,7 +317,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if save is True:
         if emission is not None:
             plt.savefig(
-                f"{target_folder}{scenario}_{sector}_{variable.lower()}_{emission}.png")
+                (f"{target_folder}{scenario}_{sector}_{variable.lower()}_"
+                f"{emission}.png"))
             plt.close()
         else:
             plt.savefig(
@@ -593,27 +596,4 @@ def make_plots(data_paths, to_save):
 if __name__ == "__main__":
 
     output = get_output_files()
-    # print(output)
     make_plots(output, True)
-    #
-    #
-    # data = parse_datalines(output[0])
-    # # for line in data:
-    # #     print(line)
-    # # print(data)
-    #
-    # # df_elc = create_dataframe(data, 'emissions', sector='elc', emission='co2eq')
-    # # df_elc = create_dataframe(data, 'capacity', sector='elc')
-    # # print(df_elc)
-    #
-    # dbv = data_by_variable(data, variables['capacity'])
-    #
-    # # print(dbv[0])
-    #
-    # dbt = data_by_tech(dbv, 'IMPELC')
-    #
-    # # dby = data_by_year(dbt, 2025)
-    #
-    # for line in dbt[:5]:
-    #     line_year = re.findall(r"[-+]?\d*\.\d+|\d+", line)[1]
-    #     print(line_year)

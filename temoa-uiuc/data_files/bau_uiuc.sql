@@ -14,14 +14,6 @@ CREATE TABLE "time_periods" (
 	FOREIGN KEY("flag") REFERENCES "time_period_labels"("t_period_labels"),
 	PRIMARY KEY("t_periods")
 );
--- INSERT INTO "time_periods" VALUES (1960,'e');
--- INSERT INTO "time_periods" VALUES (1970,'e');
--- INSERT INTO "time_periods" VALUES (1980,'e');
--- INSERT INTO "time_periods" VALUES (1990,'f');
--- INSERT INTO "time_periods" VALUES (2000,'f');
--- INSERT INTO "time_periods" VALUES (2010,'f');
--- INSERT INTO "time_periods" VALUES (2020,'f');
-
 -- UIUC Data
 INSERT INTO "time_periods" VALUES(2000, 'e');
 INSERT INTO "time_periods" VALUES(2016, 'e');
@@ -77,26 +69,6 @@ CREATE TABLE "technologies" (
 	FOREIGN KEY("flag") REFERENCES "technology_labels"("tech_labels"),
 	PRIMARY KEY("tech")
 );
--- INSERT INTO "technologies" VALUES ('IMPDSL1','r','supply',' imported diesel','petroleum');
--- INSERT INTO "technologies" VALUES ('IMPGSL1','r','supply',' imported gasoline','petroleum');
--- INSERT INTO "technologies" VALUES ('IMPHCO1','r','supply',' imported coal','coal');
--- INSERT INTO "technologies" VALUES ('IMPOIL1','r','supply',' imported crude oil','petroleum');
--- INSERT INTO "technologies" VALUES ('IMPURN1','r','supply',' imported uranium','uranium');
--- INSERT INTO "technologies" VALUES ('IMPFEQ','r','supply',' imported fossil equivalent','');
--- INSERT INTO "technologies" VALUES ('IMPHYD','r','supply',' imported water -- doesnt exist in Utopia','water');
--- INSERT INTO "technologies" VALUES ('E01','pb','electric',' coal power plant','coal');
--- INSERT INTO "technologies" VALUES ('E21','pb','electric',' nuclear power plant','nuclear');
--- INSERT INTO "technologies" VALUES ('E31','pb','electric',' hydro power','hydro');
--- INSERT INTO "technologies" VALUES ('E51','ps','electric',' electric storage','storage');
--- INSERT INTO "technologies" VALUES ('E70','p','electric',' diesel power plant','diesel');
--- INSERT INTO "technologies" VALUES ('RHE','p','residential',' electric residential heating','electric');
--- INSERT INTO "technologies" VALUES ('RHO','p','residential',' diesel residential heating','diesel');
--- INSERT INTO "technologies" VALUES ('RL1','p','residential',' residential lighting','electric');
--- INSERT INTO "technologies" VALUES ('SRE','p','supply',' crude oil processor','petroleum');
--- INSERT INTO "technologies" VALUES ('TXD','p','transport',' diesel powered vehicles','diesel');
--- INSERT INTO "technologies" VALUES ('TXE','p','transport',' electric powered vehicles','electric');
--- INSERT INTO "technologies" VALUES ('TXG','p','transport',' gasoline powered vehicles','gasoline');
-
 -- UIUC Data
 INSERT INTO "technologies" VALUES('IMPWIND','p','electric', 'imported wind energy','electricity');
 INSERT INTO "technologies" VALUES('IMPSOL','p','electric', 'imported solar energy','electricity');
@@ -144,21 +116,6 @@ CREATE TABLE "commodities" (
 	FOREIGN KEY("flag") REFERENCES "commodity_labels"("comm_labels"),
 	PRIMARY KEY("comm_name")
 );
--- INSERT INTO "commodities" VALUES ('ethos','p','# dummy commodity to supply inputs (makes graph easier to read)');
--- INSERT INTO "commodities" VALUES ('DSL','p','# diesel');
--- INSERT INTO "commodities" VALUES ('ELC','p','# electricity');
--- INSERT INTO "commodities" VALUES ('FEQ','p','# fossil equivalent');
--- INSERT INTO "commodities" VALUES ('GSL','p','# gasoline');
--- INSERT INTO "commodities" VALUES ('HCO','p','# coal');
--- INSERT INTO "commodities" VALUES ('HYD','p','# water');
--- INSERT INTO "commodities" VALUES ('OIL','p','# crude oil');
--- INSERT INTO "commodities" VALUES ('URN','p','# uranium');
--- INSERT INTO "commodities" VALUES ('co2','e','#CO2 emissions');
--- INSERT INTO "commodities" VALUES ('nox','e','#NOX emissions');
--- INSERT INTO "commodities" VALUES ('RH','d','# residential heating');
--- INSERT INTO "commodities" VALUES ('RL','d','# residential lighting');
--- INSERT INTO "commodities" VALUES ('TX','d','# transportation');
-
 -- UIUC Data
 INSERT INTO "commodities" VALUES('co2eq','e','co2 equivalent');
 INSERT INTO "commodities" VALUES('ethos','p','# dummy commodity');
@@ -180,12 +137,6 @@ CREATE TABLE "TechOutputSplit" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',1990,'SRE','DSL',0.7,'');
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',2000,'SRE','DSL',0.7,'');
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',2010,'SRE','DSL',0.7,'');
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',1990,'SRE','GSL',0.3,'');
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',2000,'SRE','GSL',0.3,'');
--- INSERT INTO "TechOutputSplit" VALUES ('utopia',2010,'SRE','GSL',0.3,'');
 
 
 CREATE TABLE "TechInputSplit" (
@@ -230,11 +181,6 @@ CREATE TABLE "MinCapacity" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech")
 );
--- INSERT INTO "MinCapacity" VALUES ('utopia',1990,'E31',0.13,'','');
--- INSERT INTO "MinCapacity" VALUES ('utopia',2000,'E31',0.13,'','');
--- INSERT INTO "MinCapacity" VALUES ('utopia',2010,'E31',0.13,'','');
--- INSERT INTO "MinCapacity" VALUES ('utopia',1990,'SRE',0.1,'','');
-
 
 CREATE TABLE "MinActivity" (
 	"regions"	text,
@@ -278,13 +224,6 @@ CREATE TABLE "MaxCapacity" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech")
 );
--- INSERT INTO "MaxCapacity" VALUES ('utopia',1990,'E31',0.13,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',2000,'E31',0.17,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',2010,'E31',0.21,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',1990,'RHE',0.0,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',1990,'TXD',0.6,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',2000,'TXD',1.76,'','');
--- INSERT INTO "MaxCapacity" VALUES ('utopia',2010,'TXD',4.76,'','');
 
 --UIUC Data
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'IMPWIND', 8.6, 'MWe', 'wind PPA, unless increased');
@@ -386,25 +325,6 @@ CREATE TABLE "LifetimeTech" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech")
 );
--- INSERT INTO "LifetimeTech" VALUES ('utopia','E01',40.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','E21',40.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','E31',100.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','E51',100.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','E70',40.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','RHE',30.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','RHO',30.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','RL1',10.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','SRE',50.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','TXD',15.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','TXE',15.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','TXG',15.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPDSL1',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPGSL1',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPHCO1',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPOIL1',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPURN1',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPHYD',1000.0,'');
--- INSERT INTO "LifetimeTech" VALUES ('utopia','IMPFEQ',1000.0,'');
 
 --UIUC data
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPELC',1000,'');
@@ -427,12 +347,6 @@ CREATE TABLE "LifetimeProcess" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","tech","vintage")
 );
--- INSERT INTO "LifetimeProcess" VALUES ('utopia','RL1',1980,20.0,'#forexistingcap');
--- INSERT INTO "LifetimeProcess" VALUES ('utopia','TXD',1970,30.0,'#forexistingcap');
--- INSERT INTO "LifetimeProcess" VALUES ('utopia','TXD',1980,30.0,'#forexistingcap');
--- INSERT INTO "LifetimeProcess" VALUES ('utopia','TXG',1970,30.0,'#forexistingcap');
--- INSERT INTO "LifetimeProcess" VALUES ('utopia','TXG',1980,30.0,'#forexistingcap');
-
 --UIUC data
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UL',2000,1000,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UH',2000,1000,'#forexistingcap');
@@ -447,19 +361,6 @@ CREATE TABLE "LifetimeLoanTech" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech")
 );
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','E01',40.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','E21',40.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','E31',100.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','E51',100.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','E70',40.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','RHE',30.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','RHO',30.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','RL1',10.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','SRE',50.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','TXD',15.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','TXE',15.0,'');
--- INSERT INTO "LifetimeLoanTech" VALUES ('utopia','TXG',15.0,'');
-
 --UIUC data
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UL',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UH',40,'');
@@ -504,22 +405,6 @@ CREATE TABLE "ExistingCapacity" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech","vintage")
 );
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E01',1960,0.175,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E01',1970,0.175,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E01',1980,0.15,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E31',1980,0.1,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E51',1980,0.5,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E70',1960,0.05,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E70',1970,0.05,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','E70',1980,0.2,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','RHO',1970,12.5,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','RHO',1980,12.5,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','RL1',1980,5.6,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','TXD',1970,0.4,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','TXD',1980,0.2,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','TXG',1970,3.1,'','');
--- INSERT INTO "ExistingCapacity" VALUES ('utopia','TXG',1980,1.5,'','');
-
 --UIUC data
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth', '');
@@ -556,21 +441,6 @@ CREATE TABLE "EmissionActivity" (
 	FOREIGN KEY("input_comm") REFERENCES "commodities"("comm_name"),
 	PRIMARY KEY("regions","emis_comm","input_comm","tech","vintage","output_comm")
 );
--- INSERT INTO "EmissionActivity" VALUES ('utopia','co2','ethos','IMPDSL1',1990,'DSL',0.075,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','co2','ethos','IMPGSL1',1990,'GSL',0.075,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','co2','ethos','IMPHCO1',1990,'HCO',0.089,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','co2','ethos','IMPOIL1',1990,'OIL',0.075,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','DSL','TXD',1970,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','DSL','TXD',1980,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','DSL','TXD',1990,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','DSL','TXD',2000,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','DSL','TXD',2010,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','GSL','TXG',1970,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','GSL','TXG',1980,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','GSL','TXG',1990,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','GSL','TXG',2000,'TX',1.0,'','');
--- INSERT INTO "EmissionActivity" VALUES ('utopia','nox','GSL','TXG',2010,'TX',1.0,'','');
-
 -- UIUC data
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2000,'STM',0.192,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2020,'STM',0.192,'tCO2/MWth','from iCAP');
@@ -614,72 +484,6 @@ CREATE TABLE "Efficiency" (
 	FOREIGN KEY("output_comm") REFERENCES "commodities"("comm_name"),
 	PRIMARY KEY("regions","input_comm","tech","vintage","output_comm")
 );
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPDSL1',1990,'DSL',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPGSL1',1990,'GSL',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPHCO1',1990,'HCO',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPOIL1',1990,'OIL',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPURN1',1990,'URN',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPFEQ',1990,'FEQ',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','ethos','IMPHYD',1990,'HYD',1.0,'');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',1960,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',1970,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',1980,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',1990,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',2000,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HCO','E01',2010,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','FEQ','E21',1990,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','FEQ','E21',2000,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','FEQ','E21',2010,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','URN','E21',1990,'ELC',0.4,'# 1/2.5');
--- INSERT INTO "Efficiency" VALUES ('utopia','URN','E21',2000,'ELC',0.4,'# 1/2.5');
--- INSERT INTO "Efficiency" VALUES ('utopia','URN','E21',2010,'ELC',0.4,'# 1/2.5');
--- INSERT INTO "Efficiency" VALUES ('utopia','HYD','E31',1980,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HYD','E31',1990,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HYD','E31',2000,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','HYD','E31',2010,'ELC',0.32,'# 1/3.125');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',1960,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',1970,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',1980,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',1990,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',2000,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','E70',2010,'ELC',0.294,'# 1/3.4');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','E51',1980,'ELC',0.72,'# 1/1.3889');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','E51',1990,'ELC',0.72,'# 1/1.3889');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','E51',2000,'ELC',0.72,'# 1/1.3889');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','E51',2010,'ELC',0.72,'# 1/1.3889');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RHE',1990,'RH',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RHE',2000,'RH',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RHE',2010,'RH',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','RHO',1970,'RH',0.7,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','RHO',1980,'RH',0.7,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','RHO',1990,'RH',0.7,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','RHO',2000,'RH',0.7,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','RHO',2010,'RH',0.7,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RL1',1980,'RL',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RL1',1990,'RL',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RL1',2000,'RL',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','RL1',2010,'RL',1.0,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',1990,'DSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',2000,'DSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',2010,'DSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',1990,'GSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',2000,'GSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','OIL','SRE',2010,'GSL',1.0,'# direct translation from PRC_INP2, PRC_OUT');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','TXD',1970,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','TXD',1980,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','TXD',1990,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','TXD',2000,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','DSL','TXD',2010,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','TXE',1990,'TX',0.827,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','TXE',2000,'TX',0.827,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','ELC','TXE',2010,'TX',0.827,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','GSL','TXG',1970,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','GSL','TXG',1980,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','GSL','TXG',1990,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','GSL','TXG',2000,'TX',0.231,'# direct translation from DMD_EFF');
--- INSERT INTO "Efficiency" VALUES ('utopia','GSL','TXG',2010,'TX',0.231,'# direct translation from DMD_EFF');
-
-
 --UIUC data
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
@@ -797,17 +601,6 @@ CREATE TABLE "DemandSpecificDistribution" (
 	FOREIGN KEY("season_name") REFERENCES "time_season"("t_season"),
 	PRIMARY KEY("regions","season_name","time_of_day_name","demand_name")
 );
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','inter','day','RH',0.12,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','inter','night','RH',0.06,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','winter','day','RH',0.5467,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','winter','night','RH',0.2733,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','inter','day','RL',0.15,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','inter','night','RL',0.05,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','summer','day','RL',0.15,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','summer','night','RL',0.05,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','winter','day','RL',0.5,'');
--- INSERT INTO "DemandSpecificDistribution" VALUES ('utopia','winter','night','RL',0.1,'');
-
 --UIUC Data
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','day','UELC',0.25,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','night','UELC',0.24,'');
@@ -834,16 +627,6 @@ CREATE TABLE "Demand" (
 	FOREIGN KEY("demand_comm") REFERENCES "commodities"("comm_name"),
 	PRIMARY KEY("regions","periods","demand_comm")
 );
--- INSERT INTO "Demand" VALUES ('utopia',1990,'RH',25.2,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2000,'RH',37.8,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2010,'RH',56.7,'','');
--- INSERT INTO "Demand" VALUES ('utopia',1990,'RL',5.6,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2000,'RL',8.4,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2010,'RL',12.6,'','');
--- INSERT INTO "Demand" VALUES ('utopia',1990,'TX',5.2,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2000,'TX',7.8,'','');
--- INSERT INTO "Demand" VALUES ('utopia',2010,'TX',11.69,'','');
-
 --UIUC Data
 INSERT INTO "Demand" VALUES('uiuc',2021, 'UELC', 478.7, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2022, 'UELC', 482.7, 'electric GWh', 'from 2015 eDNA data');
@@ -880,58 +663,6 @@ CREATE TABLE "CostVariable" (
 	FOREIGN KEY("periods") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'IMPDSL1',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'IMPDSL1',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'IMPDSL1',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'IMPGSL1',1990,15.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'IMPGSL1',1990,15.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'IMPGSL1',1990,15.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'IMPHCO1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'IMPHCO1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'IMPHCO1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'IMPOIL1',1990,8.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'IMPOIL1',1990,8.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'IMPOIL1',1990,8.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'IMPURN1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'IMPURN1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'IMPURN1',1990,2.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E01',1960,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E01',1970,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E01',1980,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E01',1990,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E01',1970,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E01',1980,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E01',1990,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E01',2000,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E01',1980,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E01',1990,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E01',2000,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E01',2010,0.3,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E21',1990,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E21',1990,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E21',1990,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E21',2000,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E21',2000,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E21',2010,1.5,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E70',1960,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E70',1970,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E70',1980,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'E70',1990,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E70',1970,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E70',1980,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E70',1990,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'E70',2000,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E70',1980,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E70',1990,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E70',2000,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'E70',2010,0.4,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',1990,'SRE',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'SRE',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2000,'SRE',2000,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'SRE',1990,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'SRE',2000,10.0,'','');
--- INSERT INTO "CostVariable" VALUES ('utopia',2010,'SRE',2010,10.0,'','');
-
 --uiuc data
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
@@ -950,40 +681,6 @@ CREATE TABLE "CostInvest" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","tech","vintage")
 );
--- INSERT INTO "CostInvest" VALUES ('utopia','E01',1990,2000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E01',2000,1300.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E01',2010,1200.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E21',1990,5000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E21',2000,5000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E21',2010,5000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E31',1990,3000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E31',2000,3000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E31',2010,3000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E51',1990,900.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E51',2000,900.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E51',2010,900.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E70',1990,1000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E70',2000,1000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','E70',2010,1000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHE',1990,90.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHE',2000,90.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHE',2010,90.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHO',1990,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHO',2000,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','RHO',2010,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','SRE',1990,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','SRE',2000,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','SRE',2010,100.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXD',1990,1044.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXD',2000,1044.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXD',2010,1044.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXE',1990,2000.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXE',2000,1750.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXE',2010,1500.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXG',1990,1044.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXG',2000,1044.0,'','');
--- INSERT INTO "CostInvest" VALUES ('utopia','TXG',2010,1044.0,'','');
-
 --UIUC Data
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
@@ -1002,88 +699,6 @@ CREATE TABLE "CostFixed" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E01',1960,40.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E01',1970,40.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E01',1980,40.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E01',1990,40.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E01',1970,70.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E01',1980,70.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E01',1990,70.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E01',2000,70.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E01',1980,100.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E01',1990,100.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E01',2000,100.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E01',2010,100.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E21',1990,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E21',1990,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E21',1990,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E21',2000,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E21',2000,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E21',2010,500.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E31',1980,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E31',1990,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E31',1980,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E31',1990,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E31',2000,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E31',1980,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E31',1990,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E31',2000,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E31',2010,75.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E51',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E51',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E51',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E51',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E51',2000,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E51',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E51',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E51',2000,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E51',2010,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E70',1960,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E70',1970,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E70',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'E70',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E70',1970,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E70',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E70',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'E70',2000,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E70',1980,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E70',1990,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E70',2000,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'E70',2010,30.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'RHO',1970,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'RHO',1980,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'RHO',1990,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'RHO',1980,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'RHO',1990,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'RHO',2000,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'RHO',1990,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'RHO',2000,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'RHO',2010,1.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'RL1',1980,9.46,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'RL1',1990,9.46,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'RL1',2000,9.46,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'RL1',2010,9.46,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXD',1970,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXD',1980,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXD',1990,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXD',1980,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXD',1990,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXD',2000,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXD',2000,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXD',2010,52.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXE',1990,100.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXE',1990,90.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXE',2000,90.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXE',2000,80.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXE',2010,80.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXG',1970,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXG',1980,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',1990,'TXG',1990,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXG',1980,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXG',1990,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2000,'TXG',2000,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXG',2000,48.0,'','');
--- INSERT INTO "CostFixed" VALUES ('utopia',2010,'TXG',2010,48.0,'','');
 
 
 CREATE TABLE "CapacityToActivity" (
@@ -1094,19 +709,6 @@ CREATE TABLE "CapacityToActivity" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech")
 );
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','E01',31.54,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','E21',31.54,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','E31',31.54,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','E51',31.54,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','E70',31.54,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','RHE',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','RHO',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','RL1',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','SRE',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','TXD',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','TXE',1.0,'');
--- INSERT INTO "CapacityToActivity" VALUES ('utopia','TXG',1.0,'');
-
 --UIUC data
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'ABBOTT',8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'TURBINE', 8.76, 'electric GWh');
@@ -1128,38 +730,6 @@ CREATE TABLE "CapacityFactorTech" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","season_name","time_of_day_name","tech")
 );
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','day','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','night','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','day','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','night','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','day','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','night','E01',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','day','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','night','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','day','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','night','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','day','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','night','E21',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','day','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','night','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','day','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','night','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','day','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','night','E31',0.275,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','day','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','night','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','day','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','night','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','day','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','night','E51',0.17,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','day','E70',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','inter','night','E70',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','day','E70',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','winter','night','E70',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','day','E70',0.8,'');
--- INSERT INTO "CapacityFactorTech" VALUES ('utopia','summer','night','E70',0.8,'');
-
-
 --uiuc data
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'IMPSOL',0.336,'average CF for UIUC farm');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'IMPSOL',0,'no solar at night');
@@ -1188,20 +758,6 @@ CREATE TABLE "CapacityFactorProcess" (
 	FOREIGN KEY("time_of_day_name") REFERENCES "time_of_day"("t_day"),
 	PRIMARY KEY("regions","season_name","time_of_day_name","tech","vintage")
 );
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','inter','day','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','inter','night','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','winter','day','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','winter','night','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','summer','day','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','summer','night','E31',2000,0.2753,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','inter','day','E31',2010,0.2756,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','inter','night','E31',2010,0.2756,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','winter','day','E31',2010,0.2756,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','winter','night','E31',2010,0.2756,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','summer','day','E31',2010,0.2756,'');
--- INSERT INTO "CapacityFactorProcess" VALUES ('utopia','summer','night','E31',2010,0.2756,'');
-
-
 
 
 /*
