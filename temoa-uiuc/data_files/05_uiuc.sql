@@ -272,16 +272,16 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'IMPELC', 120, 'MWe', 'UIUC impor
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
 -- Abbott should be capped at its'uiuc',  current capacity because we are trying to
 -- retire part of its capacity
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'ABBOTT', 350, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'ABBOTT', 375, 'MWth', 'Max capacity of abbott');
 --
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
@@ -326,8 +326,8 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'ABBOTT', 1278.7, 'thermal GWh', 
 INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
--- Previous value: 1051 GWh imported.
--- Imports have never exceeded 60% of demand.
+-- -- Previous value: 1051 GWh imported.
+-- -- Imports have never exceeded 60% of demand.
 INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2022, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2023, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
