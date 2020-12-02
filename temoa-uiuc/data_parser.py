@@ -284,7 +284,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
         ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
         plt.suptitle(
             (f"{scenario.upper()}: Total Annual {emission.upper()} in"
-            f" {units[variable.lower()]}"),
+             f" {units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
         bars = ax.patches
@@ -296,7 +296,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
         bars = ax.patches
         plt.suptitle(
             (f"{scenario.upper()}: Total Annual {variable} in"
-            f"{units[variable.lower()]}"),
+             f"{units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
@@ -318,7 +318,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
         if emission is not None:
             plt.savefig(
                 (f"{target_folder}{scenario}_{sector}_{variable.lower()}_"
-                f"{emission}.png"))
+                 f"{emission}.png"))
             plt.close()
         else:
             plt.savefig(
