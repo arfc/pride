@@ -5,12 +5,13 @@
 #           "01_uiuc_scenario01_model",
 #           "02_uiuc_scenario02_model",
 #           "03_uiuc_scenario03_model",
-#           "04_uiuc_scenario04_model"]
+#           "04_uiuc_scenario04_model",
+#           "05_uiuc_scenario05_model"]
 
 # Experimental Scenario
-DBS = ["05_uiuc"]
-SCENARIOS = ["scenario05"]
-FOLDER = ["05_uiuc_scenario05_model"]
+DBS = ["06_uiuc"]
+SCENARIOS = ["scenario06"]
+FOLDER = ["06_uiuc_scenario06_model"]
 
 SECTORS = ["ind", "elc", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
