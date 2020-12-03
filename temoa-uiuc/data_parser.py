@@ -348,9 +348,9 @@ def get_icap_goals(year_start=2021, year_end=2030):
 
     data = np.empty(36)
     data[:] = np.NaN
-    data[0] = 459.875*1000
-    data[5] = 402.562*1000
-    data[10] = 344.906*1000
+    data[0] = 459.875
+    data[5] = 402.562
+    data[10] = 344.906
     data[-1] = 0.0
 
     icap_df = pd.DataFrame({'year': np.arange(2015, 2051, 1), 'goal': data})

@@ -339,6 +339,18 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'IMPELC', 250, 'electric GWh', '1
 INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2022, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2023, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2024, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2025, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2026, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+
+
 
 CREATE TABLE "LifetimeTech" (
 	"regions"	text,
@@ -432,7 +444,7 @@ CREATE TABLE "ExistingCapacity" (
 	PRIMARY KEY("regions","tech","vintage")
 );
 --UIUC data
-INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPGSL', 2020, 1000, 'k-gallons','');
+INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPGSL', 2020, 1000, 'gallons','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth', '');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
@@ -480,44 +492,44 @@ CREATE TABLE "EmissionActivity" (
 	PRIMARY KEY("regions","emis_comm","input_comm","tech","vintage","output_comm")
 );
 -- UIUC data
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2000,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2020,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2021,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2022,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2023,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2024,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2025,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2026,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2027,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2028,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2029,'STM',69.05,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2030,'STM',69.05,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2000,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2020,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2021,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2022,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2023,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2024,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2025,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2026,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2027,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2028,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2029,'STM',0.26,'tCO2/MWth','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2030,'STM',0.26,'tCO2/MWth','from iCAP');
 --'uiuc',
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2000,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2020,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2021,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2022,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2023,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2024,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2025,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2026,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2027,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2028,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2029,'ELC',1.212,'tCO2/MWe','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2030,'ELC',1.212,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2021,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2022,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2023,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2024,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2025,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2026,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2027,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2028,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2029,'ELC',0.825,'tCO2/MWe','from iCAP');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'tCO2/MWe','from iCAP');
 --
 -- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2000,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2020,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2021,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2022,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2023,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2024,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2025,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2026,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2027,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2028,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2029,'UVCL',8.89,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2030,'UVCL',8.89,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2020,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2021,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2022,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2023,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2024,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2025,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2026,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2027,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2028,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2029,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2030,'UVCL',0.00889,'tCO2/kGal','from F&S');
 -- Solar Panel and Wind Turbine Waste
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2016,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2020,'ELC',2.0462,'kg/MWe','from waste calc');
