@@ -2,6 +2,8 @@
 __pycache__
 .ipynb_checkpoints
 .snakemake
+*.swp
+*.pyc
 
 # no TEMOA built files
 *.dat

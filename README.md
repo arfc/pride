@@ -53,6 +53,8 @@ cd temoa-uiuc
 source activate temoa-py3
 pip install snakemake
 snakemake --cores=4
+# if the build fails due to file system latency, try
+# snakemake --cores=4 --latency-wait=10
 ```
 This automatically generates figures in the ``/figures/`` folder.
 
