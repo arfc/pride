@@ -384,8 +384,8 @@ CREATE TABLE "LifetimeProcess" (
 	PRIMARY KEY("regions","tech","vintage")
 );
 --UIUC data
-INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UL',2000,1000,'#forexistingcap');
-INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UH',2000,1000,'#forexistingcap');
+-- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UL',2000,1000,'#forexistingcap');
+-- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UH',2000,1000,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'ABBOTT',2000,60,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'TURBINE',2000,60,'#forexistingcap');
 
@@ -463,16 +463,16 @@ CREATE TABLE "EmissionLimit" (
 	FOREIGN KEY("emis_comm") REFERENCES "commodities"("comm_name"),
 	PRIMARY KEY("regions","periods","emis_comm")
 );
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2021, 'co2eq', 391.031, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2022, 'co2eq', 379.500, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2023, 'co2eq', 367.968, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2024, 'co2eq', 356.437, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2025, 'co2eq', 344.906, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2026, 'co2eq', 331.110, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2027, 'co2eq', 317.314, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2028, 'co2eq', 303.517, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2029, 'co2eq', 289.721, 'kilo-tCO2', 'projection from iCAP');
--- INSERT INTO "EmissionLimit" VALUES ('uiuc', 2030, 'co2eq', 275.925, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2021, 'co2eq', 391.031, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2022, 'co2eq', 379.500, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2023, 'co2eq', 367.968, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2024, 'co2eq', 356.437, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2025, 'co2eq', 344.906, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2026, 'co2eq', 331.110, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2027, 'co2eq', 317.314, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2028, 'co2eq', 303.517, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2029, 'co2eq', 289.721, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2030, 'co2eq', 275.925, 'kilo-tCO2', 'projection from iCAP');
 
 CREATE TABLE "EmissionActivity" (
 	"regions"	text,
@@ -493,7 +493,7 @@ CREATE TABLE "EmissionActivity" (
 );
 -- UIUC data
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2000,'STM',0.26,'tCO2/MWth','from iCAP');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2020,'STM',0.26,'tCO2/MWth','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2020,'STM',0.26,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2021,'STM',0.26,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2022,'STM',0.26,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2023,'STM',0.26,'tCO2/MWth','from iCAP');
@@ -532,7 +532,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2029,'
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPGSL', 2030,'UVCL',0.00889,'tCO2/kGal','from F&S');
 -- Solar Panel and Wind Turbine Waste
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2016,'ELC',2.0462,'kg/MWe','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2020,'ELC',2.0462,'kg/MWe','from waste calc');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2020,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2021,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2022,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2023,'ELC',2.0462,'kg/MWe','from waste calc');
@@ -544,7 +544,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2028,
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2029,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2030,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2016,'ELC',0.2104,'kg/MWe','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2020,'ELC',0.2104,'kg/MWe','from waste calc');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2020,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2021,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2022,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2023,'ELC',0.2104,'kg/MWe','from waste calc');
@@ -556,7 +556,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2028
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2029,'ELC',0.2104,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPWIND', 2030,'ELC',0.2104,'kg/MWe','from waste calc');
 -- Nuclear Reactor Waste
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'spent-fuel', 'ethos','NUCLEAR', 2020,'STM',0.000815,'kg/MWth','from waste calc');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'spent-fuel', 'ethos','NUCLEAR', 2020,'STM',0.000815,'kg/MWth','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'spent-fuel', 'ethos','NUCLEAR', 2021,'STM',0.000815,'kg/MWth','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'spent-fuel', 'ethos','NUCLEAR', 2022,'STM',0.000815,'kg/MWth','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'spent-fuel', 'ethos','NUCLEAR', 2023,'STM',0.000815,'kg/MWth','from waste calc');
@@ -613,7 +613,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2029, 'UVCL', 1.00,'p
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2030, 'UVCL', 1.00,'pure gasoline import');
 --Defines the ABBOTT parameters
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
@@ -626,7 +626,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2029, 'STM', 1.00, 'Con
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2000, 'ELC', 0.33, 'converts STM to ELC');
-INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2020, 'ELC', 0.33, 'converts STM to ELC');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2020, 'ELC', 0.33, 'converts STM to ELC');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2021, 'ELC', 0.33, 'converts STM to ELC');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2022, 'ELC', 0.33, 'converts STM to ELC');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2023, 'ELC', 0.33, 'converts STM to ELC');
@@ -639,7 +639,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2029, 'ELC', 0.33, 'co
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2030, 'ELC', 0.33, 'converts STM to ELC');
 -- Define nuclear here
 -- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2020, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2021, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2022, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2023, 'STM', 1.00, 'Converts steam to steam? Unsure.');
@@ -652,7 +652,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2029, 'STM', 1.00, '
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2030, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 -- Define renewables here
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2016, 'ELC', 1.00,'pure electricity imports');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2020, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2021, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2022, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2023, 'ELC', 1.00,'pure electricity imports');
@@ -665,7 +665,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2029, 'ELC', 1.00,'p
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2030, 'ELC', 1.00,'pure electricity imports');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2016, 'ELC', 1.00,'pure electricity imports');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2020, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2021, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2022, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2023, 'ELC', 1.00,'pure electricity imports');
@@ -677,8 +677,8 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2028, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2029, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2030, 'ELC', 1.00,'pure electricity imports');
 -- Define what happens to intermediate commodities here
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2000, 'UELC', 1.00,'');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2020, 'UELC', 1.00,'');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2000, 'UELC', 1.00,'');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2020, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2021, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2022, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2023, 'UELC', 1.00,'');
@@ -690,8 +690,8 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2028, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2029, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2030, 'UELC', 1.00,'');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2000, 'USTM', 1.00,'');
-INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2020, 'USTM', 1.00,'');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2000, 'USTM', 1.00,'');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2020, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2021, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2022, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'UH', 2023, 'USTM', 1.00,'');
