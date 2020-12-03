@@ -26,7 +26,7 @@ variables = {'generation': 'V_FlowOut',
 time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
-ind_techs = ['NUCLEAR', 'ABBOTT', 'GSLVCL']
+ind_techs = ['NUCLEAR', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL']
 emissions = ['co2eq', 'ewaste', 'spent-fuel']
 
 
