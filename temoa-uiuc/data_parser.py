@@ -26,7 +26,7 @@ variables = {'generation': 'V_FlowOut',
 time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
-ind_techs = ['NUCLEAR', 'ABBOTT']
+ind_techs = ['NUCLEAR', 'ABBOTT', 'IMPGSL']
 emissions = ['co2eq', 'ewaste', 'spent-fuel']
 
 
@@ -389,7 +389,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'emissions': '[ktons CO2 equivalent]'}
+    units = {'emissions': '[Mtons CO2 equivalent]'}
 
     goals = get_icap_goals()
 
