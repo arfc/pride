@@ -1,16 +1,17 @@
 # All Scenarios
-DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc", "04_uiuc"]
-SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03", "scenario04"]
-FOLDER = ["bau_uiuc_bau_model",
-          "01_uiuc_scenario01_model",
-          "02_uiuc_scenario02_model",
-          "03_uiuc_scenario03_model",
-          "04_uiuc_scenario04_model"]
+# DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc", "04_uiuc"]
+# SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03", "scenario04"]
+# FOLDER = ["bau_uiuc_bau_model",
+#           "01_uiuc_scenario01_model",
+#           "02_uiuc_scenario02_model",
+#           "03_uiuc_scenario03_model",
+#           "04_uiuc_scenario04_model",
+#           "05_uiuc_scenario05_model"]
 
 # Experimental Scenario
-# DBS = ["04_uiuc"]
-# SCENARIOS = ["scenario04"]
-# FOLDER = ["04_uiuc_scenario04_model"]
+DBS = ["07_uiuc"]
+SCENARIOS = ["scenario07"]
+FOLDER = ["07_uiuc_scenario07_model"]
 
 SECTORS = ["ind", "elc", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
@@ -21,9 +22,9 @@ rule all:
         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
                zip,
                db=DBS, scenario=SCENARIOS),
-        # expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
-        #        zip,
-        #        db=DBS, scenario=SCENARIOS),
+        expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
+               zip,
+               db=DBS, scenario=SCENARIOS),
         expand("figures/{scenario}_{sector}_capacity.png", sector=SECTORS,
                scenario=SCENARIOS),
         expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS,
@@ -50,6 +51,7 @@ rule temoa_run:
         "data_files/run_{scenario}.txt"
     output:
         r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+        r"data_files/{db}_{scenario}_model/{scenario}.lp"
     shell:
         "set +o pipefail; yes | python ~/research/temoa/temoa_model --config={input}"
 
