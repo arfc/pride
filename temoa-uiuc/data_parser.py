@@ -23,9 +23,9 @@ time_horizon = np.arange(2021, 2031, 1)
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NTURBINE']
 ind_techs = ['NUCLEAR', 'ABBOTT']
 vcl_techs = ['GSLVCL', 'DSLVCL', 'E85VCL', 'ELCVCL']
-emissions = {'co2eq':['IMPELC', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL'],
-             'ewaste':['IMPSOL', 'IMPWIND','ELCVCL'],
-             'spent-fuel':['NUCLEAR']}
+emissions = {'co2eq': ['IMPELC', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL'],
+             'ewaste': ['IMPSOL', 'IMPWIND', 'ELCVCL'],
+             'spent-fuel': ['NUCLEAR']}
 
 
 def data_by_year(datalines, year):
