@@ -272,6 +272,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     sector : string
         The sector you are plotting.
         "ind" = Industrial/steam
+        "vcl" = Vehicles/Transportation
         "elc" = Electricity
         "all"
     save : boolean
@@ -308,7 +309,10 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
             (f"{scenario.upper()}: Total Annual {variable} in"
              f"{units[variable.lower()]}"),
             fontsize=36)
-        plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
+        if sector is 'vcl':
+            plt.ylabel(f"{variable} {units['transportation']}", fontsize=24)
+        else:
+            plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
             bar.set_hatch(hatch)
 
