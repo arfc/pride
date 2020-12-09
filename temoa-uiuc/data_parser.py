@@ -307,9 +307,9 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
         bars = ax.patches
         if sector is 'vcl':
             plt.suptitle(
-            (f"{scenario.upper()}: Total Annual {variable} in"
-            f"{units['transportation']}"),
-            fontsize=36)
+                (f"{scenario.upper()}: Total Annual {variable} in"
+                 f"{units['transportation']}"),
+                fontsize=36)
             plt.ylabel(f"{variable} {units['transportation']}", fontsize=24)
         else:
             plt.suptitle(
@@ -587,6 +587,7 @@ def make_plots(data_paths, to_save):
 
     return
 
+
 def make_emissions_plots(data_paths, to_save):
     """
     This function produces all plots and puts them in a folder
@@ -678,6 +679,7 @@ def make_capacity_plots(data_paths, to_save):
                  sector='vcl',
                  save=to_save)
     return
+
 
 if __name__ == "__main__":
 
