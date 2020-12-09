@@ -13,7 +13,7 @@ DBS = ["08_uiuc"]
 SCENARIOS = ["scenario08"]
 FOLDER = ["08_uiuc_scenario08_model"]
 
-SECTORS = ["ind", "elc", "vcl","all"]
+SECTORS = ["ind", "elc", "vcl", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
 
 rule all:
