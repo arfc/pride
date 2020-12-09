@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 import os
 import glob
@@ -12,13 +13,20 @@ plt.rcParams['savefig.bbox'] = 'tight'
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = "serif"
 
-variables = {'generation': 'V_ActivityByPeriodAndProcess',
+
+variables = {'generation': 'V_FlowOut',
              'capacity': 'V_Capacity',
              'emissions': 'V_EmissionActivityByPeriodAndProcess'}
+
+
+# Pre-update... looks like V_ActivityByPeriodAndProcess is deprecated.
+# variables = {'generation': 'V_ActivityByPeriodAndProcess',
+#              'capacity': 'V_Capacity',
+#              'emissions': 'V_EmissionActivityByPeriodAndProcess'}
 time_horizon = np.arange(2021, 2031, 1)
 
-elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
-ind_techs = ['NUCLEAR', 'ABBOTT']
+elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NTURBINE']
+ind_techs = ['NUCLEAR', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL']
 emissions = ['co2eq', 'ewaste', 'spent-fuel']
 
 
@@ -26,6 +34,11 @@ def data_by_year(datalines, year):
     """
     This function takes in a list of datalines and returns
     a new list of datalines for a specified year.
+
+    NOTE: This function picks out the year based on a
+    specific index of the year in a string. If Temoa changes
+    in the future (adds more columns, etc) this function
+    will probably break.
 
     Parameters:
     -----------
@@ -40,11 +53,12 @@ def data_by_year(datalines, year):
         This is a list of datalines that only contains
         data for a particular year.
     """
-    string = f"[{year},"
     datayear = []
 
     for line in datalines:
-        if string in line:
+        line_year = re.findall(r"[-+]?\d*\.\d+|\d+", line)[1]
+
+        if int(line_year) == year:
             datayear.append(line)
 
     return datayear
@@ -100,8 +114,8 @@ def data_by_tech(datalines, tech):
         data for a particular tech.
     """
     datatech = []
-
     for line in datalines:
+        # print(line)
         if tech in line:
             datatech.append(line)
 
@@ -158,6 +172,7 @@ def create_column(lines, years, tech):
     """
     column = {"Year": years, tech: []}
     tech_data = data_by_tech(lines, tech)
+
     for year in years:
         year_data = data_by_year(tech_data, year)
         year_total = get_total(year_data)
@@ -268,7 +283,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if (variable.lower() == 'emissions') and (emission != 'co2eq'):
         ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {emission.upper()} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual {emission.upper()} in"
+             f" {units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
         bars = ax.patches
@@ -279,7 +295,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
                            'total'].plot.bar(stacked=True)
         bars = ax.patches
         plt.suptitle(
-            f"{scenario.upper()}: Total Annual {variable} in {units[variable.lower()]}",
+            (f"{scenario.upper()}: Total Annual {variable} in"
+             f"{units[variable.lower()]}"),
             fontsize=36)
         plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
         for bar, hatch in zip(bars, hatches):
@@ -300,7 +317,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     if save is True:
         if emission is not None:
             plt.savefig(
-                f"{target_folder}{scenario}_{sector}_{variable.lower()}_{emission}.png")
+                (f"{target_folder}{scenario}_{sector}_{variable.lower()}_"
+                 f"{emission}.png"))
             plt.close()
         else:
             plt.savefig(
@@ -371,7 +389,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'emissions': '[ktons CO2 equivalent]'}
+    units = {'emissions': '[Mtons CO2 equivalent]'}
 
     goals = get_icap_goals()
 

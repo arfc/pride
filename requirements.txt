@@ -1,6 +1,15 @@
+xlwt
+ipython
 numpy
 matplotlib
 pandas
 pytest
 snakemake
 jupyter
+scipy
+joblib
+salib
+pydoe
+pyutilib
+glpk
+coincbc
