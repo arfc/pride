@@ -587,6 +587,97 @@ def make_plots(data_paths, to_save):
 
     return
 
+def make_emissions_plots(data_paths, to_save):
+    """
+    This function produces all plots and puts them in a folder
+    called 'figure.'
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    """
+
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
+
+    # for each outputfile
+    for file in data_paths:
+        # get the name of the scenario run
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+        # for each variable of interest
+        var = 'emissions'
+        for byproduct in emissions:
+            df_all = create_dataframe(datalines,
+                                      var,
+                                      sector='all',
+                                      emission=byproduct)
+            if byproduct is not 'co2eq':
+                bar_plot(dataframe=df_all,
+                         variable=var,
+                         scenario=scenario,
+                         sector='all',
+                         emission=byproduct,
+                         save=to_save)
+            else:
+                emissions_plot(dataframe=df_all,
+                               variable=var,
+                               scenario=scenario,
+                               sector='all',
+                               save=to_save)
+
+    return
+
+
+def make_capacity_plots(data_paths, to_save):
+    """
+    This function produces all plots and puts them in a folder
+    called 'figure.'
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    """
+
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
+
+    # for each outputfile
+    for file in data_paths:
+        # get the name of the scenario run
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+        # for each variable of interest
+        for var in variables:
+            if var is 'emissions':
+                continue
+            # create dataframes
+            df_elc = create_dataframe(datalines, var, sector='elc')
+            df_ind = create_dataframe(datalines, var, sector='ind')
+            df_vcl = create_dataframe(datalines, var, sector='vcl')
+            plot = plots_dict[var]
+            plot(dataframe=df_elc,
+                 variable=var,
+                 scenario=scenario,
+                 sector='elc',
+                 save=to_save)
+            plot(dataframe=df_ind,
+                 variable=var,
+                 scenario=scenario,
+                 sector='ind',
+                 save=to_save)
+            plot(dataframe=df_vcl,
+                 variable=var,
+                 scenario=scenario,
+                 sector='vcl',
+                 save=to_save)
+    return
 
 if __name__ == "__main__":
 
