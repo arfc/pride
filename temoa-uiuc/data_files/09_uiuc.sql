@@ -93,6 +93,7 @@ INSERT INTO "technologies" VALUES('E85VCL','r','transport', 'E85 vehicle','E85')
 INSERT INTO "technologies" VALUES('ELCVCL','r','transport', 'electric vehicle','electricity');
 INSERT INTO "technologies" VALUES('IMPH2','r','transport', 'imported hydrogen','hydrogen');
 INSERT INTO "technologies" VALUES('H2VCL','r','transport', 'hydrogen vehicle','hydrogen');
+INSERT INTO "technologies" VALUES('ELECTROL', 'p', 'electric', 'electrolysis converts elc to h2', 'hydrogen');
 
 
 CREATE TABLE "sector_labels" (
@@ -409,6 +410,7 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 
 
 CREATE TABLE "LifetimeProcess" (
@@ -821,8 +823,17 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2027, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2028, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2029, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2030, 'USTM', 1.00,'');
-
-
+-- 
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2021, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2022, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2023, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2024, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2025, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2026, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2027, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2028, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2029, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2030, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 
 
 CREATE TABLE "DiscountRate" (
@@ -932,7 +943,7 @@ INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh'
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical gasoline price');
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical gasoline price');
-INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPH2', 2021, 0.00248, 'M$/k_GAL', 'typical hydrogen price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
 -- No cost variable considered for the ELCVCL because uses electricity produced in the system.
 
 
@@ -985,7 +996,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'UH', 1, '');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPGSL', 1, 'k_gal');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPDSL', 1, 'k_gal');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPE85', 1, 'k_gal');
-INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPH2', 1, 'k_gal');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPH2', 1, 'metrictons');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GSLVCL', 1, 'k_gal');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'DSLVCL', 1, 'k_gal');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'E85VCL', 1, 'k_gal');
