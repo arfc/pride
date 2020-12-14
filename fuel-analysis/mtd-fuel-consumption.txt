@@ -1,4 +1,4 @@
-I used https://www.pdf2go.com/ to convert .doc to .txt
+The original .pdf file is in the box: ./shared-with-students-microreactor-project/Data/
 
 Quantity	      Unit Cost	              Extended Cost
 
