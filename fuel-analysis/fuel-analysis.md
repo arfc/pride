@@ -1,6 +1,9 @@
 # Energy equivalence:
 
-* 132000 BTu = 38.6853813 kWh = 1 gallon of gasoline
+1 kWh produces the same amount of energy than 0.031 gallons of gasoline ~ 1/32.kWh
+The theoretical value is 38.6853813 kWh.
+
+* 1 gallon of gasoline = 132000 BTu = 38.6853813 kWh
 
 * Electricity: 38.7 kWh/gallon gasoline
 
@@ -12,7 +15,6 @@
 * Gasoline [1]:
 
 30 mpg
-
 Gasoline efficiency [gallons/mile] = 0.033
 
 * EVs [1]:
