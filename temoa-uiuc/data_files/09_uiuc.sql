@@ -606,16 +606,16 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2028,'U
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2029,'UVCL',332,'kg/kGal','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2030,'UVCL',332,'kg/kGal','from waste calc');
 -- Waste from FCEVs
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2021,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2022,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2023,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2024,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2025,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2026,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2027,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2028,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2029,'UVCL',22.08,'kg/kGal','from waste calc');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2030,'UVCL',22.08,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2021,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2022,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2023,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2024,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2025,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2026,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2027,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2028,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2029,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2030,'UVCL',21.4,'kg/kGal','from waste calc');
 -- Solar Panel and Wind Turbine Waste
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2016,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2021,'ELC',2.0462,'kg/MWe','from waste calc');
