@@ -1,4 +1,4 @@
-The original .pdf file is in the box: ./shared-with-students-microreactor-project/Data/
+I used https://www.pdf2go.com/ to convert .doc to .txt
 
 Quantity	      Unit Cost	              Extended Cost
 
