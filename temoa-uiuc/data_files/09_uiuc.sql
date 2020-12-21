@@ -407,8 +407,8 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 
@@ -594,6 +594,28 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2027,'UV
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2028,'UVCL',0.00622,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2029,'UVCL',0.00622,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2030,'UVCL',0.00622,'tCO2/kGal','from F&S');
+-- Waste from EVs
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2021,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2022,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2023,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2024,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2025,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2026,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2027,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2028,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2029,'UVCL',332,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ELC','ELCVCL', 2030,'UVCL',332,'kg/kGal','from waste calc');
+-- Waste from FCEVs
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2021,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2022,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2023,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2024,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2025,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2026,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2027,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2028,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2029,'UVCL',21.4,'kg/kGal','from waste calc');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'H2','H2VCL', 2030,'UVCL',21.4,'kg/kGal','from waste calc');
 -- Solar Panel and Wind Turbine Waste
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2016,'ELC',2.0462,'kg/MWe','from waste calc');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'ewaste', 'ethos','IMPSOL', 2021,'ELC',2.0462,'kg/MWe','from waste calc');
@@ -963,6 +985,9 @@ INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost o
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+-- Based on values from fuel-analysis/temoa-model.ipynb
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2021, 0.0229, 'M$/gge', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2021, 0.0116, 'M$/gge', 'cost of utility scale nuclear plant');
 
 
 CREATE TABLE "CostFixed" (
