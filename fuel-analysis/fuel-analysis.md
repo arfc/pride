@@ -1,0 +1,77 @@
+# Energy equivalence:
+
+1 kWh produces the same amount of energy than 0.031 gallons of gasoline ~ 1/32.kWh
+The theoretical value is 38.6853813 kWh.
+
+* 1 gallon of gasoline = 132000 BTu = 38.6853813 kWh
+
+* Electricity: 38.7 kWh/gallon gasoline
+
+* Hydrogen: 1kg of H2 - 39 kWh =~ 1 kg/gallon gasoline
+
+
+# Energy vs milage:
+
+* Gasoline [1]:
+
+30 mpg
+Gasoline efficiency [gallons/mile] = 0.033
+
+* EVs [1]:
+
+Range = 250 miles
+
+Battery pack = 75 kWh
+
+Electric efficiency [kWh/mile] = 0.3
+
+* FCEVs [2]:
+
+(Toyota Mirai)
+
+Range = 650 Km = 403 miles
+
+Tank = 5.6 kg
+
+Hydrogen efficiency [kg/mi] = 0.0139
+
+(Hyundai Nexo)
+
+Range = 756 km = 470 mi
+
+Tank = 6.33 kg
+
+Hydrogen efficiency [kg/mi] = 0.0135
+
+
+# Real energy equivalence:
+
+* Electric efficiency/Gasoline efficiency [kWh/gallons] = 0.3/0.033 = 10
+
+* Hydrogen efficiency/Gasoline efficiency [kg/gallons] = 0.0135/0.033 = 0.405
+
+
+# References
+
+[1] https://theicct.org/sites/default/files/publications/EV_cost_2020_2030_20190401.pdf
+[2] https://h2.live/en/wasserstoffautos/toyota-mirai#:~:text=The%20carbon%20fibre%2Dreinforced%20plastic,a%20range%20of%20500%20km.
+
+
+Range = 650 Km
+tank 5.6 kg
+
+
+
+# MPGe
+
+* EV (based in TESLA S Performance [1]) = 113 MPGe 
+
+* FCEV (based on 2021 Toyota Mirai [2]) = 67/64 MPGe
+
+# References
+
+* [1] Fuel economy guide. 
+[1](https://www.fueleconomy.gov/feg/pdfs/guides/FEG2021.pdf)
+* [2] 2021 Toyota Mirai Overview. Accessed on 12/21/20.
+[2](https://www.toyota.com/rde/mlp/mirai/2021)
+
