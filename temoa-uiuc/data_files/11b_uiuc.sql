@@ -94,6 +94,7 @@ INSERT INTO "technologies" VALUES('ELCVCL','r','transport', 'electric vehicle','
 INSERT INTO "technologies" VALUES('IMPH2','r','transport', 'imported hydrogen','hydrogen');
 INSERT INTO "technologies" VALUES('H2VCL','r','transport', 'hydrogen vehicle','hydrogen');
 INSERT INTO "technologies" VALUES('ELECTROL', 'p', 'electric', 'electrolysis converts elc to h2', 'hydrogen');
+INSERT INTO `technologies` VALUES ('CHWS1','ps','electric',' electric storage','storage');
 
 
 CREATE TABLE "sector_labels" (
@@ -411,6 +412,7 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS1',1000,'');
 
 
 CREATE TABLE "LifetimeProcess" (
@@ -493,6 +495,7 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth'
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
+INSERT INTO `ExistingCapacity` VALUES ('uiuc','CHWS1',2016,1.0,'units: ?','');
 
 
 CREATE TABLE "EmissionLimit" (
@@ -856,6 +859,18 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2027, 'H2', 0.67, 'co
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2028, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2029, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2030, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
+--- Energy Storage Systems
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2016, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2021, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2022, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2023, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2024, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2025, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2026, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2027, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2028, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2029, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS1', 2030, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
 
 
 CREATE TABLE "DiscountRate" (
@@ -1031,6 +1046,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS1', 1.0, 'electric ? GWh');
 
 
 CREATE TABLE "CapacityFactorTech" (
@@ -1064,6 +1080,13 @@ INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'NUCLEAR', 0.92,
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'CHWS1', 1.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'CHWS1', 1.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWS1', 1.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWS1', 1.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'CHWS1', 1.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'CHWS1', 1.0,'CHW CF');
+
 
 CREATE TABLE "CapacityFactorProcess" (
 	"regions"	text,
