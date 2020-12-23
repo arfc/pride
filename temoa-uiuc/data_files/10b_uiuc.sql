@@ -1100,7 +1100,7 @@ INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'NUCLEAR', 0.9
 -- CHWS
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'CHWSC', 0.0,'CHW CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'CHWSC', 0.5,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWCS', 0.0,'CHW CF');
+INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWSC', 0.0,'CHW CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWSC', 0.0,'CHW CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'CHWSC', 0.0,'CHW CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'CHWSC', 1.0,'CHW CF');

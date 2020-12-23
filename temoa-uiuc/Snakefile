@@ -11,7 +11,7 @@
 # Experimental Scenario
 DBS = ["10_uiuc"]
 SCENARIOS = ["scenario10"]
-FOLDER = ["10_uiuc_scenario11_model"]
+FOLDER = ["10_uiuc_scenario10_model"]
 
 SECTORS = ["ind", "elc", "vcl", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
