@@ -46,3 +46,4 @@
 [1](https://theengineeringmindset.com/refrigeration-ton/)
 [2](https://en.wikipedia.org/wiki/Coefficient_of_performance)
 [3](https://fs.illinois.edu/docs/default-source/utilities-energy/campus-chilled-water-system.pdf?sfvrsn=c91bfbea_0)
+[4] Andrepont, J. Current Trends in Thermal Storage. The Cool Solutions Company. International District Energy Association (IDEA) Campus Energy Conference. New Orleans, Louisiana. February 27, 2019.
