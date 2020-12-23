@@ -1,14 +1,14 @@
-Things to be modified to model the CHWS:
+# TEMOA's model of the CHWS
 
-* ExistingCapacity
-* Efficiency
-* CostInvest -- no
-* CostFixed -- yes ?
-* CapacityToActivity
-* CapacityFactorTech
-* Storage duration
+* ExistingCapacity [Done]
+* Efficiency [Done]
+* CostInvest: No Invest Cost because UofI already has it
+* CostFixed: To be added in a future PR
+* CapacityToActivity [Done]
+* CapacityFactorTech [To ask]
+* Storage duration [To ask]
 
-# Efficiency
+# ExistingCapacity
 
 * 1 ton of chilled water ~ 3.5 kWh [1]
 * COP ~ 5 [2]
@@ -16,13 +16,30 @@ Things to be modified to model the CHWS:
 * [tons]/(1000 * 5) * 3.5 = [MWe]
 * for example: 52,000 tons yield 36 MW
 * UIUC: 37,500 tons
-
-# CapacityToActivity:
-
 * UIUC's total capacity: 6.5e6 millon-gallon ~ 24,600 tons
 * capacity: 37,500 tons
 * time to discharge: 39.4 min
-* electrical-capacity: 37,500 tons/5e3 * 3.5 = 26.2 MW
+* electrical-power: 37,500 tons/5e3 * 3.5 = 26.2 MW
+* total electrical-capacity: 26.2 MW * 39.4 min/60 min * 1h = 17.2 MWh
+
+# Efficiency:
+
+* Ideally, we should separate the efficiency of converting electricity into CHW and CHW to electricity.
+* The former is probably slightly lower than the latter.
+* As both are close to 1 anyway, we will consider an efficiency of 1.
+
+# CapacityToActivity:
+
+* Is this the total capacity?
+
+# CapacityFactorTech:
+
+* Not sure ...
+* Maybe we should separate ELEC -> CHWS Charge (CHWSC) -> CHW and CHW -> CHWS Discharge (CHWSD) -> ELEC
+
+# Storage duration
+
+* units? values?
 
 # References
 

@@ -495,7 +495,7 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth'
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
-INSERT INTO "ExistingCapacity" VALUES ('uiuc','CHWS',2016,1.0,'units: ?','');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 26.2,'units: MWe', 'UIUC uses only the electric chillers');
 
 
 CREATE TABLE "EmissionLimit" (
@@ -1046,7 +1046,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
-INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 1.0, 'electric ? GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 17.2, 'electric MWh');
 
 
 CREATE TABLE "CapacityFactorTech" (
@@ -1177,6 +1177,7 @@ CREATE TABLE "StorageDuration" (
 	"duration_notes"	text,
 	PRIMARY KEY("regions","tech")
 );
+INSERT INTO "StorageDuration" VALUES ('utopia','CHWS',?,'units: years?');
 
 CREATE TABLE "groups" (
 	"group_name"	text,
