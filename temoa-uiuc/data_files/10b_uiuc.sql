@@ -864,29 +864,29 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2028, 'H2', 0.67, 'co
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2029, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2030, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 --- Energy Storage Systems
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2016, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2021, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2022, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2023, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2024, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2025, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2026, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2027, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2028, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2029, 'ELC', 1.00,'converts electricity to chilled water');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2030, 'ELC', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2016, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2021, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2022, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2023, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2024, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2025, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2026, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2027, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2028, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2029, 'CHW', 1.00,'converts electricity to chilled water');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSC', 2030, 'CHW', 1.00,'converts electricity to chilled water');
 
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2016, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2021, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2022, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2023, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2024, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2025, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2026, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2027, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2028, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2029, 'ELC', 1.00,'converts chilled water back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWSD', 2030, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2016, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2021, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2022, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2023, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2024, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2025, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2026, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2027, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2028, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2029, 'ELC', 1.00,'converts chilled water back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'CHW', 'CHWSD', 2030, 'ELC', 1.00,'converts chilled water back to electricity');
 
 
 CREATE TABLE "DiscountRate" (
