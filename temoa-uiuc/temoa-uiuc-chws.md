@@ -1,12 +1,12 @@
 # TEMOA's model of the CHWS
 
 * ExistingCapacity [Done]
-* Efficiency [Done]
+* Efficiency [Review]
 * CostInvest: No Invest Cost because UofI already has it
 * CostFixed: To be added in a future PR
 * CapacityToActivity [Done]
 * CapacityFactorTech [To ask]
-* Storage duration [To ask]
+* Storage duration [Done]
 
 # ExistingCapacity
 
@@ -34,12 +34,12 @@
 
 # CapacityFactorTech:
 
-* Not sure ...
 * Maybe we should separate ELEC -> CHWS Charge (CHWSC) -> CHW and CHW -> CHWS Discharge (CHWSD) -> ELEC
 
 # Storage duration
 
-* units? values?
+* units: years.
+* In our case, it is 12/24/8760 = 5.71e-5
 
 # References
 
