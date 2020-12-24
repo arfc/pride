@@ -1177,7 +1177,7 @@ CREATE TABLE "StorageDuration" (
 	"duration_notes"	text,
 	PRIMARY KEY("regions","tech")
 );
-INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.01,'units: years?');
+INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.0000571,'units: 12/24 * 1/8760 years');
 
 CREATE TABLE "groups" (
 	"group_name"	text,
