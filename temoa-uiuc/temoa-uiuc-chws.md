@@ -34,6 +34,7 @@
 
 # CapacityFactorTech:
 
+* 0, 0.5, 1 in the winter, inter, and summer, respectively.
 * Maybe we should separate ELEC -> CHWS Charge (CHWSC) -> CHW and CHW -> CHWS Discharge (CHWSD) -> ELEC
 
 # Storage duration
