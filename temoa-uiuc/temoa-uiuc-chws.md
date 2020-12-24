@@ -5,8 +5,9 @@
 * CostInvest: No Invest Cost because UofI already has it
 * CostFixed: To be added in a future PR
 * CapacityToActivity [Done]
-* CapacityFactorTech [To ask]
+* CapacityFactorTech [Done]
 * Storage duration [Done]
+* MinActivity
 
 # ExistingCapacity
 
@@ -41,6 +42,10 @@
 
 * units: years.
 * In our case, it is 12/24/8760 = 5.71e-5
+
+# MinActivity
+
+* need UIUC's CHWS real data.
 
 # References
 

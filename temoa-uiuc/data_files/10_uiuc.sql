@@ -242,6 +242,8 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'IMPWIND', 23.35, 'electric GWh',
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
+---
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 10, 'electric MWh','');
 
 
 CREATE TABLE "MaxCapacity" (
