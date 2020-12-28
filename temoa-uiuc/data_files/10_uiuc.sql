@@ -243,7 +243,16 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
 ---
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 10, 'electric MWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2023, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'CHWS', 114.7, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'CHWS', 114.7, 'electric GWh','');
 
 
 CREATE TABLE "MaxCapacity" (

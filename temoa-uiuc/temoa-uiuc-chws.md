@@ -2,7 +2,7 @@
 
 * ExistingCapacity [Done]
 * Efficiency [Review]
-* CostInvest: [To do]
+* CostInvest: [Done]
 * CostFixed: To be added in a future PR
 * CapacityToActivity [Done]
 * CapacityFactorTech [Done]
@@ -49,7 +49,11 @@
 
 # MinActivity
 
-* need UIUC's CHWS real data.
+* MaxCapacity = ExistingCapacity
+* MaxActivity ?
+* needs UIUC's CHWS real data
+* guess: it works at half capacity on average: 26.2 * 0.5 * 8760 = 114.7 GWh
+(kinda informed guess from looking at figure in [6])
 
 # References
 
