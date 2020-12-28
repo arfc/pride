@@ -55,6 +55,12 @@
 * guess: it works at half capacity on average: 26.2 * 0.5 * 8760 = 114.7 GWh
 (kinda informed guess from looking at figure in [6])
 
+# MODEL c
+
+* emissions ?
+* CostVariable: guess 0.07
+
+
 # References
 
 [1](https://theengineeringmindset.com/refrigeration-ton/)
