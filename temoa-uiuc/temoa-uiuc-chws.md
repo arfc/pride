@@ -31,7 +31,7 @@
 
 # CostInvest:
 
-* Initial cost?
+* Average installed capital cost: $240/kW [4]
 
 # CapacityToActivity:
 
