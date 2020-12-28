@@ -94,7 +94,7 @@ INSERT INTO "technologies" VALUES('ELCVCL','r','transport', 'electric vehicle','
 INSERT INTO "technologies" VALUES('IMPH2','r','transport', 'imported hydrogen','hydrogen');
 INSERT INTO "technologies" VALUES('H2VCL','r','transport', 'hydrogen vehicle','hydrogen');
 INSERT INTO "technologies" VALUES('ELECTROL', 'p', 'electric', 'electrolysis converts elc to h2', 'hydrogen');
-INSERT INTO `technologies` VALUES('CHWS','ps','electric','electric storage','storage');
+INSERT INTO "technologies" VALUES('CHWS','ps','electric','electric storage','storage');
 
 
 CREATE TABLE "sector_labels" (
@@ -337,6 +337,17 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'NUCLEAR', 100, 'MWth', 'max smr 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+-- CHWS
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 
 CREATE TABLE "MaxActivity" (
 	"regions"	text,
@@ -382,7 +393,6 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '1
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
-
 
 
 CREATE TABLE "LifetimeTech" (
@@ -1048,7 +1058,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
-INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 17.2, 'electric MWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 229.5, 'electric GWh');
 
 
 CREATE TABLE "CapacityFactorTech" (
@@ -1179,7 +1189,7 @@ CREATE TABLE "StorageDuration" (
 	"duration_notes"	text,
 	PRIMARY KEY("regions","tech")
 );
-INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.0000571,'units: 12/24 * 1/8760 years');
+INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.0000761,'units: 2/3 * 1/8760 years');
 
 CREATE TABLE "groups" (
 	"group_name"	text,

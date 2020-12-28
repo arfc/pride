@@ -2,12 +2,12 @@
 
 * ExistingCapacity [Done]
 * Efficiency [Review]
-* CostInvest: No Invest Cost because UofI already has it
+* CostInvest: [To do]
 * CostFixed: To be added in a future PR
 * CapacityToActivity [Done]
 * CapacityFactorTech [Done]
 * Storage duration [Done]
-* MinActivity
+* MinActivity [To do]
 
 # ExistingCapacity
 
@@ -29,9 +29,13 @@
 * The former is probably slightly lower than the latter.
 * As both are close to 1 anyway, we will consider an efficiency of 1.
 
+# CostInvest:
+
+* Initial cost?
+
 # CapacityToActivity:
 
-* Is this the total capacity?
+* Capacity * 8760 h = 229.5 GWh
 
 # CapacityFactorTech:
 
@@ -41,7 +45,7 @@
 # Storage duration
 
 * units: years.
-* In our case, it is 12/24/8760 = 5.71e-5
+* In our case, it is 2/3/8760 = 7.61e-5
 
 # MinActivity
 
@@ -53,3 +57,9 @@
 [2](https://en.wikipedia.org/wiki/Coefficient_of_performance)
 [3](https://fs.illinois.edu/docs/default-source/utilities-energy/campus-chilled-water-system.pdf?sfvrsn=c91bfbea_0)
 [4] Andrepont, J. Current Trends in Thermal Storage. The Cool Solutions Company. International District Energy Association (IDEA) Campus Energy Conference. New Orleans, Louisiana. February 27, 2019.
+
+# Other references
+
+[5](https://fs.illinois.edu/services/utilities-energy/production)
+[6](https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=4822a99e-cbcf-734b-39ba-53f57ff94f07&forceDialog=0)
+[7](https://www.news-gazette.com/news/ui-asks-employees-on-campus-to-cool-it-with-electricity-use/article_d23297d3-14bf-58d1-b781-205bf383d36d.html)
