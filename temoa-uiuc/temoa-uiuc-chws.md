@@ -27,6 +27,7 @@
 
 * Ideally, we should separate the efficiency of converting electricity into CHW and CHW to electricity.
 * for the moment we will consider an efficiency of 1.
+* this makes the energy used to produce the chilled water equal to the energy savings
 
 # CostInvest
 
