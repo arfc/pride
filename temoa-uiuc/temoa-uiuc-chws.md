@@ -23,21 +23,20 @@
 * electrical-power: 37,500 tons/5e3 * 3.5 = 26.2 MW
 * total electrical-capacity: 26.2 MW * 39.4 min/60 min * 1h = 17.2 MWh
 
-# Efficiency:
+# Efficiency
 
 * Ideally, we should separate the efficiency of converting electricity into CHW and CHW to electricity.
-* The former is probably slightly lower than the latter.
-* As both are close to 1 anyway, we will consider an efficiency of 1.
+* for the moment we will consider an efficiency of 1.
 
-# CostInvest:
+# CostInvest
 
 * Average installed capital cost: $240/kW [4]
 
-# CapacityToActivity:
+# CapacityToActivity
 
 * Capacity * 8760 h = 229.5 GWh
 
-# CapacityFactorTech:
+# CapacityFactorTech
 
 * 0, 0.5, 1 in the winter, inter, and summer, respectively.
 * Maybe we should separate ELEC -> CHWS Charge (CHWSC) -> CHW and CHW -> CHWS Discharge (CHWSD) -> ELEC
@@ -55,11 +54,12 @@
 * guess: it works at half capacity on average: 26.2 * 0.5 * 8760 = 114.7 GWh
 (kinda informed guess from looking at figure in [6])
 
+* about 80 GWh produced chilled water (based on FY14 numbers [8])
+
 # MODEL c
 
 * emissions ?
 * CostVariable: guess 0.07
-
 
 # References
 
@@ -73,3 +73,4 @@
 [5](https://fs.illinois.edu/services/utilities-energy/production)
 [6](https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=4822a99e-cbcf-734b-39ba-53f57ff94f07&forceDialog=0)
 [7](https://www.news-gazette.com/news/ui-asks-employees-on-campus-to-cool-it-with-electricity-use/article_d23297d3-14bf-58d1-b781-205bf383d36d.html)
+[8] ICAP 2015 (https://icap.sustainability.illinois.edu/files/project/2634/2015iCAPweb.pdf)
