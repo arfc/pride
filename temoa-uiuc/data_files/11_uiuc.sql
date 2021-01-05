@@ -95,6 +95,7 @@ INSERT INTO "technologies" VALUES('IMPH2','r','transport', 'imported hydrogen','
 INSERT INTO "technologies" VALUES('H2VCL','r','transport', 'hydrogen vehicle','hydrogen');
 INSERT INTO "technologies" VALUES('ELECTROL', 'p', 'electric', 'electrolysis converts elc to h2', 'hydrogen');
 INSERT INTO "technologies" VALUES('CHWS','ps','electric','electric storage','storage');
+INSERT INTO "technologies" VALUES('GEOT', 'p', 'electric', 'university heating', 'steam');
 
 
 CREATE TABLE "sector_labels" (
@@ -253,6 +254,17 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'CHWS', 80, 'electric GWh','');
+---
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2023, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'GEOT', 20, 'electric GWh','');
 
 
 CREATE TABLE "MaxCapacity" (
@@ -434,6 +446,7 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'GEOT',1000,'');
 
 
 CREATE TABLE "LifetimeProcess" (
@@ -517,6 +530,7 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe',
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 26.2,'units: MWe', 'UIUC uses only the electric chillers');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GEOT', 2020, 0.024,'units: MWe', '');
 
 
 CREATE TABLE "EmissionLimit" (
@@ -892,6 +906,17 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2027, 'ELC', 1.00,'conver
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2028, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2029, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2030, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+--
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
 
 
 CREATE TABLE "DiscountRate" (
@@ -1069,6 +1094,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GEOT', 0.832, 'thermal GWh');
 
 
 CREATE TABLE "CapacityFactorTech" (

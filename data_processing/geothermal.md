@@ -1,3 +1,4 @@
+# Lit review
 
 [1]
 
@@ -5,8 +6,8 @@ Two types on campus:
 * shallow, horizontal ground loop systems
 * closed-loop 40 450-foot deep vertical boreholes
 
-
 Geothermal project installed on campus in FY20 that saves 2,839 MMBTU/year.
+In the Campus Instructional Facility, building-scale geothermal project.
 
 
 [2]
@@ -33,11 +34,33 @@ Biomass burners will cover the remaining 90,000 MWh heating needs.
 
 2015: Heat Demand: 500,000 MWh/year
 
-[Me]
 
-heat_demand = 500,000 MWh/year
+# Data
+
+* heat_demand = 500,000 MW(th)h/year ~ 57.1 MW(th)
 cop = 4 [3]
-electrical_demand = 125,000 MWh/year = 14.3 MWh/year of electricity
+electrical_demand = 125,000 MW(e)h/year = 14.3 MW(e)
+
+* now:
+2,839 MMBTU/year = 832 MW(th)h/year = 0.095 MW(th)
+832 MW(th)h/year = 208 MW(e)h/year = 0.024 MW(e)
+
+* 2025:
+80,000 MW(th)h/year
+20,000 MW(e)h/year = 2.28 MW(e)
+
+* 2035:
+160,000 MW(th)h/year
+40,000 MW(e)h/year = 4.56 MW(e)
+
+
+# TEMOA's model
+
+* technology from ELC to USTM (similar to UH)
+* Efficiency: USTM in MWth, COP = 4 [3]
+* MinActivity: 2020-2025: 0.208 GW(e), 2025-2030: 20 GW(e)
+* CapacityToActivity = 0.832 GW(th)
+* CostInvest: Future PR
 
 
 [1] ICAP 2020 https://icap.sustainability.illinois.edu/files/project/5293/iCAP-2020-FINAL-WEB.pdf
