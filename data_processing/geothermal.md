@@ -58,9 +58,26 @@ electrical_demand = 125,000 MW(e)h/year = 14.3 MW(e)
 
 * technology from ELC to USTM (similar to UH)
 * Efficiency: USTM in MWth, COP = 4 [3]
-* MinActivity: 2020-2025: 0.208 GW(e), 2025-2030: 20 GW(e)
-* CapacityToActivity = 0.832 GW(th)
-* CostInvest: Future PR
+* ExistingCapacity: 0.095 MW(th)
+* MinActivity: 2020-2025: 0.832 GW(th), 2025-2030: 80 GW(th)
+* CapacityToActivity = 8.76 thermal GWh
+
+* CostInvest:
+* CostFixed:
+
+
+## MinActivity (maybe this should be MaxActivity ?)
+
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2023, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'GEOT', 0.208, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'GEOT', 20, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'GEOT', 20, 'electric GWh','');
 
 
 [1] ICAP 2020 https://icap.sustainability.illinois.edu/files/project/5293/iCAP-2020-FINAL-WEB.pdf
