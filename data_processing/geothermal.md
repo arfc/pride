@@ -88,7 +88,35 @@ Electrical needs increase: 110,000 MWh/year to 125,000 MWh/year and decreased to
 
 # Cost
 
+[6]
 
+August 2015 to July 2016:
+* Heating: 149,738 MMBtu
+* Cooling: 140,032 MMBtu
+
+Heating COP = 3.74 +/- 0.2
+Cooling COP = 4.28 +/- 0.2
+
+Total electricity consumed = 22,698 MWh
+Total installed cost: 17.26 M$ ?
+
+Ground heat exchanger cost $18.7/ft
+Average cost in the Midwest ~ $12/ft (Battocletti and Glassley 2013)
+
+
+Total installed cost: 12.4 M$ ?
+
+
+[7]
+
+Not much .. double check
+
+
+[8]
+
+Oregon Institute of Technology
+
+~ 0.05 $/sqf/year
 
 
 
@@ -101,7 +129,9 @@ Electrical needs increase: 110,000 MWh/year to 125,000 MWh/year and decreased to
 [4] BSU https://www.bsu.edu/About/Geothermal/FAQ.aspx#whatis
 [5] BSU Presentation
 https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=b0f3ed01-7c78-e7bd-df18-f5a9213efec9&forceDialog=0
-
+[6] https://info.ornl.gov/sites/publications/files/Pub71170.pdf
+[7] Battocletti and Glassley 2013 https://www.osti.gov/servlets/purl/1186828
+[8] https://www.nwf.org/-/media/PDFs/Campus-Ecology/Reports/Geothermal-Guide-FINAL-3-1-11.ashx
 
 # Analysis of the data
 
@@ -146,5 +176,3 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'GEOT', 20, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'GEOT', 20, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'GEOT', 20, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'GEOT', 20, 'electric GWh','');
-
-
