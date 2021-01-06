@@ -22,6 +22,8 @@ Heat recovery chillers (HRC) and Geothermal
 
 Geothermal heat pumps: can produced chilled and hot water.
 
+Ball state university: COP = 3.8 for heating and 2.9 for cooling.
+
 A district geothermal system would reduce the use of fossil fuels on campus, but would increase the campus average demand for electricity by about 18 MW over our current average demand of about 52 MW.
 
 2025: similar system to the one at Ball State University
@@ -35,7 +37,29 @@ Biomass burners will cover the remaining 90,000 MWh heating needs.
 2015: Heat Demand: 500,000 MWh/year
 
 
-# Data
+[4]
+
+Largest project in the US in 2011.
+Ball state system has 3600 boreholes.
+
+* Phase 1: 1800, 400-ft. deep, 6-in. in diameter with double 1-in. loops.
+* Phase 2: 1800, 500-ft. deep, 6-in. in diameter with single 1 ¼-in. loops.
+
+
+[5]
+
+
+
+
+# References
+
+[1] ICAP 2020 https://icap.sustainability.illinois.edu/files/project/5293/iCAP-2020-FINAL-WEB.pdf
+[2] F & S Master plan 2020 https://fs.illinois.edu/docs/default-source/utilities-energy/utilities-master-plan_.pdf?sfvrsn=16bbfbea_0
+[3] ICAP 2015 https://icap.sustainability.illinois.edu/files/project/2634/2015iCAPweb.pdf
+[4] https://www.contractormag.com/green/article/20877656/ball-state-universitys-geothermal-system-will-be-largest-in-us
+[5] Ball https://www.bsu.edu/about/geothermal
+
+# Analysis of the data
 
 * heat_demand = 500,000 MW(th)h/year ~ 57.1 MW(th)
 cop = 4 [3]
@@ -80,6 +104,3 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'GEOT', 20, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'GEOT', 20, 'electric GWh','');
 
 
-[1] ICAP 2020 https://icap.sustainability.illinois.edu/files/project/5293/iCAP-2020-FINAL-WEB.pdf
-[2] F & S Master plan 2020 https://fs.illinois.edu/docs/default-source/utilities-energy/utilities-master-plan_.pdf?sfvrsn=16bbfbea_0
-[3] ICAP 2015 https://icap.sustainability.illinois.edu/files/project/2634/2015iCAPweb.pdf
