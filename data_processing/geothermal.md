@@ -88,6 +88,8 @@ Electrical needs increase: 110,000 MWh/year to 125,000 MWh/year and decreased to
 
 # Cost
 
+Search for District Geothermal Heat Pump system
+
 [6]
 
 August 2015 to July 2016:
