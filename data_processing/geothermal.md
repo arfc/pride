@@ -1,4 +1,4 @@
-# Lit review
+# Information collection
 
 [1]
 
@@ -46,7 +46,49 @@ Ball state system has 3600 boreholes.
 * Phase 2: 1800, 500-ft. deep, 6-in. in diameter with single 1 ¼-in. loops.
 
 
+[4]
+
+3,600 boreholes, 400 to 500 feet deep. 
+4 to 5 inches in diameter.
+Phase 1: 1,800 boreholes.
+Phase 2: 1,800 additional boreholes.
+Pipe inserted into a borehole is joined with a U-shaped cross connector at the bottom of the hole, allowing water to circulate through the closed piping system.
+
+The heat pump chillers through a compression cycle moves heat.
+Heat can be either pulled from or sank into the ground.
+The heat exchange will allow for the simultaneous production of cold water, 42 degree Fahrenheit, and hot water, 150 degrees Fahrenheit.
+
+
 [5]
+
+Comparison:
+
+|                  | Fossil Fuel Boiler | Natural Gas Boiler | Ground Source Geothermal Heat Pump |
+|------------------|--------------------|--------------------|------------------------------------|
+| Capital cost     | High               | Low                | Highest                            |
+| Maintenance cost | High               | Low                | Low                                |
+
+* Heating Mode: COP = 3.4
+* Cooling Mode: COP = 5.93
+
+As of 2014:
+
+1800 - 400 ft Bore Holes
+1583 - 500 ft Bore Holes
+
+Heating: 152 MMBTU/h = 0.4455 MW, 150 F
+Cooling: 10,000 tons cooling, 42 F
+
+Savings: 500,000 MMBTUs/year = 146,535 MWh/year
+
+Total construction cost: 82.9 M$
+
+Electrical needs increase: 110,000 MWh/year to 125,000 MWh/year and decreased to 120,000 MWh/year
+
+
+# Cost
+
+
 
 
 
@@ -56,8 +98,10 @@ Ball state system has 3600 boreholes.
 [1] ICAP 2020 https://icap.sustainability.illinois.edu/files/project/5293/iCAP-2020-FINAL-WEB.pdf
 [2] F & S Master plan 2020 https://fs.illinois.edu/docs/default-source/utilities-energy/utilities-master-plan_.pdf?sfvrsn=16bbfbea_0
 [3] ICAP 2015 https://icap.sustainability.illinois.edu/files/project/2634/2015iCAPweb.pdf
-[4] https://www.contractormag.com/green/article/20877656/ball-state-universitys-geothermal-system-will-be-largest-in-us
-[5] Ball https://www.bsu.edu/about/geothermal
+[4] BSU https://www.bsu.edu/About/Geothermal/FAQ.aspx#whatis
+[5] BSU Presentation
+https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=b0f3ed01-7c78-e7bd-df18-f5a9213efec9&forceDialog=0
+
 
 # Analysis of the data
 
