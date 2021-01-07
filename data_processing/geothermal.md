@@ -20,7 +20,7 @@ Heat recovery chillers (HRC) and Geothermal
 
 [3]
 
-Geothermal heat pumps: can produced chilled and hot water.
+Geothermal heat pumps: can produce chilled and hot water.
 
 Ball state university: COP = 3.8 for heating and 2.9 for cooling.
 
@@ -35,15 +35,6 @@ The electricity demand (direct + geothermal) is 290,000 MWh/year.
 Biomass burners will cover the remaining 90,000 MWh heating needs.
 
 2015: Heat Demand: 500,000 MWh/year
-
-
-[4]
-
-Largest project in the US in 2011.
-Ball state system has 3600 boreholes.
-
-* Phase 1: 1800, 400-ft. deep, 6-in. in diameter with double 1-in. loops.
-* Phase 2: 1800, 500-ft. deep, 6-in. in diameter with single 1 ¼-in. loops.
 
 
 [4]
@@ -76,7 +67,7 @@ As of 2014:
 1800 - 400 ft Bore Holes
 1583 - 500 ft Bore Holes
 
-Heating: 152 MMBTU/h = 0.4455 MW, 150 F
+Heating: 152 MMBTU/h = 44.55 MW, 150 F
 Cooling: 10,000 tons cooling, 42 F
 
 Savings: 500,000 MMBTUs/year = 146,535 MWh/year
@@ -84,6 +75,15 @@ Savings: 500,000 MMBTUs/year = 146,535 MWh/year
 Total construction cost: 82.9 M$
 
 Electrical needs increase: 110,000 MWh/year to 125,000 MWh/year and decreased to 120,000 MWh/year
+
+Land use:
+Boreholes are placed 15 ft apart, which gives each borehole a surface area of 225 sq-ft.
+However, this boreholes will be underground eventually, so I don't think this should be a number a to worry about.
+
+Two stations:
+* North: 12,000 sq-ft
+* South: 16,480 sq-ft
+
 
 
 # Cost
@@ -93,8 +93,12 @@ Search for District Geothermal Heat Pump system
 [6]
 
 August 2015 to July 2016:
-* Heating: 149,738 MMBtu
-* Cooling: 140,032 MMBtu
+* Heating: 149,738 MMBTU
+* Cooling: 140,032 MMBTU
+
+(
+10,000 tons = 7 MW = 23 MMBTU/h ---> * 8760 = 201,480 MMBTU
+)
 
 Heating COP = 3.74 +/- 0.2
 Cooling COP = 4.28 +/- 0.2
@@ -104,7 +108,6 @@ Total installed cost: 17.26 M$ ?
 
 Ground heat exchanger cost $18.7/ft
 Average cost in the Midwest ~ $12/ft (Battocletti and Glassley 2013)
-
 
 Total installed cost: 12.4 M$ ?
 
@@ -121,6 +124,13 @@ Oregon Institute of Technology
 ~ 0.05 $/sqf/year
 
 
+[9]
+
+* C O&M [k$/year] ~ C labor =  236 if W < 12.5 MWth or 589 * ln (W/5) - 304 if W >= 12.5 MWth
++ 1.5% * C plant + 1% C well
+
+W is the heat withdrawn from the geothermal fluid in MWth
+p 75
 
 
 # References
@@ -134,6 +144,7 @@ https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?Docu
 [6] https://info.ornl.gov/sites/publications/files/Pub71170.pdf
 [7] Battocletti and Glassley 2013 https://www.osti.gov/servlets/purl/1186828
 [8] https://www.nwf.org/-/media/PDFs/Campus-Ecology/Reports/Geothermal-Guide-FINAL-3-1-11.ashx
+[9] PhD Dissertation https://ecommons.cornell.edu/handle/1813/44328
 
 # Analysis of the data
 
@@ -152,6 +163,18 @@ electrical_demand = 125,000 MW(e)h/year = 14.3 MW(e)
 * 2035:
 160,000 MW(th)h/year
 40,000 MW(e)h/year = 4.56 MW(e)
+
+* Total cost = 82.9 M$
+* Installed capacity = 152 MMBTU/h = 44.55 MW(th)
+* Investment cost ~ 82.9 M$/44.55 MW(th) = 1.86 M$/MW(th)
+
+* Fixed cost:
+* W is 44.55 MW(th)
+* C labor = 984 k$/year
+* C plant = 55.9 M$
+* C well = 27 M$
+* C O&M = 2.0925 M$/year
+* C O&M (without the labor) = 1.1085 M$/year
 
 
 # TEMOA's model
