@@ -184,9 +184,8 @@ electrical_demand = 125,000 MW(e)h/year = 14.3 MW(e)
 * ExistingCapacity: 0.095 MW(th)
 * MinActivity: 2020-2025: 0.832 GW(th), 2025-2030: 80 GW(th)
 * CapacityToActivity = 8.76 thermal GWh
-
-* CostInvest:
-* CostFixed:
+* CostInvest: 82.9 M$/44.55 MW(th) = 1.8608 M$/MWth
+* CostFixed: 1.1085 M$/year/44.55 MW(th) =  0.0249 M$/MWth/y
 
 
 ## MinActivity (maybe this should be MaxActivity ?)

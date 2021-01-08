@@ -896,17 +896,17 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2028, 'ELC', 1.00,'conver
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2029, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2030, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'USTM', 4.00,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'USTM', 3.74,'converts electricity to thermal energy, COP of 4');
 
 
 CREATE TABLE "DiscountRate" (
@@ -1040,6 +1040,7 @@ INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 0.240, 'M$/MWth', 'cost of 
 -- Based on values from fuel-analysis/temoa-model.ipynb
 INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2021, 0.0229, 'M$/gge', 'cost of utility scale nuclear plant');
 INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2021, 0.0116, 'M$/gge', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
 
 
 CREATE TABLE "CostFixed" (
@@ -1055,7 +1056,8 @@ CREATE TABLE "CostFixed" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
-
+-- Values from Olek go here
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GEOT', 2020, 0.0249, 'M$/MWth', 'cost of O&M of the plant');
 
 CREATE TABLE "CapacityToActivity" (
 	"regions"	text,
