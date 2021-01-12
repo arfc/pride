@@ -983,7 +983,7 @@ CREATE TABLE "CostInvest" (
 --UIUC Data
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
-INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2020, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2021, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 -- Based on values from fuel-analysis/temoa-model.ipynb
@@ -1007,15 +1007,15 @@ CREATE TABLE "CostFixed" (
 --uiuc data
 --INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
 --INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPWIND', 2020, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPSOL', 2020, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
---INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELECTROL', 2020, 1, 'M$/kW-year', 'fixed O&M cost for');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'NUCLEAR', 2020, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELCVCL', 2020, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'H2VCL', 2020, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELECTROL', 2021, 1, 'M$/kW-year', 'fixed O&M cost for');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'NUCLEAR', 2016, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2016, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELCVCL', 2016, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'DSLVCL', 2016, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'E85VCL', 2016, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'H2VCL', 2016, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 
 
 
