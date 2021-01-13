@@ -8,6 +8,10 @@ Energy output [1]:
 * Cooling: 140,032 MMBTU/year
 * Total electricity consumed: 22,698 MWh
 
+System would have consumed [1]:
+* Heating: 212,806 MMBTU
+* Cooling: 10,970 MW(e)h
+
 Capacity [?]:
 * Cooling 10,000 tons = 7 MWe
 
@@ -30,7 +34,7 @@ COP = 4.28
 9,588 MW(e)h/year
 
 
-Total = 22,698 MW(e)h/year
+* Total = 22,698 MW(e)h/year
 My total = 11,733 MW(e)h/year + 9,588 MW(e)h/year = 21,321 MW(e)h/year (my calculation) ~ 22,698 MW(e)h/year (from [1]])
 
 
@@ -39,7 +43,14 @@ My total = 11,733 MW(e)h/year + 9,588 MW(e)h/year = 21,321 MW(e)h/year (my calcu
 * Heating: 11,733/21,321 = 0.55
 * Cooling: 9,588/21,321 = 0.45
 
+
 # Efficiency
 
 * Heating: COP = 3.74
-* Cooling: electricity savings/9,588 it should be < 1
+* Cooling: what it would have consumed/9,588 = 10,970 / 9,588 ~ 1.14
+
+
+# Not sure:
+
+* CostFixed: cost/capacity, right now it considers only the heating capacity
+* What else?
