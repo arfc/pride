@@ -1057,7 +1057,16 @@ CREATE TABLE "CostFixed" (
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
 -- Values from Olek go here
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GEOT', 2020, 0.0249, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
 
 CREATE TABLE "CapacityToActivity" (
 	"regions"	text,
