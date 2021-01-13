@@ -164,7 +164,8 @@ CREATE TABLE "TechOutputSplit" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
-
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','USTM',0.5,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','ELC',0.5,'');
 
 CREATE TABLE "TechInputSplit" (
 	"regions"	TEXT,
