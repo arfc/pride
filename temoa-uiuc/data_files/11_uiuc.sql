@@ -164,8 +164,27 @@ CREATE TABLE "TechOutputSplit" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','USTM',0.5,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','ELC',0.5,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','USTM',0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','USTM',0.55,'');
+--
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','ELC',0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','ELC',0.45,'');
 
 CREATE TABLE "TechInputSplit" (
 	"regions"	TEXT,
@@ -909,17 +928,17 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'USTM', 3.74,'conve
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'USTM', 3.74,'converts electricity to thermal energy, COP of 3.74');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'USTM', 3.74,'converts electricity to thermal energy, COP of 3.74');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'ELC', 1.0,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'ELC', 1.14,'converts electricity to thermal and back to electricity');
 
 CREATE TABLE "DiscountRate" (
 	"regions"	text,
