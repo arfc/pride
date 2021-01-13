@@ -1,26 +1,45 @@
 
+COP [1]:
+* Heating: 3.74
+* Cooling: 4.28
 
-3.8 for heating and 2.9 for cooling [2]
-3.4 for heating and 5.93 for cooling [3]
-3.74 for heating and 4.28 for cooling [4]
+Energy output [1]:
+* Heating: 149,738 MMBTU/year
+* Cooling: 140,032 MMBTU/year
+* Total electricity consumed: 22,698 MWh
+
+Capacity [?]:
+* Cooling 10,000 tons = 7 MWe
+
+# References
+
+[1] https://info.ornl.gov/sites/publications/files/Pub71170.pdf
 
 
-Heating: 149,738 MMBTU	
-Cooling: 140,032 MMBTU	
+# Data analysis
+
+* Heating:
+149,738 MMBTU/year ~ 0.0438838759 x 10^6 MW(th)h/year = 43,884 MW(th)h/year
+COP = 3.74
+11,733 MW(e)h/year
 
 
-(	
-10,000 tons = 7 MW = 23 MMBTU/h ---> * 8760 = 201,480 MMBTU	
-)	
+* Cooling:
+140,032 MMBTU/year ~ 0.0410393281 x 10^6 MW(th)h/year = 41,039 MW(th)h/year
+COP = 4.28
+9,588 MW(e)h/year
 
-Total electricity consumed = 22,698 MWh	
+
+Total = 22,698 MW(e)h/year
+My total = 11,733 MW(e)h/year + 9,588 MW(e)h/year = 21,321 MW(e)h/year (my calculation) ~ 22,698 MW(e)h/year (from [1]])
 
 
+# TechOutputSplit
+
+* Heating: 11,733/21,321 = 0.55
+* Cooling: 9,588/21,321 = 0.45
 
 # Efficiency
 
-* Heating:
-149,738 MMBTU/year ~ 0.0438838759 x 10^6 MWh/year = 43,884 MWh/year
-
-* Cooling:
-140,032 MMBTU/year ~ 0.0410393281 x 10^6 MWh/year = 41,039 MWh/year
+* Heating: COP = 3.74
+* Cooling: electricity savings/9,588 it should be < 1
