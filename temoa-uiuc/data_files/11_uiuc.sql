@@ -1179,27 +1179,27 @@ CREATE TABLE "CostFixed" (
 --INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
 --INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELECTROL', 2021, 1, 'M$/kW-year', 'fixed O&M cost for');
 
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
 
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
-INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
 
 INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
 INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
