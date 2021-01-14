@@ -5,6 +5,7 @@ This folder contains the following data:
 * mtd.csv: MTD fuel consumption processed data.
 * uiuc-fuel-consumption.txt: UIUC fuel consumption raw data for every day from January 1st, 2019, to December 31st, 2019. The original .pdf file is in the box: ./shared-with-students-microreactor-project/Data/.
 * uiuc.csv: UIUC fuel consumption processed data.
+* 2019grossfueldata.csv: contains all fuel consumption of all the vehicles owned by UIUC for CY2019, including on and off campus vehicles.
 
 # Analysis
 
