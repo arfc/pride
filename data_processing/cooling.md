@@ -57,14 +57,10 @@ My total = 11,733 MW(e)h/year + 9,588 MW(e)h/year = 21,321 MW(e)h/year (my calcu
 * CostFixed: cost/capacity, right now it considers only the heating capacity
 
 
+# New model
 
-# In PR
+21,321 MW(e)h/y ---> 11,733 MW(e)h/y --> COP=3.74 --> 43,884 MW(th)h/y
+				|
+				---> 9,588 MW(e)h/y  --> efficiency=1.14 --> 10,970 MW(e)h/y
 
-GEOT input is ELC.
-GEOT has two outputs: USTM and ELC.
-The outputs have different units.
-Normally the capacity is calculated with the output capacity of the technology.
-In this case, there would be two output capacities, one for heating (produces USTM) and one for cooling (produces ELC).
-How should the capacity be calculated in this case?
-Maybe I should divide GEOT into two technologies, one for heating and one for cooling.
-What do you think @samdotson?
+New COP = 43,884 / (21,321 - 10,970) ~ 4.24
