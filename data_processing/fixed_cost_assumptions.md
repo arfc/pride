@@ -28,7 +28,7 @@ The fixed cost is much trickier to determine, and I have not found a good estima
 #####         Sources:
 #####         https://www.eia.gov/outlooks/aeo/assumptions/pdf/table_8.2.pdf
 
-In lieu of good data on operating and variable cost of small modular reactors, we will use cost estimates for conventional advanced nuclear technology.
+In lieu of good data on operating and variable cost of small modular reactors, we will use cost estimates for advanced nuclear technology.
 
 This case uses two Westinghouse AP1000 reactors as a model plant.
 Fixed O&M costs come from those listed at the top of this document.
@@ -82,8 +82,10 @@ The fixed O&M cost from the S&L report for this scenario is 15.25 $/kW annually.
 The variable O&M costs for renwable solar is generally given to be 0.00 $/MWh due to renewable generation consuming a negligible amount of resources.
 
 #### Automobiles
-##### Source: fueleconomy.gov
+##### Sources: fueleconomy.gov
 
 The fixed cost for automobile technology is based on paying off the principal cost of the vehicle over the vehicle's lifetime. This currently does not account for interest rate on a car loan.
 
-I obtained the principal costs by averaging MSRP values from fueleconomy.gov
+I obtained the principal costs for diesel, electric, and E85 vehicles by averaging MSRP values from fueleconomy.gov. The code for doing this is in data_processing/automobile_data_scraping.ipynb
+
+There are very few hydrogen vehicles available on the market right now. Obtaining values for these is an ongoing process
