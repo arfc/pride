@@ -238,9 +238,9 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'IMPWIND', 23.35, 'electric GWh',
 INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 --
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
 
 
 CREATE TABLE "MaxCapacity" (
@@ -404,9 +404,9 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPSOL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',25,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',25,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
@@ -493,7 +493,10 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth'
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPWIND', 2016, 8.6, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPSOL', 2016, 4.68, 'units: MWe', 'if 100% to electricity');
-
+--
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GSLVCL', 2020, 0.04666,'units: kgal/h', 'Unleaded fuel consumption');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','DSLVCL', 2020, 0.01334,'units: kgal/h', 'Diesel fuel consumption');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','E85VCL', 2020, 0.00294,'units: kgal/h', 'E85 fuel consumption');
 
 CREATE TABLE "EmissionLimit" (
 	"regions"	text,
