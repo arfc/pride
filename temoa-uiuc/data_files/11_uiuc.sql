@@ -594,6 +594,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2029,'
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2030,'ELC',0.825,'tCO2/MWe','from iCAP');
 --
 -- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2020,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2020,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2021,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2022,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2023,'UVCL',0.00889,'tCO2/kGal','from F&S');
@@ -605,6 +606,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2028,'UV
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2029,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2030,'UVCL',0.00889,'tCO2/kGal','from F&S');
 --
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2020,'UVCL',0.01016,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2021,'UVCL',0.01016,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2022,'UVCL',0.01016,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2023,'UVCL',0.01016,'tCO2/kGal','from F&S');
@@ -616,6 +618,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2028,'UV
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2029,'UVCL',0.01016,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'DSL','DSLVCL', 2030,'UVCL',0.01016,'tCO2/kGal','from F&S');
 --
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2020,'UVCL',0.00622,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2021,'UVCL',0.00622,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2022,'UVCL',0.00622,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'E85','E85VCL', 2023,'UVCL',0.00622,'tCO2/kGal','from F&S');
@@ -715,6 +718,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2029, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2030, 'ELC', 1.00,'pure electricity import');
 -- Vehicle demand
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2021, 'GSL', 1.00,'pure gasoline import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2020, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2021, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2022, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2023, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
@@ -727,6 +731,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2029, 'UVCL', 1.00,'1 g
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2030, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2021, 'DSL', 1.00,'pure diesel import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2020, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2021, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2022, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2023, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
@@ -739,6 +744,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2029, 'UVCL', 1.155,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2030, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2021, 'E85', 1.00,'pure E85 import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2020, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2021, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2022, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2023, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
@@ -1299,16 +1305,39 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GEOT', 2020, 0.0469, 'M$/MWth', 'c
 INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
 INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
 --
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GSLVCL', 2021, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
 
 INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
@@ -1318,30 +1347,8 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'ELCVCL', 2021, 0.00321817, 'M$/yea
 INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
--- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
--- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
-
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'DSLVCL', 2021, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
-
-INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'E85VCL', 2021, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'ELCVCL', 2020, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'ELCVCL', 2020, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
 
 INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
@@ -1351,8 +1358,8 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'H2VCL', 2021, 0.003261417, 'M$/yea
 INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
--- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
--- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'H2VCL', 2020, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'H2VCL', 2020, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 
 
 CREATE TABLE "CapacityToActivity" (
