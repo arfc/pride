@@ -240,9 +240,13 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'IMPWIND', 23.35, 'electric GWh',
 INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 --
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
+--
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
 --
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'CHWS', 80, 'electric GWh','');
@@ -511,8 +515,6 @@ CREATE TABLE "ExistingCapacity" (
 	PRIMARY KEY("regions","tech","vintage")
 );
 --UIUC data
--- INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPGSL', 2020, 1000, 'gallons','');
--- INSERT INTO "ExistingCapacity" VALUES('uiuc', 'GSLVCL', 2020, 1000, 'gallons','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth', '');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
@@ -522,7 +524,7 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPSOL', 2016, 4.68, 'units: MWe'
 INSERT INTO "ExistingCapacity" VALUES('uiuc','GSLVCL', 2020, 0.04666,'units: kgal/h', 'Unleaded fuel consumption');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','DSLVCL', 2020, 0.01334,'units: kgal/h', 'Diesel fuel consumption');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','E85VCL', 2020, 0.00294,'units: kgal/h', 'E85 fuel consumption');
-
+--
 INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 26.2,'units: MWe', 'UIUC uses only the electric chillers');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','GEOT', 2020, 0.095,'units: MWth', '');
 
@@ -717,7 +719,9 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2028, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2029, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2030, 'ELC', 1.00,'pure electricity import');
 -- Vehicle demand
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2020, 'GSL', 1.00,'pure gasoline import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2021, 'GSL', 1.00,'pure gasoline import');
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2020, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2021, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2022, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
@@ -730,7 +734,9 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2028, 'UVCL', 1.00,'1 g
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2029, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2030, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 --
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2020, 'DSL', 1.00,'pure diesel import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2021, 'DSL', 1.00,'pure diesel import');
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2020, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2021, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2022, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
@@ -743,7 +749,9 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2028, 'UVCL', 1.155,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2029, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2030, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 --
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2020, 'E85', 1.00,'pure E85 import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2021, 'E85', 1.00,'pure E85 import');
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2020, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2021, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2022, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
@@ -755,7 +763,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2027, 'UVCL', 0.734,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2028, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2029, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2030, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
-
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2021, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2022, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2023, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
@@ -766,8 +774,9 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2027, 'UVCL', 0.11,'1.0
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2028, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2029, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2030, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
-
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPH2', 2021, 'H2', 1.00,'pure hydrogen import');
+--
 INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2021, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2022, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2023, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
