@@ -742,28 +742,28 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2028, 'UVCL', 0.734,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2029, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2030, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
 
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2021, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2022, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2023, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2024, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2025, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2026, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2027, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2028, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2029, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2030, 'UVCL', 0.031,'1.0 kWh = 0.031 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2021, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2022, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2023, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2024, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2025, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2026, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2027, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2028, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2029, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELCVCL', 2030, 'UVCL', 0.11,'1.0 kWh = 0.11 gal gsl');
 
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPH2', 2021, 'H2', 1.00,'pure hydrogen import');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2021, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2022, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2023, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2024, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2025, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2026, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2027, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2028, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2029, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
-INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2030, 'UVCL', 1.00,'1 kg h2 = 1.0 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2021, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2022, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2023, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2024, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2025, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2026, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2027, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2028, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2029, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
+INSERT INTO "Efficiency" VALUES('uiuc', 'H2', 'H2VCL', 2030, 'UVCL', 2.40,'1 kg h2 = 2.4 gal gsl');
 
 --Defines the ABBOTT parameters
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2000, 'STM', 1.00, 'Converts steam to steam? Unsure.');
