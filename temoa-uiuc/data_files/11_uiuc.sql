@@ -240,13 +240,13 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'IMPWIND', 23.35, 'electric GWh',
 INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 --
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 91.925, 'kgal','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 20.9, 'kgal','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 16.4, 'kgal','');
 --
--- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
--- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
--- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
 --
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'CHWS', 80, 'electric GWh','');
@@ -1001,16 +1001,16 @@ INSERT INTO "Demand" VALUES('uiuc',2028, 'USTM', 642.4, 'thermal GWh', 'from 201
 INSERT INTO "Demand" VALUES('uiuc',2029, 'USTM', 648.8, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2030, 'USTM', 655.3, 'thermal GWh', 'from 2015 eDNA data');
 -- Assumes 1% growth
-INSERT INTO "Demand" VALUES('uiuc',2021, 'UVCL', 129.3, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2022, 'UVCL', 130.6, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2023, 'UVCL', 131.9, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2024, 'UVCL', 133.2, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2025, 'UVCL', 134.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2026, 'UVCL', 135.8, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2027, 'UVCL', 137.0, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2028, 'UVCL', 138.3, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2029, 'UVCL', 139.6, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
-INSERT INTO "Demand" VALUES('uiuc',2030, 'UVCL', 140.9, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2021, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2022, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2023, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2024, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2025, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2026, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2027, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2028, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2029, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
+INSERT INTO "Demand" VALUES('uiuc',2030, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
 
 
 CREATE TABLE "CostVariable" (
