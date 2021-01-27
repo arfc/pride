@@ -1040,7 +1040,7 @@ CREATE TABLE "CostInvest" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","tech","vintage")
 );
---UIUC Data
+-- UIUC Data
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2022, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2023, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
@@ -1074,16 +1074,16 @@ INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2028, 5.945, 'M$/MWth', 'cost 
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2029, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2030, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 -- GEOT
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2023, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2024, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2025, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2026, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2023, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2024, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2025, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2026, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
 -- --
 -- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
 -- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
