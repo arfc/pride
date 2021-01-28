@@ -12,7 +12,7 @@
 	- 3 coal-fired boilers [2] ~ 350,000 lbs/h
 	- Efficiencies: coal ~ 39% - 47% and natural gas ~ 39% [3]
 
-* CHWS: 15 Ton/m^2 if size > 20,000 Ton [4]
+* CHWS: 15 Ton/m^2 if size > 20,000 Ton [4] ~ 0.066 m^2/Ton
 
 
 # Temoa's model
@@ -26,6 +26,9 @@ ABBOT:
 * coal = 350,000 ~ /Tot = 0.46
 * Specific land-use: 0.54 * 0.343 * 0.39 + 0.46 * 0.699 * 0.43 = 0.21 acres/MW(th) --> 849.8 m^2/MW(th)
 
+CHWS:
+* 0.066 m^2 x 37,500 Ton /26.25 MWe [5] = 95.23 m^2/MW(e)
+
 
 # References
 
@@ -36,3 +39,5 @@ ABBOT:
 [3] HONORIO, L., BARTAIRE, J-G., BAUERSCHMIDT, R., OHMAN, T., TIHANYI, Z., ZEINHOFER, H., SCOWCROFT, J., DE JANEIRO, V., KRUGER, H., MEIER, H-J., OFFERMANN, D., LANGNICKEL, U. EFFICIENCY IN ELECTRICITY GENERATION. Technical Report. EURELECTRIC-VGB. July 2003. [link](http://payesh.saba.org.ir/saba_content/media/image/2016/07/8412_orig.pdf)
 
 [4] George Berbari. Distric Cooling: Sustainable Design. Presentation. Distric Cooling. 2016. Dubai, UAE. [link](https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=eac74754-05c9-a7cc-cede-0261984fa8e7)
+
+[5] From [cws_power](https://github.com/arfc/pride/blob/master/data_processing/cws_power.ipynb)
