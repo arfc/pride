@@ -1084,28 +1084,28 @@ INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1646.7, 'm^2/MWth', 'specif
 INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
 INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
 INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
--- --
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2023, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2024, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2025, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2026, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2027, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2028, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2029, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2030, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
--- --
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 0.240, 'M$/MWth', 'cost of installation');
--- INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 0.240, 'M$/MWth', 'cost of installation');
+--
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2023, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2024, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2025, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2026, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2027, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2028, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2029, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2030, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
+--
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
 -- --
 -- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2021, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
 -- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2022, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
