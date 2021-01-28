@@ -10,9 +10,9 @@
 	- 2 dual fuel (nat gas and fuel oil) ~ 2 x 150,000 lbs/h ~ 300,000
 	- 2 Heat Recovery Steam Generators ~ 40,000 - 110,000 lbs/h
 	- 3 coal-fired boilers [2] ~ 350,000 lbs/h
+	- Efficiencies: coal ~ 39% - 47% and natural gas ~ 39% [3]
 
-* coal ~ 39% - 47% [3]
-* natural gas ~ 39% [3]
+* CHWS: 15 Ton/m^2 if size > 20,000 Ton [4]
 
 
 # Temoa's model
@@ -34,3 +34,5 @@ ABBOT:
 [2] F&S UIUC. ABBOT POWER PLANT. [link](https://fs.illinois.edu/docs/default-source/utilities-energy/abbottbrofinal.pdf?sfvrsn=90b1f9ea_4)
  
 [3] HONORIO, L., BARTAIRE, J-G., BAUERSCHMIDT, R., OHMAN, T., TIHANYI, Z., ZEINHOFER, H., SCOWCROFT, J., DE JANEIRO, V., KRUGER, H., MEIER, H-J., OFFERMANN, D., LANGNICKEL, U. EFFICIENCY IN ELECTRICITY GENERATION. Technical Report. EURELECTRIC-VGB. July 2003. [link](http://payesh.saba.org.ir/saba_content/media/image/2016/07/8412_orig.pdf)
+
+[4] George Berbari. Distric Cooling: Sustainable Design. Presentation. Distric Cooling. 2016. Dubai, UAE. [link](https://www.districtenergy.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=eac74754-05c9-a7cc-cede-0261984fa8e7)
