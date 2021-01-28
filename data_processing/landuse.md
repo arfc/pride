@@ -3,13 +3,6 @@
 * Solar: 8.1 acres/MW(e) capacity [1] -- to m^2 = x 4046.86 --> 32779.5 m^2/MW(e)
 * Wind: 60 acres/MW(e) capacity [1] --> 242811 m^2/MW(e)
 * Nuclear: 0.901 acres/MW(e) capacity (for large scale power plant of 1,000 MW) [1] --> 901 acres/3000 MW(th) = 0.3 acres/MW(th) --> 1214.06 m^2/MW(th)
-* 14 000 m^2 / 4 units / 1000 MWth ~ 3.5 m^2/MWth
-* 90 000 m^2 / 330 MWth ~ 272 m^2/MWth
-* 10 000 m^2 / 30 MWth ~ 333 m^2/MWth
-* 9 000 m^2 / 180 MWth ~ 50 m^2/MWth
-* 157 000 m^2 / 575 MWth ~ 273 m^2/MWth
-* mean = 229.69 m^2/MWth
-
 * Natural gas: 0.343 acres/MW(e) capacity [1]
 * Coal: 0.699 acres/MW(e) capacity [1]
 * ABBOTT [2]:
@@ -32,7 +25,6 @@
 |       10,000    |        30    |       333           |
 |        9,000    |       180    | 	      50           |
 |      157,000    |       575    |       273           |
-|-----------------|--------------|---------------------|
 |                        mean    |      229.7          |
 
 
