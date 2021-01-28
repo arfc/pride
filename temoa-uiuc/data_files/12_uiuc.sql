@@ -1052,16 +1052,16 @@ INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2028, 32779.5, 'm^2/MWe', 'aver
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2029, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2030, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
 -- 
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2022, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2023, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2024, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2025, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2026, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2027, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2028, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2029, 242811, 'M$/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2030, 242811, 'M$/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2022, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2023, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2024, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2025, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2026, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2027, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2028, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2029, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2030, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
 --
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2022, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
