@@ -1063,16 +1063,16 @@ INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2028, 242811, 'm^2/MWe', 'aver
 INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2029, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
 INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2030, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
 --
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2022, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2023, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2024, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2025, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2026, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2027, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2028, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2029, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2030, 1214.06, 'm^2/MWth', 'average specific land use of a 1000 MWe nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2022, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2023, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2024, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2025, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2026, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2027, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2028, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2029, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2030, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
 -- GEOT
 INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
 INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
