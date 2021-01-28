@@ -33,9 +33,14 @@
 	- 2 Heat Recovery Steam Generators ~ 40,000 - 110,000 lbs/h
 
 - Tot = 300,000 + 350,000 + 110,000 = 760,000
-- nat gas = 300,000 + 110,000 = 410,000 ~ /Tot =
-- coal = 350,000 ~ /Tot =
+- nat gas = 300,000 + 110,000 = 410,000 ~ /Tot = 0.54
+- coal = 350,000 ~ /Tot = 0.46
 
+* Specific land-use
+	- Raw: 0.54 * 0.343 + 0.46 * 0.699 = 0.51 acres/MW(e)
+	- Considering everything else: 0.54 * 12.4 + 0.46 * 12.2 = 12.31
+
+* This may need to be in lbs/hour or MW(th)
 
 
 # References
