@@ -1,20 +1,22 @@
-
 # Solar
 
-* Raw: 8.1 acres/MW(e) capacity [1]
+* Raw: 8.1 acres/MW(e) capacity [1] -- to m^2 = x 4046.86 --> 32779.5 m^2
 * Considering everything else: 43.5 acres/MW(e) capacity [1]
 
 
 # Wind
 
-* Raw: 60 acres/MW(e) capacity [1]
+* Raw: 60 acres/MW(e) capacity [1] --> 242811 m^2
 * Considering everything else: 70.6 acres/MW(e) capacity [1]
 
 
 # Nuclear
 
-* Raw: 0.901 acres/MW(e) capacity (for large scale power plant of 1,000 MW) [1]
+* Raw: 0.901 acres/MW(e) capacity (for large scale power plant of 1,000 MW) [1] --> 3646.2 m^2
 * Considering everything else: 12.7 acres/MW(e) capacity, (1,000 MW) [1]
+
+* Convert acres/MW(e) to acres/MW(th): 901 acres/3000 MW(th) = 0.3 acres/MW(th) --> 1214.06 m^2
+
 * need for another source for smaller reactors
 
 
@@ -37,7 +39,7 @@
 - coal = 350,000 ~ /Tot = 0.46
 
 * Specific land-use
-	- Raw: 0.54 * 0.343 + 0.46 * 0.699 = 0.51 acres/MW(e)
+	- Raw: 0.54 * 0.343 + 0.46 * 0.699 = 0.51 acres/MW(e) --> 2063.9 m^2
 	- Considering everything else: 0.54 * 12.4 + 0.46 * 12.2 = 12.31
 
 * This may need to be in lbs/hour or MW(th)
