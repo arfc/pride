@@ -646,8 +646,7 @@ CREATE TABLE "ExistingCapacity" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech","vintage")
-);
---UIUC data
+);--UIUC data
 -- INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPGSL', 2020, 1000, 'gallons','');
 -- INSERT INTO "ExistingCapacity" VALUES('uiuc', 'GSLVCL', 2020, 1000, 'gallons','');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
@@ -670,6 +669,7 @@ CREATE TABLE "EmissionLimit" (
 	FOREIGN KEY("emis_comm") REFERENCES "commodities"("comm_name"),
 	PRIMARY KEY("regions","periods","emis_comm")
 );
+--Data from iCAP and linear regression in data_processing/ghg_emissions.ipynb
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2021, 'co2eq', 391.031, 'kilo-tCO2', 'projection from iCAP');
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2022, 'co2eq', 379.500, 'kilo-tCO2', 'projection from iCAP');
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2023, 'co2eq', 367.968, 'kilo-tCO2', 'projection from iCAP');
@@ -680,6 +680,27 @@ INSERT INTO "EmissionLimit" VALUES ('uiuc', 2027, 'co2eq', 317.314, 'kilo-tCO2',
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2028, 'co2eq', 303.517, 'kilo-tCO2', 'projection from iCAP');
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2029, 'co2eq', 289.721, 'kilo-tCO2', 'projection from iCAP');
 INSERT INTO "EmissionLimit" VALUES ('uiuc', 2030, 'co2eq', 275.925, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2031, 'co2eq', 262.129, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2032, 'co2eq', 248.332, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2033, 'co2eq', 234.536, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2034, 'co2eq', 220.740, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2035, 'co2eq', 206.944, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2036, 'co2eq', 193.147, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2037, 'co2eq', 179.351, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2038, 'co2eq', 165.555, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2039, 'co2eq', 151.759, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2040, 'co2eq', 137.962, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2041, 'co2eq', 124.166, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2042, 'co2eq', 110.370, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2043, 'co2eq', 96.574, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2044, 'co2eq', 82.777, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2045, 'co2eq', 68.981, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2046, 'co2eq', 55.185, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2047, 'co2eq', 41.389, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2048, 'co2eq', 27.592, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2049, 'co2eq', 13.796, 'kilo-tCO2', 'projection from iCAP');
+INSERT INTO "EmissionLimit" VALUES ('uiuc', 2050, 'co2eq', 0.000, 'kilo-tCO2', 'projection from iCAP');
+
 
 CREATE TABLE "EmissionActivity" (
 	"regions"	text,
