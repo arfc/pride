@@ -33,7 +33,25 @@ INSERT INTO "time_periods" VALUES(2028, 'f');
 INSERT INTO "time_periods" VALUES(2029, 'f');
 INSERT INTO "time_periods" VALUES(2030, 'f');
 INSERT INTO "time_periods" VALUES(2031, 'f');
-
+INSERT INTO "time_periods" VALUES(2032, 'f');
+INSERT INTO "time_periods" VALUES(2033, 'f');
+INSERT INTO "time_periods" VALUES(2034, 'f');
+INSERT INTO "time_periods" VALUES(2035, 'f');
+INSERT INTO "time_periods" VALUES(2036, 'f');
+INSERT INTO "time_periods" VALUES(2037, 'f');
+INSERT INTO "time_periods" VALUES(2038, 'f');
+INSERT INTO "time_periods" VALUES(2039, 'f');
+INSERT INTO "time_periods" VALUES(2040, 'f');
+INSERT INTO "time_periods" VALUES(2041, 'f');
+INSERT INTO "time_periods" VALUES(2042, 'f');
+INSERT INTO "time_periods" VALUES(2043, 'f');
+INSERT INTO "time_periods" VALUES(2044, 'f');
+INSERT INTO "time_periods" VALUES(2045, 'f');
+INSERT INTO "time_periods" VALUES(2046, 'f');
+INSERT INTO "time_periods" VALUES(2047, 'f');
+INSERT INTO "time_periods" VALUES(2048, 'f');
+INSERT INTO "time_periods" VALUES(2049, 'f');
+INSERT INTO "time_periods" VALUES(2050, 'f');
 
 CREATE TABLE "time_period_labels" (
 	"t_period_labels"	text,
@@ -232,6 +250,26 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'IMPSOL', 24.69, 'electric GWh','
 INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2031, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2032, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2033, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2034, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2035, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2036, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2037, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2038, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2039, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2040, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2041, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2042, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2043, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2044, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2045, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2046, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2047, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2048, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2049, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
+INSERT INTO "MinActivity" VALUES('uiuc', 2050, 'IMPSOL', 24.69, 'electric GWh','must buy electricity that is produced');
 -- until 2026 because that's when'uiuc',  the PPA ends, then we can buy more if we choose.
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
 INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'IMPWIND', 23.35, 'electric GWh','must buy electricity that is produced');
@@ -254,7 +292,26 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'CHWS', 80, 'electric GWh','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'CHWS', 80, 'electric GWh','');
-
+INSERT INTO "MinActivity" VALUES('uiuc', 2031, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2032, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2033, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2034, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2035, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2036, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2037, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2038, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2039, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2040, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2041, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2042, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2043, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2044, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2045, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2046, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2047, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2048, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2049, 'CHWS', 80, 'electric GWh','');
+INSERT INTO "MinActivity" VALUES('uiuc', 2050, 'CHWS', 80, 'electric GWh','');
 
 CREATE TABLE "MaxCapacity" (
 	"regions"	text,
@@ -278,8 +335,28 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'IMPWIND', 100.5, 'MWe', 'max cap
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
--- We are assuming that we can ad'uiuc', d 12.1 MWe capacity every 6 years.
--- This should be constrained bec'uiuc', ause we can't add an arbitrary amount of solar
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'IMPWIND', 100.5, 'MWe', 'max capacity of railsplitter');
+-- We are assuming that we can add 12.1 MWe capacity every 6 years.
+-- This should be constrained because we can't add an arbitrary amount of solar
 -- power.
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'IMPSOL', 4.68, 'MWe', 'after Solar Farm 2.0');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'IMPSOL', 16.78, 'MWe', 'solar PPA');
@@ -291,6 +368,26 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'IMPSOL', 28.9, 'MWe', 'solar 2.0
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'IMPSOL', 28.9, 'MWe', 'solar 2.0 PPA');
 --'uiuc',
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'IMPELC', 120, 'MWe', 'UIUC import limits, unless increased');
