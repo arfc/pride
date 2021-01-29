@@ -443,6 +443,26 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'NUCLEAR', 100, 'MWth', 'max smr 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 -- 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
@@ -454,6 +474,26 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS ca
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 
 
 CREATE TABLE "MaxActivity" (
