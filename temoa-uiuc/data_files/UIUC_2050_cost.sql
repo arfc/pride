@@ -1405,7 +1405,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2048, 'STM', 1.00, 'Con
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2049, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2050, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2030, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
+--INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2030, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2000, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2021, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2022, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');

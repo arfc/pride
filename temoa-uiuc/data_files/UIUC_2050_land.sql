@@ -1427,7 +1427,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2048, 'STM', 1.00, 'Con
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2049, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GAS', 'ABBOTT', 2050, 'STM', 1.00, 'Converts steam to steam? Unsure.');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2030, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
+--INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2030, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2000, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2021, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
 INSERT INTO "Efficiency" VALUES('uiuc', 'STM', 'TURBINE', 2022, 'ELC', 0.6, 'converts STM to ELC, CHP efficiency');
@@ -1572,7 +1572,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2033, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2034, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2035, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2036, 'ELC', 1.00,'pure electricity imports');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2037, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Ef` in both `UIUC_2050_land.sql` and `UIUC_2050_cost.sql`ficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2037, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2038, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2039, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2040, 'ELC', 1.00,'pure electricity imports');
