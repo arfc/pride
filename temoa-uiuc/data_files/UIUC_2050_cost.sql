@@ -602,6 +602,26 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'ABBOTT', 1278.7, 'thermal GWh', 
 INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2031, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2032, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2033, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2034, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2035, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2036, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2037, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2038, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2039, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2040, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2041, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2042, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2043, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2044, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2045, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2046, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2047, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2048, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2049, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2050, 'ABBOTT', 1278.7, 'thermal GWh', 'based on 0.568 average CapFactor');
 -- -- Previous value: 1051 GWh imported.
 -- -- Imports have never exceeded 60% of demand.
 INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
@@ -614,6 +634,26 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'IMPELC', 250, 'electric GWh', '1
 INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2031, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2032, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2033, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2034, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2035, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2036, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2037, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2038, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2039, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2040, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2041, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2042, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2043, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2044, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2045, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2046, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2047, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2048, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2049, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2050, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2022, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
