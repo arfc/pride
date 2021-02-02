@@ -1313,8 +1313,7 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GEOT', 2020, 0.0469, 'M$/MWth', 'c
 INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
 INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
 INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
---
-<<<<<<< HEAD
+
 INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2021, 0.0016, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GSLVCL', 2021, 0.0016, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GSLVCL', 2021, 0.0016, 'M$/year', 'assuming a 15 year lifespan');
@@ -1358,7 +1357,7 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'E85VCL', 2021, 0.0029, 'M$/year', 
 INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'E85VCL', 2021, 0.0029, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'E85VCL', 2021, 0.0029, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'E85VCL', 2021, 0.0029, 'M$/year', 'assuming a 15 year lifespan');
-=======
+
 INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
