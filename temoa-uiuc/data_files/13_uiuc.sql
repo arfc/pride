@@ -351,7 +351,7 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'NUCLEAR', 100, 'MWth', 'max smr 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
---
+-- 
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
@@ -515,7 +515,7 @@ CREATE TABLE "ExistingCapacity" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","tech","vintage")
 );
---UIUC data
+-- UIUC data
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'IMPELC', 2020, 60, 'units: MWe', 'if 100% to electricity');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'ABBOTT', 2000, 257, 'units: MWth', '');
 INSERT INTO "ExistingCapacity" VALUES('uiuc', 'TURBINE', 2000, 85, 'units: MWe','');
@@ -893,7 +893,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2027, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2028, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2029, 'USTM', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'UH', 2030, 'USTM', 1.00,'');
---
+-- 
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2021, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2022, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2023, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
@@ -967,13 +967,14 @@ INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','day','USTM',0.1
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','night','USTM',0.189,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','day','USTM',0.092,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','night','USTM',0.092,'');
+-- this is a guess
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','day','UCWS',0.19,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','night','UCWS',0.189,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','day','UCWS',0.092,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','night','UCWS',0.092,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','day','UCWS',0.219,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','night','UCWS',0.218,'');
-
+ 
 
 CREATE TABLE "Demand" (
 	"regions"	text,
@@ -997,7 +998,6 @@ INSERT INTO "Demand" VALUES('uiuc',2027, 'UELC', 503.2, 'electric GWh', 'from 20
 INSERT INTO "Demand" VALUES('uiuc',2028, 'UELC', 507.5, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2029, 'UELC', 511.7, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2030, 'UELC', 516.1, 'electric GWh', 'from 2015 eDNA data');
-
 INSERT INTO "Demand" VALUES('uiuc',2021, 'USTM', 599.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2022, 'USTM', 605.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2023, 'USTM', 611.2, 'thermal GWh', 'from 2015 eDNA data');
@@ -1007,7 +1007,8 @@ INSERT INTO "Demand" VALUES('uiuc',2026, 'USTM', 629.8, 'thermal GWh', 'from 201
 INSERT INTO "Demand" VALUES('uiuc',2027, 'USTM', 636.1, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2028, 'USTM', 642.4, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2029, 'USTM', 648.8, 'thermal GWh', 'from 2015 eDNA data');
-
+INSERT INTO "Demand" VALUES('uiuc',2030, 'USTM', 655.3, 'thermal GWh', 'from 2015 eDNA data');
+--
 INSERT INTO "Demand" VALUES('uiuc',2021, 'UCWS', 85.74, 'megaton-hours', '2019 data');
 INSERT INTO "Demand" VALUES('uiuc',2022, 'UCWS', 86.60, 'megaton-hours', '2019 data');
 INSERT INTO "Demand" VALUES('uiuc',2023, 'UCWS', 87.46, 'megaton-hours', '2019 data');
@@ -1045,6 +1046,117 @@ CREATE TABLE "CostVariable" (
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
 --uiuc data
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPELC', 2020, 0.09, 'M$/GWh', 'typical electricity price');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'NUCLEAR', 2021, 0.027, 'M$/GWh', '');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPGSL', 2021, 0.00222, 'M$/k_GAL', 'typical gasoline price');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPDSL', 2021, 0.00248, 'M$/k_GAL', 'typical diesel price');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPE85', 2021, 0.00199, 'M$/k_GAL', 'typical E85 price');
+
+INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2023, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2024, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2025, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2026, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2027, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2028, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2029, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+INSERT INTO "CostVariable" VALUES('uiuc', 2030, 'IMPH2', 2021, 0.006, 'M$/metrictons', 'typical hydrogen price $6/kg');
+
+-- No cost variable considered for the ELCVCL because uses electricity produced in the system.
 
 
 CREATE TABLE "CostInvest" (
@@ -1058,83 +1170,105 @@ CREATE TABLE "CostInvest" (
 	FOREIGN KEY("vintage") REFERENCES "time_periods"("t_periods"),
 	PRIMARY KEY("regions","tech","vintage")
 );
--- UIUC Data
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2022, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2023, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2024, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2025, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2026, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2027, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2028, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2029, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2030, 32779.5, 'm^2/MWe', 'average specific land use of a solar farm');
+--UIUC Data
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2023, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2024, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2025, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2026, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2027, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2028, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2029, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2030, 0.735, 'M$/MWth', 'cost of installing a natural gas unit');
+
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2021, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2022, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2023, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2024, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2025, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2026, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2027, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2028, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2029, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPSOL', 2030, 1.66, 'M$/MWe', 'solar farm 2.0 contract');
+
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2021, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2022, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2023, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2024, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2025, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2026, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2027, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2028, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2029, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2030, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2022, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2023, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2024, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2025, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2026, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2027, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2028, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2029, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2030, 1.75, 'M$/MWe', 'if UIUC builds its own wind farm');
+
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2022, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2023, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2024, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2025, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2026, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2027, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2028, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2029, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
+INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2030, 5.945, 'M$/MWth', 'cost of utility scale nuclear plant');
 --
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2021, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2022, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2023, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2024, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2025, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2026, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2027, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2028, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2029, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
-INSERT INTO "CostInvest" VALUES('uiuc','IMPWIND', 2030, 242811, 'm^2/MWe', 'average specific land use of a wind farm');
---
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2021, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2022, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2023, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2024, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2025, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2026, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2027, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2028, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2029, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
-INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2030, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 0.240, 'M$/MWth', 'cost of installation');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 0.240, 'M$/MWth', 'cost of installation');
 -- GEOT
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2023, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2024, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2025, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2026, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
---
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2023, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2024, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2025, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2026, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2027, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2028, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2029, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
-INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2030, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
---
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
--- --
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2021, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2022, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2023, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2024, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2025, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2026, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2027, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2028, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2029, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
--- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2030, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2023, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2024, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2025, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2026, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1.8608, 'M$/MWth', 'capital cost of geothermal plant and well-field');
+-- Based on values from fuel-analysis/temoa-model.ipynb
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2021, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2022, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2023, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2024, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2025, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2026, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2027, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2028, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2029, 0.0229, 'M$/gge', 'cost of electric vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','ELCVCL', 2030, 0.0229, 'M$/gge', 'cost of electric vehicle');
+
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2021, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2022, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2023, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2024, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2025, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2026, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2027, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2028, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2029, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2030, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
 
 
 CREATE TABLE "CostFixed" (
@@ -1151,6 +1285,109 @@ CREATE TABLE "CostFixed" (
 	PRIMARY KEY("regions","periods","tech","vintage")
 );
 --uiuc data
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ABBOTT', 2000, 0.0553, 'M$/GWh', '');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'TURBINE', 2000, 0.03, 'M$/GWh', '');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELECTROL', 2021, 1, 'M$/kW-year', 'fixed O&M cost for');
+
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPWIND', 2016, 0.00002634, 'M$/kw', 'yearly fixed O&M cost for large scale solar from S&L report');
+
+--INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+--INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'IMPSOL', 2016, 0.00001525, 'M$/kW', 'yearly fixed O&M cost from from S&L report');
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'NUCLEAR', 2021, 0.00012164, 'M$/kW', 'yearly fixed O&M cost for utility scale nuclear from S\&L report');
+--
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GEOT', 2020, 0.0469, 'M$/MWth', 'cost of O&M of the plant');
+--
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'GSLVCL', 2020, 0.0024, 'M$/year', 'assuming a 15 year lifespan');
+
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'DSLVCL', 2020, 0.0027505887, 'M$/year', 'assuming a 15 year lifespan');
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'E85VCL', 2020, 0.003372875, 'M$/year', 'assuming a 15 year lifespan');
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'ELCVCL', 2021, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'ELCVCL', 2020, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'ELCVCL', 2020, 0.00321817, 'M$/year', 'assuming a 15 year lifespan');
+
+INSERT INTO "CostFixed" VALUES('uiuc', 2021, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2022, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2023, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2024, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2025, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2026, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2027, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2028, 'H2VCL', 2021, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2029, 'H2VCL', 2020, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+-- INSERT INTO "CostFixed" VALUES('uiuc', 2030, 'H2VCL', 2020, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 
 
 CREATE TABLE "CapacityToActivity" (
@@ -1215,11 +1452,12 @@ INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'NUCLEAR', 0.9
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWS', 0.0,'CHW CF');
--- INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWS', 0.0,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWS', 1.0,'CHW CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'CHWS', 0.5,'CHW CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'CHWS', 0.5,'CHW CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'CHWS', 1.0,'CHW CF');
 -- INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'CHWS', 1.0,'CHW CF');
+
 
 CREATE TABLE "CapacityFactorProcess" (
 	"regions"	text,
