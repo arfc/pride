@@ -169,7 +169,7 @@ CREATE TABLE "TechOutputSplit" (
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
 --
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','USTM', 0.55,'');
+-- INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','USTM', 0.55,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','USTM', 0.55,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','USTM', 0.55,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','USTM', 0.55,'');
@@ -181,7 +181,7 @@ INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','USTM', 0.55,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','USTM', 0.55,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','USTM', 0.55,'');
 --
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','UCWS', 0.45,'');
+-- INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','UCWS', 0.45,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','UCWS', 0.45,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','UCWS', 0.45,'');
 INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','UCWS', 0.45,'');
@@ -968,17 +968,17 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'DCW', 4.28, 'conve
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'DCW', 4.28, 'converts electricity to chilled water (in MWth)');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'DCW', 4.28, 'converts electricity to chilled water (in MWth)');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2020, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2021, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2022, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2023, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2024, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2025, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2026, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2027, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2028, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2029, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2030, 'UCWS', 285.714, 'converts chilled water (in mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2020, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2021, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2022, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2023, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2024, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2025, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2026, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2027, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2028, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2029, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'DCW', 'DGEOT', 2030, 'UCWS', 285.714, 'converts chilled water (in Mwth) to chilled water in (tons)');
 
 
 CREATE TABLE "DiscountRate" (
