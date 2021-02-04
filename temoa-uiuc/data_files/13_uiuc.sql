@@ -352,16 +352,16 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'NUCLEAR', 100, 'MWth', 'max smr 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 --
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 
 
 CREATE TABLE "MaxActivity" (
@@ -1214,12 +1214,12 @@ INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'NUCLEAR', 0.92,
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'NUCLEAR', 0.92,'average nuclear CF');
 INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'NUCLEAR', 0.92,'average nuclear CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWS', 0.0,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWS', 0.0,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'CHWS', 0.5,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'CHWS', 0.5,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'CHWS', 1.0,'CHW CF');
-INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'CHWS', 1.0,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'day', 'CHWS', 0.0,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','winter', 'night', 'CHWS', 0.0,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'day', 'CHWS', 0.5,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','inter', 'night', 'CHWS', 0.5,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'day', 'CHWS', 1.0,'CHW CF');
+-- INSERT INTO "CapacityFactorTech" VALUES('uiuc','summer', 'night', 'CHWS', 1.0,'CHW CF');
 
 CREATE TABLE "CapacityFactorProcess" (
 	"regions"	text,
