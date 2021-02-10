@@ -1572,7 +1572,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2033, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2034, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2035, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2036, 'ELC', 1.00,'pure electricity imports');
-INSERT INTO "Ef` in both `UIUC_2050_land.sql` and `UIUC_2050_cost.sql`ficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2037, 'ELC', 1.00,'pure electricity imports');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2037, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2038, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2039, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2040, 'ELC', 1.00,'pure electricity imports');
