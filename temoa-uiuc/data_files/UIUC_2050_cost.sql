@@ -934,7 +934,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2038,'UV
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2039,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2040,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2041,'UVCL',0.00889,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'I would approach the problem differently. Let me put this in terms of a co2eq', 'GSL','GSLVCL', 2042,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2042,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2043,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2044,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2045,'UVCL',0.00889,'tCO2/kGal','from F&S');
@@ -2774,7 +2774,7 @@ INSERT INTO "CostFixed" VALUES('uiuc', 2046, 'H2VCL', 2045, 0.003261417, 'M$/yea
 INSERT INTO "CostFixed" VALUES('uiuc', 2047, 'H2VCL', 2045, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2048, 'H2VCL', 2045, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 INSERT INTO "CostFixed" VALUES('uiuc', 2049, 'H2VCL', 2045, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
-INSERT INTO "CostFixed" VALUES('uiuc', 2050, 'H2VCL', 2041, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
+INSERT INTO "CostFixed" VALUES('uiuc', 2050, 'H2VCL', 2045, 0.003261417, 'M$/year', 'assuming a 15 year lifespan');
 
 
 CREATE TABLE "CapacityToActivity" (
