@@ -54,7 +54,6 @@ INSERT INTO "time_periods" VALUES(2049, 'f');
 INSERT INTO "time_periods" VALUES(2050, 'f');
 INSERT INTO "time_periods" VALUES(2051, 'f');
 
-NSERT INTO "time_periods" VALUES(2031, 'f');
 
 
 CREATE TABLE "time_period_labels" (
