@@ -690,9 +690,9 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPSOL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UH',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',15,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',15,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',15,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
@@ -934,7 +934,7 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2038,'UV
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2039,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2040,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2041,'UVCL',0.00889,'tCO2/kGal','from F&S');
-INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2042,'UVCL',0.00889,'tCO2/kGal','from F&S');
+INSERT INTO "EmissionActivity" VALUES ('uiuc', 'I would approach the problem differently. Let me put this in terms of a co2eq', 'GSL','GSLVCL', 2042,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2043,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2044,'UVCL',0.00889,'tCO2/kGal','from F&S');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GSL','GSLVCL', 2045,'UVCL',0.00889,'tCO2/kGal','from F&S');
@@ -1565,6 +1565,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2047, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2048, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2049, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPSOL', 2050, 'ELC', 1.00,'pure electricity imports');
+
 -- Define what happens to intermediate commodities here
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2021, 'UELC', 1.00,'');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'UL', 2022, 'UELC', 1.00,'');
@@ -2025,17 +2026,17 @@ INSERT INTO "CostVariable" VALUES('uiuc', 2036, 'IMPWIND', 2016, 0.0384, 'M$/GWh
 INSERT INTO "CostVariable" VALUES('uiuc', 2037, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
 INSERT INTO "CostVariable" VALUES('uiuc', 2038, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
 INSERT INTO "CostVariable" VALUES('uiuc', 2039, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2040, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2041, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2042, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2043, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2044, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2045, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2046, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2047, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2048, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2049, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
-INSERT INTO "CostVariable" VALUES('uiuc', 2050, 'IMPWIND', 2016, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2040, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2041, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2042, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2043, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2044, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2045, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2046, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2047, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2048, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2049, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
+INSERT INTO "CostVariable" VALUES('uiuc', 2050, 'IMPWIND', 2026, 0.0384, 'M$/GWh', 'wind farm PPA');
 
 INSERT INTO "CostVariable" VALUES('uiuc', 2021, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
 INSERT INTO "CostVariable" VALUES('uiuc', 2022, 'IMPSOL', 2016, 0.196, 'M$/GWh', '');
