@@ -577,10 +577,10 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc','GSLVCL', 2020, 0.04666,'units: kga
 INSERT INTO "ExistingCapacity" VALUES('uiuc','DSLVCL', 2020, 0.01334,'units: kgal/h', 'Diesel fuel consumption');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','E85VCL', 2020, 0.00294,'units: kgal/h', 'E85 fuel consumption');
 --
-INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 26.2,'units: MWe', 'UIUC uses only the electric chillers');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 37.5,'units: mega-tons', 'UIUC uses only the electric chillers');
 -- INSERT INTO "ExistingCapacity" VALUES('uiuc','GEOT', 2020, 2,'units: MWth', '');
-INSERT INTO "ExistingCapacity" VALUES('uiuc','GH', 2020, 0.052,'units: MWth', '');
-INSERT INTO "ExistingCapacity" VALUES('uiuc','GC', 2020, 12.21,'units: tons', '');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GH', 2020, 0.00052,'units: MWth', '');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GC', 2020, 0.01221,'units: tons', '');
 
 
 CREATE TABLE "EmissionLimit" (
