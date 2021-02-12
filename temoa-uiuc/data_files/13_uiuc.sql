@@ -389,6 +389,17 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NUCLEAR', 100, 'MWth', 'max smr 
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+--
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'GEOT', 175., 'MWth', 'max GEOT capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'GEOT', 175., 'MWth', 'max GEOT capacity');
 
 
 CREATE TABLE "MaxActivity" (
@@ -435,6 +446,17 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '1
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
+
+INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2022, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2023, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2024, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2025, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2026, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'GEOT', 100, 'electric GWh', '');
+INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'GEOT', 100, 'electric GWh', '');
 
 
 CREATE TABLE "LifetimeTech" (
