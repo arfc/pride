@@ -21,9 +21,10 @@ variables = {'generation': 'V_FlowOut',
 time_horizon = np.arange(2021, 2031, 1)
 
 elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NTURBINE']
-ind_techs = ['NUCLEAR', 'ABBOTT', 'GEOT']
+ind_techs = ['NUCLEAR', 'ABBOTT', 'GH']
+# ind_techs = ['NUCLEAR', 'ABBOTT', 'GEOT']
 vcl_techs = ['GSLVCL', 'DSLVCL', 'E85VCL', 'ELCVCL', 'H2VCL']
-chw_techs = ['CHWS', 'GEOT']
+chw_techs = ['CHWS', 'GC']
 # chw_techs = ['CHWS', 'DGEOT']
 emissions = {'co2eq': ['IMPELC', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL'],
              'ewaste': ['IMPSOL', 'IMPWIND', 'ELCVCL'],
