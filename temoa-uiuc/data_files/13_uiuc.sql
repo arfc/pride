@@ -169,29 +169,27 @@ CREATE TABLE "TechOutputSplit" (
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
 --
--- INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','USTM', 0.55,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','USTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','GSTM', 0.55,'');
 --
--- INSERT INTO "TechOutputSplit" VALUES ('uiuc',2020,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','UCWS', 0.45,'');
-INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','UCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','GCWS', 0.45,'');
 
 
 CREATE TABLE "TechInputSplit" (
