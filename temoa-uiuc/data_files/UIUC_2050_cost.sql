@@ -2539,6 +2539,100 @@ INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2048, 0.0116, 'M$/gge', 'cost of
 INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2049, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
 INSERT INTO "CostInvest" VALUES('uiuc','H2VCL', 2050, 0.0116, 'M$/gge', 'cost of hydrogen vehicle');
 
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2021, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2022, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2023, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2024, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2025, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2026, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2027, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2028, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2029, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2030, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2031, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2032, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2033, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2034, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2035, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2036, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2037, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2038, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2039, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2040, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2041, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2042, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2043, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2044, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2045, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2046, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2047, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2048, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2049, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','GSLVCL', 2050, 0.0018, 'M$/gge', 'cost of gasoline vehicle');
+
+
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2021, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2022, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2023, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2024, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2025, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2026, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2027, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2028, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2029, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2030, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2031, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2032, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2033, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2034, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2035, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2036, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2037, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2038, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2039, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2040, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2041, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2042, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2043, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2044, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2045, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2046, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2047, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2048, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2049, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','E85VCL', 2050, 0.0015, 'M$/gge', 'cost of e85 vehicle');
+
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2021, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2022, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2023, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2024, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2025, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2026, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2027, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2028, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2029, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2030, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2031, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2032, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2033, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2034, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2035, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2036, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2037, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2038, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2039, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2040, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2041, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2042, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2043, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2044, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2045, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2046, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2047, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2048, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2049, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+INSERT INTO "CostInvest" VALUES('uiuc','DSLVCL', 2050, 0.0018, 'M$/gge', 'cost of diesel vehicle');
+
 
 CREATE TABLE "CostFixed" (
 	"regions"	text NOT NULL,
@@ -3095,5 +3189,3 @@ CREATE TABLE "Output_CapacityByPeriodAndTech" (
 	PRIMARY KEY("regions","scenario","t_periods","tech")
 );
 
-
-COMMIT;
