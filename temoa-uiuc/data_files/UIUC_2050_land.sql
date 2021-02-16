@@ -115,8 +115,10 @@ INSERT INTO "technologies" VALUES('ELCVCL','r','transport', 'electric vehicle','
 INSERT INTO "technologies" VALUES('IMPH2','r','transport', 'imported hydrogen','hydrogen');
 INSERT INTO "technologies" VALUES('H2VCL','r','transport', 'hydrogen vehicle','hydrogen');
 INSERT INTO "technologies" VALUES('ELECTROL', 'p', 'electric', 'electrolysis converts elc to h2', 'hydrogen');
-INSERT INTO "technologies" VALUES('CHWS','ps','electric','electric storage','storage');
-INSERT INTO "technologies" VALUES('GEOT', 'p', 'electric', 'university heating', 'steam');
+INSERT INTO "technologies" VALUES('CHWS','p','electric','chw production','chilled water production');
+INSERT INTO "technologies" VALUES('GEOT', 'p', 'electric', 'geothermal plant', 'steam');
+INSERT INTO "technologies" VALUES('GH', 'p', 'electric', 'dummy geothermal plant to convert units', 'steam');
+INSERT INTO "technologies" VALUES('GC', 'p', 'electric', 'dummy geothermal plant to convert units', 'chilled water');
 
 
 CREATE TABLE "sector_labels" (
@@ -172,6 +174,10 @@ INSERT INTO "commodities" VALUES('NSTM','p','nuclear steam');
 INSERT INTO "commodities" VALUES('UELC', 'd', 'university electricity');
 INSERT INTO "commodities" VALUES('USTM','d','university steam');
 INSERT INTO "commodities" VALUES('UVCL','d','university vehicle fleet');
+INSERT INTO "commodities" VALUES('UCWS','d','university chilled water');
+INSERT INTO "commodities" VALUES('GSTM', 'p', 'dummy geothermal steam');
+INSERT INTO "commodities" VALUES('GCWS', 'p', 'dummy geothermal chilled water');
+
 
 CREATE TABLE "TechOutputSplit" (
 	"regions"	TEXT,
@@ -185,6 +191,68 @@ CREATE TABLE "TechOutputSplit" (
 	FOREIGN KEY("tech") REFERENCES "technologies"("tech"),
 	PRIMARY KEY("regions","periods","tech","output_comm")
 );
+--
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2031,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2032,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2033,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2034,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2035,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2036,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2037,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2038,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2039,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2040,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2041,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2042,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2043,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2044,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2045,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2046,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2047,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2048,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2049,'GEOT','GSTM', 0.55,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2050,'GEOT','GSTM', 0.55,'');
+--
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2021,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2022,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2023,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2024,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2025,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2026,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2027,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2028,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2029,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2030,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2031,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2032,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2033,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2034,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2035,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2036,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2037,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2038,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2039,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2040,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2041,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2042,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2043,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2044,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2045,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2046,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2047,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2048,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2049,'GEOT','GCWS', 0.45,'');
+INSERT INTO "TechOutputSplit" VALUES ('uiuc',2050,'GEOT','GCWS', 0.45,'');
 
 
 CREATE TABLE "TechInputSplit" (
@@ -313,36 +381,36 @@ INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'GSLVCL', 408.713, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'DSLVCL', 116.828, 'kgal','');
 INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'E85VCL', 25.727, 'kgal','');
 --
-INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2023, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2031, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2032, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2033, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2034, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2035, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2036, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2037, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2038, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2039, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2040, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2041, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2042, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2043, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2044, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2045, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2046, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2047, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2048, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2049, 'CHWS', 80, 'electric GWh','');
-INSERT INTO "MinActivity" VALUES('uiuc', 2050, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2021, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2022, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2023, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2024, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2025, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2026, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2027, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2028, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2029, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2030, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2031, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2032, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2033, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2034, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2035, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2036, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2037, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2038, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2039, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2040, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2041, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2042, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2043, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2044, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2045, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2046, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2047, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2048, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2049, 'CHWS', 80, 'electric GWh','');
+-- INSERT INTO "MinActivity" VALUES('uiuc', 2050, 'CHWS', 80, 'electric GWh','');
 
 
 CREATE TABLE "MaxCapacity" (
@@ -557,36 +625,37 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'NUCLEAR', 100, 'MWth', 'max smr 
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 -- 
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
-INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2031, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2032, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2033, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2034, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2035, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2036, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2037, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2038, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2039, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2040, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2041, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2042, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2043, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2044, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2045, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2046, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2047, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2048, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'CHWS', 26.2, 'MWe', 'max CHWS capacity');
+
 
 CREATE TABLE "MaxActivity" (
 	"regions"	text,
@@ -673,6 +742,17 @@ INSERT INTO "MaxActivity" VALUES('uiuc', 2050, 'IMPELC', 250, 'electric GWh', '1
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 -- INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'IMPELC', 250, 'electric GWh', '120 MWe imp limit met year round');
 
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2021, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2022, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2023, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2024, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2025, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2026, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2027, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2028, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2029, 'GEOT', 100, 'electric GWh', '');
+-- INSERT INTO "MaxActivity" VALUES('uiuc', 2030, 'GEOT', 100, 'electric GWh', '');
+
 
 CREATE TABLE "LifetimeTech" (
 	"regions"	text,
@@ -705,6 +785,8 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GEOT',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'GH',50,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'GC',50,'');
 
 
 CREATE TABLE "LifetimeProcess" (
@@ -790,8 +872,10 @@ INSERT INTO "ExistingCapacity" VALUES('uiuc','GSLVCL', 2020, 0.04666,'units: kga
 INSERT INTO "ExistingCapacity" VALUES('uiuc','DSLVCL', 2020, 0.01334,'units: kgal/h', 'Diesel fuel consumption');
 INSERT INTO "ExistingCapacity" VALUES('uiuc','E85VCL', 2020, 0.00294,'units: kgal/h', 'E85 fuel consumption');
 -- 
-INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 26.2,'units: MWe', 'UIUC uses only the electric chillers');
-INSERT INTO "ExistingCapacity" VALUES('uiuc','GEOT', 2020, 0.095,'units: MWth', '');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','CHWS', 2016, 37.5,'units: kilo-tons', 'UIUC uses only the electric chillers');
+-- INSERT INTO "ExistingCapacity" VALUES('uiuc','GEOT', 2020, 2,'units: MWth', '');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GH', 2020, 0.0523,'units: MWth', '');
+INSERT INTO "ExistingCapacity" VALUES('uiuc','GC', 2020, 0.01221,'units: kilo-tons', '');
 
 
 CREATE TABLE "EmissionLimit" (
@@ -1192,8 +1276,8 @@ CREATE TABLE "Efficiency" (
 );
 --UIUC data
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2021, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2022, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2023, 'ELC', 1.00,'pure electricity import');
@@ -1225,7 +1309,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2048, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2049, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2050, 'ELC', 1.00,'pure electricity import');
 -- Vehicle demand
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2020, 'GSL', 1.00,'pure gasoline import');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2020, 'GSL', 1.00,'pure gasoline import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2021, 'GSL', 1.00,'pure gasoline import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2020, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
@@ -1260,7 +1344,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2048, 'UVCL', 1.00,'1 g
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2049, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2050, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2020, 'DSL', 1.00,'pure diesel import');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2020, 'DSL', 1.00,'pure diesel import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2021, 'DSL', 1.00,'pure diesel import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2020, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
@@ -1295,7 +1379,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2048, 'UVCL', 1.155,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2049, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2050, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2020, 'E85', 1.00,'pure E85 import');
+-- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2020, 'E85', 1.00,'pure E85 import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2021, 'E85', 1.00,'pure E85 import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2020, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
@@ -1711,69 +1795,165 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2048, 'H2', 0.67, 'co
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2049, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'ELECTROL', 2050, 'H2', 0.67, 'converts ELC to H2 efficiency kWh/kg-H2');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2016, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2021, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2022, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2023, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2024, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2025, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2026, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2027, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2028, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2029, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2030, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2031, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2032, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2033, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2034, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2035, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2036, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2037, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2038, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2039, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2040, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2041, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2042, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2043, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2044, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2045, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2046, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2047, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2048, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2049, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2050, 'ELC', 1.00,'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2016, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2021, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2022, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2023, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2024, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2025, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2026, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2027, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2028, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2029, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2030, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2031, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2032, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2033, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2034, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2035, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2036, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2037, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2038, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2039, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2040, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2041, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2042, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2043, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2044, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2045, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2046, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2047, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2048, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2049, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'CHWS', 2050, 'UCWS', 1.286, 'converts electricity to thermal and back to electricity');
 -- GEOT
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2031, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2032, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2033, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2034, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2035, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2036, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2037, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2038, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2039, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2040, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2041, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2042, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2043, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2044, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2045, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2046, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2047, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2048, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2049, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
-INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2050, 'USTM', 4.24,'converts electricity to thermal energy, COP considers energy savings');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2031, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2032, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2033, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2034, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2035, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2036, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2037, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2038, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2039, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2040, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2041, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2042, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2043, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2044, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2045, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2046, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2047, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2048, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2049, 'GSTM', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2050, 'GSTM', 1.00, 'converts electricity to electricity');
+--
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2020, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2021, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2022, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2023, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2024, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2025, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2026, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2027, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2028, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2029, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2030, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2031, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2032, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2033, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2034, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2035, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2036, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2037, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2038, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2039, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2040, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2041, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2042, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2043, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2044, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2045, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2046, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2047, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2048, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2049, 'GCWS', 1.00, 'converts electricity to electricity');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ELC', 'GEOT', 2050, 'GCWS', 1.00, 'converts electricity to electricity');
+-- GEOT: GH
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2020, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2021, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2022, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2023, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2024, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2025, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2026, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2027, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2028, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2029, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2030, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2031, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2032, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2033, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2034, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2035, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2036, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2037, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2038, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2039, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2040, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2041, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2042, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2043, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2044, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2045, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2046, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2047, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2048, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2049, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GSTM', 'GH', 2050, 'USTM', 3.74, 'converts electricity (MWe) to steam (MWth)');
+-- GEOT: GC
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2020, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2021, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2022, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2023, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2024, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2025, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2026, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2027, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2028, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2029, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2030, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2031, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2032, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2033, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2034, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2035, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2036, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2037, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2038, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2039, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2040, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2041, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2042, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2043, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2044, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2045, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2046, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2047, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2048, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2049, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2050, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
 
 
 CREATE TABLE "DiscountRate" (
@@ -1813,6 +1993,13 @@ INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','day','USTM',0.1
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','night','USTM',0.189,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','day','USTM',0.092,'');
 INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','night','USTM',0.092,'');
+-- this is a guess
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','day','UCWS',0.19,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','inter','night','UCWS',0.189,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','day','UCWS',0.092,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','winter','night','UCWS',0.092,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','day','UCWS',0.219,'');
+INSERT INTO "DemandSpecificDistribution" VALUES('uiuc','summer','night','UCWS',0.218,'');
 
 
 CREATE TABLE "Demand" (
@@ -1857,6 +2044,7 @@ INSERT INTO "Demand" VALUES('uiuc',2047, 'UELC', 611.2, 'electric GWh', 'from 20
 INSERT INTO "Demand" VALUES('uiuc',2048, 'UELC', 617.3, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2049, 'UELC', 623.5, 'electric GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2050, 'UELC', 629.7, 'electric GWh', 'from 2015 eDNA data');
+--
 INSERT INTO "Demand" VALUES('uiuc',2021, 'USTM', 599.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2022, 'USTM', 605.2, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2023, 'USTM', 611.2, 'thermal GWh', 'from 2015 eDNA data');
@@ -1887,6 +2075,37 @@ INSERT INTO "Demand" VALUES('uiuc',2047, 'USTM', 776.1, 'thermal GWh', 'from 201
 INSERT INTO "Demand" VALUES('uiuc',2048, 'USTM', 783.8, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2049, 'USTM', 791.7, 'thermal GWh', 'from 2015 eDNA data');
 INSERT INTO "Demand" VALUES('uiuc',2050, 'USTM', 799.6, 'thermal GWh', 'from 2015 eDNA data');
+--
+INSERT INTO "Demand" VALUES('uiuc',2021, 'UCWS', 85.74, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2022, 'UCWS', 86.60, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2023, 'UCWS', 87.46, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2024, 'UCWS', 88.34, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2025, 'UCWS', 89.22, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2026, 'UCWS', 90.11, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2027, 'UCWS', 91.01, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2028, 'UCWS', 91.92, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2029, 'UCWS', 92.84, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2030, 'UCWS', 93.77, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2031, 'UCWS', 94.71, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2032, 'UCWS', 95.66, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2033, 'UCWS', 96.61, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2034, 'UCWS', 97.58, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2035, 'UCWS', 98.56, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2036, 'UCWS', 99.54, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2037, 'UCWS', 100.54, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2038, 'UCWS', 101.54, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2039, 'UCWS', 102.56, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2040, 'UCWS', 103.58, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2041, 'UCWS', 104.62, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2042, 'UCWS', 105.66, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2043, 'UCWS', 106.72, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2044, 'UCWS', 107.79, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2045, 'UCWS', 108.87, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2046, 'UCWS', 109.95, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2047, 'UCWS', 111.05, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2048, 'UCWS', 112.17, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2049, 'UCWS', 113.29, 'megaton-hours', '2019 data');
+INSERT INTO "Demand" VALUES('uiuc',2050, 'UCWS', 114.42, 'megaton-hours', '2019 data');
 -- Assumes 1% growth
 INSERT INTO "Demand" VALUES('uiuc',2021, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
 INSERT INTO "Demand" VALUES('uiuc',2022, 'UVCL', 551.5, 'K_gal of Gasoline Equiv.', 'from 2019 F&S data');
@@ -2040,37 +2259,68 @@ INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2047, 229.7, 'm^2/MWth', 'aver
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2048, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2049, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
 INSERT INTO "CostInvest" VALUES('uiuc','NUCLEAR', 2050, 229.7, 'm^2/MWth', 'average specific land use of a SMR');
--- GEOT
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2021, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2022, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2023, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2024, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2025, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2026, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2027, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2028, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2029, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2030, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2031, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2032, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2033, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2034, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2035, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2036, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2037, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2038, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2039, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2040, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2041, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2042, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2043, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2044, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2045, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2046, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2047, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2048, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2049, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
-INSERT INTO "CostInvest" VALUES('uiuc','GEOT', 2050, 1646.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+-- GEOT: GH
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2021, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2022, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2023, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2024, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2025, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2026, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2027, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2028, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2029, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2030, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2031, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2032, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2033, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2034, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2035, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2036, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2037, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2038, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2039, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2040, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2041, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2042, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2043, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2044, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2045, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2046, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2047, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2048, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2049, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GH', 2050, 905.7, 'm^2/MWth', 'specific land use req. of geothermal plant and well-field');
+-- GEOT: GC
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2021, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2022, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2023, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2024, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2025, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2026, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2027, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2028, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2029, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2030, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2031, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2032, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2033, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2034, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2035, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2036, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2037, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2038, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2039, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2040, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2041, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2042, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2043, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2044, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2045, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2046, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2047, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2048, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2049, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
+INSERT INTO "CostInvest" VALUES('uiuc','GC', 2050, 3301.3, 'm^2/kilo-tons', 'specific land use req. of geothermal plant and well-field');
 --
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2021, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2022, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
@@ -2103,36 +2353,36 @@ INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2048, 849.8, 'm^2/MWth', 'speci
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2049, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
 INSERT INTO "CostInvest" VALUES('uiuc','ABBOTT', 2050, 849.8, 'm^2/MWth', 'specific land use of a 54% nat gas and 46% coal plant');
 --
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2031, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2032, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2033, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2034, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2035, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2036, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2037, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2038, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2039, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2040, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2041, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2042, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2043, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2044, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2045, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2046, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2047, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2048, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2049, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
-INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2050, 95.23, 'm^2/MWe', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2021, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2022, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2023, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2024, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2025, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2026, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2027, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2028, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2029, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2030, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2031, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2032, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2033, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2034, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2035, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2036, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2037, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2038, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2039, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2040, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2041, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2042, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2043, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2044, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2045, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2046, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2047, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2048, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2049, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
+INSERT INTO "CostInvest" VALUES('uiuc','CHWS', 2050, 66, 'm^2/kilo-tons', 'average footprint of a CHW plant w/ thermal storage');
 -- --
 -- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2021, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
 -- INSERT INTO "CostInvest" VALUES('uiuc','ELECTROL', 2022, 1.03019, 'M$/MWe', 'avg investment cost for alkaline electrolysis cells');
@@ -2209,7 +2459,9 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 8.76, 'electric GWh');
-INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GEOT', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GEOT', 8.76, 'electric GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GH', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GC', 8.76, 'thermal GWh');
 
 
 CREATE TABLE "CapacityFactorTech" (
@@ -2339,7 +2591,7 @@ CREATE TABLE "StorageDuration" (
 	"duration_notes"	text,
 	PRIMARY KEY("regions","tech")
 );
-INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.0000761,'units: 2/3 * 1/8760 years');
+-- INSERT INTO "StorageDuration" VALUES ('uiuc','CHWS',0.0000761,'units: 2/3 * 1/8760 years');
 
 
 CREATE TABLE "groups" (
