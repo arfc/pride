@@ -10,7 +10,7 @@
 
 # Experimental Scenario
 DBS = ["UIUC_2050_cost"]
-SCENARIOS = ["cost_scenario"]
+SCENARIOS = ["land_scenario"]
 FOLDER = ["UIUC_2050_cost_cost_scenario_model"]
 
 SECTORS = ["ind", "elc", "vcl", "all"]
