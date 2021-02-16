@@ -1275,7 +1275,8 @@ CREATE TABLE "Efficiency" (
 );
 --UIUC data
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPNATGAS', 2021, 'GAS', 1.00,'pure gas import');
--- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
+--
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2000, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2020, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2021, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2022, 'ELC', 1.00,'pure electricity import');
@@ -1308,7 +1309,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2048, 'ELC', 1.00,'pu
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2049, 'ELC', 1.00,'pure electricity import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPELC', 2050, 'ELC', 1.00,'pure electricity import');
 -- Vehicle demand
--- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2020, 'GSL', 1.00,'pure gasoline import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2020, 'GSL', 1.00,'pure gasoline import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPGSL', 2021, 'GSL', 1.00,'pure gasoline import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2020, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
@@ -1343,7 +1344,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2048, 'UVCL', 1.00,'1 g
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2049, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GSL', 'GSLVCL', 2050, 'UVCL', 1.00,'1 gal gsl = 1 gal gsl');
 --
--- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2020, 'DSL', 1.00,'pure diesel import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2020, 'DSL', 1.00,'pure diesel import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPDSL', 2021, 'DSL', 1.00,'pure diesel import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2020, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
@@ -1378,7 +1379,7 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2048, 'UVCL', 1.155,'1 
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2049, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 INSERT INTO "Efficiency" VALUES('uiuc', 'DSL', 'DSLVCL', 2050, 'UVCL', 1.155,'1 gal dsl = 1.155 gal gsl');
 --
--- INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2020, 'E85', 1.00,'pure E85 import');
+INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2020, 'E85', 1.00,'pure E85 import');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPE85', 2021, 'E85', 1.00,'pure E85 import');
 --
 INSERT INTO "Efficiency" VALUES('uiuc', 'E85', 'E85VCL', 2020, 'UVCL', 0.734,'1 gal E85 = 0.734 gal gsl');
@@ -1930,26 +1931,26 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2027, 'UCWS', 1.2229, 'con
 INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2028, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2029, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
 INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2030, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2031, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2032, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2033, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2034, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2035, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2036, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2037, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2038, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2039, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2040, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2041, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2042, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2043, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2044, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2045, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2046, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2047, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2048, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2049, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
-INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2050, 'uCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2031, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2032, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2033, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2034, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2035, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2036, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2037, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2038, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2039, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2040, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2041, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2042, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2043, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2044, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2045, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2046, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2047, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2048, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2049, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
+INSERT INTO "Efficiency" VALUES('uiuc', 'GCWS', 'GC', 2050, 'UCWS', 1.2229, 'converts electricity (MWe) to chilled water (kilo-tons)');
 
 
 CREATE TABLE "DiscountRate" (

@@ -9,9 +9,9 @@
 #           "05_uiuc_scenario05_model"]
 
 # Experimental Scenario
-DBS = ["14_uiuc"]
-SCENARIOS = ["scenario14"]
-FOLDER = ["14_uiuc_scenario14_model"]
+DBS = ["UIUC_2050_cost"]
+SCENARIOS = ["cost_scenario"]
+FOLDER = ["UIUC_2050_cost_cost_scenario_model"]
 
 SECTORS = ["ind", "elc", "vcl", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
