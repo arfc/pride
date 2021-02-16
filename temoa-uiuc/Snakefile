@@ -25,24 +25,24 @@ rule all:
         expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
                zip,
                db=DBS, scenario=SCENARIOS),
-        expand("figures/{scenario}_elc_capacity.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_ind_capacity.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_vcl_capacity.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_elc_generation.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_ind_generation.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_vcl_generation.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_all_emissions_co2eq.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_all_emissions_ewaste.png",
-               scenario=SCENARIOS),
-        expand("figures/{scenario}_all_emissions_spent-fuel.png",
-               scenario=SCENARIOS)
+        # expand("figures/{scenario}_elc_capacity.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_ind_capacity.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_vcl_capacity.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_elc_generation.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_ind_generation.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_vcl_generation.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_all_emissions_co2eq.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_all_emissions_ewaste.png",
+        #        scenario=SCENARIOS),
+        # expand("figures/{scenario}_all_emissions_spent-fuel.png",
+        #        scenario=SCENARIOS)
 
 
 
@@ -63,29 +63,29 @@ rule temoa_run:
     shell:
         "set +o pipefail; yes | python $TEMOA/temoa_model --config={input}"
 
-rule make_emission_plots:
-    input:
-        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
-               zip,
-               db=DBS, scenario=SCENARIOS)
-    output:
-        "figures/{scenario}_all_emissions_co2eq.png",
-        "figures/{scenario}_all_emissions_spent-fuel.png",
-        "figures/{scenario}_all_emissions_ewaste.png"
-    script:
-        "plot_emissions.py"
+# rule make_emission_plots:
+#     input:
+#         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+#                zip,
+#                db=DBS, scenario=SCENARIOS)
+#     output:
+#         "figures/{scenario}_all_emissions_co2eq.png",
+#         "figures/{scenario}_all_emissions_spent-fuel.png",
+#         "figures/{scenario}_all_emissions_ewaste.png"
+#     script:
+#         "plot_emissions.py"
 
-rule make_capacity_plots:
-    input:
-        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
-               zip,
-               db=DBS, scenario=SCENARIOS)
-    output:
-        "figures/{scenario}_elc_capacity.png",
-        "figures/{scenario}_ind_capacity.png",
-        "figures/{scenario}_vcl_capacity.png",
-        "figures/{scenario}_elc_generation.png",
-        "figures/{scenario}_ind_generation.png",
-        "figures/{scenario}_vcl_generation.png",
-    script:
-        "plot_capacity.py"
+# rule make_capacity_plots:
+#     input:
+#         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+#                zip,
+#                db=DBS, scenario=SCENARIOS)
+#     output:
+#         "figures/{scenario}_elc_capacity.png",
+#         "figures/{scenario}_ind_capacity.png",
+#         "figures/{scenario}_vcl_capacity.png",
+#         "figures/{scenario}_elc_generation.png",
+#         "figures/{scenario}_ind_generation.png",
+#         "figures/{scenario}_vcl_generation.png",
+#     script:
+#         "plot_capacity.py"
