@@ -100,7 +100,7 @@ INSERT INTO "technologies" VALUES('IMPELC','r','electric', 'imported electricity
 INSERT INTO "technologies" VALUES('IMPNATGAS','r','supply', 'imported natural gas','natural gas');
 INSERT INTO "technologies" VALUES('ABBOTT','pb','industrial', 'natural gas power plant','steam');
 INSERT INTO "technologies" VALUES('TURBINE', 'p', 'electric', 'turbine that converts steam to elc', 'electricity');
-INSERT INTO "technologies" VALUES('NTURBINE', 'p', 'electric', 'turbine that converts nuclear steam to elc', 'electricity');
+INSERT INTO "technologies" VALUES('SPINNY', 'p', 'electric', 'turbine that converts nuclear steam to elc', 'electricity');
 INSERT INTO "technologies" VALUES('UL', 'p', 'electric', 'university lighting', 'electricity');
 INSERT INTO "technologies" VALUES('UH', 'p', 'industrial', 'university heating', 'steam');
 INSERT INTO "technologies" VALUES('NUCLEAR', 'pb', 'steam', 'micro nuclear power plant', 'electricity');
@@ -582,16 +582,16 @@ INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'ABBOTT', 375, 'MWth', 'Max capac
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2049, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2050, 'TURBINE', 85, 'MWth', 'Max capacity of abbott');
 --
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
--- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'NTURBINE', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2023, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2024, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2025, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2026, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2027, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2028, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2029, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
+-- INSERT INTO "MaxCapacity" VALUES('uiuc', 2030, 'SPINNY', 85, 'MWth', 'Max capacity of abbott');
 --
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2021, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
 -- INSERT INTO "MaxCapacity" VALUES('uiuc', 2022, 'NUCLEAR', 100, 'MWth', 'max smr capacity');
@@ -769,7 +769,7 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPDSL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPE85',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPH2',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'TURBINE',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'NTURBINE',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'SPINNY',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPWIND',30,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPSOL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',40,'');
@@ -803,7 +803,7 @@ CREATE TABLE "LifetimeProcess" (
 -- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UH',2000,1000,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'ABBOTT',2000,60,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'TURBINE',2000,60,'#forexistingcap');
--- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'NTURBINE',2021,60,'#forexistingcap');
+-- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'SPINNY',2021,60,'#forexistingcap');
 
 CREATE TABLE "LifetimeLoanTech" (
 	"regions"	text,
@@ -818,7 +818,7 @@ INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UL',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UH',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'ABBOTT',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'TURBINE',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NTURBINE',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'SPINNY',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NUCLEAR',40,'');
 
 
@@ -971,6 +971,39 @@ INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2047,'ST
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2048,'STM',0.26,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2049,'STM',0.26,'tCO2/MWth','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'GAS','ABBOTT', 2050,'STM',0.26,'tCO2/MWth','from iCAP');
+
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2000,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2021,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2022,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2023,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2024,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2025,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2026,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2027,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2028,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2029,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2030,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2031,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2032,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2033,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2034,'ELC',0.00001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2035,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2036,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2037,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2038,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2039,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2040,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2041,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2042,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2043,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2044,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2045,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2046,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2047,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2048,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2049,'ELC',0.001,'tCO2/MWe','from iCAP');
+-- INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'STM','TURBINE', 2050,'ELC',0.001,'tCO2/MWe','from iCAP');
+
 --
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2000,'ELC',0.825,'tCO2/MWe','from iCAP');
 INSERT INTO "EmissionActivity" VALUES ('uiuc', 'co2eq', 'ethos','IMPELC', 2020,'ELC',0.825,'tCO2/MWe','from iCAP');
@@ -1573,36 +1606,36 @@ INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2048, 'NSTM', 1.00, 
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2049, 'NSTM', 1.00, 'Creates steam');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'NUCLEAR', 2050, 'NSTM', 1.00, 'Creates steam');
 --
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2021, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2022, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2023, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2024, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2025, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2026, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2027, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2028, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2029, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2030, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2031, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2032, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2033, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2034, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2035, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2036, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2037, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2038, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2039, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2040, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2041, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2042, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2043, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2044, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2045, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2046, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2047, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2048, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2049, 'ELC', 0.33, 'Converts steam to electricity.');
-INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'NTURBINE', 2050, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2021, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2022, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2023, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2024, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2025, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2026, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2027, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2028, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2029, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2030, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2031, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2032, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2033, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2034, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2035, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2036, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2037, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2038, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2039, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2040, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2041, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2042, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2043, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2044, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2045, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2046, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2047, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2048, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2049, 'ELC', 0.33, 'Converts steam to electricity.');
+INSERT INTO "Efficiency" VALUES('uiuc', 'NSTM', 'SPINNY', 2050, 'ELC', 0.33, 'Converts steam to electricity.');
 -- Define renewables here
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2016, 'ELC', 1.00,'pure electricity imports');
 INSERT INTO "Efficiency" VALUES('uiuc', 'ethos', 'IMPWIND', 2021, 'ELC', 1.00,'pure electricity imports');

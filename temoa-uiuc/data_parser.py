@@ -20,7 +20,7 @@ variables = {'generation': 'V_FlowOut',
 
 time_horizon = np.arange(2021, 2051, 1)
 
-elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NTURBINE']
+elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'SPINNY']
 ind_techs = ['NUCLEAR', 'ABBOTT', 'GH']
 # ind_techs = ['NUCLEAR', 'ABBOTT', 'GEOT']
 vcl_techs = ['GSLVCL', 'DSLVCL', 'E85VCL', 'ELCVCL', 'H2VCL']
@@ -163,7 +163,7 @@ def create_column(lines, years, tech):
         This is the technology of interest. Currently only
         accepts: "NUCLEAR", "ABBOTT", "TURBINE", "IMPELC",
         "IMPWIND", "IMPSOL", "DSLVCL", "GSLVCL", "ELCVCL",
-        "E85VCL", "NTURBINE", "IMPGSL", "IMPDSL", "IMPE85"
+        "E85VCL", "SPINNY", "IMPGSL", "IMPDSL", "IMPE85"
 
     Returns:
     --------
