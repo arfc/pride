@@ -11,7 +11,7 @@
 	- 3 coal-fired boilers [2] ~ 350,000 lbs/h
 	- Efficiencies: coal ~ 39% - 47% and natural gas ~ 39% [3]
 
-* CHWS: 15 Ton/m^2 if size > 20,000 Ton [4] ~ 0.066 m^2/Ton
+* CHWS: 15 Ton/m^2 if size > 20,000 Ton [4] ~ 0.066 m^2/Ton = 66 m^2/kilo-tons
 
 * Nuclear(SMRs) [6]:
 
@@ -38,9 +38,6 @@ ABBOT:
 * nat gas = 300,000 + 110,000 = 410,000 ~ /Tot = 0.54
 * coal = 350,000 ~ /Tot = 0.46
 * Specific land-use: 0.54 * 0.343 * 0.39 + 0.46 * 0.699 * 0.43 = 0.21 acres/MW(th) --> 849.8 m^2/MW(th)
-
-CHWS:
-* 0.066 m^2 x 37,500 Ton /26.25 MWe [5] = 95.23 m^2/MW(e)
 
 
 # References

@@ -84,8 +84,10 @@ The variable O&M costs for renwable solar is generally given to be 0.00 $/MWh du
 #### Automobiles
 ##### Sources: fueleconomy.gov
 
-The fixed cost for automobile technology is based on paying off the principal cost of the vehicle over the vehicle's lifetime. This currently does not account for interest rate on a car loan.
+The fixed cost for automobile technology is based on paying off the principal cost of the vehicle over the vehicle's lifetime. This currently does not account for interest rate on a car loan. Right now we assume the fixed cost is 5% of the MSRP annually.
 
 I obtained the principal costs for diesel, electric, and E85 vehicles by averaging MSRP values from fueleconomy.gov. The code for doing this is in data_processing/automobile_data_scraping.ipynb
+
+I also use automobile_data_scraping to calculate the investment cost for diesel, E85, and gasoline vehicles.
 
 There are very few hydrogen vehicles available on the market right now. Obtaining values for these is an ongoing process
