@@ -20,7 +20,7 @@ variables = {'generation': 'V_FlowOut',
 
 time_horizon = np.arange(2021, 2051, 1)
 
-elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'SPINNY']
+elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NBINE']
 ind_techs = ['NUCLEAR', 'ABBOTT', 'GH']
 # ind_techs = ['NUCLEAR', 'ABBOTT', 'GEOT']
 vcl_techs = ['GSLVCL', 'DSLVCL', 'E85VCL', 'ELCVCL', 'H2VCL']
