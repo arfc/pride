@@ -14,10 +14,6 @@ DBS = ["UIUC_2050_cost"]
 SCENARIOS = ["costScenario"]
 FOLDER = ["UIUC_2050_cost_costScenario_model"]
 
-# DBS = ["UIUC_2050_land"]
-# SCENARIOS = ["landScenario"]
-# FOLDER = ["UIUC_2050_land_landScenario_model"]
-
 SECTORS = ["ind", "elc", "vcl", "all"]
 EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
 
