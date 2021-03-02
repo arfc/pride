@@ -16,7 +16,7 @@
 
 # Scenario Name (Mandatory)
 # This scenario name is used to store results within the output .sqlite file
---scenario=land_scenario
+--scenario=landScenario
 
 # Path to the “db_io” folder (Mandatory)
 # This is the location where database files reside
