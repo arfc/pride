@@ -353,7 +353,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     return
 
 
-def get_icap_goals(year_start=2021, year_end=2030):
+def get_icap_goals(year_start=2021, year_end=2050):
     """
     This function returns an interpolated list of annual emissions goals
     based on the Illinois Climate Action Plan (iCAP). This list is
