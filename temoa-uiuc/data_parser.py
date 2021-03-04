@@ -292,7 +292,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     units = {'generation': '[GWh]',
              'capacity': '[MW]',
              'emissions': '[kg]',
-             'transportation': '[kGGE]'}
+             'transportation': '[kGGE]',
+             'distribution': '[\%]'}
 
     hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
@@ -746,12 +747,12 @@ def make_reactor_plots(data_paths, to_save=True):
         total['UH'].append(st/tot)
 
     technology_dict.update(total)
-    dataframe = DataFrame(technology_dict)
+    dataframe = pd.DataFrame(technology_dict)
     dataframe.set_index('Year', inplace=True)
     bar_plot(dataframe=dataframe,
-             variable='generation',
+             variable='distribution',
              scenario=scenario,
-             sector='reactor',
+             sector='NSTM',
              save=to_save)
 
     return
