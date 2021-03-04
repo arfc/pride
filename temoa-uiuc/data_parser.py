@@ -699,6 +699,64 @@ def make_capacity_plots(data_paths, to_save):
     return
 
 
+def make_reactor_plots(data_paths, to_save=True):
+    """
+    This function produces the reactor plots and puts them in the
+    folder 'figures/'
+    So far, the plots include the steam distribution from the nuclear
+    reactor into the technologies NBINE and UH.
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired.
+    """
+
+    file = data_paths[0]
+    scenario = get_scenario_name(file)
+    datalines = parse_datalines(file)
+
+    years = np.arange(2021, 2051, 1)
+    technology_dict = {}
+    
+    variable_data = data_by_variable(datalines, 'V_FlowIn')
+    variable_data = data_by_variable(variable_data, 'NSTM')
+    elec = create_column(variable_data, years, 'NBINE')
+
+    variable_data = data_by_variable(datalines, 'V_FlowIn')
+    variable_data = data_by_variable(variable_data, 'NSTM')
+    steam = create_column(variable_data, years, 'UH')
+
+    technology_dict = {}
+    total = {"Year": years, "NBINE": [], "UH": []}
+    for index, year in enumerate(years):
+        try:
+            el = elec['NBINE'][index]
+        except:
+            el = 0
+        try:
+            st = steam['UH'][index]
+        except:
+            st = 0
+        tot = el + st
+        total['NBINE'].append(el/tot)
+        total['UH'].append(st/tot)
+
+    technology_dict.update(total)
+    dataframe = DataFrame(technology_dict)
+    dataframe.set_index('Year', inplace=True)
+    bar_plot(dataframe=dataframe,
+             variable='generation',
+             scenario=scenario,
+             sector='reactor',
+             save=to_save)
+
+    return
+
+
 if __name__ == "__main__":
 
     output = get_output_files()
