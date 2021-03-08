@@ -293,7 +293,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
              'capacity': '[MW]',
              'emissions': '[kg]',
              'transportation': '[kGGE]',
-             'distribution': '[%]'}
+             'distribution': r'[\%]'}
 
     hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
