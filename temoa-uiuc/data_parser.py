@@ -293,7 +293,7 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
              'capacity': '[MW]',
              'emissions': '[kg]',
              'transportation': '[kGGE]',
-             'distribution': '[\%]'}
+             'distribution': '[%]'}
 
     hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
@@ -731,11 +731,11 @@ def make_reactor_plots(data_paths, to_save=True):
         for index, year in enumerate(time_horizon):
             try:
                 el = elc['NBINE'][index]
-            except:
+            except KeyError:
                 el = 0
             try:
                 st = stm['UH'][index]
-            except:
+            except KeyError:
                 st = 0
             tot = el + st
             technology_dict['NBINE'].append(el/tot)
