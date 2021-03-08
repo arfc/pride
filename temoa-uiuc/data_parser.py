@@ -716,44 +716,39 @@ def make_reactor_plots(data_paths, to_save=True):
         True if saving the figure is desired.
     """
 
-    file = data_paths[0]
-    scenario = get_scenario_name(file)
-    datalines = parse_datalines(file)
+    # for each outputfile
+    for file in data_paths:
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
 
-    years = np.arange(2021, 2051, 1)
-    technology_dict = {}
-    
-    variable_data = data_by_variable(datalines, 'V_FlowIn')
-    variable_data = data_by_variable(variable_data, 'NSTM')
-    elec = create_column(variable_data, years, 'NBINE')
+        tot = create_column(datalines, time_horizon, 'V_FlowIn')
+        variable_data = data_by_variable(datalines, 'V_FlowIn')
+        variable_data = data_by_variable(variable_data, 'NSTM')
+        elc = create_column(variable_data, time_horizon, 'NBINE')
+        stm = create_column(variable_data, time_horizon, 'UH')
 
-    variable_data = data_by_variable(datalines, 'V_FlowIn')
-    variable_data = data_by_variable(variable_data, 'NSTM')
-    steam = create_column(variable_data, years, 'UH')
+        technology_dict = {"Year": time_horizon, "NBINE": [], "UH": []}
+        for index, year in enumerate(time_horizon):
+            try:
+                el = elc['NBINE'][index]
+            except:
+                el = 0
+            try:
+                st = stm['UH'][index]
+            except:
+                st = 0
+            tot = el + st
+            technology_dict['NBINE'].append(el/tot)
+            technology_dict['UH'].append(st/tot)
 
-    technology_dict = {}
-    total = {"Year": years, "NBINE": [], "UH": []}
-    for index, year in enumerate(years):
-        try:
-            el = elec['NBINE'][index]
-        except:
-            el = 0
-        try:
-            st = steam['UH'][index]
-        except:
-            st = 0
-        tot = el + st
-        total['NBINE'].append(el/tot)
-        total['UH'].append(st/tot)
+        dataframe = pd.DataFrame(technology_dict)
+        dataframe.set_index('Year', inplace=True)
 
-    technology_dict.update(total)
-    dataframe = pd.DataFrame(technology_dict)
-    dataframe.set_index('Year', inplace=True)
-    bar_plot(dataframe=dataframe,
-             variable='distribution',
-             scenario=scenario,
-             sector='NSTM',
-             save=to_save)
+        bar_plot(dataframe=dataframe,
+                 variable='distribution',
+                 scenario=scenario,
+                 sector='NSTM',
+                 save=to_save)
 
     return
 
