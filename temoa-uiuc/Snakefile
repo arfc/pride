@@ -47,8 +47,9 @@ rule all:
         expand("figures/{scenario}_all_emissions_ewaste.png",
                scenario=SCENARIOS),
         expand("figures/{scenario}_all_emissions_spent-fuel.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_NSTM_distribution.png",
                scenario=SCENARIOS)
-
 
 
 rule make_temoa_input:
@@ -94,3 +95,13 @@ rule make_capacity_plots:
         "figures/{scenario}_vcl_generation.png",
     script:
         "plot_capacity.py"
+
+rule make_reactor_plots:
+    input:
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+               zip,
+               db=DBS, scenario=SCENARIOS)
+    output:
+        "figures/{scenario}_NSTM_distribution.png",
+    script:
+        "plot_reactor.py"

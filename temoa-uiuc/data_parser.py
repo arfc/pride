@@ -292,7 +292,8 @@ def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     units = {'generation': '[GWh]',
              'capacity': '[MW]',
              'emissions': '[kg]',
-             'transportation': '[kGGE]'}
+             'transportation': '[kGGE]',
+             'distribution': r'[\%]'}
 
     hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
@@ -696,6 +697,59 @@ def make_capacity_plots(data_paths, to_save):
                  scenario=scenario,
                  sector='chw',
                  save=to_save)
+    return
+
+
+def make_reactor_plots(data_paths, to_save=True):
+    """
+    This function produces the reactor plots and puts them in the
+    folder 'figures/'
+    So far, the plots include the steam distribution from the nuclear
+    reactor into the technologies NBINE and UH.
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired.
+    """
+
+    # for each outputfile
+    for file in data_paths:
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+
+        tot = create_column(datalines, time_horizon, 'V_FlowIn')
+        variable_data = data_by_variable(datalines, 'V_FlowIn')
+        variable_data = data_by_variable(variable_data, 'NSTM')
+        elc = create_column(variable_data, time_horizon, 'NBINE')
+        stm = create_column(variable_data, time_horizon, 'UH')
+
+        technology_dict = {"Year": time_horizon, "NBINE": [], "UH": []}
+        for index, year in enumerate(time_horizon):
+            try:
+                el = elc['NBINE'][index]
+            except KeyError:
+                el = 0
+            try:
+                st = stm['UH'][index]
+            except KeyError:
+                st = 0
+            tot = el + st
+            technology_dict['NBINE'].append(el/tot)
+            technology_dict['UH'].append(st/tot)
+
+        dataframe = pd.DataFrame(technology_dict)
+        dataframe.set_index('Year', inplace=True)
+
+        bar_plot(dataframe=dataframe,
+                 variable='distribution',
+                 scenario=scenario,
+                 sector='NSTM',
+                 save=to_save)
+
     return
 
 
