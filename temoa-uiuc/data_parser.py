@@ -15,7 +15,7 @@ plt.rcParams['font.family'] = "serif"
 
 
 variables = {'generation': 'V_FlowOut',
-             'capacity': 'V_Capacity',
+             'capacity': 'V_CapacityAvailableByPeriodAndTech',
              'emissions': 'V_EmissionActivityByPeriodAndProcess'}
 
 time_horizon = np.arange(2021, 2051, 1)
@@ -522,7 +522,7 @@ def parse_datalines(filepath):
     return lines
 
 
-def make_plots(data_paths, to_save):
+def make_plots(data_paths, to_save=True):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -532,6 +532,8 @@ def make_plots(data_paths, to_save):
     data_paths : list of strings
         This is the list of paths to input files that contain data
         from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
     """
 
     plots_dict = {'emissions': emissions_plot,
@@ -601,7 +603,7 @@ def make_plots(data_paths, to_save):
     return
 
 
-def make_emissions_plots(data_paths, to_save):
+def make_emissions_plots(data_paths, to_save=True):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -611,6 +613,8 @@ def make_emissions_plots(data_paths, to_save):
     data_paths : list of strings
         This is the list of paths to input files that contain data
         from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
     """
 
     plots_dict = {'emissions': emissions_plot,
@@ -646,7 +650,7 @@ def make_emissions_plots(data_paths, to_save):
     return
 
 
-def make_capacity_plots(data_paths, to_save):
+def make_capacity_plots(data_paths, to_save=True):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -656,6 +660,8 @@ def make_capacity_plots(data_paths, to_save):
     data_paths : list of strings
         This is the list of paths to input files that contain data
         from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
     """
 
     plots_dict = {'emissions': emissions_plot,
