@@ -3234,6 +3234,7 @@ INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPELC', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPSOL', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'IMPWIND', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NUCLEAR', 8.76, 'thermal GWh');
+INSERT INTO "CapacityToActivity" VALUES('uiuc', 'NBINE', 8.76, 'electrical GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'CHWS', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GEOT', 8.76, 'electric GWh');
 INSERT INTO "CapacityToActivity" VALUES('uiuc', 'GH', 8.76, 'thermal GWh');
