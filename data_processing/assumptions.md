@@ -1,5 +1,38 @@
 This file summarizes all the values in the .sql files and where they were calculated in the repo.
 
+# MinCapacity
+
+`MinCapacity` doesn't have any entries.
+It should remain like that.
+
+# MinActivity
+
+* IMPSOL:
+	* 2021: 6.88 GWh
+	* 2022-2045: 24.69 GWh
+
+These numbers are not explicitly calculated anywhere in the repo.
+Where did these numbers come from?
+
+# MaxCapacity
+
+* IMPELEC: 120 MWe. I [Roberto] believe this should be removed.
+* TURBINE: 85 MWe. This is Abbott's max electrical capacity [1]. Is it specified anywhere in the repo? This is a valid constraint.
+* NBINE: 400 MWe. I [Roberto] believe this should be removed.
+
+
+
+
+
+# MaxActivity
+
+`MaxActivity` doesn't have any entries.
+It should remain like that.
+
+
+
+
+
 # Demand
 
 * UELC:
@@ -97,3 +130,7 @@ e85 = 25.727
 uvcl = unleaded + diesel * 1.155 + e85 * 0.734 = 562.53 kilo-gallons.
 
 These numbers are not explicitly calculated anywhere in the repo.
+
+# References:
+
+[1] ABBOTT Brochure. [link](https://fs.illinois.edu/docs/default-source/utilities-energy/abbottbrofinal.pdf?sfvrsn=90b1f9ea_4)
