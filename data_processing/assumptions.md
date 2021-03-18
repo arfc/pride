@@ -16,7 +16,7 @@ Where did these numbers come from?
 
 # MaxCapacity
 
-* IMPELEC: 120 MWe. I [Roberto] believe this should be removed.
+* IMPELC: 120 MWe. I [Roberto] believe this should be removed.
 * TURBINE: 85 MWe. This is Abbott's max electrical capacity [1]. Is it specified anywhere in the repo? This is a valid constraint.
 * NBINE: 300 MWe. I [Roberto] believe this should be removed.
 
@@ -25,9 +25,27 @@ Where did these numbers come from?
 `MaxActivity` doesn't have any entries.
 It should remain like that.
 
+# LifetimeTech
+
+* this table should be analyzed together with `CostInvest`
+* `IMPELC`, `IMPNATGAS`, `IMPGSL`, `IMPE85`, `IMPH2` are entries with no assocaited investment cost, so for simplicity, a lifetime of 1000 years is given to them.
+* `IMPWIND`: wind turbine expected lifespan of 30 years. Where is this in the repo? References?
+* `IMPSOL`: solar panel expected lifespan of 25 years. Where is this in the repo? References?
+* `TURBINE`, `NBINE`, `UL`, `UH` are entries with no assocaited investment cost, so for simplicity, a lifetime of 1000 years is given to them.
+* `ELECTROL` has a lifetime of 1000 years, but it has an associated investment cost. This value should be updated.
 
 
+# LifetimeProcess
 
+* entries for `ABBOTT`
+* without that entry, the simulation fails.
+* What does this table mean?
+
+
+# LifetimeLoanTech
+
+* entries for `UL`, `UH`, `ABBOTT`, `TURBINE`, `NBINE`, `NUCLEAR`.
+* What do these entries mean?
 
 
 # Demand
