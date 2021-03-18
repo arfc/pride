@@ -20,10 +20,6 @@ Where did these numbers come from?
 * TURBINE: 85 MWe. This is Abbott's max electrical capacity [1]. Is it specified anywhere in the repo? This is a valid constraint.
 * NBINE: 400 MWe. I [Roberto] believe this should be removed.
 
-
-
-
-
 # MaxActivity
 
 `MaxActivity` doesn't have any entries.
