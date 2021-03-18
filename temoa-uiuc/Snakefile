@@ -10,17 +10,17 @@
 
 # Experimental Scenario
 
-# DBS = ["UIUC_2050_cost"]
-# SCENARIOS = ["costScenario"]
-# FOLDER = ["UIUC_2050_cost_costScenario_model"]
+DBS = ["UIUC_2050_cost"]
+SCENARIOS = ["costScenario"]
+FOLDER = ["UIUC_2050_cost_costScenario_model"]
 
 # DBS = ["UIUC_2050_land"]
 # SCENARIOS = ["landScenario"]
 # FOLDER = ["UIUC_2050_land_landScenario_model"]
 
-DBS = ["CEJA_2050_cost"]
-SCENARIOS = ["costScenarioCEJA"]
-FOLDER = ["CEJA_2050_cost_costScenarioCEJA_model"]
+# DBS = ["CEJA_2050_cost"]
+# SCENARIOS = ["costScenarioCEJA"]
+# FOLDER = ["CEJA_2050_cost_costScenarioCEJA_model"]
 
 # DBS = ["CEJA_2050_cost"]
 # SCENARIOS = ["landScenarioCEJA"]

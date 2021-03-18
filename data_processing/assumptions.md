@@ -18,12 +18,13 @@ Where did these numbers come from?
 
 * IMPELEC: 120 MWe. I [Roberto] believe this should be removed.
 * TURBINE: 85 MWe. This is Abbott's max electrical capacity [1]. Is it specified anywhere in the repo? This is a valid constraint.
-* NBINE: 400 MWe. I [Roberto] believe this should be removed.
+* NBINE: 300 MWe. I [Roberto] believe this should be removed.
 
 # MaxActivity
 
 `MaxActivity` doesn't have any entries.
 It should remain like that.
+
 
 
 
