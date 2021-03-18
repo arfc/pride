@@ -32,7 +32,13 @@ It should remain like that.
 * `IMPWIND`: wind turbine expected lifespan of 30 years. Where is this in the repo? References?
 * `IMPSOL`: solar panel expected lifespan of 25 years. Where is this in the repo? References?
 * `TURBINE`, `NBINE`, `UL`, `UH` are entries with no assocaited investment cost, so for simplicity, a lifetime of 1000 years is given to them.
+* `GSLVCL`, `DSLVCL`, `E85VCL`: 25 years [2]
+* `ELCVCL`, `H2VCL`: 8 years [2]
+* `GEOT` is an entry with no assocaited investment cost, so for simplicity, a lifetime of 1000 years is given to it.
+* `NUCLEAR`: 60 years (based on current LWRs)
+* `ABBOT`: 40 years, it is longer to what the simulation lasts, it is a fair assumption
 * `ELECTROL` has a lifetime of 1000 years, but it has an associated investment cost. This value should be updated.
+* `GH`, `GC`, and `CHWS`, I have no idea, more research is needed here.
 
 
 # LifetimeProcess
@@ -149,3 +155,5 @@ These numbers are not explicitly calculated anywhere in the repo.
 # References:
 
 [1] ABBOTT Brochure. [link](https://fs.illinois.edu/docs/default-source/utilities-energy/abbottbrofinal.pdf?sfvrsn=90b1f9ea_4)
+
+[2] Pride/data_processing/[fuel-analysis](https://github.com/arfc/pride/blob/master/data_processing/fuel-analysis.ipynb)

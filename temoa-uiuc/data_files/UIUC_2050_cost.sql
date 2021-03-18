@@ -794,20 +794,19 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'TURBINE',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'NBINE',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'UH',1000,'');
-
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GEOT',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
+-- The following entries need reviewing
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GH',50,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GC',50,'');
-
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 
 CREATE TABLE "LifetimeProcess" (
 	"regions"	text,
