@@ -788,25 +788,25 @@ INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPGSL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPDSL',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPE85',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPH2',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'TURBINE',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'NBINE',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPWIND',30,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'IMPSOL',25,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',40,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'UH',40,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'TURBINE',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'NBINE',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'UL',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'UH',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GSLVCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'DSLVCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'E85VCL',25,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELCVCL',8,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'H2VCL',8,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
-INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GEOT',1000,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'NUCLEAR',60,'');
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ABBOTT',40,'');
+-- The following entries need reviewing
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'CHWS',1000,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GH',50,'');
 INSERT INTO "LifetimeTech" VALUES('uiuc', 'GC',50,'');
-
+INSERT INTO "LifetimeTech" VALUES('uiuc', 'ELECTROL',1000,'');
 
 CREATE TABLE "LifetimeProcess" (
 	"regions"	text,
@@ -822,7 +822,7 @@ CREATE TABLE "LifetimeProcess" (
 -- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UL',2000,1000,'#forexistingcap');
 -- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'UH',2000,1000,'#forexistingcap');
 INSERT INTO "LifetimeProcess" VALUES('uiuc', 'ABBOTT',2000,60,'#forexistingcap');
-INSERT INTO "LifetimeProcess" VALUES('uiuc', 'TURBINE',2000,60,'#forexistingcap');
+-- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'TURBINE',2000,60,'#forexistingcap');
 -- INSERT INTO "LifetimeProcess" VALUES('uiuc', 'NBINE',2021,60,'#forexistingcap');
 
 CREATE TABLE "LifetimeLoanTech" (
@@ -834,12 +834,12 @@ CREATE TABLE "LifetimeLoanTech" (
 	PRIMARY KEY("regions","tech")
 );
 --UIUC data
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UL',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UH',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UL',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'UH',40,'');
 INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'ABBOTT',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'TURBINE',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NBINE',40,'');
-INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NUCLEAR',40,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'TURBINE',40,'');
+INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NUCLEAR',60,'');
+-- INSERT INTO "LifetimeLoanTech" VALUES('uiuc', 'NBINE',40,'');
 
 
 CREATE TABLE "GrowthRateSeed" (
