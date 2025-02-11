@@ -1,11 +1,14 @@
-# 2020-fairhurst-hydrogen-production
+# (P)lan for (R)ap(I)d (DE)carbonization (PRIDE)
+This repository contains analysis tools, models, and publications associated with planning for rapid decarbonization.
+
+## Publication: 2020-fairhurst-hydrogen-production
 This repository holds:
 
 - data of the fuel consumed by the MTD and UI fleet.
 - analysis of the hydrogen required by those fleet to become carbon free.
 - information of different methods to produce hydrogen.
 
-# 2020-dotson-optimal-sizing
+## Publication: 2020-dotson-optimal-sizing
 This repository holds the data analysis, figures, that will lead to quantitative recommendations for the optimal reactor size.
 
 Multiple scenarios will be addressed:
@@ -28,8 +31,41 @@ if you don't have sqlite installed, run:
 
 TEMOA models can be run from the command line, current iterations use the online model platform at ``model.temoacloud.com``.
 
-## Timeline (approximate):
-2/14/20 : The optimal reactor size for scenario one (basic recommendation).
+## Instructions to Run TEMOA scenarios
+To run a single TEMOA scenario first add the path to Temoa to your ```~/.bashrc```:
+```bash
+echo "export TEMOA=/path/to/temoa" >> ~/.bashrc
+```
+for example:
+```bash
+echo "export TEMOA=/home/roberto/github/temoa" >> ~/.bashrc
+```
+Remember to either close and open the terminal, or run ```source ~/.bashrc```.
+Then, write the following commands in the terminal:
+```bash
+cd temoa-uiuc
+source activate temoa-py3
+# Example scenario
+sqlite3 data_files/bau_uiuc.sqlite < data_files/bau_uiuc.sql
+yes | python $TEMOA/temoa_model/ --config=data_files/run_bau.txt
+```
+The data processing must be done separately. Figures can be produced using 
+tools in ``data_parser.py``. An example of how this is done can be found in 
+``mga_analysis.ipynb``.
+
+To run all scenarios (except for MGA, which must be run individually):
+
+``snakemake`` must be installed.
+
+```bash
+cd temoa-uiuc
+source activate temoa-py3
+pip install snakemake
+snakemake --cores=4
+# if the build fails due to file system latency, try
+# snakemake --cores=4 --latency-wait=10
+```
+This automatically generates figures in the ``/figures/`` folder.
 
 ## Instructions to Run the Jupyter Notebooks
 

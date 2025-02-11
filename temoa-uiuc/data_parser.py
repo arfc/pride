@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 import os
 import glob
@@ -12,19 +13,33 @@ plt.rcParams['savefig.bbox'] = 'tight'
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = "serif"
 
-variables = {'Generation': 'V_ActivityByPeriodAndProcess',
-             'Capacity': 'V_Capacity',
-             'Emissions': 'V_EmissionActivityByPeriodAndProcess'}
-time_horizon = np.arange(2021, 2031, 1)
 
-elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE']
-ind_techs = ['NUCLEAR', 'ABBOTT']
+variables = {'generation': 'V_FlowOut',
+             'capacity': 'V_CapacityAvailableByPeriodAndTech',
+             'emissions': 'V_EmissionActivityByPeriodAndProcess'}
+
+time_horizon = np.arange(2021, 2051, 1)
+
+elc_techs = ['IMPELC', 'IMPSOL', 'IMPWIND', 'TURBINE', 'NBINE']
+ind_techs = ['NUCLEAR', 'ABBOTT', 'GH']
+# ind_techs = ['NUCLEAR', 'ABBOTT', 'GEOT']
+vcl_techs = ['GSLVCL', 'DSLVCL', 'E85VCL', 'ELCVCL', 'H2VCL']
+chw_techs = ['CHWS', 'GC']
+# chw_techs = ['CHWS', 'DGEOT']
+emissions = {'co2eq': ['IMPELC', 'ABBOTT', 'GSLVCL', 'DSLVCL', 'E85VCL'],
+             'ewaste': ['IMPSOL', 'IMPWIND', 'ELCVCL'],
+             'spent-fuel': ['NUCLEAR']}
 
 
 def data_by_year(datalines, year):
     """
     This function takes in a list of datalines and returns
     a new list of datalines for a specified year.
+
+    NOTE: This function picks out the year based on a
+    specific index of the year in a string. If Temoa changes
+    in the future (adds more columns, etc) this function
+    will probably break.
 
     Parameters:
     -----------
@@ -39,11 +54,12 @@ def data_by_year(datalines, year):
         This is a list of datalines that only contains
         data for a particular year.
     """
-    string = f"[{year},"
     datayear = []
 
     for line in datalines:
-        if string in line:
+        line_year = re.findall(r"[-+]?\d*\.\d+|\d+", line)[1]
+
+        if int(line_year) == year:
             datayear.append(line)
 
     return datayear
@@ -99,8 +115,8 @@ def data_by_tech(datalines, tech):
         data for a particular tech.
     """
     datatech = []
-
     for line in datalines:
+        # print(line)
         if tech in line:
             datatech.append(line)
 
@@ -146,7 +162,8 @@ def create_column(lines, years, tech):
     tech : string
         This is the technology of interest. Currently only
         accepts: "NUCLEAR", "ABBOTT", "TURBINE", "IMPELC",
-        "IMPWIND", "IMPSOL"
+        "IMPWIND", "IMPSOL", "DSLVCL", "GSLVCL", "ELCVCL",
+        "E85VCL", "SPINNY", "IMPGSL", "IMPDSL", "IMPE85"
 
     Returns:
     --------
@@ -157,6 +174,7 @@ def create_column(lines, years, tech):
     """
     column = {"Year": years, tech: []}
     tech_data = data_by_tech(lines, tech)
+
     for year in years:
         year_data = data_by_year(tech_data, year)
         year_total = get_total(year_data)
@@ -164,7 +182,12 @@ def create_column(lines, years, tech):
     return column
 
 
-def create_dataframe(lines, variable, sector='elc', years=time_horizon):
+def create_dataframe(
+        lines,
+        variable,
+        sector='elc',
+        emission=None,
+        years=time_horizon):
     """
     This function creates a pandas dataframe for
     a particular variable.
@@ -181,20 +204,39 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
         The variable of interest. Accepts "Emissions", "Generation",
         or "Capacity."
 
-    sector :
+    sector : string
+            The sector you are plotting.
+            "ind" = Industrial/steam
+            "elc" = Electricity
+            "vcl" = Vehicles/Transportation
+            "all"
     """
-    if sector == 'elc':
-        techs = elc_techs
+    if variable.lower() == 'emissions':
+        assert(emission is not None)
+        techs = emissions[emission]
 
-    elif sector == 'ind':
-        techs = ind_techs
+    else:
+        if sector == 'elc':
+            techs = elc_techs
 
-    elif sector == 'all':
-        techs = elc_techs + ind_techs
+        elif sector == 'ind':
+            techs = ind_techs
+
+        elif sector == 'vcl':
+            techs = vcl_techs
+
+        elif sector == 'chw':
+            techs = chw_techs
+
+        elif sector == 'all':
+            techs = elc_techs + ind_techs + vcl_techs
 
     technology_dict = {}
 
-    var_of_interest = variables[variable]
+    if variable == 'emissions':
+        lines = data_by_tech(lines, emission)
+
+    var_of_interest = variables[variable.lower()]
     variable_data = data_by_variable(lines, var_of_interest)
 
     for tech in techs:
@@ -203,16 +245,25 @@ def create_dataframe(lines, variable, sector='elc', years=time_horizon):
 
     dataframe = pd.DataFrame(technology_dict)
     dataframe.set_index('Year', inplace=True)
-    if variable == 'Emissions':
+    if variable == 'emissions':
         dataframe['total'] = dataframe.sum(axis=1)
+        if emission != 'co2eq':
+            dataframe['cumulative'] = dataframe['total'].cumsum()
 
     return dataframe
 
 
-def bar_plot(dataframe, variable, scenario, sector, save=True):
+def bar_plot(dataframe, variable, scenario, sector, emission=None, save=True):
     """
     This function creates a bar chart for
     a given dataframe and returns nothing.
+
+    TODO: Currently, this function will plot all technologies
+    in a given system. Even if those technologies do not produce
+    anything (i.e. zero valued). This is evident in the spent-fuel
+    and ewaste plots (which are not stacked) because space is made
+    on the plot for technologies that do not produce ewaste or
+    spent fuel. FIX THIS.
 
     Parameters:
     -----------
@@ -227,6 +278,7 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     sector : string
         The sector you are plotting.
         "ind" = Industrial/steam
+        "vcl" = Vehicles/Transportation
         "elc" = Electricity
         "all"
     save : boolean
@@ -237,15 +289,43 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'Generation': '[GWh]', 'Capacity': '[MW]'}
+    units = {'generation': '[GWh]',
+             'capacity': '[MW]',
+             'emissions': '[kg]',
+             'transportation': '[kGGE]',
+             'distribution': r'[\%]'}
 
+    hatches = ''.join(h * len(dataframe) for h in 'x/O.*')
     years = list(dataframe.index)
     idx = np.asarray([i for i in range(len(years))])
-    ax = dataframe.loc[1:, ].plot.bar(stacked=True)
-    bars = ax.patches
-    hatches = ''.join(h * len(dataframe) for h in 'x/O.')
-    for bar, hatch in zip(bars, hatches):
-        bar.set_hatch(hatch)
+    if (variable.lower() == 'emissions') and (emission != 'co2eq'):
+        ax = dataframe.loc[1:, dataframe.columns != 'total'].plot.bar()
+        plt.suptitle(
+            (f"{scenario.upper()}: Total Annual {emission.upper()} in"
+             f" {units[variable.lower()]}"),
+            fontsize=36)
+        plt.ylabel(f"{emission} {units[variable.lower()]}", fontsize=24)
+        bars = ax.patches
+        for bar, hatch in zip(bars, hatches):
+            bar.set_hatch(hatch)
+    else:
+        ax = dataframe.loc[1:, dataframe.columns !=
+                           'total'].plot.bar(stacked=True)
+        bars = ax.patches
+        if sector == 'vcl':
+            plt.suptitle(
+                (f"{scenario.upper()}: Total Annual {variable} in"
+                 f"{units['transportation']}"),
+                fontsize=36)
+            plt.ylabel(f"{variable} {units['transportation']}", fontsize=24)
+        else:
+            plt.suptitle(
+                (f"{scenario.upper()}: Total Annual {variable} in"
+                 f"{units[variable.lower()]}"),
+                fontsize=36)
+            plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
+        for bar, hatch in zip(bars, hatches):
+            bar.set_hatch(hatch)
 
     ax.set_xticks(idx)
     if len(dataframe) > 11:
@@ -256,23 +336,25 @@ def bar_plot(dataframe, variable, scenario, sector, save=True):
     plt.yticks(fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True, shadow=True,
               fontsize=12, prop={'size': 24})
-    plt.suptitle(
-        f"{scenario.upper()}: Total Annual {variable} in {units[variable]}",
-        fontsize=36)
     plt.title(f"Sector: {sector.upper()}", fontsize=24)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
     plt.xlabel("Year", fontsize=24)
 
     if save is True:
-        plt.savefig(
-            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
-        plt.close()
+        if emission is not None:
+            plt.savefig(
+                (f"{target_folder}{scenario}_{sector}_{variable.lower()}_"
+                 f"{emission}.png"))
+            plt.close()
+        else:
+            plt.savefig(
+                f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+            plt.close()
     else:
         plt.show()
     return
 
 
-def get_icap_goals(year_start=2021, year_end=2030):
+def get_icap_goals(year_start=2021, year_end=2050):
     """
     This function returns an interpolated list of annual emissions goals
     based on the Illinois Climate Action Plan (iCAP). This list is
@@ -289,6 +371,7 @@ def get_icap_goals(year_start=2021, year_end=2030):
         emissions).
     """
 
+    # 2014-2050
     data = np.empty(36)
     data[:] = np.NaN
     data[0] = 459.875
@@ -299,7 +382,7 @@ def get_icap_goals(year_start=2021, year_end=2030):
     icap_df = pd.DataFrame({'year': np.arange(2015, 2051, 1), 'goal': data})
     icap_df['goal'] = icap_df['goal'].interpolate(method='linear')
 
-    mask = (icap_df['year'] <= 2030) & (icap_df['year'] >= 2021)
+    mask = (icap_df['year'] <= year_end) & (icap_df['year'] >= year_start)
 
     return icap_df[mask]
 
@@ -323,6 +406,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
         The sector you are plotting.
         "ind" = Industrial/steam
         "elc" = Electricity
+        "vcl" = Vehicles/Transportation
         "all"
     save : boolean
         If save is true, the plot will be saved rather than
@@ -332,7 +416,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     if not os.path.isdir(target_folder):
         os.mkdir(target_folder)
 
-    units = {'Emissions': '[ktons CO2 equivalent]'}
+    units = {'emissions': '[tons CO2 equivalent]'}
 
     goals = get_icap_goals()
 
@@ -355,7 +439,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
     plt.suptitle(f"{scenario.upper()}: Total Annual {variable}",
                  fontsize=36)
     plt.title(f"Sector: {sector.upper()}", fontsize=24)
-    plt.ylabel(f"{variable} {units[variable]}", fontsize=24)
+    plt.ylabel(f"{variable} {units[variable.lower()]}", fontsize=24)
     plt.xlabel("Year", fontsize=24)
     ax.legend(loc=(1.02, 0.5), fancybox=True,
               shadow=True, fontsize=12, prop={'size': 24})
@@ -371,7 +455,7 @@ def emissions_plot(dataframe, variable, scenario, sector, save=True):
 
     if save is True:
         plt.savefig(
-            f"{target_folder}{scenario}_{sector}_{variable.lower()}.png")
+            f"{target_folder}{scenario}_{sector}_{variable.lower()}_co2eq.png")
         plt.close()
     else:
         plt.show()
@@ -438,7 +522,7 @@ def parse_datalines(filepath):
     return lines
 
 
-def make_plots(data_paths, to_save):
+def make_plots(data_paths, to_save=True):
     """
     This function produces all plots and puts them in a folder
     called 'figure.'
@@ -448,11 +532,13 @@ def make_plots(data_paths, to_save):
     data_paths : list of strings
         This is the list of paths to input files that contain data
         from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
     """
 
-    plots_dict = {'Emissions': emissions_plot,
-                  'Generation': bar_plot,
-                  'Capacity': bar_plot}
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
 
     # for each outputfile
     for file in data_paths:
@@ -462,9 +548,140 @@ def make_plots(data_paths, to_save):
         # for each variable of interest
         for var in variables:
             # create dataframes
+            if var == 'emissions':
+                for byproduct in emissions:
+                    df_all = create_dataframe(datalines,
+                                              var,
+                                              sector='all',
+                                              emission=byproduct)
+                    if byproduct != 'co2eq':
+                        bar_plot(dataframe=df_all,
+                                 variable=var,
+                                 scenario=scenario,
+                                 sector='all',
+                                 emission=byproduct,
+                                 save=to_save)
+                    else:
+                        emissions_plot(dataframe=df_all,
+                                       variable=var,
+                                       scenario=scenario,
+                                       sector='all',
+                                       save=to_save)
+            else:
+                df_elc = create_dataframe(datalines, var, sector='elc')
+                df_ind = create_dataframe(datalines, var, sector='ind')
+                df_vcl = create_dataframe(datalines, var, sector='vcl')
+                df_chw = create_dataframe(datalines, var, sector='chw')
+                df_all = create_dataframe(datalines, var, sector='all')
+                plot = plots_dict[var]
+                plot(dataframe=df_elc,
+                     variable=var,
+                     scenario=scenario,
+                     sector='elc',
+                     save=to_save)
+                plot(dataframe=df_ind,
+                     variable=var,
+                     scenario=scenario,
+                     sector='ind',
+                     save=to_save)
+                plot(dataframe=df_vcl,
+                     variable=var,
+                     scenario=scenario,
+                     sector='vcl',
+                     save=to_save)
+                plot(dataframe=df_chw,
+                     variable=var,
+                     scenario=scenario,
+                     sector='chw',
+                     save=to_save)
+                plot(dataframe=df_all,
+                     variable=var,
+                     scenario=scenario,
+                     sector='all',
+                     save=to_save)
+
+    return
+
+
+def make_emissions_plots(data_paths, to_save=True):
+    """
+    This function produces all plots and puts them in a folder
+    called 'figure.'
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
+    """
+
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
+
+    # for each outputfile
+    for file in data_paths:
+        # get the name of the scenario run
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+        # for each variable of interest
+        var = 'emissions'
+        for byproduct in emissions:
+            df_all = create_dataframe(datalines,
+                                      var,
+                                      sector='all',
+                                      emission=byproduct)
+            if byproduct != 'co2eq':
+                bar_plot(dataframe=df_all,
+                         variable=var,
+                         scenario=scenario,
+                         sector='all',
+                         emission=byproduct,
+                         save=to_save)
+            else:
+                emissions_plot(dataframe=df_all,
+                               variable=var,
+                               scenario=scenario,
+                               sector='all',
+                               save=to_save)
+
+    return
+
+
+def make_capacity_plots(data_paths, to_save=True):
+    """
+    This function produces all plots and puts them in a folder
+    called 'figure.'
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired
+    """
+
+    plots_dict = {'emissions': emissions_plot,
+                  'generation': bar_plot,
+                  'capacity': bar_plot}
+
+    # for each outputfile
+    for file in data_paths:
+        # get the name of the scenario run
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+        # for each variable of interest
+        for var in variables:
+            if var == 'emissions':
+                continue
+            # create dataframes
             df_elc = create_dataframe(datalines, var, sector='elc')
             df_ind = create_dataframe(datalines, var, sector='ind')
-            df_all = create_dataframe(datalines, var, sector='all')
+            df_vcl = create_dataframe(datalines, var, sector='vcl')
+            df_chw = create_dataframe(datalines, var, sector='chw')
             plot = plots_dict[var]
             plot(dataframe=df_elc,
                  variable=var,
@@ -476,10 +693,67 @@ def make_plots(data_paths, to_save):
                  scenario=scenario,
                  sector='ind',
                  save=to_save)
-            plot(dataframe=df_all,
+            plot(dataframe=df_vcl,
                  variable=var,
                  scenario=scenario,
-                 sector='all',
+                 sector='vcl',
+                 save=to_save)
+            plot(dataframe=df_chw,
+                 variable=var,
+                 scenario=scenario,
+                 sector='chw',
+                 save=to_save)
+    return
+
+
+def make_reactor_plots(data_paths, to_save=True):
+    """
+    This function produces the reactor plots and puts them in the
+    folder 'figures/'
+    So far, the plots include the steam distribution from the nuclear
+    reactor into the technologies NBINE and UH.
+
+    Parameters:
+    -----------
+    data_paths : list of strings
+        This is the list of paths to input files that contain data
+        from Temoa runs.
+    to_save: boolean
+        True if saving the figure is desired.
+    """
+
+    # for each outputfile
+    for file in data_paths:
+        scenario = get_scenario_name(file)
+        datalines = parse_datalines(file)
+
+        tot = create_column(datalines, time_horizon, 'V_FlowIn')
+        variable_data = data_by_variable(datalines, 'V_FlowIn')
+        variable_data = data_by_variable(variable_data, 'NSTM')
+        elc = create_column(variable_data, time_horizon, 'NBINE')
+        stm = create_column(variable_data, time_horizon, 'UH')
+
+        technology_dict = {"Year": time_horizon, "NBINE": [], "UH": []}
+        for index, year in enumerate(time_horizon):
+            try:
+                el = elc['NBINE'][index]
+            except KeyError:
+                el = 0
+            try:
+                st = stm['UH'][index]
+            except KeyError:
+                st = 0
+            tot = el + st
+            technology_dict['NBINE'].append(el/tot)
+            technology_dict['UH'].append(st/tot)
+
+        dataframe = pd.DataFrame(technology_dict)
+        dataframe.set_index('Year', inplace=True)
+
+        bar_plot(dataframe=dataframe,
+                 variable='distribution',
+                 scenario=scenario,
+                 sector='NSTM',
                  save=to_save)
 
     return

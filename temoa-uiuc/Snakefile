@@ -1,11 +1,33 @@
-DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc"]
-SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03"]
-SECTORS = ["ind", "elc", "all"]
+# All Scenarios
+# DBS = ["bau_uiuc", "01_uiuc", "02_uiuc", "03_uiuc", "04_uiuc"]
+# SCENARIOS = ["bau", "scenario01", "scenario02", "scenario03", "scenario04"]
+# FOLDER = ["bau_uiuc_bau_model",
+#           "01_uiuc_scenario01_model",
+#           "02_uiuc_scenario02_model",
+#           "03_uiuc_scenario03_model",
+#           "04_uiuc_scenario04_model",
+#           "05_uiuc_scenario05_model"]
 
-FOLDER = ["bau_uiuc_bau_model",
-          "01_uiuc_scenario01_model",
-          "02_uiuc_scenario02_model",
-          "03_uiuc_scenario03_model"]
+# Experimental Scenario
+
+# DBS = ["UIUC_2050_cost"]
+# SCENARIOS = ["costScenario"]
+# FOLDER = ["UIUC_2050_cost_costScenario_model"]
+
+# DBS = ["UIUC_2050_land"]
+# SCENARIOS = ["landScenario"]
+# FOLDER = ["UIUC_2050_land_landScenario_model"]
+
+DBS = ["CEJA_2050_cost"]
+SCENARIOS = ["costScenarioCEJA"]
+FOLDER = ["CEJA_2050_cost_costScenarioCEJA_model"]
+
+# DBS = ["CEJA_2050_cost"]
+# SCENARIOS = ["landScenarioCEJA"]
+# FOLDER = ["CEJA_2050_land_landScenarioCEJA_model"]
+
+SECTORS = ["ind", "elc", "vcl", "all"]
+EMISSIONS = ['co2eq', 'ewaste', 'spent-fuel']
 
 rule all:
     input:
@@ -13,15 +35,30 @@ rule all:
         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
                zip,
                db=DBS, scenario=SCENARIOS),
-        # expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
-        #        zip,
-        #        db=DBS, scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_capacity.png", sector=SECTORS,
+        expand(r"data_files/{db}_{scenario}_model/{scenario}.lp",
+               zip,
+               db=DBS, scenario=SCENARIOS),
+        expand("figures/{scenario}_elc_capacity.png",
                scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_generation.png", sector=SECTORS,
+        expand("figures/{scenario}_ind_capacity.png",
                scenario=SCENARIOS),
-        expand("figures/{scenario}_{sector}_emissions.png", sector=SECTORS,
+        expand("figures/{scenario}_vcl_capacity.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_elc_generation.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_ind_generation.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_vcl_generation.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_all_emissions_co2eq.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_all_emissions_ewaste.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_all_emissions_spent-fuel.png",
+               scenario=SCENARIOS),
+        expand("figures/{scenario}_NSTM_distribution.png",
                scenario=SCENARIOS)
+
 
 rule make_temoa_input:
     input:
@@ -36,17 +73,43 @@ rule temoa_run:
         "data_files/run_{scenario}.txt"
     output:
         r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+        r"data_files/{db}_{scenario}_model/{scenario}.lp"
     shell:
-        "set +o pipefail; yes | python ~/research/temoa/temoa_model --config={input}"
+        "set +o pipefail; yes | python $TEMOA/temoa_model --config={input}"
 
-rule make_plots:
+rule make_emission_plots:
     input:
         expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
                zip,
                db=DBS, scenario=SCENARIOS)
     output:
-        "figures/{scenario}_{sector}_capacity.png",
-        "figures/{scenario}_{sector}_generation.png",
-        "figures/{scenario}_{sector}_emissions.png"
+        "figures/{scenario}_all_emissions_co2eq.png",
+        "figures/{scenario}_all_emissions_spent-fuel.png",
+        "figures/{scenario}_all_emissions_ewaste.png"
     script:
-        "data_parser.py"
+        "plot_emissions.py"
+
+rule make_capacity_plots:
+    input:
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+               zip,
+               db=DBS, scenario=SCENARIOS)
+    output:
+        "figures/{scenario}_elc_capacity.png",
+        "figures/{scenario}_ind_capacity.png",
+        "figures/{scenario}_vcl_capacity.png",
+        "figures/{scenario}_elc_generation.png",
+        "figures/{scenario}_ind_generation.png",
+        "figures/{scenario}_vcl_generation.png",
+    script:
+        "plot_capacity.py"
+
+rule make_reactor_plots:
+    input:
+        expand(r"data_files/{db}_{scenario}_model/{scenario}_OutputLog.log",
+               zip,
+               db=DBS, scenario=SCENARIOS)
+    output:
+        "figures/{scenario}_NSTM_distribution.png",
+    script:
+        "plot_reactor.py"

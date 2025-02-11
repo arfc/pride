@@ -1,0 +1,23 @@
+.pytest_cache
+__pycache__
+.ipynb_checkpoints
+.snakemake
+*.swp
+*.pyc
+
+# no TEMOA built files
+*.dat
+*.sqlite
+*.lp
+
+
+# no LaTeX built files
+*.acn
+*.aux
+*.log
+*.out
+*.spl
+*.ist
+*.bbl
+*.blg
+*.glo
