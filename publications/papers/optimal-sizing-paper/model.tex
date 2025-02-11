@@ -1,64 +1,88 @@
 \section{Model and Data}
 
 The system we modeled in this study is based on the current energy mix of
-\gls{uiuc}.
-
+\gls{uiuc} which is summarized in Table \ref{tab:model}. \gls{temoa} optimizes
+the years 2021-2030 in single year increments. Each year is divided 6 time
+slices, three seasons, and a day-night cycle. The seasons are summer, winter,
+and an ``inter'' season that represents spring and fall. The typical demand
+breakdown for each season is determined by averaging historical data from 2015-
+2018 \cite{marquissee_uiuc_2019}. \gls{app} is a natural gas and coal fired
+cogeneration plant that fulfills all of the steam demand for \gls{uiuc} and
+much of the electricity demand \cite{affiliated_engineers_inc_utilities_2015}.
+In order to effectively capture cogeneration from \gls{app} in our model, we
+introduced an intermediate technology, \texttt{TURBINE}. Thus, \gls{app} can
+produce a steam ``commodity'' that is split between campus steam demand and
+campus electricity demand via \texttt{TURBINE}. Introducing this intermediate
+technology also allowed us to easily plug in new sources of steam to the
+energy mix, like a nuclear reactor.
 \begin{table*}[ht]
   \centering
-  % \caption{A summary of the technologies at \gls{uiuc}}
-  % \label{tab:model}
-  \begin{tabular}{cc}
-    Technology & Name \\
-    Natural Gas \& Coal Plant & \texttt{ABBOTT}\\
+  \caption{A summary of the technologies at \gls{uiuc}}
+  \label{tab:model}
+  \begin{tabular}{|cccccc|}
+    \hline
+    Technology & Name & Capital Cost & Variable Cost & Emissions& Citation\\
+    & & M\$/MW & M\$/GWh & kton-CO$_2$eq/MW&\\
+    \hline
+    Natural Gas \& Coal Plant & \texttt{ABBOTT} & 0.735 & 0.0553 & 0.192&\cite{isee_illinois_2015,affiliated_engineers_inc_utilities_2015,us_department_of_energy_capital_2016,uiuc_fs_edna_nodate,energy_information_administration_electricity_nodate}\\
+    Nuclear & \texttt{NUCLEAR} & 5.945 & 0.027 & - &\cite{us_department_of_energy_capital_2016,desai_nuclear_2018,wna_nuclear_2017,noauthor_eti_2018}\\
+    Turbine & \texttt{TURBINE} & - & 0.03  & - &\cite{uiuc_fs_edna_nodate,affiliated_engineers_inc_utilities_2015}\\
+    Photovoltaic Solar & \texttt{IMPSOL} & 1.66 & 0.196 & - &\cite{noauthor_solar_nodate,uiuc_fs_edna_nodate}\\
+    Wind \gls{ppa} & \texttt{IMPWIND} & - & 0.0384 & - & \cite{breitweiser_wind_2016,uiuc_fs_edna_nodate}\\
+    MISO Electricity Imports & \texttt{IMPELC} & - & 0.13 & 0.825&\cite{isee_illinois_2015,uiuc_fs_edna_nodate,noauthor_abbott_nodate}\\
+    \hline
   \end{tabular}
 \end{table*}
 
-\begin{enumerate}
-  \item Explain the time horizon
-  \begin{itemize}
-    \item 2020 is considered a historical year and reflects the current energy
-    mix of the university.
-    \item The model optimizes years 2021-2030 in single year increments.
-    \item In this study, one year is divided 6 time slices. 3 seasons, and 2 times
-    of day. Future work will refine this temporal detail.
-  \end{itemize}
-  \item Typical demand for winter, summer, and the spring/fall ``inter" season
-  are determined by averaging historical data from 2015-2018.
-  \item The natural gas plant, "ABBOTT" as a cogeneration plant that produces
-  all of the steam on campus and much of the electricity. In order to capture
-  the cogeneration, we introduced a "TURBINE" technology that produces electricity
-  from steam. The proposed nuclear reactor will also produce steam that "TURBINE"
-  can use to produce electricity. Thus the model assumes that the nuclear reactor
-  will serve as a direct replacement of "ABBOTT" or function alongside "ABBOTT"
-  in an identical way.
-  \item Natural gas prices.\\
-  The price of natural gas is one of main factors driving the choice of energy
-  production at UIUC. Since 2014, natural gas prices have somewhat steadily declined.
-  \item Carbon Emissions \\
-  Carbon emissions in the model are captured by using a carbon emission equivalent
-  that matches the strategy adopted by iCAP.
-  \item Capacity caps\\
-  Solar and wind capacities are both capped by Temoa and reflect the reality of
-  the UIUC energy mix.
-  \begin{itemize}
-    \item The cap on solar energy is due to the maximum capacity of the solar
-    farms on campus. Currently, the solar farm is rated to produce 4.68 MWe, but
-    will be quadrupled in 2022 when the university finishes the planned Solar Farm 2.0.
-    \item The cap on wind energy is due to the 10-year power purchase agreement
-    between UIUC and Rail-splitter Wind Farm. This contract ends in 2026, at
-    which point the university can elect to purchase more or not.
-  \end{itemize}
-  \item Offsets, Growth, and Building Standards \\
-  This model assumes an energy demand growth of 1\% per year. Thus, offsets like
-  shutting down the Blue Waters Supercomputer and improving building standards,
-  which serve to reduce demand, are not accounted for and assumes the university
-  will carry on with business as usual in every regard except its energy mix.
-  \item Scenarios \\
-  Describe the modeled scenarios - BAU, 1, 2, 3. \\
-  Uncertainty analysis is only performed on scenario 3 because scenarios 1 and 2
-  will be pushed along the same technology trajectory because not limiting the
-  size of the nuclear reactor means demand and emissions constraints can be
-  satisfied arbitrarily. The business as usual scenario is not analyzed for
-  uncertainty because it served as a sanity check to verify that Temoa was giving
-  appropriate results.
-\end{enumerate}
+The capacities for solar and wind power are both capped in this \gls{temoa}
+model and reflects the real constraints on the \gls{uiuc} energy mix.
+The cap on solar energy is due to the maximum capacity of the solar
+farms on campus. Currently, the solar farm is rated to produce 4.68 MWe, but
+will be tripled in 2022 when the university finishes the planned
+Solar Farm 2.0 \cite{noauthor_solar_nodate,white_solar_2017}.The cap on wind
+energy is due to the 10-year power purchase agreement between UIUC and Rail
+Splitter Wind Farm. This contract ends in 2026, at which point the university
+can elect to purchase more or not \cite{breitweiser_wind_2016}. The current
+installed capacity of Rail Splitter Wind Farm is 100.5 MW$_e$ so we limited
+the maximum \gls{ppa} to 100.5 MW$_e$.
+
+Carbon emissions are counted as a ``CO$_2$ equivalent'' which matches the
+strategy adopted by \gls{icap}. The limits for each year are also based on
+the \gls{icap} goals which were only published for three years: 2020, 2025, and
+2050. We used linear interpolation to fill in the missing values. In our
+\gls{temoa} model, we only tracked emissions from each unit of energy generated
+rather than the lifetime carbon emissions. The reason for this is that
+\gls{temoa} will give ``no solution'' if we include emissions from constructing
+solar farms, nuclear reactors, or other energy sources because even if
+\gls{uiuc} moved toward an energy mix that is based on a purely wind \gls{ppa},
+the steam demand will be left unsatisfied.
+
+This model assumes an energy demand growth of 1\% per year. Thus, offsets like
+shutting down the Blue Waters Supercomputer, zero net-growth on campus, and
+improving building standards that serve to reduce demand, are not accounted for
+and assumes the university will carry on with business as usual in every regard
+except its energy mix. We consider four scenarios, summarized in Table
+\ref{tab:scenarios}. The first scenario maps out the emissions and energy
+generation for \gls{uiuc} if the university continues with business as usual.
+The numbered scenarios include nuclear capacity in the energy mix. Starting with
+a ``free'' reactor in Scenario 1, then adding a capital cost in Scenario 2, and
+finally, limiting the reactor capacity in Scenario 3. We also conducted an
+MGA uncertainty analysis on Scenario 3 only because the first two scenarios will
+be pushed along the same technology trajectories when faced with carbon
+constraints.
+
+\begin{table*}[ht]
+  \centering
+  \caption{Summary of \gls{temoa} Nuclear Scenarios}
+  \label{tab:scenarios}
+  \begin{tabular}{|ccccc|}
+    \hline
+    Scenario & Nuclear & Variable Cost & Capital Cost & Capacity Limit\\
+    \hline
+    BAU & No & - & - & - \\
+    1 & Yes & Yes & - & - \\
+    2 & Yes & Yes & Yes & - \\
+    3 & Yes & Yes & Yes & 100 MW$_{th}$\\
+    \hline
+  \end{tabular}
+\end{table*}

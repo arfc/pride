@@ -5,16 +5,28 @@ formulates and solves a linear optimization problem
 problem has two requirements: An objective function and constraints. The
 objective function in \gls{temoa} is total system cost over time horizon
 of interest and the minimum required constraint is annual demand (and
-technology options to meet that demand). Users can optionally add other
+technology options to meet that demand).
+
+\begin{align}
+  \intertext{Minimize}
+  C_{sys} &= \sum_{y}^{period} \sum_{t}^{tech} C_{t,y} P_{t,y} F_{t,y} T
+  \intertext{Subject to}\\
+  M_{y} &= \sum_{t}^{tech} M_{t,y}P_{t,y}F_{t,y}T\\
+  \intertext{where}\\
+  C_{sys} &= \text{system cost, [\$]}\nonumber\\
+  C_{t,y} &= \text{technology cost, } \left[\frac{\$}{\text{MWh}}\right]\nonumber\\
+  P_{t,y} &= \text{technology capacity, [MW]}\nonumber\\
+  F_{t,y} &= \text{technology capacity factor, [-]}\nonumber\\
+  T &= \text{time, [hours]}\nonumber\\
+  M_{y} &= \text{emissions for year, $y$, [tons CO$_2$eq]}\nonumber\\
+  M_{t,y} &= \text{technology emissions, } \left[\frac{\text{CO}_2\text{eq}}{\text{MWh}}\right]\nonumber
+\end{align}
+
+Users can optionally add other
 constraints to match the real system being modeled. In our case we added
 emissions limits based on the carbon goals set by \gls{icap}. At each time step,
 \gls{temoa} must be able to meet the various constraints with the existing
 capacity, or build be able to build new capacity to do so. If demand and
 emissions limits cannot be satisfied, then \gls{temoa} gives ``no solution.''
-Mathematically, \gls{temoa} solves the following problem:
-\begin{align}
-  \intertext{Minimize}
-  C_{tot} &= C_{cap} + C_{fix} + C_{var}\\
-  \intertext{Subject to:}
-  D_i &= \sum_{tech}A_{tech} \mbox{ for } i \in \mbox{ years}
-\end{align}
+A detailed description of \gls{temoa}'s mathematics can be found at
+``temoacloud.com.'' For uncertainty analysis, \gls{temoa} implements the \gls{hsj} algorithm for \gls{mga}.
